@@ -1,0 +1,140 @@
+0
+00:00:01,470 --> 00:00:03,410
+The first step in our journey is to
+
+1
+00:00:03,410 --> 00:00:06,230
+install what we need, starting with a code
+
+2
+00:00:06,230 --> 00:00:08,789
+editor. There are many editors that
+
+3
+00:00:08,789 --> 00:00:11,220
+support TypeScript either out of the box
+
+4
+00:00:11,220 --> 00:00:13,839
+or with a plugin. We'll select one of the
+
+5
+00:00:13,839 --> 00:00:16,655
+most common editors used by Angular
+
+6
+00:00:16,655 --> 00:00:19,940
+developers, Visual Studio Code, often just
+
+7
+00:00:19,940 --> 00:00:22,929
+called VS Code. You are welcome to use
+
+8
+00:00:22,929 --> 00:00:25,399
+your editor of choice, but keep in mind
+
+9
+00:00:25,399 --> 00:00:27,199
+that your experience with TypeScript will
+
+10
+00:00:27,199 --> 00:00:29,809
+be much more pleasurable if you select an
+
+11
+00:00:29,809 --> 00:00:33,039
+editor that understands TypeScript. If
+
+12
+00:00:33,039 --> 00:00:35,060
+your project requires use of Visual
+
+13
+00:00:35,060 --> 00:00:38,270
+Studio, consider learning Angular using VS
+
+14
+00:00:38,270 --> 00:00:41,000
+Code first. Then migrate your skills to
+
+15
+00:00:41,000 --> 00:00:44,719
+Visual Studio. You'll be glad you did. So
+
+16
+00:00:44,719 --> 00:00:47,670
+what is VS Code? It's a code editor
+
+17
+00:00:47,670 --> 00:00:50,834
+created by Microsoft. It runs in Linux,
+
+18
+00:00:50,834 --> 00:00:54,250
+Windows, and OS X on a Mac. It has great
+
+19
+00:00:54,250 --> 00:00:56,640
+features that support TypeScript coding,
+
+20
+00:00:56,640 --> 00:00:58,975
+such as auto‑completion, IntelliSense,
+
+21
+00:00:58,975 --> 00:01:03,039
+syntax checking, and refactorings. It also
+
+22
+00:01:03,039 --> 00:01:05,409
+integrates well with source control, such
+
+23
+00:01:05,409 --> 00:01:09,159
+as Microsoft's TFS and GitHub. And it's
+
+24
+00:01:09,159 --> 00:01:12,540
+free. If you don't have VS Code installed,
+
+25
+00:01:12,540 --> 00:01:14,829
+you can download and install it from this
+
+26
+00:01:14,829 --> 00:01:17,549
+URL. Select the install appropriate for
+
+27
+00:01:17,549 --> 00:01:20,319
+your OS. Consider pausing the course and
+
+28
+00:01:20,319 --> 00:01:22,510
+installing VS Code now if you don't
+
+29
+00:01:22,510 --> 00:01:25,609
+already have it. VS Code is easy to use,
+
+30
+00:01:25,609 --> 00:01:27,810
+and I'll demonstrate its features as we
+
+31
+00:01:27,810 --> 00:01:30,590
+progress through this course. If you want
+
+32
+00:01:30,590 --> 00:01:32,819
+to learn more about VS Code, check out
+
+33
+00:01:32,819 --> 00:01:36,599
+their website or this Pluralsight course.
+
+34
+00:01:36,599 --> 00:01:06,000
+Now that we have a code editor installed, there is one more thing we need.
+

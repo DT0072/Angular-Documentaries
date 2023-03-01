@@ -1,0 +1,348 @@
+0
+00:00:01,439 --> 00:00:04,019
+I've already set up the package.json file
+
+1
+00:00:04,019 --> 00:00:05,990
+for the Angular application we'll build
+
+2
+00:00:05,990 --> 00:00:08,439
+throughout this course. I've also set up
+
+3
+00:00:08,439 --> 00:00:11,310
+the support files, style sheets, and data.
+
+4
+00:00:11,310 --> 00:00:13,259
+These files are available in my GitHub
+
+5
+00:00:13,259 --> 00:00:16,550
+repository at this link. We'll create an
+
+6
+00:00:16,550 --> 00:00:19,690
+Angular application from scratch later in
+
+7
+00:00:19,690 --> 00:00:22,410
+this course. For now, using these starter
+
+8
+00:00:22,410 --> 00:00:24,239
+files allows us to get going quickly
+
+9
+00:00:24,239 --> 00:00:27,289
+building our Angular application. Let's
+
+10
+00:00:27,289 --> 00:00:30,350
+download these files now. I've navigated
+
+11
+00:00:30,350 --> 00:00:33,000
+to my GitHub repository following the URL
+
+12
+00:00:33,000 --> 00:00:35,729
+from the slide. If you are comfortable
+
+13
+00:00:35,729 --> 00:00:38,570
+with Git, you can clone this repository.
+
+14
+00:00:38,570 --> 00:00:40,810
+Otherwise, click this button to download
+
+15
+00:00:40,810 --> 00:00:44,189
+all of the files as a single ZIP file. The
+
+16
+00:00:44,189 --> 00:00:47,109
+APM‑Final folder contains the completed
+
+17
+00:00:47,109 --> 00:00:50,179
+code for our sample application. Use these
+
+18
+00:00:50,179 --> 00:00:52,890
+files if you want to see the end result.
+
+19
+00:00:52,890 --> 00:00:55,289
+The APM‑Start folder contains the starter
+
+20
+00:00:55,289 --> 00:00:58,179
+files. These are the files we will use as
+
+21
+00:00:58,179 --> 00:00:59,990
+the starting point for building our
+
+22
+00:00:59,990 --> 00:01:03,030
+Angular application. After downloading the
+
+23
+00:01:03,030 --> 00:01:05,819
+files, copy or extract the files in the
+
+24
+00:01:05,819 --> 00:01:08,409
+APM‑Start folder to a working directory
+
+25
+00:01:08,409 --> 00:01:12,459
+called just APM, Your APM folder should
+
+26
+00:01:12,459 --> 00:01:15,310
+then look like this. Now let's open the
+
+27
+00:01:15,310 --> 00:01:19,469
+APM folder with a code editor. I've opened
+
+28
+00:01:19,469 --> 00:01:22,340
+the APM working folder with VS Code.
+
+29
+00:01:22,340 --> 00:01:24,299
+First, let's talk about the directory
+
+30
+00:01:24,299 --> 00:01:26,709
+structure. By convention, all of our
+
+31
+00:01:26,709 --> 00:01:29,000
+source files are under a folder called
+
+32
+00:01:29,000 --> 00:01:32,379
+src. Under that folder is an app folder
+
+33
+00:01:32,379 --> 00:01:34,549
+that contains the source files specific
+
+34
+00:01:34,549 --> 00:01:37,040
+for our application. We only have a few
+
+35
+00:01:37,040 --> 00:01:39,659
+folders and files here now, but we'll add
+
+36
+00:01:39,659 --> 00:01:41,519
+more as we progress through this course.
+
+37
+00:01:41,519 --> 00:01:44,810
+For applications of any size, we'll have
+
+38
+00:01:44,810 --> 00:01:47,040
+subfolders under the app folder for each
+
+39
+00:01:47,040 --> 00:01:49,810
+major feature in the application. The
+
+40
+00:01:49,810 --> 00:01:52,150
+other files here are configuration and
+
+41
+00:01:52,150 --> 00:01:54,959
+setup files, often called boilerplate
+
+42
+00:01:54,959 --> 00:01:57,849
+files. To get us going quickly, we won't
+
+43
+00:01:57,849 --> 00:02:00,650
+dive into all of these files now. We'll
+
+44
+00:02:00,650 --> 00:02:02,760
+learn more about them in the building,
+
+45
+00:02:02,760 --> 00:02:05,680
+testing, and deploying with the CLI module
+
+46
+00:02:05,680 --> 00:02:08,789
+later in this course. Before we can
+
+47
+00:02:08,789 --> 00:02:11,449
+execute this code, we need to install all
+
+48
+00:02:11,449 --> 00:02:13,789
+of the libraries required to develop and
+
+49
+00:02:13,789 --> 00:02:16,150
+run our application. Where are those
+
+50
+00:02:16,150 --> 00:02:20,099
+defined? In the package.json file here.
+
+51
+00:02:20,099 --> 00:02:22,199
+This file contains a list of all of the
+
+52
+00:02:22,199 --> 00:02:25,080
+application's dependencies. Toward the top
+
+53
+00:02:25,080 --> 00:02:27,849
+of this file is a set of scripts. We can
+
+54
+00:02:27,849 --> 00:02:30,810
+execute these scripts using npm. We'll
+
+55
+00:02:30,810 --> 00:02:32,650
+learn more about these scripts throughout
+
+56
+00:02:32,650 --> 00:02:35,699
+this course. For now, let's install all of
+
+57
+00:02:35,699 --> 00:02:38,819
+these libraries. First, open a command
+
+58
+00:02:38,819 --> 00:02:41,210
+prompt or terminal. VS Code has an
+
+59
+00:02:41,210 --> 00:02:43,500
+integrated terminal we can use, View,
+
+60
+00:02:43,500 --> 00:02:47,289
+Terminal. Next, navigate to the folder
+
+61
+00:02:47,289 --> 00:02:50,819
+containing the package.json file. VS Code
+
+62
+00:02:50,819 --> 00:02:54,949
+did that for us. Then type npm install.
+
+63
+00:02:54,949 --> 00:02:57,219
+This installs all of the dependencies
+
+64
+00:02:57,219 --> 00:03:00,430
+defined in the package.json file, along
+
+65
+00:03:00,430 --> 00:03:03,330
+with any of their dependencies. Note that
+
+66
+00:03:03,330 --> 00:03:05,490
+you may see some warnings and messages
+
+67
+00:03:05,490 --> 00:03:08,310
+during this installation process, like
+
+68
+00:03:08,310 --> 00:03:11,569
+these. In most cases, you can ignore them.
+
+69
+00:03:11,569 --> 00:03:14,020
+If you see something like this at the end,
+
+70
+00:03:14,020 --> 00:03:17,139
+the installation completed successfully.
+
+71
+00:03:17,139 --> 00:03:19,139
+If you see a message telling you to run a
+
+72
+00:03:19,139 --> 00:03:21,949
+fix, don't do it. Running a fix will
+
+73
+00:03:21,949 --> 00:03:24,069
+attempt to update the versions of some of
+
+74
+00:03:24,069 --> 00:03:26,969
+the packages without updating all of them,
+
+75
+00:03:26,969 --> 00:03:28,759
+which will cause errors when you try to
+
+76
+00:03:28,759 --> 00:03:31,370
+run the application. This fix message
+
+77
+00:03:31,370 --> 00:03:33,129
+tells you that there are vulnerabilities
+
+78
+00:03:33,129 --> 00:03:35,169
+and libraries that will never be deployed
+
+79
+00:03:35,169 --> 00:03:38,180
+anyway, like the testing libraries, so
+
+80
+00:03:38,180 --> 00:03:41,020
+ignore this message. Notice that we now
+
+81
+00:03:41,020 --> 00:03:43,520
+have a node_modules folder here. This is
+
+82
+00:03:43,520 --> 00:03:46,759
+where npm installed all our packages. This
+
+83
+00:03:46,759 --> 00:03:48,789
+folder is large, so you may want to
+
+84
+00:03:48,789 --> 00:03:50,990
+exclude it when you check your files into
+
+85
+00:03:50,990 --> 00:03:53,710
+a source control system. Now that we have
+
+86
+00:03:53,710 --> 00:02:51,000
+the libraries installed for our sample application, let's try running it.
+

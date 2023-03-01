@@ -1,0 +1,272 @@
+0
+00:00:01,439 --> 00:00:03,540
+TypeScript is the language we use when
+
+1
+00:00:03,540 --> 00:00:06,139
+working with Angular. Because we'll use
+
+2
+00:00:06,139 --> 00:00:08,220
+TypeScript throughout this course, let's
+
+3
+00:00:08,220 --> 00:00:10,009
+take a moment to look at what TypeScript
+
+4
+00:00:10,009 --> 00:00:13,130
+is all about. But first things first.
+
+5
+00:00:13,130 --> 00:00:16,600
+Let's talk about JavaScript. JavaScript is
+
+6
+00:00:16,600 --> 00:00:19,140
+the language for the web and is executed
+
+7
+00:00:19,140 --> 00:00:21,850
+by all browsers. The JavaScript language
+
+8
+00:00:21,850 --> 00:00:23,929
+specification standard is officially
+
+9
+00:00:23,929 --> 00:00:27,359
+called ECMAScript, or ES. Up until
+
+10
+00:00:27,359 --> 00:00:29,670
+recently, the ES versions were defined by
+
+11
+00:00:29,670 --> 00:00:32,729
+a sequential number. ES3 is supported by
+
+12
+00:00:32,729 --> 00:00:36,210
+older browsers. ES5 is supported by most
+
+13
+00:00:36,210 --> 00:00:39,670
+modern browsers. The ES6 specification was
+
+14
+00:00:39,670 --> 00:00:43,820
+renamed ES2015 and introduced many key new
+
+15
+00:00:43,820 --> 00:00:46,784
+features, such as classes and arrow
+
+16
+00:00:46,784 --> 00:00:49,000
+functions, as we'll see later in this
+
+17
+00:00:49,000 --> 00:00:51,740
+course. Since then, a new version of the
+
+18
+00:00:51,740 --> 00:00:54,969
+specification has been released each year.
+
+19
+00:00:54,969 --> 00:00:57,649
+Any newer JavaScript features that we use,
+
+20
+00:00:57,649 --> 00:01:00,439
+but a browser doesn't support, must first
+
+21
+00:01:00,439 --> 00:01:04,159
+be transpiled. What does that mean? Newer
+
+22
+00:01:04,159 --> 00:01:06,329
+JavaScript features in our code must be
+
+23
+00:01:06,329 --> 00:01:08,849
+compiled by a tool that converts the newer
+
+24
+00:01:08,849 --> 00:01:11,909
+JavaScript syntax to comparable older
+
+25
+00:01:11,909 --> 00:01:15,730
+syntax before the browser executes it.
+
+26
+00:01:15,730 --> 00:01:18,049
+TypeScript is an open source language
+
+27
+00:01:18,049 --> 00:01:21,109
+developed by Microsoft. It is a superset
+
+28
+00:01:21,109 --> 00:01:24,420
+of JavaScript, meaning all JavaScript is
+
+29
+00:01:24,420 --> 00:01:26,730
+valid TypeScript. TypeScript code
+
+30
+00:01:26,730 --> 00:01:30,140
+transpiles to plain JavaScript. What does
+
+31
+00:01:30,140 --> 00:01:32,700
+that mean? Code developed with TypeScript
+
+32
+00:01:32,700 --> 00:01:34,900
+must be compiled and converted to
+
+33
+00:01:34,900 --> 00:01:37,549
+comparable JavaScript syntax before the
+
+34
+00:01:37,549 --> 00:01:40,480
+browser executes it. That way we, as
+
+35
+00:01:40,480 --> 00:01:42,689
+developers, get the benefits of TypeScript
+
+36
+00:01:42,689 --> 00:01:44,680
+features during development, and the
+
+37
+00:01:44,680 --> 00:01:46,634
+browser still get code they understand.
+
+38
+00:01:46,634 --> 00:01:49,750
+One of the key benefits of TypeScript is
+
+39
+00:01:49,750 --> 00:01:52,489
+at strong typing, meaning that everything
+
+40
+00:01:52,489 --> 00:01:55,010
+has a data type. Because of the strong
+
+41
+00:01:55,010 --> 00:01:57,640
+typing, TypeScript has great tooling,
+
+42
+00:01:57,640 --> 00:02:00,680
+including inline documentation, syntax
+
+43
+00:02:00,680 --> 00:02:03,680
+checking, code navigation, and advanced
+
+44
+00:02:03,680 --> 00:02:06,459
+refactorings. So TypeScript helps us
+
+45
+00:02:06,459 --> 00:02:09,030
+better reason about our code. And
+
+46
+00:02:09,030 --> 00:02:11,629
+TypeScript implements the ES2015
+
+47
+00:02:11,629 --> 00:02:15,270
+class‑based object orientation, plus more.
+
+48
+00:02:15,270 --> 00:02:17,669
+It implements classes, interfaces, and
+
+49
+00:02:17,669 --> 00:02:20,379
+inheritance. So if you have experience
+
+50
+00:02:20,379 --> 00:02:22,009
+with an object‑oriented programming
+
+51
+00:02:22,009 --> 00:02:26,780
+language, such a C#, C++, or Java, using
+
+52
+00:02:26,780 --> 00:02:30,030
+TypeScript may feel very natural to you.
+
+53
+00:02:30,030 --> 00:02:32,280
+This course does not require any prior
+
+54
+00:02:32,280 --> 00:02:34,599
+knowledge of TypeScript. I'll cover what
+
+55
+00:02:34,599 --> 00:02:36,800
+you need as you need it. But if you want
+
+56
+00:02:36,800 --> 00:02:39,009
+to learn more about TypeScript, check out
+
+57
+00:02:39,009 --> 00:02:41,539
+the TypeScript playground. This website
+
+58
+00:02:41,539 --> 00:02:43,139
+allows you to do live coding with
+
+59
+00:02:43,139 --> 00:02:46,099
+TypeScript, see the transpiled JavaScript,
+
+60
+00:02:46,099 --> 00:02:49,479
+and run the result, all without installing
+
+61
+00:02:49,479 --> 00:02:52,039
+anything. There are also several
+
+62
+00:02:52,039 --> 00:02:53,939
+TypeScript courses in the Pluralsight
+
+63
+00:02:53,939 --> 00:02:56,270
+library, including TypeScript: Getting
+
+64
+00:02:56,270 --> 00:02:59,340
+Started and TypeScript Fundamentals.
+
+65
+00:02:59,340 --> 00:03:01,370
+Again, you do not have to know TypeScript
+
+66
+00:03:01,370 --> 00:03:03,704
+for this course. We'll learn it as we go.
+
+67
+00:03:03,704 --> 00:04:02,000
+Now let's install what we need to get started building our Angular application.
+

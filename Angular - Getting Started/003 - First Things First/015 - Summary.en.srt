@@ -1,0 +1,108 @@
+0
+00:00:01,490 --> 00:00:04,469
+In this module, we introduced TypeScript.
+
+1
+00:00:04,469 --> 00:00:06,240
+TypeScript has all the productivity
+
+2
+00:00:06,240 --> 00:00:08,689
+features of newer versions of JavaScript,
+
+3
+00:00:08,689 --> 00:00:11,539
+plus strong typing for better tooling.
+
+4
+00:00:11,539 --> 00:00:13,970
+Next, we installed what we needed. We
+
+5
+00:00:13,970 --> 00:00:16,550
+installed VS Code as our code editor, and
+
+6
+00:00:16,550 --> 00:00:19,460
+installed Node, which installed npm, or
+
+7
+00:00:19,460 --> 00:00:22,239
+Node package manager. We downloaded the
+
+8
+00:00:22,239 --> 00:00:24,530
+starter files from my GitHub repository
+
+9
+00:00:24,530 --> 00:00:27,350
+and used npm to install the packages for
+
+10
+00:00:27,350 --> 00:00:29,940
+our Angular application, as defined in the
+
+11
+00:00:29,940 --> 00:00:33,210
+package.json file. We then saw how to open
+
+12
+00:00:33,210 --> 00:00:35,804
+this sample application in VS Code and use
+
+13
+00:00:35,804 --> 00:00:39,140
+npm scripts to run that application.
+
+14
+00:00:39,140 --> 00:00:41,750
+Lastly, we covered ES modules and how
+
+15
+00:00:41,750 --> 00:00:44,939
+TypeScript uses ES module syntax to export
+
+16
+00:00:44,939 --> 00:00:47,399
+and import functionality from our ES
+
+17
+00:00:47,399 --> 00:00:50,810
+modules. We introduced Angular modules and
+
+18
+00:00:50,810 --> 00:00:53,380
+how they organize our application and
+
+19
+00:00:53,380 --> 00:00:56,840
+promote application boundaries. Recall the
+
+20
+00:00:56,840 --> 00:00:58,850
+architecture for the sample application
+
+21
+00:00:58,850 --> 00:01:00,619
+that we are building that we outlined in
+
+22
+00:01:00,619 --> 00:01:03,079
+the first module? Since I used the Angular
+
+23
+00:01:03,079 --> 00:01:05,909
+CLI to create the starter files, it
+
+24
+00:01:05,909 --> 00:01:09,680
+created the index.html file and our root
+
+25
+00:01:09,680 --> 00:01:12,569
+AppComponent. In the next module, we'll
+
+26
+00:01:12,569 --> 00:01:22,000
+examine these files and start writing some Angular code.
+

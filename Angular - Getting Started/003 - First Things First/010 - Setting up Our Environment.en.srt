@@ -1,0 +1,220 @@
+0
+00:00:01,439 --> 00:00:03,459
+As we prepare for our Angular journey,
+
+1
+00:00:03,459 --> 00:00:06,000
+there is something more to install before
+
+2
+00:00:06,000 --> 00:00:09,789
+we begin, npm, which stands for Node
+
+3
+00:00:09,789 --> 00:00:13,630
+package manager. What's that, you ask? You
+
+4
+00:00:13,630 --> 00:00:16,660
+can think of npm as two things. First,
+
+5
+00:00:16,660 --> 00:00:19,879
+it's an online registry or repository of
+
+6
+00:00:19,879 --> 00:00:22,739
+open source and free libraries and
+
+7
+00:00:22,739 --> 00:00:25,449
+packages. It contains many JavaScript
+
+8
+00:00:25,449 --> 00:00:28,390
+packages, such as Angular, TypeScript, and
+
+9
+00:00:28,390 --> 00:00:30,539
+Bootstrap, which is a web‑styling
+
+10
+00:00:30,539 --> 00:00:34,039
+framework. Second, npm is a command‑line
+
+11
+00:00:34,039 --> 00:00:36,549
+utility for interacting with that
+
+12
+00:00:36,549 --> 00:00:39,890
+repository. We can type commands such as
+
+13
+00:00:39,890 --> 00:00:43,880
+npm install some library name. Npm will
+
+14
+00:00:43,880 --> 00:00:45,689
+locate the specified library in the
+
+15
+00:00:45,689 --> 00:00:48,479
+repository and install it on your local
+
+16
+00:00:48,479 --> 00:00:50,880
+machine in a subfolder of the current
+
+17
+00:00:50,880 --> 00:00:54,909
+folder named node_modules. In this
+
+18
+00:00:54,909 --> 00:00:57,049
+illustration, I'm in the user's Deborah
+
+19
+00:00:57,049 --> 00:01:00,310
+folder and install a specific package, the
+
+20
+00:01:00,310 --> 00:01:03,359
+fictitious abc package in this example.
+
+21
+00:01:03,359 --> 00:01:06,329
+After executing the install command, npm
+
+22
+00:01:06,329 --> 00:01:09,409
+locates the abc package in the repository,
+
+23
+00:01:09,409 --> 00:01:11,730
+creates a node_modules subfolder in the
+
+24
+00:01:11,730 --> 00:01:14,569
+current folder, and installs the specified
+
+25
+00:01:14,569 --> 00:01:17,719
+library and its dependencies in that
+
+26
+00:01:17,719 --> 00:01:21,900
+subfolder. So npm is a repository and a
+
+27
+00:01:21,900 --> 00:01:24,450
+command‑line utility you can use to access
+
+28
+00:01:24,450 --> 00:01:28,129
+that repository. Npm has become the
+
+29
+00:01:28,129 --> 00:01:30,019
+package manager for JavaScript
+
+30
+00:01:30,019 --> 00:01:33,069
+applications. With npm, we can install
+
+31
+00:01:33,069 --> 00:01:35,579
+libraries, packages, and applications,
+
+32
+00:01:35,579 --> 00:01:38,319
+along with their dependencies. We'll need
+
+33
+00:01:38,319 --> 00:01:40,510
+npm to install all the libraries for
+
+34
+00:01:40,510 --> 00:01:44,319
+Angular. The npm command‑line utility can
+
+35
+00:01:44,319 --> 00:01:47,980
+also execute scripts to perform tasks such
+
+36
+00:01:47,980 --> 00:01:50,280
+as running our application, as we'll see
+
+37
+00:01:50,280 --> 00:01:53,810
+shortly. Before we can use npm to install
+
+38
+00:01:53,810 --> 00:01:56,609
+other things or execute our scripts, we
+
+39
+00:01:56,609 --> 00:02:00,010
+need to install npm. But we can't install
+
+40
+00:02:00,010 --> 00:02:03,379
+npm directly. We install it by installing
+
+41
+00:02:03,379 --> 00:02:07,340
+Node using this link. Let's take a look.
+
+42
+00:02:07,340 --> 00:02:09,150
+Following this link takes us to the
+
+43
+00:02:09,150 --> 00:02:11,879
+download page for Node, which installs
+
+44
+00:02:11,879 --> 00:02:14,930
+npm. Angular minimally requires this
+
+45
+00:02:14,930 --> 00:02:18,289
+version of npm. Then select the installer
+
+46
+00:02:18,289 --> 00:02:20,979
+appropriate for your OS. Feel free to
+
+47
+00:02:20,979 --> 00:02:23,599
+pause the course here and install Node now
+
+48
+00:02:23,599 --> 00:02:25,900
+if you don't already have it. Installing
+
+49
+00:02:25,900 --> 00:02:29,669
+Node installs npm. Before we move on,
+
+50
+00:02:29,669 --> 00:02:32,710
+let's check our npm version. Open a
+
+51
+00:02:32,710 --> 00:02:36,159
+command window and type npm ‑v, for
+
+52
+00:02:36,159 --> 00:02:38,599
+version. Be sure you have at least this
+
+53
+00:02:38,599 --> 00:02:42,569
+version of npm. We now have a code editor
+
+54
+00:02:42,569 --> 00:01:27,000
+and the required version of npm installed. Do we need anything else?
+

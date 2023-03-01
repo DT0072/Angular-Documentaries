@@ -1,0 +1,316 @@
+0
+00:00:01,500 --> 00:00:04,580
+Module is one of those overloaded terms.
+
+1
+00:00:04,580 --> 00:00:06,849
+Pluralsight uses the term module to refer
+
+2
+00:00:06,849 --> 00:00:09,240
+to a chapter of learning content.
+
+3
+00:00:09,240 --> 00:00:12,859
+JavaScript, specifically ES 2015, uses the
+
+4
+00:00:12,859 --> 00:00:15,369
+term module for the pieces when splitting
+
+5
+00:00:15,369 --> 00:00:19,269
+up JavaScript programs. In ES 2015, a
+
+6
+00:00:19,269 --> 00:00:22,910
+module is a file, and a file is a module.
+
+7
+00:00:22,910 --> 00:00:25,920
+So when coding in ES 2015, we don't need
+
+8
+00:00:25,920 --> 00:00:28,929
+to define or name modules. Just create a
+
+9
+00:00:28,929 --> 00:00:31,510
+file, write some code, export or import
+
+10
+00:00:31,510 --> 00:00:33,810
+something, and, bang, the file becomes a
+
+11
+00:00:33,810 --> 00:00:38,840
+module. Angular leverages ES 2015 modules.
+
+12
+00:00:38,840 --> 00:00:41,579
+So as we create code files and import or
+
+13
+00:00:41,579 --> 00:00:44,030
+export something, we create the modules
+
+14
+00:00:44,030 --> 00:00:46,969
+for our application. But wait, there's
+
+15
+00:00:46,969 --> 00:00:51,000
+more. Angular also has Angular modules.
+
+16
+00:00:51,000 --> 00:00:53,439
+Angular modules are separate and different
+
+17
+00:00:53,439 --> 00:00:56,740
+from Angular's implementation of ES 2015
+
+18
+00:00:56,740 --> 00:00:59,490
+modules. Let's look first at how Angular
+
+19
+00:00:59,490 --> 00:01:03,189
+makes use of ES 2015 modules. Then we'll
+
+20
+00:01:03,189 --> 00:01:07,909
+introduce Angular modules. How do ES 2015
+
+21
+00:01:07,909 --> 00:01:10,920
+modules work? Say we create a code file
+
+22
+00:01:10,920 --> 00:01:14,680
+called product.ts and export a class named
+
+23
+00:01:14,680 --> 00:01:17,549
+Product from that file. This file then
+
+24
+00:01:17,549 --> 00:01:20,829
+becomes a module. Because the class is
+
+25
+00:01:20,829 --> 00:01:22,530
+exported, we can use that class in any
+
+26
+00:01:22,530 --> 00:01:25,790
+other module by importing it. So here we
+
+27
+00:01:25,790 --> 00:01:29,760
+have a file called product‑list.ts, and we
+
+28
+00:01:29,760 --> 00:01:33,120
+import our Product class. This file also
+
+29
+00:01:33,120 --> 00:01:35,250
+becomes a module because we imported
+
+30
+00:01:35,250 --> 00:01:38,200
+something. Notice the syntax here. In
+
+31
+00:01:38,200 --> 00:01:40,560
+curly braces, we define the name we want
+
+32
+00:01:40,560 --> 00:01:43,739
+to import, in this case Product, and we
+
+33
+00:01:43,739 --> 00:01:46,879
+define the file we want to import it from.
+
+34
+00:01:46,879 --> 00:01:50,340
+Here we want to import from product.js.
+
+35
+00:01:50,340 --> 00:01:53,390
+Wait. What? The Product class is in
+
+36
+00:01:53,390 --> 00:01:56,909
+product.ts. But when we compile, the
+
+37
+00:01:56,909 --> 00:02:00,033
+TypeScript file is transpiled into an ES5
+
+38
+00:02:00,033 --> 00:02:03,140
+JavaScript file. So at runtime, we are
+
+39
+00:02:03,140 --> 00:02:06,719
+importing from the .js file. But notice
+
+40
+00:02:06,719 --> 00:02:08,530
+that we don't list the extension here
+
+41
+00:02:08,530 --> 00:02:12,740
+anyway. Now let's look at Angular modules.
+
+42
+00:02:12,740 --> 00:02:14,780
+Angular modules help organize an
+
+43
+00:02:14,780 --> 00:02:16,979
+application into cohesive blocks of
+
+44
+00:02:16,979 --> 00:02:19,930
+functionality. Every Angular application
+
+45
+00:02:19,930 --> 00:02:22,889
+has at least one Angular module by
+
+46
+00:02:22,889 --> 00:02:25,770
+convention called app module. As an
+
+47
+00:02:25,770 --> 00:02:27,740
+application gets more features, we can
+
+48
+00:02:27,740 --> 00:02:29,680
+group those features into their own
+
+49
+00:02:29,680 --> 00:02:32,870
+feature modules. We can even define shared
+
+50
+00:02:32,870 --> 00:02:35,110
+or common modules for code used by
+
+51
+00:02:35,110 --> 00:02:37,840
+multiple Angular modules. This keeps the
+
+52
+00:02:37,840 --> 00:02:40,400
+code organized and provides a cohesive
+
+53
+00:02:40,400 --> 00:02:43,080
+unit we can load on Start or lazy load as
+
+54
+00:02:43,080 --> 00:02:45,889
+it is needed. In each Angular module, we
+
+55
+00:02:45,889 --> 00:02:47,990
+declare the set of components and other
+
+56
+00:02:47,990 --> 00:02:50,979
+code files associated with the module and
+
+57
+00:02:50,979 --> 00:02:52,849
+the dependencies needed by those
+
+58
+00:02:52,849 --> 00:02:55,930
+components. Each component we create is
+
+59
+00:02:55,930 --> 00:02:59,469
+declared in and belongs to one and only
+
+60
+00:02:59,469 --> 00:03:03,259
+one Angular module. We'll talk much more
+
+61
+00:03:03,259 --> 00:03:05,289
+about Angular modules throughout this
+
+62
+00:03:05,289 --> 00:03:08,199
+course. Let's clarify the difference
+
+63
+00:03:08,199 --> 00:03:11,590
+between ES 2015 modules and Angular
+
+64
+00:03:11,590 --> 00:03:15,030
+modules. ES modules are code files that
+
+65
+00:03:15,030 --> 00:03:17,990
+import or export something. Angular
+
+66
+00:03:17,990 --> 00:03:20,520
+modules are code files that organize the
+
+67
+00:03:20,520 --> 00:03:22,729
+application into cohesive blocks of
+
+68
+00:03:22,729 --> 00:03:26,310
+functionality. ES modules organize our
+
+69
+00:03:26,310 --> 00:03:30,129
+code files. Angular modules organize our
+
+70
+00:03:30,129 --> 00:03:33,802
+application. ES modules modularize our
+
+71
+00:03:33,802 --> 00:03:37,000
+code. Angular modules modularize our
+
+72
+00:03:37,000 --> 00:03:40,754
+application. ES modules promote code
+
+73
+00:03:40,754 --> 00:03:43,770
+reuse. Angular modules promote boundaries
+
+74
+00:03:43,770 --> 00:03:47,650
+within our application. So ES modules are
+
+75
+00:03:47,650 --> 00:03:50,889
+about code files, and Angular modules are
+
+76
+00:03:50,889 --> 00:03:53,979
+about our application. To keep these terms
+
+77
+00:03:53,979 --> 00:03:56,710
+straight, I'll refer to the ES 2015
+
+78
+00:03:56,710 --> 00:04:23,000
+modules as ES modules and Angular modules as Angular modules.
+
