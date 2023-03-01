@@ -1,0 +1,256 @@
+0
+00:00:02,240 --> 00:00:04,240
+Data binding makes it easy to display
+
+1
+00:00:04,240 --> 00:00:06,750
+class properties from our component and
+
+2
+00:00:06,750 --> 00:00:08,960
+set DOM element properties to our class
+
+3
+00:00:08,960 --> 00:00:11,119
+property values to better control the
+
+4
+00:00:11,119 --> 00:00:13,910
+view. And the component can listen for
+
+5
+00:00:13,910 --> 00:00:16,219
+events from the DOM to respond as needed
+
+6
+00:00:16,219 --> 00:00:19,760
+for an interactive user experience. There
+
+7
+00:00:19,760 --> 00:00:21,839
+are four basic types of binding in
+
+8
+00:00:21,839 --> 00:00:24,579
+Angular. Here is a diagram as a memory
+
+9
+00:00:24,579 --> 00:00:27,789
+aid. Interpolation inserts interpolated
+
+10
+00:00:27,789 --> 00:00:30,190
+strings into the text between HTML
+
+11
+00:00:30,190 --> 00:00:33,770
+elements or assigns element properties. Be
+
+12
+00:00:33,770 --> 00:00:35,549
+sure to wrap the template expression in
+
+13
+00:00:35,549 --> 00:00:39,140
+curly braces and no quotes. Property
+
+14
+00:00:39,140 --> 00:00:41,640
+binding sets an element's property to the
+
+15
+00:00:41,640 --> 00:00:44,439
+value of a template expression. The
+
+16
+00:00:44,439 --> 00:00:46,770
+binding target specifies a property of the
+
+17
+00:00:46,770 --> 00:00:49,189
+element and must be enclosed in square
+
+18
+00:00:49,189 --> 00:00:52,179
+brackets. The binding source specifies the
+
+19
+00:00:52,179 --> 00:00:54,689
+template expression and must be enclosed
+
+20
+00:00:54,689 --> 00:00:57,840
+in quotes. Event binding listens for
+
+21
+00:00:57,840 --> 00:01:00,280
+events and executes a template statement
+
+22
+00:01:00,280 --> 00:01:03,000
+when the event occurs. The target event
+
+23
+00:01:03,000 --> 00:01:05,239
+specifies an event name and must be
+
+24
+00:01:05,239 --> 00:01:08,099
+enclosed in parentheses. The template
+
+25
+00:01:08,099 --> 00:01:09,890
+statement often defines the name of the
+
+26
+00:01:09,890 --> 00:01:12,340
+method to call when the event occurs and
+
+27
+00:01:12,340 --> 00:01:14,840
+must be enclosed in quotes. Two‑way
+
+28
+00:01:14,840 --> 00:01:16,739
+binding displays a component class
+
+29
+00:01:16,739 --> 00:01:19,500
+property and updates the property when the
+
+30
+00:01:19,500 --> 00:01:22,569
+user makes a change. Use the banana in a
+
+31
+00:01:22,569 --> 00:01:25,950
+box syntax with the NgModel directive. The
+
+32
+00:01:25,950 --> 00:01:27,819
+binding source specifies the template
+
+33
+00:01:27,819 --> 00:01:31,640
+expression and must be enclosed in quotes.
+
+34
+00:01:31,640 --> 00:01:33,510
+Here are some things to remember when
+
+35
+00:01:33,510 --> 00:01:37,349
+using NgModel. Define NgModel within the
+
+36
+00:01:37,349 --> 00:01:40,489
+banana in a box for two‑way binding. Be
+
+37
+00:01:40,489 --> 00:01:43,129
+sure to add FormsModule from the Angular
+
+38
+00:01:43,129 --> 00:01:45,890
+forms package to the imports array of an
+
+39
+00:01:45,890 --> 00:01:49,250
+appropriate Angular module, in this case,
+
+40
+00:01:49,250 --> 00:01:52,560
+AppModule. This ensures that the ngModel
+
+41
+00:01:52,560 --> 00:01:55,310
+directive is available to any template
+
+42
+00:01:55,310 --> 00:01:57,760
+defined in a component associated with
+
+43
+00:01:57,760 --> 00:02:00,489
+that module. We'll talk more about Angular
+
+44
+00:02:00,489 --> 00:02:04,109
+modules later in this course. The data we
+
+45
+00:02:04,109 --> 00:02:06,109
+have in our component may not be in the
+
+46
+00:02:06,109 --> 00:02:09,430
+format we want for display. We can use a
+
+47
+00:02:09,430 --> 00:02:12,000
+pipe in a template to transform that data
+
+48
+00:02:12,000 --> 00:02:15,000
+to a more user‑friendly format. To use a
+
+49
+00:02:15,000 --> 00:02:17,729
+pipe, specify the pipe character, the name
+
+50
+00:02:17,729 --> 00:02:20,430
+of the pipe, and any pipe parameters,
+
+51
+00:02:20,430 --> 00:02:23,780
+separated with colons. Here is an example
+
+52
+00:02:23,780 --> 00:02:25,650
+of the currency pipe with three
+
+53
+00:02:25,650 --> 00:02:28,759
+parameters. This module covered data
+
+54
+00:02:28,759 --> 00:02:31,500
+binding and pipes. We looked at property
+
+55
+00:02:31,500 --> 00:02:34,080
+binding, event binding, and two‑way
+
+56
+00:02:34,080 --> 00:02:36,590
+binding. Lastly, we discovered how to
+
+57
+00:02:36,590 --> 00:02:38,479
+transform bound data to a more
+
+58
+00:02:38,479 --> 00:02:42,539
+user‑friendly format using built‑in pipes.
+
+59
+00:02:42,539 --> 00:02:45,210
+And here once again is our application
+
+60
+00:02:45,210 --> 00:02:48,250
+architecture. In this module, we finished
+
+61
+00:02:48,250 --> 00:02:50,889
+more of the Product List Component, but it
+
+62
+00:02:50,889 --> 00:02:53,430
+could be better. Next up, we'll see
+
+63
+00:02:53,430 --> 00:02:58,000
+several techniques for improving our component.
+

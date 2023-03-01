@@ -1,0 +1,148 @@
+0
+00:00:02,439 --> 00:00:04,480
+There's more to data binding than just
+
+1
+00:00:04,480 --> 00:00:07,049
+displaying component properties. Welcome
+
+2
+00:00:07,049 --> 00:00:09,460
+back to Angular: Getting Started from
+
+3
+00:00:09,460 --> 00:00:12,599
+Pluralsight. My name is Deborah Kurata,
+
+4
+00:00:12,599 --> 00:00:15,720
+and in this module, we explore more data
+
+5
+00:00:15,720 --> 00:00:18,550
+binding features and transform bound data
+
+6
+00:00:18,550 --> 00:00:22,350
+with pipes. To provide a great interactive
+
+7
+00:00:22,350 --> 00:00:24,910
+user experience, we want to bind DOM
+
+8
+00:00:24,910 --> 00:00:27,399
+elements to component properties, so the
+
+9
+00:00:27,399 --> 00:00:29,640
+component can change the look and feel as
+
+10
+00:00:29,640 --> 00:00:32,049
+needed. We can use bindings to change
+
+11
+00:00:32,049 --> 00:00:34,399
+element colors or styles based on data
+
+12
+00:00:34,399 --> 00:00:37,450
+values, update font size based on user
+
+13
+00:00:37,450 --> 00:00:40,219
+preferences or a sudden image source from
+
+14
+00:00:40,219 --> 00:00:43,399
+a database field. And we want notification
+
+15
+00:00:43,399 --> 00:00:45,689
+of user actions and other events from the
+
+16
+00:00:45,689 --> 00:00:48,149
+DOM, so the component can respond
+
+17
+00:00:48,149 --> 00:00:51,420
+accordingly. For example, we respond to a
+
+18
+00:00:51,420 --> 00:00:54,740
+click on a button to hide or show images.
+
+19
+00:00:54,740 --> 00:00:57,950
+And sometimes we want the best of both
+
+20
+00:00:57,950 --> 00:01:00,399
+worlds using two‑way binding to set an
+
+21
+00:01:00,399 --> 00:01:03,000
+element property and receive event
+
+22
+00:01:03,000 --> 00:01:05,730
+notifications of user changes to that
+
+23
+00:01:05,730 --> 00:01:08,879
+property. In this module, we'll use
+
+24
+00:01:08,879 --> 00:01:11,510
+Angular's property binding to set HTML
+
+25
+00:01:11,510 --> 00:01:14,290
+element properties in the DOM. We walk
+
+26
+00:01:14,290 --> 00:01:16,650
+through how to handle user events, such as
+
+27
+00:01:16,650 --> 00:01:19,870
+a button click, with event binding and how
+
+28
+00:01:19,870 --> 00:01:23,540
+to handle user input with two‑way binding.
+
+29
+00:01:23,540 --> 00:01:25,909
+Lastly, we'll discover how to transform
+
+30
+00:01:25,909 --> 00:01:29,620
+bound data with pipes. And here, once
+
+31
+00:01:29,620 --> 00:01:32,819
+again, is our application architecture. We
+
+32
+00:01:32,819 --> 00:01:34,030
+have the first cut of our
+
+33
+00:01:34,030 --> 00:01:36,959
+ProductListComponent, but it doesn't have
+
+34
+00:01:36,959 --> 00:01:39,980
+any interactivity. In this module, we'll
+
+35
+00:01:39,980 --> 00:01:41,939
+use data binding features to add
+
+36
+00:01:41,939 --> 00:01:49,000
+interactivity to the ProductListComponent. Let's get started.
+

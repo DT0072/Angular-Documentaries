@@ -1,0 +1,508 @@
+0
+00:00:02,339 --> 00:00:04,820
+So far, all of our data binding has been
+
+1
+00:00:04,820 --> 00:00:08,009
+one way, from the component class property
+
+2
+00:00:08,009 --> 00:00:10,419
+to the element property. But there are
+
+3
+00:00:10,419 --> 00:00:12,630
+times we need to send information the
+
+4
+00:00:12,630 --> 00:00:15,720
+other way to respond to user events. For
+
+5
+00:00:15,720 --> 00:00:18,199
+example, to perform an operation when the
+
+6
+00:00:18,199 --> 00:00:20,890
+user clicks a button. A component listens
+
+7
+00:00:20,890 --> 00:00:24,059
+for user actions using event binding, as
+
+8
+00:00:24,059 --> 00:00:27,289
+shown here. Notice how similar this syntax
+
+9
+00:00:27,289 --> 00:00:30,199
+is to property binding. In this example,
+
+10
+00:00:30,199 --> 00:00:32,380
+the component listens for the click event
+
+11
+00:00:32,380 --> 00:00:35,179
+on a button. The name of the bound event
+
+12
+00:00:35,179 --> 00:00:38,340
+is enclosed in parentheses, identifying it
+
+13
+00:00:38,340 --> 00:00:41,079
+as the target event. To the right of the
+
+14
+00:00:41,079 --> 00:00:43,979
+equals is the template statement. This is
+
+15
+00:00:43,979 --> 00:00:45,950
+often the name of a component class
+
+16
+00:00:45,950 --> 00:00:48,039
+method, followed by open and closing
+
+17
+00:00:48,039 --> 00:00:51,539
+parentheses and enclosed in quotes. If the
+
+18
+00:00:51,539 --> 00:00:53,479
+defined event occurs, the template
+
+19
+00:00:53,479 --> 00:00:55,820
+statement is executed, calling the
+
+20
+00:00:55,820 --> 00:00:58,000
+specified method in the component.
+
+21
+00:00:58,000 --> 00:01:00,929
+Wondering where you might find a list of
+
+22
+00:01:00,929 --> 00:01:05,030
+valid DOM events? Check out this link. The
+
+23
+00:01:05,030 --> 00:01:06,719
+Mozilla Developer Network provides a
+
+24
+00:01:06,719 --> 00:01:09,040
+thorough list of standard events, along
+
+25
+00:01:09,040 --> 00:01:11,659
+with some documentation. Now let's give
+
+26
+00:01:11,659 --> 00:01:16,469
+event binding a try. In this demo, we want
+
+27
+00:01:16,469 --> 00:01:20,700
+to implement our Show Image button. First,
+
+28
+00:01:20,700 --> 00:01:22,680
+we define a class property that keeps
+
+29
+00:01:22,680 --> 00:01:24,890
+track of whether the images are currently
+
+30
+00:01:24,890 --> 00:01:27,569
+displayed. We'll call that property
+
+31
+00:01:27,569 --> 00:01:30,480
+showImage. Since this property is true or
+
+32
+00:01:30,480 --> 00:01:33,879
+false, we define its type as boolean. And
+
+33
+00:01:33,879 --> 00:01:36,319
+let's set its default value to false so
+
+34
+00:01:36,319 --> 00:01:38,375
+the images are not displayed when the page
+
+35
+00:01:38,375 --> 00:01:41,200
+is first loaded. Next, we build the method
+
+36
+00:01:41,200 --> 00:01:43,769
+that the event binding will call. By
+
+37
+00:01:43,769 --> 00:01:46,000
+convention, methods are normally created
+
+38
+00:01:46,000 --> 00:01:48,349
+after all of the properties are defined,
+
+39
+00:01:48,349 --> 00:01:51,390
+so we'll put it down here. Let's name the
+
+40
+00:01:51,390 --> 00:01:54,549
+method toggleImage. Notice that TypeScript
+
+41
+00:01:54,549 --> 00:01:56,870
+does not require any keywords, such as
+
+42
+00:01:56,870 --> 00:01:59,379
+function. Following the method name with
+
+43
+00:01:59,379 --> 00:02:01,810
+open and closing parentheses identifies it
+
+44
+00:02:01,810 --> 00:02:04,340
+as a method. Our method won't have a
+
+45
+00:02:04,340 --> 00:02:07,219
+return type, so we specify the return type
+
+46
+00:02:07,219 --> 00:02:09,939
+as void. The body of the method simply
+
+47
+00:02:09,939 --> 00:02:12,090
+toggles the state of the showImage
+
+48
+00:02:12,090 --> 00:02:15,539
+property. The bang, or exclamation point,
+
+49
+00:02:15,539 --> 00:02:19,240
+used here is a logical not operator. It
+
+50
+00:02:19,240 --> 00:02:22,360
+returns false if its operand, showImage in
+
+51
+00:02:22,360 --> 00:02:26,009
+this case, is true and true if showImage
+
+52
+00:02:26,009 --> 00:02:28,879
+is false, basically toggling the value
+
+53
+00:02:28,879 --> 00:02:32,319
+from true to false or false to true. Back
+
+54
+00:02:32,319 --> 00:02:34,280
+in the template, we are ready to set up
+
+55
+00:02:34,280 --> 00:02:37,139
+the event binding. On the button element,
+
+56
+00:02:37,139 --> 00:02:40,419
+we define the click as the target event by
+
+57
+00:02:40,419 --> 00:02:43,689
+enclosing it in parentheses. We assign it
+
+58
+00:02:43,689 --> 00:02:46,469
+to our method enclosed in quotes. When the
+
+59
+00:02:46,469 --> 00:02:49,069
+user clicks the button, the binding calls
+
+60
+00:02:49,069 --> 00:02:52,370
+our method. So the only thing left is to
+
+61
+00:02:52,370 --> 00:02:55,669
+actually hide or show the image. Recall
+
+62
+00:02:55,669 --> 00:02:58,580
+how we add logic to add or remove HTML
+
+63
+00:02:58,580 --> 00:03:01,094
+elements from the DOM? If you said the
+
+64
+00:03:01,094 --> 00:03:04,710
+ngIf directive, you are right. We'll add
+
+65
+00:03:04,710 --> 00:03:07,770
+ngIf to the image element. We only want
+
+66
+00:03:07,770 --> 00:03:10,300
+this image element if the showImage flag
+
+67
+00:03:10,300 --> 00:03:16,370
+is true. So we type *ngIf= 'showImage'.
+
+68
+00:03:16,370 --> 00:03:18,650
+The image element will then only be added
+
+69
+00:03:18,650 --> 00:03:21,810
+to the DOM if showImage is true. Let's see
+
+70
+00:03:21,810 --> 00:03:25,030
+if this works. Are we ready to give it a
+
+71
+00:03:25,030 --> 00:03:28,210
+try? Click the button, and the image
+
+72
+00:03:28,210 --> 00:03:31,050
+appears. Click the button again, and the
+
+73
+00:03:31,050 --> 00:03:34,009
+image disappears. Oh, very cool. The only
+
+74
+00:03:34,009 --> 00:03:36,840
+odd thing is the button text. When the
+
+75
+00:03:36,840 --> 00:03:39,419
+image is displayed, the button text should
+
+76
+00:03:39,419 --> 00:03:43,650
+change to Hide Image. So up here where we
+
+77
+00:03:43,650 --> 00:03:45,699
+have the button text, let's use
+
+78
+00:03:45,699 --> 00:03:49,050
+interpolation. When showImage is true, we
+
+79
+00:03:49,050 --> 00:03:51,419
+want the button text to say Hide Image,
+
+80
+00:03:51,419 --> 00:03:53,780
+and when showImage is false, we want the
+
+81
+00:03:53,780 --> 00:03:56,879
+button text to say Show Image. We
+
+82
+00:03:56,879 --> 00:03:58,900
+accomplish this using a JavaScript
+
+83
+00:03:58,900 --> 00:04:01,699
+conditional operator. We specify the
+
+84
+00:04:01,699 --> 00:04:04,169
+condition, which is showImage and a
+
+85
+00:04:04,169 --> 00:04:07,139
+question mark. Then we specify the true
+
+86
+00:04:07,139 --> 00:04:10,599
+expression. So when showImage is true, we
+
+87
+00:04:10,599 --> 00:04:14,069
+want to display Hide Image. Then we add a
+
+88
+00:04:14,069 --> 00:04:17,230
+colon and the false expression. So when
+
+89
+00:04:17,230 --> 00:04:20,189
+showImage is false, we want it to say Show
+
+90
+00:04:20,189 --> 00:04:23,480
+Image. Basically, we can read this syntax
+
+91
+00:04:23,480 --> 00:04:27,370
+as if showImage is true, display Hide;
+
+92
+00:04:27,370 --> 00:04:30,430
+otherwise, display Show. Let's check this
+
+93
+00:04:30,430 --> 00:04:33,769
+out in the browser. So our button text now
+
+94
+00:04:33,769 --> 00:04:37,060
+says Show Image. If we click it, it says
+
+95
+00:04:37,060 --> 00:04:40,620
+Hide Image. Ah, that seems a little more
+
+96
+00:04:40,620 --> 00:04:44,910
+user friendly. Cool. Before we move on,
+
+97
+00:04:44,910 --> 00:04:47,389
+let's talk a moment about Angular's change
+
+98
+00:04:47,389 --> 00:04:50,449
+detection. By default, Angular is
+
+99
+00:04:50,449 --> 00:04:53,040
+constantly watching for changes to any
+
+100
+00:04:53,040 --> 00:04:56,420
+bound properties and listening for events.
+
+101
+00:04:56,420 --> 00:04:58,750
+In our sample application, we have a
+
+102
+00:04:58,750 --> 00:05:01,800
+button that shows or hides images. In the
+
+103
+00:05:01,800 --> 00:05:04,490
+HTML for the button, we bound it's click
+
+104
+00:05:04,490 --> 00:05:07,420
+event to a method in our component, and we
+
+105
+00:05:07,420 --> 00:05:09,610
+used interpolation to change the text of
+
+106
+00:05:09,610 --> 00:05:11,569
+the button based on the value of a
+
+107
+00:05:11,569 --> 00:05:14,480
+property in our component. In the product
+
+108
+00:05:14,480 --> 00:05:16,829
+list, we used the ngIf structural
+
+109
+00:05:16,829 --> 00:05:19,160
+directive to add or remove the image
+
+110
+00:05:19,160 --> 00:05:21,879
+element from the DOM. The showImage
+
+111
+00:05:21,879 --> 00:05:24,750
+property is initially false, so the button
+
+112
+00:05:24,750 --> 00:05:27,899
+text displays Show Image, and the ngIf
+
+113
+00:05:27,899 --> 00:05:31,269
+removed the image from the display. When
+
+114
+00:05:31,269 --> 00:05:33,300
+the user clicks the button, Angular
+
+115
+00:05:33,300 --> 00:05:35,410
+executes the method bound to the click
+
+116
+00:05:35,410 --> 00:05:38,199
+event. The code and the method toggles the
+
+117
+00:05:38,199 --> 00:05:41,290
+showImage property from false, its default
+
+118
+00:05:41,290 --> 00:05:44,839
+value, to true. Angular's change detection
+
+119
+00:05:44,839 --> 00:05:47,800
+detects that change and automatically
+
+120
+00:05:47,800 --> 00:05:50,990
+reevaluates all the bindings. The
+
+121
+00:05:50,990 --> 00:05:53,370
+interpolation changes the button text from
+
+122
+00:05:53,370 --> 00:05:57,129
+Show to Hide, and the ngIf ads the image
+
+123
+00:05:57,129 --> 00:06:00,709
+element to the DOM, displaying the image.
+
+124
+00:06:00,709 --> 00:06:03,909
+This is the Angular way to modify DOM
+
+125
+00:06:03,909 --> 00:06:06,709
+elements. Now that we have our images
+
+126
+00:06:06,709 --> 00:04:33,000
+working, let's tackle the Filtered by box, and for that, we need two‑way binding.
+

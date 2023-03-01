@@ -1,0 +1,360 @@
+0
+00:00:01,540 --> 00:00:03,710
+Property binding allows us to set a
+
+1
+00:00:03,710 --> 00:00:06,549
+property of an element to the value of a
+
+2
+00:00:06,549 --> 00:00:09,830
+template expression. Here we bind the src
+
+3
+00:00:09,830 --> 00:00:12,210
+property of the img element to the
+
+4
+00:00:12,210 --> 00:00:14,990
+imageUrl property of the product,
+
+5
+00:00:14,990 --> 00:00:16,899
+effectively defining the source of the
+
+6
+00:00:16,899 --> 00:00:19,440
+image from information in our component
+
+7
+00:00:19,440 --> 00:00:22,390
+class. Our binding target is always
+
+8
+00:00:22,390 --> 00:00:24,760
+enclosed in square brackets to the left of
+
+9
+00:00:24,760 --> 00:00:27,519
+the equals and identifies a property of
+
+10
+00:00:27,519 --> 00:00:30,969
+the element. The binding source is always
+
+11
+00:00:30,969 --> 00:00:33,219
+enclosed in quotes to the right of the
+
+12
+00:00:33,219 --> 00:00:35,740
+equals and specifies the template
+
+13
+00:00:35,740 --> 00:00:39,490
+expression. For comparison, here is a
+
+14
+00:00:39,490 --> 00:00:42,710
+similar binding using interpolation. Note
+
+15
+00:00:42,710 --> 00:00:44,829
+that in this case the element property is
+
+16
+00:00:44,829 --> 00:00:47,140
+not enclosed in square brackets, and the
+
+17
+00:00:47,140 --> 00:00:49,619
+template expression is enclosed in curly
+
+18
+00:00:49,619 --> 00:00:52,509
+braces with no quotes. If you need to
+
+19
+00:00:52,509 --> 00:00:54,969
+include the template expression as part of
+
+20
+00:00:54,969 --> 00:00:58,380
+a larger expression, such as this example,
+
+21
+00:00:58,380 --> 00:01:01,509
+you may need to use interpolation. Like
+
+22
+00:01:01,509 --> 00:01:04,799
+interpolation, property binding is one way
+
+23
+00:01:04,799 --> 00:01:07,000
+from the source class property to the
+
+24
+00:01:07,000 --> 00:01:09,920
+target element property. It effectively
+
+25
+00:01:09,920 --> 00:01:12,685
+allows us to control our template's DOM
+
+26
+00:01:12,685 --> 00:01:15,849
+from our component class. Now let's add
+
+27
+00:01:15,849 --> 00:01:17,760
+some property binding to our sample
+
+28
+00:01:17,760 --> 00:01:21,859
+application. Here we are back in the
+
+29
+00:01:21,859 --> 00:01:23,870
+editor looking at the ProductListComponent
+
+30
+00:01:23,870 --> 00:01:26,519
+and its associated template. Let's use
+
+31
+00:01:26,519 --> 00:01:28,730
+property binding to bind the source of our
+
+32
+00:01:28,730 --> 00:01:32,379
+product image. We use an img element to
+
+33
+00:01:32,379 --> 00:01:35,129
+display our product image, and we'll use
+
+34
+00:01:35,129 --> 00:01:37,340
+property binding to bind the image's
+
+35
+00:01:37,340 --> 00:01:40,879
+source, or src, property. So we enclose
+
+36
+00:01:40,879 --> 00:01:44,159
+the src in square brackets. On the right
+
+37
+00:01:44,159 --> 00:01:46,200
+side of the equals, we define the template
+
+38
+00:01:46,200 --> 00:01:49,290
+expression in quotes. We want to bind to
+
+39
+00:01:49,290 --> 00:01:52,239
+the product's imageUrl property from the
+
+40
+00:01:52,239 --> 00:01:55,450
+ProductListComponent class. Let's also use
+
+41
+00:01:55,450 --> 00:01:57,219
+property binding to bind the title
+
+42
+00:01:57,219 --> 00:01:59,129
+property of the image to the product's
+
+43
+00:01:59,129 --> 00:02:01,450
+name. Let's check out the result in the
+
+44
+00:02:01,450 --> 00:02:06,540
+browser. Whoa, they're big, but we do see
+
+45
+00:02:06,540 --> 00:02:09,860
+images. If we hover over an image, we see
+
+46
+00:02:09,860 --> 00:02:13,169
+the image title. But this image is rather
+
+47
+00:02:13,169 --> 00:02:15,770
+large for display in our table. Let's use
+
+48
+00:02:15,770 --> 00:02:17,770
+property binding to set some style
+
+49
+00:02:17,770 --> 00:02:20,909
+properties. Let's add properties for the
+
+50
+00:02:20,909 --> 00:02:23,259
+image width an image margin to our
+
+51
+00:02:23,259 --> 00:02:26,599
+component class. The imageWidth is a
+
+52
+00:02:26,599 --> 00:02:29,120
+number, so we specify its type with a
+
+53
+00:02:29,120 --> 00:02:33,340
+colon and then number. Let's set it to 50.
+
+54
+00:02:33,340 --> 00:02:35,770
+The imageMargin is also a number, and
+
+55
+00:02:35,770 --> 00:02:38,629
+we'll set it to 2. Back in the template,
+
+56
+00:02:38,629 --> 00:02:41,050
+we use property binding to bind the image
+
+57
+00:02:41,050 --> 00:02:44,009
+styles. We want to bind the style property
+
+58
+00:02:44,009 --> 00:02:47,379
+width in pixels. We'll bind that to the
+
+59
+00:02:47,379 --> 00:02:49,400
+imageWidth property from the component
+
+60
+00:02:49,400 --> 00:02:52,259
+class. Notice that we don't prefix this
+
+61
+00:02:52,259 --> 00:02:55,110
+property with product because image with
+
+62
+00:02:55,110 --> 00:02:58,020
+is a property of the component class, not
+
+63
+00:02:58,020 --> 00:03:01,139
+the product object. And we do the same
+
+64
+00:03:01,139 --> 00:03:03,800
+with the style.margin in pixels and set
+
+65
+00:03:03,800 --> 00:03:07,270
+that to the imageMargin class property. So
+
+66
+00:03:07,270 --> 00:03:09,750
+now we've seen how to use property binding
+
+67
+00:03:09,750 --> 00:03:11,870
+to bind several properties of the image
+
+68
+00:03:11,870 --> 00:03:14,409
+element to properties of the component's
+
+69
+00:03:14,409 --> 00:03:18,250
+class. Before we look at the result, let's
+
+70
+00:03:18,250 --> 00:03:21,360
+talk about TypeScript's type inference. To
+
+71
+00:03:21,360 --> 00:03:23,639
+learn about TypeScript's strong typing,
+
+72
+00:03:23,639 --> 00:03:25,780
+we've been adding data types to our
+
+73
+00:03:25,780 --> 00:03:28,520
+properties. However, if we set a
+
+74
+00:03:28,520 --> 00:03:31,310
+property's default value, we often don't
+
+75
+00:03:31,310 --> 00:03:34,259
+need to specify its type. TypeScript will
+
+76
+00:03:34,259 --> 00:03:36,889
+infer the type from its value. For
+
+77
+00:03:36,889 --> 00:03:39,830
+example, since the pageTitle property is
+
+78
+00:03:39,830 --> 00:03:41,960
+assigned to a string, we don't need to
+
+79
+00:03:41,960 --> 00:03:45,080
+specify its type. TypeScript will infer it
+
+80
+00:03:45,080 --> 00:03:48,580
+as a string. Same for the numeric values.
+
+81
+00:03:48,580 --> 00:03:51,469
+If you use a linting tool, it may flag any
+
+82
+00:03:51,469 --> 00:03:54,680
+properties with an unnecessary data type.
+
+83
+00:03:54,680 --> 00:03:57,129
+Feel free to remove these unnecessary
+
+84
+00:03:57,129 --> 00:04:00,500
+types. I'll leave them here for reference.
+
+85
+00:04:00,500 --> 00:04:02,990
+Now, looking back at the browser, our
+
+86
+00:04:02,990 --> 00:04:05,930
+image sizes look much better, but our
+
+87
+00:04:05,930 --> 00:04:08,849
+images are always displayed. The Show
+
+88
+00:04:08,849 --> 00:04:11,500
+Image button doesn't work yet. To hook up
+
+89
+00:04:11,500 --> 00:03:32,000
+the button, we need to respond to user events. Let's do that next.
+

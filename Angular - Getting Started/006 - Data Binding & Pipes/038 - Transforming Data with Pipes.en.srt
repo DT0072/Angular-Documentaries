@@ -1,0 +1,344 @@
+0
+00:00:02,640 --> 00:00:04,879
+With Angular's data binding, displaying
+
+1
+00:00:04,879 --> 00:00:07,459
+data is easy, just bind an element
+
+2
+00:00:07,459 --> 00:00:09,220
+property to a class property and we're
+
+3
+00:00:09,220 --> 00:00:12,869
+done. Well, not always. Sometimes the data
+
+4
+00:00:12,869 --> 00:00:14,830
+is not in a format appropriate for a
+
+5
+00:00:14,830 --> 00:00:18,539
+display. That's where pipes come in handy.
+
+6
+00:00:18,539 --> 00:00:20,989
+Pipes transform bound properties before
+
+7
+00:00:20,989 --> 00:00:23,320
+they are displayed so we can alter the
+
+8
+00:00:23,320 --> 00:00:25,329
+property values to make them more user
+
+9
+00:00:25,329 --> 00:00:29,039
+friendly or more locale appropriate.
+
+10
+00:00:29,039 --> 00:00:31,370
+Angular provides some built‑in pipes for
+
+11
+00:00:31,370 --> 00:00:34,039
+formatting values such as date, number,
+
+12
+00:00:34,039 --> 00:00:36,369
+decimal, percent, currency, uppercase,
+
+13
+00:00:36,369 --> 00:00:39,170
+lowercase, and so on. Angular also
+
+14
+00:00:39,170 --> 00:00:41,210
+provides a few pipes for working with
+
+15
+00:00:41,210 --> 00:00:44,500
+objects, such as the Json Pipe to display
+
+16
+00:00:44,500 --> 00:00:47,340
+the content of an object as a Json string,
+
+17
+00:00:47,340 --> 00:00:49,740
+which is helpful when debugging, and a
+
+18
+00:00:49,740 --> 00:00:52,420
+slice pipe, which selects a specific
+
+19
+00:00:52,420 --> 00:00:55,090
+subset of elements from a list. We can
+
+20
+00:00:55,090 --> 00:00:57,899
+also build our own custom pipes as we'll
+
+21
+00:00:57,899 --> 00:01:01,509
+see in the next module. Let's start with a
+
+22
+00:01:01,509 --> 00:01:04,700
+simple example. Say we want to display the
+
+23
+00:01:04,700 --> 00:01:08,079
+product code in lowercase. We can add the
+
+24
+00:01:08,079 --> 00:01:10,239
+pipe character after the property in the
+
+25
+00:01:10,239 --> 00:01:12,980
+template expression and then specify the
+
+26
+00:01:12,980 --> 00:01:15,920
+lowercase pipe. The product code is then
+
+27
+00:01:15,920 --> 00:01:18,510
+transformed into lowercase before it is
+
+28
+00:01:18,510 --> 00:01:21,129
+displayed. We can also use pipes and
+
+29
+00:01:21,129 --> 00:01:23,920
+property bindings, add the pipe after the
+
+30
+00:01:23,920 --> 00:01:26,260
+property in the template expression and
+
+31
+00:01:26,260 --> 00:01:29,790
+specify the desired pipe. In this example,
+
+32
+00:01:29,790 --> 00:01:32,400
+we specified the uppercase pipe so the
+
+33
+00:01:32,400 --> 00:01:35,719
+image title will appear in all caps. If
+
+34
+00:01:35,719 --> 00:01:38,939
+needed, we can chain pipes. In this
+
+35
+00:01:38,939 --> 00:01:40,719
+example, the price is transformed into a
+
+36
+00:01:40,719 --> 00:01:43,709
+currency. By default, the currency pipe
+
+37
+00:01:43,709 --> 00:01:45,719
+adds the all caps three‑letter
+
+38
+00:01:45,719 --> 00:01:48,170
+abbreviation of the local currency to the
+
+39
+00:01:48,170 --> 00:01:50,680
+amount. If we want to display that
+
+40
+00:01:50,680 --> 00:01:52,920
+abbreviation in lowercase, we can
+
+41
+00:01:52,920 --> 00:01:55,040
+transform it again by simply adding
+
+42
+00:01:55,040 --> 00:01:58,530
+another pipe. Some pipes support
+
+43
+00:01:58,530 --> 00:02:01,480
+parameters. Parameters are defined by
+
+44
+00:02:01,480 --> 00:02:03,760
+specifying a colon and the parameter
+
+45
+00:02:03,760 --> 00:02:07,670
+value. For example, the currency pipe has
+
+46
+00:02:07,670 --> 00:02:10,449
+three parameters, the desired currency
+
+47
+00:02:10,449 --> 00:02:13,270
+code, a string defining how to show the
+
+48
+00:02:13,270 --> 00:02:17,319
+currency symbol, and digit info. The digit
+
+49
+00:02:17,319 --> 00:02:19,620
+info consists of the minimum number of
+
+50
+00:02:19,620 --> 00:02:22,020
+integer digits, the minimum number of
+
+51
+00:02:22,020 --> 00:02:24,729
+fractional digits, and the maximum number
+
+52
+00:02:24,729 --> 00:02:27,770
+of fractional digits. The value here of
+
+53
+00:02:27,770 --> 00:02:32,289
+1.2‑2 means at least 1 digit to the left
+
+54
+00:02:32,289 --> 00:02:34,949
+of the decimal and at least 2 digits to
+
+55
+00:02:34,949 --> 00:02:37,324
+the right of the decimal and no more than
+
+56
+00:02:37,324 --> 00:02:39,719
+2 digits to the right of the decimal
+
+57
+00:02:39,719 --> 00:02:43,219
+effectively defining 2 decimal places.
+
+58
+00:02:43,219 --> 00:02:47,449
+With that, let's jump back to the demo. We
+
+59
+00:02:47,449 --> 00:02:50,129
+specify the pipes in the template, so we
+
+60
+00:02:50,129 --> 00:02:52,099
+are looking at the product list component
+
+61
+00:02:52,099 --> 00:02:54,580
+template. Let's add a lowercase pipe for
+
+62
+00:02:54,580 --> 00:02:57,099
+the product code and a currency pipe for
+
+63
+00:02:57,099 --> 00:02:59,780
+the price. For the product code, we simply
+
+64
+00:02:59,780 --> 00:03:01,400
+insert the pipe character after the
+
+65
+00:03:01,400 --> 00:03:03,800
+property in the template expression and
+
+66
+00:03:03,800 --> 00:03:07,580
+type lowercase. That's it. For the price,
+
+67
+00:03:07,580 --> 00:03:10,689
+we insert a pipe character and currency.
+
+68
+00:03:10,689 --> 00:03:13,129
+That's all that is required, but let's try
+
+69
+00:03:13,129 --> 00:03:16,009
+out a few of the parameters. We'll specify
+
+70
+00:03:16,009 --> 00:03:19,169
+USD symbol to display the dollar sign
+
+71
+00:03:19,169 --> 00:03:23,400
+instead of the currency abbreviation, and
+
+72
+00:03:23,400 --> 00:03:25,740
+1.2‑2 to specify that we want at least 1
+
+73
+00:03:25,740 --> 00:03:27,919
+number to the left of the decimal place
+
+74
+00:03:27,919 --> 00:03:30,319
+and 2 and only 2 numbers to the right of
+
+75
+00:03:30,319 --> 00:03:33,919
+the decimal place. Let's see how we did.
+
+76
+00:03:33,919 --> 00:03:37,099
+Ah, looking at the result, we now see the
+
+77
+00:03:37,099 --> 00:03:39,680
+product code in lowercase and the price
+
+78
+00:03:39,680 --> 00:03:43,610
+displayed nicely as the currency. So we
+
+79
+00:03:43,610 --> 00:03:45,490
+can easily perform simple data
+
+80
+00:03:45,490 --> 00:03:48,030
+transformations using the built‑in pipes
+
+81
+00:03:48,030 --> 00:03:50,629
+in the template expressions for our
+
+82
+00:03:50,629 --> 00:03:52,539
+bindings. Feel free to try out some of the
+
+83
+00:03:52,539 --> 00:03:55,560
+other pipes from the slides. Let's finish
+
+84
+00:03:55,560 --> 00:03:57,550
+up this module with some diagrams and a
+
+85
+00:03:57,550 --> 00:04:03,000
+checklist we can use as we work with bindings and pipes.
+
