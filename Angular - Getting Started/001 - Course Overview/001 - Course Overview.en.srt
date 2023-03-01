@@ -1,0 +1,136 @@
+0
+00:00:05,830 --> 00:00:08,539
+Hello, my name is Deborah Kurata, and I'd
+
+1
+00:00:08,539 --> 00:00:10,949
+like to welcome you to my course, Angular:
+
+2
+00:00:10,949 --> 00:00:13,929
+Getting Started, from Pluralsight. This
+
+3
+00:00:13,929 --> 00:00:15,660
+beginner‑level course takes you on a
+
+4
+00:00:15,660 --> 00:00:17,660
+journey through the basic features of
+
+5
+00:00:17,660 --> 00:00:20,019
+Angular. It guides you down the right
+
+6
+00:00:20,019 --> 00:00:22,620
+path, making your own journey with Angular
+
+7
+00:00:22,620 --> 00:00:25,440
+more pleasant and productive. Along the
+
+8
+00:00:25,440 --> 00:00:28,280
+way, we build a sample application so you
+
+9
+00:00:28,280 --> 00:00:30,839
+can code along or use it as a reference
+
+10
+00:00:30,839 --> 00:00:33,600
+for your own development. You'll see how
+
+11
+00:00:33,600 --> 00:00:35,770
+Angular provides a consistent set of
+
+12
+00:00:35,770 --> 00:00:38,240
+patterns for building components,
+
+13
+00:00:38,240 --> 00:00:41,659
+templates, modules, and services, helping
+
+14
+00:00:41,659 --> 00:00:44,600
+you come up to speed quickly. This course
+
+15
+00:00:44,600 --> 00:00:46,969
+covers how to build components, how to
+
+16
+00:00:46,969 --> 00:00:48,640
+create the user interface for your
+
+17
+00:00:48,640 --> 00:00:51,289
+application in a template, and power it up
+
+18
+00:00:51,289 --> 00:00:53,969
+with data binding and directives. You'll
+
+19
+00:00:53,969 --> 00:00:56,609
+discover how to build services for logic
+
+20
+00:00:56,609 --> 00:00:59,270
+needed across components and inject those
+
+21
+00:00:59,270 --> 00:01:01,579
+services where they are needed. You'll
+
+22
+00:01:01,579 --> 00:01:04,140
+learn how to send requests to a web server
+
+23
+00:01:04,140 --> 00:01:08,079
+using HTTP and observables. And you'll see
+
+24
+00:01:08,079 --> 00:01:10,549
+how to set up routing to navigate between
+
+25
+00:01:10,549 --> 00:01:13,000
+the views of your application. In
+
+26
+00:01:13,000 --> 00:01:14,890
+addition, you'll see how to use the
+
+27
+00:01:14,890 --> 00:01:18,760
+Angular command‑line interface, or CLI, to
+
+28
+00:01:18,760 --> 00:01:21,969
+generate, execute, test, and deploy your
+
+29
+00:01:21,969 --> 00:01:24,709
+Angular application. By the end of this
+
+30
+00:01:24,709 --> 00:01:26,540
+course, you will know the basics you need
+
+31
+00:01:26,540 --> 00:01:28,909
+to get started building your own Angular
+
+32
+00:01:28,909 --> 00:01:31,730
+applications. I hope you'll join me on
+
+33
+00:01:31,730 --> 00:01:40,000
+this journey through Angular: Getting Started, from Pluralsight.
+
