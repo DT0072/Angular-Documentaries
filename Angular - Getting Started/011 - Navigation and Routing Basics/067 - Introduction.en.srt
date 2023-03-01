@@ -1,0 +1,132 @@
+0
+00:00:02,470 --> 00:00:04,820
+A single view does not an application
+
+1
+00:00:04,820 --> 00:00:07,429
+make. Welcome back to Angular: Getting
+
+2
+00:00:07,429 --> 00:00:10,089
+Started from Pluralsight. My name is
+
+3
+00:00:10,089 --> 00:00:12,599
+Deborah Kurata, and in these next two
+
+4
+00:00:12,599 --> 00:00:15,150
+modules, we define routes to navigate
+
+5
+00:00:15,150 --> 00:00:18,589
+between multiple views in our application.
+
+6
+00:00:18,589 --> 00:00:21,129
+Users like to have all of the information
+
+7
+00:00:21,129 --> 00:00:23,679
+they need at their fingertips, so our
+
+8
+00:00:23,679 --> 00:00:26,179
+applications often provide multiple sets
+
+9
+00:00:26,179 --> 00:00:29,070
+of data in multiple layouts across
+
+10
+00:00:29,070 --> 00:00:32,219
+multiple views. Routing provides a way for
+
+11
+00:00:32,219 --> 00:00:34,380
+the user to navigate between those many
+
+12
+00:00:34,380 --> 00:00:36,740
+views of the application. Whether there
+
+13
+00:00:36,740 --> 00:00:40,710
+are five, ten, or hundreds. In this
+
+14
+00:00:40,710 --> 00:00:43,659
+module, we start with an overview of how
+
+15
+00:00:43,659 --> 00:00:46,609
+routing works in Angular. We examine how
+
+16
+00:00:46,609 --> 00:00:49,009
+to configure routes and tie routes to
+
+17
+00:00:49,009 --> 00:00:52,039
+actions, and we define where to place the
+
+18
+00:00:52,039 --> 00:00:55,700
+routed components view. Currently, our APP
+
+19
+00:00:55,700 --> 00:00:58,030
+component embeds our product list
+
+20
+00:00:58,030 --> 00:01:00,990
+component as a nested component. We
+
+21
+00:01:00,990 --> 00:01:03,890
+instead want to define a set of routes so
+
+22
+00:01:03,890 --> 00:01:06,409
+the user can navigate to the welcome view,
+
+23
+00:01:06,409 --> 00:01:09,819
+product list view, or product detail view.
+
+24
+00:01:09,819 --> 00:01:10,819
+We've already built the
+
+25
+00:01:10,819 --> 00:01:13,390
+ProductListComponent, and I've provided
+
+26
+00:01:13,390 --> 00:01:15,150
+the WelcomeComponent with the starter
+
+27
+00:01:15,150 --> 00:01:17,510
+files in the GitHub repository for this
+
+28
+00:01:17,510 --> 00:01:20,099
+course. As part of the demos in this
+
+29
+00:01:20,099 --> 00:01:22,260
+module, we'll build the shell for the
+
+30
+00:01:22,260 --> 00:01:24,840
+product detail component. When we're
+
+31
+00:01:24,840 --> 00:01:26,569
+finished with this module, we'll have a
+
+32
+00:01:26,569 --> 00:01:32,000
+simple application that routes to multiple views.
+

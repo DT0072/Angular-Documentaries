@@ -1,0 +1,224 @@
+0
+00:00:02,140 --> 00:00:04,690
+When a route is activated, the associated
+
+1
+00:00:04,690 --> 00:00:07,419
+components view is displayed, but
+
+2
+00:00:07,419 --> 00:00:10,310
+displayed where? How do we specify where
+
+3
+00:00:10,310 --> 00:00:12,609
+we want the routed component to display
+
+4
+00:00:12,609 --> 00:00:15,570
+its view? We use the router outlet
+
+5
+00:00:15,570 --> 00:00:18,260
+directive. We place that directive in the
+
+6
+00:00:18,260 --> 00:00:21,019
+host components template. The routed
+
+7
+00:00:21,019 --> 00:00:23,589
+components view then appears in this
+
+8
+00:00:23,589 --> 00:00:26,320
+location. Let's add the router outlet to
+
+9
+00:00:26,320 --> 00:00:30,420
+our sample application. We are back
+
+10
+00:00:30,420 --> 00:00:32,600
+looking at the app component, because it
+
+11
+00:00:32,600 --> 00:00:35,350
+is the host for our router. We add the
+
+12
+00:00:35,350 --> 00:00:37,560
+router outlet in the template where we
+
+13
+00:00:37,560 --> 00:00:39,619
+want to display the routed components
+
+14
+00:00:39,619 --> 00:00:43,299
+view. We'll put it here. Whenever a route
+
+15
+00:00:43,299 --> 00:00:45,890
+is activated, the associated components
+
+16
+00:00:45,890 --> 00:00:48,679
+view displays here. Let's see how that
+
+17
+00:00:48,679 --> 00:00:52,429
+looks in the browser. Oh my! Where did
+
+18
+00:00:52,429 --> 00:00:54,759
+that page come from? That's the welcome
+
+19
+00:00:54,759 --> 00:00:57,750
+page provided in the starter files. When
+
+20
+00:00:57,750 --> 00:01:00,020
+the application launches, the default
+
+21
+00:01:00,020 --> 00:01:02,140
+route is activated and the welcome view
+
+22
+00:01:02,140 --> 00:01:05,079
+displays. If we click on the product list
+
+23
+00:01:05,079 --> 00:01:07,670
+menu, the router link directive now
+
+24
+00:01:07,670 --> 00:01:10,120
+activates the product list route, and the
+
+25
+00:01:10,120 --> 00:01:13,549
+product list view appears. Sweet! Our
+
+26
+00:01:13,549 --> 00:01:15,629
+application component can now route to
+
+27
+00:01:15,629 --> 00:01:19,620
+multiple views. Notice the URL. The URL
+
+28
+00:01:19,620 --> 00:01:21,349
+segment we defined for the route is
+
+29
+00:01:21,349 --> 00:01:24,569
+displayed here. If we type in something
+
+30
+00:01:24,569 --> 00:01:27,359
+like Welcome, the welcome component's view
+
+31
+00:01:27,359 --> 00:01:30,810
+is displayed. Now that we have our routing
+
+32
+00:01:30,810 --> 00:01:33,164
+in place, let's review how these routing
+
+33
+00:01:33,164 --> 00:01:35,299
+features work together. When the user
+
+34
+00:01:35,299 --> 00:01:37,620
+navigates to a feature tied to a route
+
+35
+00:01:37,620 --> 00:01:40,189
+with a router link directive, the router
+
+36
+00:01:40,189 --> 00:01:42,489
+link uses the link parameters array to
+
+37
+00:01:42,489 --> 00:01:45,829
+compose the URL segment. The browsers
+
+38
+00:01:45,829 --> 00:01:48,359
+location URL is changed to the application
+
+39
+00:01:48,359 --> 00:01:52,400
+URL, plus the composed URL segment. The
+
+40
+00:01:52,400 --> 00:01:54,379
+router searches through the list of valid
+
+41
+00:01:54,379 --> 00:01:57,129
+route definitions and picks the first
+
+42
+00:01:57,129 --> 00:01:59,890
+match. The router locates or creates an
+
+43
+00:01:59,890 --> 00:02:02,349
+instance of the component associated with
+
+44
+00:02:02,349 --> 00:02:04,683
+that route. The components view is
+
+45
+00:02:04,683 --> 00:02:07,003
+injected in the location defined by the
+
+46
+00:02:07,003 --> 00:02:10,233
+router outlet directive, and the page is
+
+47
+00:02:10,233 --> 00:02:13,163
+displayed. We now have basic routing in
+
+48
+00:02:13,163 --> 00:02:16,742
+our sample application. Yay!. As we've
+
+49
+00:02:16,742 --> 00:02:19,383
+seen in this course module, routing is
+
+50
+00:02:19,383 --> 00:02:22,002
+rather intricate, requiring code in
+
+51
+00:02:22,002 --> 00:02:24,603
+multiple files and strings, such as
+
+52
+00:02:24,603 --> 00:02:27,032
+parameter names and route paths that must
+
+53
+00:02:27,032 --> 00:02:29,932
+match across those files. So let's finish
+
+54
+00:02:29,932 --> 00:02:32,383
+up this module with some checklists that
+
+55
+00:02:32,383 --> 00:02:38,000
+can help ensure all of the bits of routing are in the right places.
+

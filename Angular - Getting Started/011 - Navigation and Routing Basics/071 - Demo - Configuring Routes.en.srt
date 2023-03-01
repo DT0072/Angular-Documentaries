@@ -1,0 +1,184 @@
+0
+00:00:02,629 --> 00:00:05,580
+In this demo, we configure the basic
+
+1
+00:00:05,580 --> 00:00:09,970
+routes for our application. We are back in
+
+2
+00:00:09,970 --> 00:00:13,039
+the sample application with the index.html
+
+3
+00:00:13,039 --> 00:00:15,910
+file open. The first step to set up
+
+4
+00:00:15,910 --> 00:00:18,760
+routing is to define a base element in the
+
+5
+00:00:18,760 --> 00:00:22,399
+head tag of the index.html file. Notice
+
+6
+00:00:22,399 --> 00:00:25,100
+that the Angular CLI already did that for
+
+7
+00:00:25,100 --> 00:00:28,190
+us here. This element tells the router how
+
+8
+00:00:28,190 --> 00:00:31,469
+to compose the navigation URLs. Since the
+
+9
+00:00:31,469 --> 00:00:33,979
+app folder is the application route, we'll
+
+10
+00:00:33,979 --> 00:00:37,880
+set the href for the base tag to /. Now we
+
+11
+00:00:37,880 --> 00:00:39,289
+are ready to configure the route
+
+12
+00:00:39,289 --> 00:00:41,780
+definitions. For that, we go to our
+
+13
+00:00:41,780 --> 00:00:44,750
+Angular module. Add the appropriate import
+
+14
+00:00:44,750 --> 00:00:48,030
+statement, then add RouterModule to the
+
+15
+00:00:48,030 --> 00:00:50,159
+imports array. This registers the router
+
+16
+00:00:50,159 --> 00:00:52,450
+service provider, declares the router
+
+17
+00:00:52,450 --> 00:00:54,990
+directives, and exposes the configured
+
+18
+00:00:54,990 --> 00:00:57,630
+routes. How does the RouterModule know
+
+19
+00:00:57,630 --> 00:01:00,159
+about are configured routes? We passed
+
+20
+00:01:00,159 --> 00:01:02,289
+them into the RouterModule by calling the
+
+21
+00:01:02,289 --> 00:01:04,819
+forRoot method. We then configure the
+
+22
+00:01:04,819 --> 00:01:07,319
+routes here by passing them in using an
+
+23
+00:01:07,319 --> 00:01:10,079
+array. Let's start with the product
+
+24
+00:01:10,079 --> 00:01:12,879
+routes. For each route, we specify the
+
+25
+00:01:12,879 --> 00:01:15,799
+path and a reference to the component. The
+
+26
+00:01:15,799 --> 00:01:17,459
+template defined in the specified
+
+27
+00:01:17,459 --> 00:01:19,459
+component will display when the router
+
+28
+00:01:19,459 --> 00:01:22,450
+navigates to this path. Next, we add the
+
+29
+00:01:22,450 --> 00:01:25,280
+route to display our welcome page. We'll
+
+30
+00:01:25,280 --> 00:01:27,849
+set the path to welcome and specify the
+
+31
+00:01:27,849 --> 00:01:30,430
+welcome component. When the application
+
+32
+00:01:30,430 --> 00:01:32,790
+loads, we want to default to the template
+
+33
+00:01:32,790 --> 00:01:35,010
+from the welcome component. So we'll
+
+34
+00:01:35,010 --> 00:01:37,959
+specify a default route that redirects to
+
+35
+00:01:37,959 --> 00:01:40,700
+our welcome component. And let's define a
+
+36
+00:01:40,700 --> 00:01:43,540
+wildcard path in case the requested URL
+
+37
+00:01:43,540 --> 00:01:45,930
+doesn't match any prior paths defined in
+
+38
+00:01:45,930 --> 00:01:49,120
+the configuration. This is often used for
+
+39
+00:01:49,120 --> 00:01:52,310
+displaying a 404 Not Found page. But in
+
+40
+00:01:52,310 --> 00:01:54,310
+our simple example, we'll use it to
+
+41
+00:01:54,310 --> 00:01:57,939
+redirect back to the welcome page. There's
+
+42
+00:01:57,939 --> 00:01:59,829
+a lot of stuff here now in our root
+
+43
+00:01:59,829 --> 00:02:02,900
+application module. In a later course
+
+44
+00:02:02,900 --> 00:02:05,329
+module, we'll look at how to refactor this
+
+45
+00:02:05,329 --> 00:02:13,000
+module into multiple Angular modules for a separation of concerns.
+

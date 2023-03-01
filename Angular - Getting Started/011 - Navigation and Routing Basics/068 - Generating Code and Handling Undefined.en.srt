@@ -1,0 +1,528 @@
+0
+00:00:01,439 --> 00:00:05,349
+Before we jump into routing, we need more
+
+1
+00:00:05,349 --> 00:00:06,870
+components so we have something to route
+
+2
+00:00:06,870 --> 00:00:10,060
+to. I provided the WelcomeComponent as
+
+3
+00:00:10,060 --> 00:00:12,890
+part of the starter files. Let's build the
+
+4
+00:00:12,890 --> 00:00:15,839
+ProductDetailComponent. The
+
+5
+00:00:15,839 --> 00:00:18,050
+ProductDetailComponent should ultimately
+
+6
+00:00:18,050 --> 00:00:20,710
+look like this, but we want to focus on
+
+7
+00:00:20,710 --> 00:00:23,440
+routing, not building another component.
+
+8
+00:00:23,440 --> 00:00:25,350
+So let's just create a shell for the
+
+9
+00:00:25,350 --> 00:00:28,019
+ProductDetailComponent so we can route to
+
+10
+00:00:28,019 --> 00:00:32,710
+it. We could use the Explorer and create
+
+11
+00:00:32,710 --> 00:00:35,570
+new component class and template files
+
+12
+00:00:35,570 --> 00:00:38,965
+manually, or we could use the Angular CLI
+
+13
+00:00:38,965 --> 00:00:42,960
+to automatically create those files. We
+
+14
+00:00:42,960 --> 00:00:45,015
+are going to spend more time on the CLI
+
+15
+00:00:45,015 --> 00:00:47,740
+later in this course, but if you want to
+
+16
+00:00:47,740 --> 00:00:50,280
+try it out now, start by opening a
+
+17
+00:00:50,280 --> 00:00:53,070
+terminal window. I'll use the integrated
+
+18
+00:00:53,070 --> 00:00:56,679
+terminal built into VS Code. If you don't
+
+19
+00:00:56,679 --> 00:00:59,530
+already have the CLI installed globally,
+
+20
+00:00:59,530 --> 00:01:04,290
+install it now using npm install ‑g, for
+
+21
+00:01:04,290 --> 00:01:08,700
+global, @angular/cli. Note that we will
+
+22
+00:01:08,700 --> 00:01:12,739
+then have the Angular CLI installed twice.
+
+23
+00:01:12,739 --> 00:01:15,170
+We installed it local to our project when
+
+24
+00:01:15,170 --> 00:01:16,930
+we installed the packages from our
+
+25
+00:01:16,930 --> 00:01:20,579
+package.json file at the beginning of this
+
+26
+00:01:20,579 --> 00:01:23,439
+course. This local install ensures that
+
+27
+00:01:23,439 --> 00:01:26,640
+our project is served and compiled using a
+
+28
+00:01:26,640 --> 00:01:30,459
+consistent version of the CLI. We access
+
+29
+00:01:30,459 --> 00:01:33,280
+this local version with our npm scripts,
+
+30
+00:01:33,280 --> 00:01:37,140
+such as npm start. This command installs
+
+31
+00:01:37,140 --> 00:01:40,939
+the Angular CLI globally and adds ng to
+
+32
+00:01:40,939 --> 00:01:44,605
+our system path. That allows us to type ng
+
+33
+00:01:44,605 --> 00:01:47,750
+commands directly from any folder. I
+
+34
+00:01:47,750 --> 00:01:50,079
+already have the Angular CLI installed
+
+35
+00:01:50,079 --> 00:01:53,239
+globally, so I won't install it again.
+
+36
+00:01:53,239 --> 00:01:58,209
+Next, we type ng for the Angular CLI, g,
+
+37
+00:01:58,209 --> 00:02:01,920
+for generate, c, for component, and the
+
+38
+00:02:01,920 --> 00:02:04,439
+name of our component. Since we want to
+
+39
+00:02:04,439 --> 00:02:06,750
+create this component under the products
+
+40
+00:02:06,750 --> 00:02:09,520
+folder, we add the path to the desired
+
+41
+00:02:09,520 --> 00:02:14,605
+component name, products/product‑detail,
+
+42
+00:02:14,605 --> 00:02:17,229
+following our naming convention. That's
+
+43
+00:02:17,229 --> 00:02:20,900
+all that is required. By default, however,
+
+44
+00:02:20,900 --> 00:02:23,400
+Angular will create a new folder for this
+
+45
+00:02:23,400 --> 00:02:26,479
+component. For the sample application, we
+
+46
+00:02:26,479 --> 00:02:28,659
+want the contents of our product folder to
+
+47
+00:02:28,659 --> 00:02:33,389
+be flat. We'll use the ‑‑flat option to
+
+48
+00:02:33,389 --> 00:02:35,969
+achieve this. We'll learn much more about
+
+49
+00:02:35,969 --> 00:02:39,639
+the Angular CLI later in this course. For
+
+50
+00:02:39,639 --> 00:02:43,189
+now, press Enter and the Angular CLI
+
+51
+00:02:43,189 --> 00:02:46,659
+creates the component files for us, and it
+
+52
+00:02:46,659 --> 00:02:51,009
+updated are Angular module. Yay! We can
+
+53
+00:02:51,009 --> 00:02:53,389
+see here in the Explorer that it created
+
+54
+00:02:53,389 --> 00:02:56,520
+the style sheet in a CSS file, the
+
+55
+00:02:56,520 --> 00:03:00,199
+template in an HTML file, and the class in
+
+56
+00:03:00,199 --> 00:03:03,199
+a TypeScript file. It even created the
+
+57
+00:03:03,199 --> 00:03:06,949
+start of a unit test for us. Let's check
+
+58
+00:03:06,949 --> 00:03:10,539
+out the generated template. Not much here.
+
+59
+00:03:10,539 --> 00:03:13,169
+We'll replace the generated HTML with some
+
+60
+00:03:13,169 --> 00:03:16,270
+placeholder text and use interpolation to
+
+61
+00:03:16,270 --> 00:03:19,389
+bind to a page title. Here, we include the
+
+62
+00:03:19,389 --> 00:03:22,280
+product's name in that title. If we
+
+63
+00:03:22,280 --> 00:03:24,669
+retrieve the product to display using
+
+64
+00:03:24,669 --> 00:03:28,539
+HTTP, which we most likely will, we could
+
+65
+00:03:28,539 --> 00:03:31,780
+have a problem with this code. Any idea
+
+66
+00:03:31,780 --> 00:03:34,569
+what could go wrong here? Recall from the
+
+67
+00:03:34,569 --> 00:03:38,800
+last module that HTTP is asynchronous.
+
+68
+00:03:38,800 --> 00:03:40,939
+This means that our page could attempt to
+
+69
+00:03:40,939 --> 00:03:43,560
+display the product's name before the
+
+70
+00:03:43,560 --> 00:03:46,699
+product is retrieved. At that point, the
+
+71
+00:03:46,699 --> 00:03:50,120
+product property is undefined, so we would
+
+72
+00:03:50,120 --> 00:03:52,810
+get a runtime error telling us it can't
+
+73
+00:03:52,810 --> 00:03:55,210
+read the property product name of
+
+74
+00:03:55,210 --> 00:03:58,069
+undefined. How do we ensure this error
+
+75
+00:03:58,069 --> 00:04:01,180
+doesn't happen to us? There are several
+
+76
+00:04:01,180 --> 00:04:03,909
+common ways to prevent undefined property
+
+77
+00:04:03,909 --> 00:04:07,069
+errors. We could use the safe navigation
+
+78
+00:04:07,069 --> 00:04:10,560
+operator defined with a question mark. The
+
+79
+00:04:10,560 --> 00:04:13,210
+safe navigation operator guards against
+
+80
+00:04:13,210 --> 00:04:16,230
+null and undefined values when navigating
+
+81
+00:04:16,230 --> 00:04:19,029
+an object's properties. If the product
+
+82
+00:04:19,029 --> 00:04:22,069
+object is null or undefined, the safe
+
+83
+00:04:22,069 --> 00:04:24,860
+navigation operator simply returns null
+
+84
+00:04:24,860 --> 00:04:27,189
+and does not attempt to access the
+
+85
+00:04:27,189 --> 00:04:30,089
+productName property. Hence, we don't see
+
+86
+00:04:30,089 --> 00:04:33,050
+an undefined property error. The safe
+
+87
+00:04:33,050 --> 00:04:35,800
+navigation operator is great, but it is
+
+88
+00:04:35,800 --> 00:04:39,060
+not always the best option. For example,
+
+89
+00:04:39,060 --> 00:04:41,149
+it does not work when used with the
+
+90
+00:04:41,149 --> 00:04:44,439
+ngModel two‑way binding. It can also be
+
+91
+00:04:44,439 --> 00:04:46,540
+quite tedious when we display many
+
+92
+00:04:46,540 --> 00:04:49,800
+properties, like in our detail template.
+
+93
+00:04:49,800 --> 00:04:52,670
+So there is another option. We can use
+
+94
+00:04:52,670 --> 00:04:55,639
+ngIf and check for the existence of the
+
+95
+00:04:55,639 --> 00:04:59,790
+product object. We add the ngIf to an HTML
+
+96
+00:04:59,790 --> 00:05:02,600
+element that encloses all references to
+
+97
+00:05:02,600 --> 00:05:05,610
+the product object. Then we don't need to
+
+98
+00:05:05,610 --> 00:05:09,439
+use the safe navigation operator. Next,
+
+99
+00:05:09,439 --> 00:05:11,670
+let's look at the TypeScript file. The
+
+100
+00:05:11,670 --> 00:05:14,240
+generated component class has all of the
+
+101
+00:05:14,240 --> 00:05:17,680
+basic syntax in place. All it needs is the
+
+102
+00:05:17,680 --> 00:05:20,230
+page title and product properties that we
+
+103
+00:05:20,230 --> 00:05:23,170
+are referencing in the template. Notice
+
+104
+00:05:23,170 --> 00:05:25,480
+that the CLI generated the selector
+
+105
+00:05:25,480 --> 00:05:28,360
+property here. The selector property is
+
+106
+00:05:28,360 --> 00:05:30,540
+only required if the component will be
+
+107
+00:05:30,540 --> 00:05:34,000
+nested within another component. We won't
+
+108
+00:05:34,000 --> 00:05:36,639
+need to nest this component, we'll instead
+
+109
+00:05:36,639 --> 00:05:38,949
+display the component's view as part of
+
+110
+00:05:38,949 --> 00:05:42,639
+the routing. So let's delete the selector.
+
+111
+00:05:42,639 --> 00:05:45,589
+Now let's check out the Angular module.
+
+112
+00:05:45,589 --> 00:05:48,269
+Notice that the CLI added the appropriate
+
+113
+00:05:48,269 --> 00:05:51,639
+import and declared our new component.
+
+114
+00:05:51,639 --> 00:05:55,819
+Very nice! Every time we add a component
+
+115
+00:05:55,819 --> 00:05:58,500
+to the application, we need to declare the
+
+116
+00:05:58,500 --> 00:06:01,500
+component in an Angular module. We
+
+117
+00:06:01,500 --> 00:06:04,480
+currently have only one Angular module,
+
+118
+00:06:04,480 --> 00:06:07,870
+AppModule, so the ProductDetailComponent
+
+119
+00:06:07,870 --> 00:06:10,980
+and the WelcomeComponent must be added to
+
+120
+00:06:10,980 --> 00:06:14,439
+the declarations array for the AppModule.
+
+121
+00:06:14,439 --> 00:06:17,490
+If we use the Angular CLI, as we did in
+
+122
+00:06:17,490 --> 00:06:20,259
+this example, it automatically adds the
+
+123
+00:06:20,259 --> 00:06:23,509
+appropriate declarations. Cool! If we
+
+124
+00:06:23,509 --> 00:06:25,600
+don't use the CLI, like for our
+
+125
+00:06:25,600 --> 00:06:28,000
+WelcomeComponent, we need to add the
+
+126
+00:06:28,000 --> 00:06:30,100
+component to the declarations array
+
+127
+00:06:30,100 --> 00:06:34,370
+ourselves. Let's do that now. We add the
+
+128
+00:06:34,370 --> 00:06:37,435
+WelcomeComponent to the declarations away,
+
+129
+00:06:37,435 --> 00:06:40,910
+then add the associated import statement.
+
+130
+00:06:40,910 --> 00:06:43,000
+Now that we have the basic components in
+
+131
+00:06:43,000 --> 00:06:10,000
+place, we are ready to add routing to our application.
+

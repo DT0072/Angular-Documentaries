@@ -1,0 +1,320 @@
+0
+00:00:02,439 --> 00:00:04,400
+With routing, the user can navigate
+
+1
+00:00:04,400 --> 00:00:06,940
+through the application in several ways.
+
+2
+00:00:06,940 --> 00:00:09,109
+The user can click a menu option, link,
+
+3
+00:00:09,109 --> 00:00:11,220
+image, or button that activates or
+
+4
+00:00:11,220 --> 00:00:14,089
+navigates to a route. The user can type
+
+5
+00:00:14,089 --> 00:00:16,640
+the associated URL segment in the address
+
+6
+00:00:16,640 --> 00:00:19,910
+bar after the application URL, or use a
+
+7
+00:00:19,910 --> 00:00:22,780
+bookmark to that URL, or the user can
+
+8
+00:00:22,780 --> 00:00:24,609
+click the browsers' forward or back
+
+9
+00:00:24,609 --> 00:00:27,449
+buttons. The route configuration handles
+
+10
+00:00:27,449 --> 00:00:30,690
+the URLs so the last techniques will just
+
+11
+00:00:30,690 --> 00:00:33,020
+work. We need to handle the first
+
+12
+00:00:33,020 --> 00:00:36,020
+technique by tying routes to the user
+
+13
+00:00:36,020 --> 00:00:39,200
+actions. We need to decide how we will
+
+14
+00:00:39,200 --> 00:00:42,179
+show the routing options to the user. We
+
+15
+00:00:42,179 --> 00:00:44,060
+could display a navigation pane with
+
+16
+00:00:44,060 --> 00:00:47,210
+links, we can provide a toolbar or images,
+
+17
+00:00:47,210 --> 00:00:49,759
+or we can build a navigation menu like
+
+18
+00:00:49,759 --> 00:00:52,740
+this one. In a more full‑featured
+
+19
+00:00:52,740 --> 00:00:54,270
+application, the menu could have many more
+
+20
+00:00:54,270 --> 00:00:57,100
+options and sub options, but this will do
+
+21
+00:00:57,100 --> 00:01:00,200
+for our purposes. We define that menu as
+
+22
+00:01:00,200 --> 00:01:02,979
+part of this component's template. We then
+
+23
+00:01:02,979 --> 00:01:06,230
+need to tie a route to each menu option.
+
+24
+00:01:06,230 --> 00:01:09,719
+We do that using the routerLink directive.
+
+25
+00:01:09,719 --> 00:01:12,590
+The routerLink is an attribute directive,
+
+26
+00:01:12,590 --> 00:01:15,299
+so we add it to an element such as the
+
+27
+00:01:15,299 --> 00:01:18,269
+anchor tag here, and we enclose it in
+
+28
+00:01:18,269 --> 00:01:21,140
+square brackets. We bind it to a template
+
+29
+00:01:21,140 --> 00:01:24,150
+expression that returns a link parameters
+
+30
+00:01:24,150 --> 00:01:26,930
+array. The first element of this array is
+
+31
+00:01:26,930 --> 00:01:29,549
+the string path of a route. Additional
+
+32
+00:01:29,549 --> 00:01:31,790
+elements can be added to this array to
+
+33
+00:01:31,790 --> 00:01:34,769
+specify optional route parameters. The
+
+34
+00:01:34,769 --> 00:01:37,140
+router uses this array toe. Locate the
+
+35
+00:01:37,140 --> 00:01:39,469
+associated route and build up the
+
+36
+00:01:39,469 --> 00:01:42,329
+appropriate Earl based on any provided
+
+37
+00:01:42,329 --> 00:01:45,370
+parameters. When the user selects the
+
+38
+00:01:45,370 --> 00:01:48,879
+option, the Associated Road is activated.
+
+39
+00:01:48,879 --> 00:01:51,689
+Activating a component route displays that
+
+40
+00:01:51,689 --> 00:01:55,200
+component's view. Now let's add a menu and
+
+41
+00:01:55,200 --> 00:01:57,719
+use the router link directive so the user
+
+42
+00:01:57,719 --> 00:01:59,870
+can navigate to the views and our sample
+
+43
+00:01:59,870 --> 00:02:04,560
+application. First, we need to decide how
+
+44
+00:02:04,560 --> 00:02:06,909
+to show the routing options to the user.
+
+45
+00:02:06,909 --> 00:02:09,460
+For our sample application, we'll build a
+
+46
+00:02:09,460 --> 00:02:12,379
+menu. We want to add that menu at the root
+
+47
+00:02:12,379 --> 00:02:14,875
+of our application, so we'll add it to the
+
+48
+00:02:14,875 --> 00:02:17,860
+AppComponent. In the AppComponent template
+
+49
+00:02:17,860 --> 00:02:20,250
+currently, we're nesting the product list
+
+50
+00:02:20,250 --> 00:02:23,414
+component. Now that we are implementing
+
+51
+00:02:23,414 --> 00:02:25,669
+routing, we'll route to the product list
+
+52
+00:02:25,669 --> 00:02:28,509
+component instead. That means that it no
+
+53
+00:02:28,509 --> 00:02:31,379
+longer needs a selector. In the product
+
+54
+00:02:31,379 --> 00:02:33,530
+list component, let's remove that
+
+55
+00:02:33,530 --> 00:02:36,405
+selector. Going back to the AppComponent,
+
+56
+00:02:36,405 --> 00:02:38,610
+we'll replace the nesting with a
+
+57
+00:02:38,610 --> 00:02:42,150
+navigation menu. This menu uses the nav
+
+58
+00:02:42,150 --> 00:02:44,689
+element and the navbar classes from the
+
+59
+00:02:44,689 --> 00:02:47,340
+Twitter Bootstrap styling framework. Let's
+
+60
+00:02:47,340 --> 00:02:50,639
+see how this looks in the browser. Here is
+
+61
+00:02:50,639 --> 00:02:53,000
+our new menu, but clicking on the menu
+
+62
+00:02:53,000 --> 00:02:55,360
+options don't do anything yet, and our
+
+63
+00:02:55,360 --> 00:02:58,370
+product list no longer appears. We need to
+
+64
+00:02:58,370 --> 00:03:02,409
+tie routes to these menu options. We'll
+
+65
+00:03:02,409 --> 00:03:05,069
+use the router link directive to tie a
+
+66
+00:03:05,069 --> 00:03:08,169
+route to each of these menu options. For
+
+67
+00:03:08,169 --> 00:03:10,719
+the home menu option, we'll add the router
+
+68
+00:03:10,719 --> 00:03:13,330
+link to the anchor element, but we could
+
+69
+00:03:13,330 --> 00:03:16,210
+use any clickable element. We want to tie
+
+70
+00:03:16,210 --> 00:03:19,060
+the welcome route to the home menu option
+
+71
+00:03:19,060 --> 00:03:22,319
+so we specify Welcome here. Pay close
+
+72
+00:03:22,319 --> 00:03:25,150
+attention to this syntax. We assign the
+
+73
+00:03:25,150 --> 00:03:27,689
+router link directive to an array defined
+
+74
+00:03:27,689 --> 00:03:30,379
+within quotes. The first element of the
+
+75
+00:03:30,379 --> 00:03:33,539
+array is a string, so it is also enclosed
+
+76
+00:03:33,539 --> 00:03:36,680
+in quotes. We'll use similar syntax to tie
+
+77
+00:03:36,680 --> 00:03:39,020
+the products route to the product list
+
+78
+00:03:39,020 --> 00:03:41,689
+menu option. Now we just need to tell
+
+79
+00:03:41,689 --> 00:03:48,000
+Angular where to place our views and display the routed components template.
+

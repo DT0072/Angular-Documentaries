@@ -1,0 +1,308 @@
+0
+00:00:02,169 --> 00:00:05,495
+To route or to nest, that is the question.
+
+1
+00:00:05,495 --> 00:00:07,969
+When creating components, we need to think
+
+2
+00:00:07,969 --> 00:00:10,349
+about how they will be displayed. For
+
+3
+00:00:10,349 --> 00:00:12,599
+components designed to be nested within
+
+4
+00:00:12,599 --> 00:00:14,949
+other components, we need to define a
+
+5
+00:00:14,949 --> 00:00:16,980
+selector as part of the component
+
+6
+00:00:16,980 --> 00:00:20,199
+decorator. The selector provides the name
+
+7
+00:00:20,199 --> 00:00:22,699
+of the directive, and then we nest the
+
+8
+00:00:22,699 --> 00:00:25,269
+component within another component, using
+
+9
+00:00:25,269 --> 00:00:26,839
+the directive to define where the
+
+10
+00:00:26,839 --> 00:00:29,719
+component template appears. The component
+
+11
+00:00:29,719 --> 00:00:32,840
+does not then need a route. For components
+
+12
+00:00:32,840 --> 00:00:35,130
+designed to be displayed as a view within
+
+13
+00:00:35,130 --> 00:00:37,950
+our single application page, the component
+
+14
+00:00:37,950 --> 00:00:40,920
+needs no selector, but we do need to
+
+15
+00:00:40,920 --> 00:00:43,825
+configure routes. We then tie those routes
+
+16
+00:00:43,825 --> 00:00:46,850
+to actions. An action activates a route to
+
+17
+00:00:46,850 --> 00:00:50,179
+display the view. If we want to do routing
+
+18
+00:00:50,179 --> 00:00:53,280
+in our application, we need to configure
+
+19
+00:00:53,280 --> 00:00:55,920
+the route definitions, tie routes to
+
+20
+00:00:55,920 --> 00:00:58,939
+actions, and place the view. Let's do
+
+21
+00:00:58,939 --> 00:01:01,969
+checklists for each of these tasks. The
+
+22
+00:01:01,969 --> 00:01:03,689
+first step for doing routing in an
+
+23
+00:01:03,689 --> 00:01:06,435
+application is to configure the routes.
+
+24
+00:01:06,435 --> 00:01:09,269
+Begin by defining the base element in the
+
+25
+00:01:09,269 --> 00:01:13,209
+index.html file. Add RouterModule to an
+
+26
+00:01:13,209 --> 00:01:16,430
+Angular module's imports array, then at
+
+27
+00:01:16,430 --> 00:01:18,390
+each route to the array passed to the
+
+28
+00:01:18,390 --> 00:01:21,030
+RouterModule's forRoot method, and
+
+29
+00:01:21,030 --> 00:01:23,760
+remember that order matters. The router
+
+30
+00:01:23,760 --> 00:01:26,180
+will pick the first route that matches.
+
+31
+00:01:26,180 --> 00:01:29,359
+Each route definition requires a path,
+
+32
+00:01:29,359 --> 00:01:32,090
+which defines the URL path segment for the
+
+33
+00:01:32,090 --> 00:01:34,750
+route. Be sure the path has no leading
+
+34
+00:01:34,750 --> 00:01:37,980
+slash. Use an empty path for a default
+
+35
+00:01:37,980 --> 00:01:41,209
+route and two asterisks for a wildcard
+
+36
+00:01:41,209 --> 00:01:44,049
+route, which is matched if no prior path
+
+37
+00:01:44,049 --> 00:01:47,109
+matches. Most route definitions also
+
+38
+00:01:47,109 --> 00:01:49,920
+include a component. The component is a
+
+39
+00:01:49,920 --> 00:01:52,719
+reference to the component itself. It is
+
+40
+00:01:52,719 --> 00:01:55,319
+not a string name and is not enclosed in
+
+41
+00:01:55,319 --> 00:01:58,129
+quotes. Once we have the routes
+
+42
+00:01:58,129 --> 00:02:00,799
+configured, we need to tie those routes to
+
+43
+00:02:00,799 --> 00:02:04,099
+actions. First, we identify which actions
+
+44
+00:02:04,099 --> 00:02:07,129
+to tie to which routes. Then we add the
+
+45
+00:02:07,129 --> 00:02:09,900
+RouterLink directive as an attribute to
+
+46
+00:02:09,900 --> 00:02:12,409
+any clickable element in a component's
+
+47
+00:02:12,409 --> 00:02:15,129
+template. We can use them in menu options,
+
+48
+00:02:15,129 --> 00:02:17,580
+toolbars, buttons, links, images, and so
+
+49
+00:02:17,580 --> 00:02:20,560
+on. Be sure to enclose the RouterLink in
+
+50
+00:02:20,560 --> 00:02:23,469
+square brackets. Bind the router linked to
+
+51
+00:02:23,469 --> 00:02:26,800
+a link parameters array. The first element
+
+52
+00:02:26,800 --> 00:02:28,680
+of the link parameters array is the
+
+53
+00:02:28,680 --> 00:02:31,469
+route's path. All other elements in the
+
+54
+00:02:31,469 --> 00:02:35,139
+array are values for the route parameters.
+
+55
+00:02:35,139 --> 00:02:37,810
+Use the RouterOutlet to identify where to
+
+56
+00:02:37,810 --> 00:02:40,629
+display the routed component's view. This
+
+57
+00:02:40,629 --> 00:02:42,849
+is most often specified in the host
+
+58
+00:02:42,849 --> 00:02:44,879
+component template. When a route is
+
+59
+00:02:44,879 --> 00:02:47,419
+activated, the route component's view is
+
+60
+00:02:47,419 --> 00:02:49,620
+displayed at the location of the router
+
+61
+00:02:49,620 --> 00:02:52,680
+outlet. This module was all about
+
+62
+00:02:52,680 --> 00:02:55,259
+navigation and routing. We began with a
+
+63
+00:02:55,259 --> 00:02:58,060
+look at how routing works. We then walked
+
+64
+00:02:58,060 --> 00:03:00,750
+through how to configure routes, tie
+
+65
+00:03:00,750 --> 00:03:03,020
+routes to actions, and define where the
+
+66
+00:03:03,020 --> 00:03:06,340
+routed component's view should appear. Our
+
+67
+00:03:06,340 --> 00:03:08,800
+App Component had embedded our Product
+
+68
+00:03:08,800 --> 00:03:11,610
+List Component as a nested component. In
+
+69
+00:03:11,610 --> 00:03:14,120
+this module we were finally able to remove
+
+70
+00:03:14,120 --> 00:03:16,990
+that nesting. We set up routing so we can
+
+71
+00:03:16,990 --> 00:03:19,300
+now navigate to our Welcome and Product
+
+72
+00:03:19,300 --> 00:03:22,479
+List Components. We've covered the basics
+
+73
+00:03:22,479 --> 00:03:25,300
+of routing in this module, but there is so
+
+74
+00:03:25,300 --> 00:03:28,219
+much more. In the next module we'll look
+
+75
+00:03:28,219 --> 00:03:30,520
+at some additional routing techniques and
+
+76
+00:03:30,520 --> 00:03:35,000
+add navigation to the product detail component.
+

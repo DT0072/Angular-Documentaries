@@ -1,0 +1,360 @@
+0
+00:00:02,339 --> 00:00:05,519
+Routing is component based, so we identify
+
+1
+00:00:05,519 --> 00:00:07,299
+the set of components that we want to
+
+2
+00:00:07,299 --> 00:00:10,140
+provide as routing targets and to find a
+
+3
+00:00:10,140 --> 00:00:13,099
+route for each one. Let's see how this is
+
+4
+00:00:13,099 --> 00:00:16,820
+done. An Angular application has one
+
+5
+00:00:16,820 --> 00:00:19,679
+router that is managed by Angular's router
+
+6
+00:00:19,679 --> 00:00:22,519
+service, and we know that before we can
+
+7
+00:00:22,519 --> 00:00:24,940
+use a service, we need to register the
+
+8
+00:00:24,940 --> 00:00:28,100
+service provider in an Angular module.
+
+9
+00:00:28,100 --> 00:00:31,170
+Similar to the HTTP module, Angular
+
+10
+00:00:31,170 --> 00:00:33,390
+provides a RouterModule in the
+
+11
+00:00:33,390 --> 00:00:36,119
+angular/router package that registers the
+
+12
+00:00:36,119 --> 00:00:38,960
+router service provider. To include the
+
+13
+00:00:38,960 --> 00:00:41,570
+features of this external module in our
+
+14
+00:00:41,570 --> 00:00:44,079
+application, we need to add it to the
+
+15
+00:00:44,079 --> 00:00:46,890
+Imports array of our application's Angular
+
+16
+00:00:46,890 --> 00:00:49,750
+module. In addition to registering the
+
+17
+00:00:49,750 --> 00:00:52,649
+service provider, the RouterModule also
+
+18
+00:00:52,649 --> 00:00:55,990
+declares the router directives. In the
+
+19
+00:00:55,990 --> 00:00:58,090
+last clip, we mentioned two router
+
+20
+00:00:58,090 --> 00:01:01,060
+directives, RouterLink and RouterOutlet.
+
+21
+00:01:01,060 --> 00:01:04,230
+By importing the RouterModule our
+
+22
+00:01:04,230 --> 00:01:06,959
+component templates can use these or any
+
+23
+00:01:06,959 --> 00:01:10,469
+other router directives. RouterModule also
+
+24
+00:01:10,469 --> 00:01:13,260
+exposes the routes we configure. Before we
+
+25
+00:01:13,260 --> 00:01:15,840
+can navigate to a route, we need to ensure
+
+26
+00:01:15,840 --> 00:01:17,640
+that the routes are available to the
+
+27
+00:01:17,640 --> 00:01:20,590
+application. We do this by passing the
+
+28
+00:01:20,590 --> 00:01:24,629
+routes to RouterModule like this. We call
+
+29
+00:01:24,629 --> 00:01:27,810
+the RouterModule's forRoot method and pass
+
+30
+00:01:27,810 --> 00:01:31,030
+our array of routes to that method. This
+
+31
+00:01:31,030 --> 00:01:33,390
+establishes the routes for the root of our
+
+32
+00:01:33,390 --> 00:01:36,620
+application. If we want to use hash‑style
+
+33
+00:01:36,620 --> 00:01:40,150
+routes instead of HTML5‑style routes, we
+
+34
+00:01:40,150 --> 00:01:43,219
+change this code to set useHash as shown
+
+35
+00:01:43,219 --> 00:01:46,079
+here. With that, we are ready to configure
+
+36
+00:01:46,079 --> 00:01:49,750
+some routes. The router must be configured
+
+37
+00:01:49,750 --> 00:01:52,689
+with a list of route definitions. Each
+
+38
+00:01:52,689 --> 00:01:56,170
+definition specifies a route object. Each
+
+39
+00:01:56,170 --> 00:01:59,370
+route requires a path. The path property
+
+40
+00:01:59,370 --> 00:02:01,530
+defines the URL pass segment for the
+
+41
+00:02:01,530 --> 00:02:04,480
+route. When this route is activated, this
+
+42
+00:02:04,480 --> 00:02:07,359
+URL pass segment is appended to the URL of
+
+43
+00:02:07,359 --> 00:02:10,639
+our application. The user can type in or
+
+44
+00:02:10,639 --> 00:02:13,490
+bookmark the resulting URL to return
+
+45
+00:02:13,490 --> 00:02:15,789
+directly to the associated component's
+
+46
+00:02:15,789 --> 00:02:18,939
+view. In most cases, we also specify a
+
+47
+00:02:18,939 --> 00:02:21,080
+component, which is the component
+
+48
+00:02:21,080 --> 00:02:24,020
+associated with the route. It is this
+
+49
+00:02:24,020 --> 00:02:26,139
+component's template that is displayed
+
+50
+00:02:26,139 --> 00:02:28,870
+when the route is activated. These are all
+
+51
+00:02:28,870 --> 00:02:31,819
+examples of route definitions. The first
+
+52
+00:02:31,819 --> 00:02:34,180
+route simply maps a specific URL pass
+
+53
+00:02:34,180 --> 00:02:37,550
+segment to a specific component. So this
+
+54
+00:02:37,550 --> 00:02:41,250
+URL displays the template from the
+
+55
+00:02:41,250 --> 00:02:43,180
+ProductListComponent. The :id in the
+
+56
+00:02:43,180 --> 00:02:46,270
+second route represents a route parameter.
+
+57
+00:02:46,270 --> 00:02:48,259
+The product detail page displays the
+
+58
+00:02:48,259 --> 00:02:51,110
+detail for one product, so it needs to
+
+59
+00:02:51,110 --> 00:02:53,770
+know which product to display. The
+
+60
+00:02:53,770 --> 00:02:56,360
+ProductDetailComponent reads the ID from
+
+61
+00:02:56,360 --> 00:02:58,990
+this pass segment and displays the defined
+
+62
+00:02:58,990 --> 00:03:01,810
+product. We can define any number of
+
+63
+00:03:01,810 --> 00:03:05,039
+parameters here separated with slashes.
+
+64
+00:03:05,039 --> 00:03:08,240
+What does this route do? Yep, this URL
+
+65
+00:03:08,240 --> 00:03:09,960
+displays the template from the welcome
+
+66
+00:03:09,960 --> 00:03:12,909
+component. This one defines the default
+
+67
+00:03:12,909 --> 00:03:15,620
+route. The redirect here translates the
+
+68
+00:03:15,620 --> 00:03:17,879
+empty route to the desired default pass
+
+69
+00:03:17,879 --> 00:03:20,310
+segment, in this example, the welcome
+
+70
+00:03:20,310 --> 00:03:22,860
+route. A redirect route requires a
+
+71
+00:03:22,860 --> 00:03:25,710
+pathMatch property to tell the router how
+
+72
+00:03:25,710 --> 00:03:28,099
+to match the URL pass segment to the path
+
+73
+00:03:28,099 --> 00:03:30,530
+of a route. We only want this default
+
+74
+00:03:30,530 --> 00:03:32,900
+route when the entire client‑side portion
+
+75
+00:03:32,900 --> 00:03:35,229
+of the path is empty, so we set the
+
+76
+00:03:35,229 --> 00:03:38,500
+pathMatch to full. The asterisks in the
+
+77
+00:03:38,500 --> 00:03:41,710
+last route denote a wildcard path. The
+
+78
+00:03:41,710 --> 00:03:44,120
+router matches this route if the requested
+
+79
+00:03:44,120 --> 00:03:47,370
+URL doesn't match any prior paths to find
+
+80
+00:03:47,370 --> 00:03:50,129
+in the configuration. This is useful for
+
+81
+00:03:50,129 --> 00:03:53,110
+displaying a 404 not found page or
+
+82
+00:03:53,110 --> 00:03:56,139
+redirecting to another route. A few things
+
+83
+00:03:56,139 --> 00:03:59,219
+to note here. There are no leading slashes
+
+84
+00:03:59,219 --> 00:04:02,409
+in our pass segments, and the order of the
+
+85
+00:04:02,409 --> 00:04:05,409
+routes in this array matters. The router
+
+86
+00:04:05,409 --> 00:04:07,930
+uses a first match wins strategy when
+
+87
+00:04:07,930 --> 00:04:10,689
+matching the routes. This means that more
+
+88
+00:04:10,689 --> 00:04:13,319
+specific routes should always be before
+
+89
+00:04:13,319 --> 00:04:21,000
+less specific routes such as the wildcard route. Ready to try this out?
+

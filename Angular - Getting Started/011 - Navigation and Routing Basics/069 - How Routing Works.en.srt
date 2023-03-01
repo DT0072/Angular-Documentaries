@@ -1,0 +1,240 @@
+0
+00:00:01,439 --> 00:00:04,580
+An Angular application is a single‑page
+
+1
+00:00:04,580 --> 00:00:07,459
+application. That means all of our views
+
+2
+00:00:07,459 --> 00:00:10,660
+are displayed within one page, normally
+
+3
+00:00:10,660 --> 00:00:14,500
+defined in the index.html file. So each of
+
+4
+00:00:14,500 --> 00:00:18,350
+the 5, 10, or hundreds of views take turns
+
+5
+00:00:18,350 --> 00:00:21,339
+appearing on that one page. How do we
+
+6
+00:00:21,339 --> 00:00:24,719
+manage which few to display when? That's
+
+7
+00:00:24,719 --> 00:00:27,609
+the purpose of routing. We configure a
+
+8
+00:00:27,609 --> 00:00:29,589
+route for each component that wants to
+
+9
+00:00:29,589 --> 00:00:32,649
+display its view on the page. As part of
+
+10
+00:00:32,649 --> 00:00:35,490
+our application design, we provide a menu,
+
+11
+00:00:35,490 --> 00:00:38,329
+a toolbar, buttons, images, or data links
+
+12
+00:00:38,329 --> 00:00:40,320
+that allow the user to select the view to
+
+13
+00:00:40,320 --> 00:00:43,509
+display. We tie a route to each option or
+
+14
+00:00:43,509 --> 00:00:46,570
+action. When the user selects the option
+
+15
+00:00:46,570 --> 00:00:49,130
+or performs the action, the associated
+
+16
+00:00:49,130 --> 00:00:51,810
+route is activated. Activating a
+
+17
+00:00:51,810 --> 00:00:54,149
+component's route displays that
+
+18
+00:00:54,149 --> 00:00:57,329
+component's view. So, for example, the
+
+19
+00:00:57,329 --> 00:00:59,789
+user selects a menu option to display the
+
+20
+00:00:59,789 --> 00:01:03,149
+product list. The product list route is
+
+21
+00:01:03,149 --> 00:01:06,750
+activated and it displays its view. Hmm,
+
+22
+00:01:06,750 --> 00:01:08,709
+let's look at that process again with an
+
+23
+00:01:08,709 --> 00:01:11,495
+illustration. Here is the menu that we'll
+
+24
+00:01:11,495 --> 00:01:14,870
+add to our sample application. We tie a
+
+25
+00:01:14,870 --> 00:01:16,590
+route to teach menu option using a
+
+26
+00:01:16,590 --> 00:01:18,540
+built‑in router directive called
+
+27
+00:01:18,540 --> 00:01:20,980
+routerLink. When the user clicks on the
+
+28
+00:01:20,980 --> 00:01:23,349
+Product List option, for example, the
+
+29
+00:01:23,349 --> 00:01:25,750
+Angular router navigates to the product's
+
+30
+00:01:25,750 --> 00:01:28,959
+route. The browser's location URL changes
+
+31
+00:01:28,959 --> 00:01:31,239
+to match this path segment, and we see
+
+32
+00:01:31,239 --> 00:01:35,000
+/products appear in the address bar. By
+
+33
+00:01:35,000 --> 00:01:38,340
+default, Angular uses HTML5 style URLs,
+
+34
+00:01:38,340 --> 00:01:40,480
+which don't require the hash symbol to
+
+35
+00:01:40,480 --> 00:01:43,310
+indicate local navigation. By using the
+
+36
+00:01:43,310 --> 00:01:46,829
+HTML5 style URLs, you need to configure
+
+37
+00:01:46,829 --> 00:01:49,939
+your web server to perform URL rewriting.
+
+38
+00:01:49,939 --> 00:01:51,969
+How this is done depends on your web
+
+39
+00:01:51,969 --> 00:01:55,069
+server. See the documentation for your web
+
+40
+00:01:55,069 --> 00:01:58,340
+server on how to configure URL rewriting.
+
+41
+00:01:58,340 --> 00:02:01,299
+Angular also supports hash style routing,
+
+42
+00:02:01,299 --> 00:02:04,269
+which does not require URL rewriting.
+
+43
+00:02:04,269 --> 00:02:06,209
+We'll look at how to use hash style
+
+44
+00:02:06,209 --> 00:02:09,099
+routing later in this module. When the
+
+45
+00:02:09,099 --> 00:02:12,099
+browser's URL changes, the Angular router
+
+46
+00:02:12,099 --> 00:02:14,240
+looks for a route definition, matching the
+
+47
+00:02:14,240 --> 00:02:17,194
+path segment, products, in this example.
+
+48
+00:02:17,194 --> 00:02:18,939
+The route definition includes the
+
+49
+00:02:18,939 --> 00:02:20,719
+component to load when this route is
+
+50
+00:02:20,719 --> 00:02:23,099
+activated. In this case, the
+
+51
+00:02:23,099 --> 00:02:26,389
+ProductListComponent. The Angular router
+
+52
+00:02:26,389 --> 00:02:29,370
+then loads the component's template. Where
+
+53
+00:02:29,370 --> 00:02:31,650
+does it display this template? Where we
+
+54
+00:02:31,650 --> 00:02:33,599
+specified, with the built‑in routing
+
+55
+00:02:33,599 --> 00:02:36,319
+directive called router‑outlet, and the
+
+56
+00:02:36,319 --> 00:02:39,300
+Product List appears. So that's how
+
+57
+00:02:39,300 --> 00:02:42,099
+routing works. We'll examine these steps
+
+58
+00:02:42,099 --> 00:02:44,250
+in further detail and try them out in
+
+59
+00:02:44,250 --> 00:02:50,000
+demos as we journey through this course module.
+
