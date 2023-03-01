@@ -1,0 +1,488 @@
+0
+00:00:02,390 --> 00:00:04,730
+In the prior module, we built an inline
+
+1
+00:00:04,730 --> 00:00:07,679
+template for our app component. We used
+
+2
+00:00:07,679 --> 00:00:09,550
+the template property to define the
+
+3
+00:00:09,550 --> 00:00:11,599
+template directly in the component's
+
+4
+00:00:11,599 --> 00:00:14,630
+metadata. But this is not the only way we
+
+5
+00:00:14,630 --> 00:00:18,089
+can build a template for our components.
+
+6
+00:00:18,089 --> 00:00:20,000
+We can use the template property and
+
+7
+00:00:20,000 --> 00:00:22,500
+define an inline template using a simple
+
+8
+00:00:22,500 --> 00:00:25,179
+quoted string with single or double
+
+9
+00:00:25,179 --> 00:00:28,289
+quotes. Or we can define an inline
+
+10
+00:00:28,289 --> 00:00:30,980
+template with a multi‑line string by
+
+11
+00:00:30,980 --> 00:00:35,880
+enclosing the HTML in ES 2015 back ticks.
+
+12
+00:00:35,880 --> 00:00:38,200
+The back ticks allow composing a string
+
+13
+00:00:38,200 --> 00:00:41,229
+over several lines, making the HTML more
+
+14
+00:00:41,229 --> 00:00:43,890
+readable. We used this technique to build
+
+15
+00:00:43,890 --> 00:00:46,500
+our template in the last module. There are
+
+16
+00:00:46,500 --> 00:00:48,560
+some advantages to defining an inline
+
+17
+00:00:48,560 --> 00:00:50,079
+template using one of these two
+
+18
+00:00:50,079 --> 00:00:52,570
+techniques. The template is directly
+
+19
+00:00:52,570 --> 00:00:54,770
+defined within the component, keeping the
+
+20
+00:00:54,770 --> 00:00:56,759
+view and the code for that view in one
+
+21
+00:00:56,759 --> 00:00:59,609
+file. It is then easy to match up our data
+
+22
+00:00:59,609 --> 00:01:02,000
+bindings with the class properties, such
+
+23
+00:01:02,000 --> 00:01:04,215
+as the page title, in this example.
+
+24
+00:01:04,215 --> 00:01:07,120
+However, there are disadvantages as well.
+
+25
+00:01:07,120 --> 00:01:10,390
+When defining the HTML in a string, most
+
+26
+00:01:10,390 --> 00:01:11,989
+development tools don't provide
+
+27
+00:01:11,989 --> 00:01:14,549
+IntelliSense, automatic formatting, and
+
+28
+00:01:14,549 --> 00:01:17,409
+syntax checking. Especially as we define
+
+29
+00:01:17,409 --> 00:01:20,430
+more HTML in the template, these issues
+
+30
+00:01:20,430 --> 00:01:23,599
+become challenges. In many cases, the
+
+31
+00:01:23,599 --> 00:01:25,879
+better option is to define a linked
+
+32
+00:01:25,879 --> 00:01:29,750
+template with the HTML in its own file. We
+
+33
+00:01:29,750 --> 00:01:32,219
+can then use the templateUrl property in
+
+34
+00:01:32,219 --> 00:01:34,990
+the component metadata to define the URL
+
+35
+00:01:34,990 --> 00:01:38,879
+of our HTML file. Let's use this technique
+
+36
+00:01:38,879 --> 00:01:40,810
+and build a linked template for our
+
+37
+00:01:40,810 --> 00:01:44,250
+product list view. Here is our ultimate
+
+38
+00:01:44,250 --> 00:01:47,030
+goal for the product list view. The view
+
+39
+00:01:47,030 --> 00:01:49,609
+has a nice heading, a filter by box at the
+
+40
+00:01:49,609 --> 00:01:52,239
+top allows the user to enter a string. The
+
+41
+00:01:52,239 --> 00:01:54,909
+user entered string is displayed here, and
+
+42
+00:01:54,909 --> 00:01:56,879
+the list of products is filtered to only
+
+43
+00:01:56,879 --> 00:01:58,989
+those with a product name containing that
+
+44
+00:01:58,989 --> 00:02:01,719
+string. The products are listed in a neat
+
+45
+00:02:01,719 --> 00:02:04,349
+table with a nicely formatted header. The
+
+46
+00:02:04,349 --> 00:02:06,590
+Show Image button shows an image for each
+
+47
+00:02:06,590 --> 00:02:09,289
+product. The product name is a link that
+
+48
+00:02:09,289 --> 00:02:11,490
+displays the product detail view, which
+
+49
+00:02:11,490 --> 00:02:14,090
+we'll build later in this course. To make
+
+50
+00:02:14,090 --> 00:02:16,409
+this page look nice with very little
+
+51
+00:02:16,409 --> 00:02:18,610
+effort, we use the Twitter bootstrap
+
+52
+00:02:18,610 --> 00:02:21,419
+styling framework. If you want to find out
+
+53
+00:02:21,419 --> 00:02:24,250
+more about bootstrap, check out this link.
+
+54
+00:02:24,250 --> 00:02:27,280
+And for the stars, we use the font awesome
+
+55
+00:02:27,280 --> 00:02:30,409
+icon set and toolkit. To find out more
+
+56
+00:02:30,409 --> 00:02:33,694
+about font awesome, check out this link.
+
+57
+00:02:33,694 --> 00:02:35,689
+We'll install both of these in the
+
+58
+00:02:35,689 --> 00:02:38,840
+upcoming demo. Now let's jump into a demo
+
+59
+00:02:38,840 --> 00:02:40,969
+and start building the template for our
+
+60
+00:02:40,969 --> 00:02:44,659
+product list view. First, let's install
+
+61
+00:02:44,659 --> 00:02:47,719
+bootstrap and font awesome so we can use
+
+62
+00:02:47,719 --> 00:02:50,610
+them in our templates. Open the Integrated
+
+63
+00:02:50,610 --> 00:02:53,439
+Terminal or command window. I still have
+
+64
+00:02:53,439 --> 00:02:56,110
+the application running in this window, so
+
+65
+00:02:56,110 --> 00:02:58,759
+I'll click plus to open another command
+
+66
+00:02:58,759 --> 00:03:03,840
+window, then type npm install bootstrap
+
+67
+00:03:03,840 --> 00:03:08,840
+font‑awesome. This installs both packages.
+
+68
+00:03:08,840 --> 00:03:11,479
+You may see some warnings here. These
+
+69
+00:03:11,479 --> 00:03:13,819
+warnings tell us that bootstrap requires
+
+70
+00:03:13,819 --> 00:03:17,180
+jQuery and Popper, but we only plan to use
+
+71
+00:03:17,180 --> 00:03:19,639
+the styling parts of bootstrap, not the
+
+72
+00:03:19,639 --> 00:03:22,020
+interactive features, so we don't need
+
+73
+00:03:22,020 --> 00:03:24,500
+these dependencies. Installing the
+
+74
+00:03:24,500 --> 00:03:27,050
+packages does not provide access to their
+
+75
+00:03:27,050 --> 00:03:29,919
+style sheets. For that, we import the
+
+76
+00:03:29,919 --> 00:03:32,819
+styles for these packages into our global
+
+77
+00:03:32,819 --> 00:03:35,580
+application style sheet, which is the
+
+78
+00:03:35,580 --> 00:03:39,189
+style.css file here. We'll import the
+
+79
+00:03:39,189 --> 00:03:41,229
+minimized version of the styles from the
+
+80
+00:03:41,229 --> 00:03:44,740
+bootstrap/dist/css folder, and the
+
+81
+00:03:44,740 --> 00:03:46,780
+minimized version of the styles from the
+
+82
+00:03:46,780 --> 00:03:50,669
+font‑awesome/css folder. The style sheets
+
+83
+00:03:50,669 --> 00:03:53,050
+are then available to any template in our
+
+84
+00:03:53,050 --> 00:03:56,530
+application. Now we are ready to add an
+
+85
+00:03:56,530 --> 00:03:58,810
+external template file for the product
+
+86
+00:03:58,810 --> 00:04:01,680
+list component. By convention, each
+
+87
+00:04:01,680 --> 00:04:03,629
+feature of the application has its own
+
+88
+00:04:03,629 --> 00:04:06,740
+folder under the app folder. So let's add
+
+89
+00:04:06,740 --> 00:04:11,139
+a new folder here and name it products. In
+
+90
+00:04:11,139 --> 00:04:13,360
+that folder, we'll create the template for
+
+91
+00:04:13,360 --> 00:04:16,420
+our product list component. By convention,
+
+92
+00:04:16,420 --> 00:04:18,610
+the name of the template is the same name
+
+93
+00:04:18,610 --> 00:04:22,115
+as the component with an HTML extension.
+
+94
+00:04:22,115 --> 00:04:24,699
+We'll call our product list component
+
+95
+00:04:24,699 --> 00:04:30,980
+product‑list.component.html. Let's widen
+
+96
+00:04:30,980 --> 00:04:33,589
+that up a little bit. Now we are ready to
+
+97
+00:04:33,589 --> 00:04:37,069
+create the HTML for our template. Let's
+
+98
+00:04:37,069 --> 00:04:39,490
+start with the heading. We're using
+
+99
+00:04:39,490 --> 00:04:42,329
+Twitter bootstrap style classes here. In
+
+100
+00:04:42,329 --> 00:04:45,310
+the heading we display Product List. If
+
+101
+00:04:45,310 --> 00:04:46,759
+you don't want to type in all of this
+
+102
+00:04:46,759 --> 00:04:49,579
+code, you can copy it from the APM final
+
+103
+00:04:49,579 --> 00:04:51,763
+folder, provided in my GitHub repository,
+
+104
+00:04:51,763 --> 00:04:54,360
+as detailed in the First Things First
+
+105
+00:04:54,360 --> 00:04:57,689
+module, earlier in this course. Next is
+
+106
+00:04:57,689 --> 00:05:00,680
+the filter by. We define an input box for
+
+107
+00:05:00,680 --> 00:05:03,290
+entry of the filter string, and we add
+
+108
+00:05:03,290 --> 00:05:05,389
+text that displays the user entered
+
+109
+00:05:05,389 --> 00:05:08,079
+filter. We again used Twitter bootstrap
+
+110
+00:05:08,079 --> 00:05:10,660
+style classes to lay out the input box and
+
+111
+00:05:10,660 --> 00:05:14,639
+text into rows. Now let's build the table.
+
+112
+00:05:14,639 --> 00:05:16,850
+We use Twitter bootstrap's table style
+
+113
+00:05:16,850 --> 00:05:20,290
+classes. We have a table header. The first
+
+114
+00:05:20,290 --> 00:05:22,199
+column header is a button to show the
+
+115
+00:05:22,199 --> 00:05:25,884
+product image, and here is the table body.
+
+116
+00:05:25,884 --> 00:05:28,644
+Hmm, we definitely don't want to hard code
+
+117
+00:05:28,644 --> 00:05:30,810
+in the products here. So let's leave the
+
+118
+00:05:30,810 --> 00:05:33,680
+table body empty for now. So we have the
+
+119
+00:05:33,680 --> 00:05:35,480
+start of a template defined for our
+
+120
+00:05:35,480 --> 00:05:38,680
+component. Now what? If you said we need
+
+121
+00:05:38,680 --> 00:05:43,000
+to build a component, you are exactly right.
+

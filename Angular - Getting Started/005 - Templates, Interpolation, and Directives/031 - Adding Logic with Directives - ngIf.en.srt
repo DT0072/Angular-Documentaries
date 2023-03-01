@@ -1,0 +1,400 @@
+0
+00:00:02,240 --> 00:00:04,570
+We can think of a directive as a custom
+
+1
+00:00:04,570 --> 00:00:07,679
+HTML element or attribute we used to power
+
+2
+00:00:07,679 --> 00:00:10,970
+up and extend our HTML. We can build our
+
+3
+00:00:10,970 --> 00:00:14,109
+own custom directives or use Angular's
+
+4
+00:00:14,109 --> 00:00:17,649
+built‑in directives. Previously in this
+
+5
+00:00:17,649 --> 00:00:19,600
+module, we've seen how to build a
+
+6
+00:00:19,600 --> 00:00:22,239
+component and use it as a custom
+
+7
+00:00:22,239 --> 00:00:25,199
+directive. We use the pm‑products
+
+8
+00:00:25,199 --> 00:00:27,489
+directive to display our product‑list
+
+9
+00:00:27,489 --> 00:00:30,949
+template. In addition to building our own
+
+10
+00:00:30,949 --> 00:00:33,770
+custom directives, we can use Angular's
+
+11
+00:00:33,770 --> 00:00:36,689
+built‑in directives. The built‑in Angular
+
+12
+00:00:36,689 --> 00:00:39,020
+directives we'll look at are structural
+
+13
+00:00:39,020 --> 00:00:41,729
+directives. A structural directive
+
+14
+00:00:41,729 --> 00:00:44,789
+modifies the structure or layout of a view
+
+15
+00:00:44,789 --> 00:00:47,420
+by adding, removing, or manipulating
+
+16
+00:00:47,420 --> 00:00:50,259
+elements and their children. They help us
+
+17
+00:00:50,259 --> 00:00:53,219
+to power up our HTML with If logic and For
+
+18
+00:00:53,219 --> 00:00:56,240
+loops. Notice the asterisk in front of the
+
+19
+00:00:56,240 --> 00:00:59,039
+directive name. That marks the directive
+
+20
+00:00:59,039 --> 00:01:02,280
+as a structural directive. Let's look at
+
+21
+00:01:02,280 --> 00:01:07,500
+ngIf first. NgIf is a structural directive
+
+22
+00:01:07,500 --> 00:01:09,914
+that removes or recreates a portion of the
+
+23
+00:01:09,914 --> 00:01:13,329
+DOM tree based on an expression. If the
+
+24
+00:01:13,329 --> 00:01:15,980
+expression assigned to the ngIf evaluates
+
+25
+00:01:15,980 --> 00:01:18,359
+to a false value, the element and its
+
+26
+00:01:18,359 --> 00:01:21,109
+children are removed from the DOM. If the
+
+27
+00:01:21,109 --> 00:01:23,745
+expression evaluates to a true value, a
+
+28
+00:01:23,745 --> 00:01:25,799
+copy of the element and its children are
+
+29
+00:01:25,799 --> 00:01:29,780
+reinserted into the DOM. For example, say
+
+30
+00:01:29,780 --> 00:01:32,700
+we only wanted to show the HTML table if
+
+31
+00:01:32,700 --> 00:01:34,510
+there are some products in a list of
+
+32
+00:01:34,510 --> 00:01:37,959
+products. We use ngIf on the table element
+
+33
+00:01:37,959 --> 00:01:40,030
+and set it to products and
+
+34
+00:01:40,030 --> 00:01:42,870
+products.length. If the products variable
+
+35
+00:01:42,870 --> 00:01:45,189
+has a value and the products list has
+
+36
+00:01:45,189 --> 00:01:48,219
+length, the table appears in the DOM. If
+
+37
+00:01:48,219 --> 00:01:50,560
+not, the table element and all of its
+
+38
+00:01:50,560 --> 00:01:54,549
+children are removed from the DOM. But
+
+39
+00:01:54,549 --> 00:01:56,840
+didn't we just say that an Angular module
+
+40
+00:01:56,840 --> 00:01:59,290
+defines the boundary or context within
+
+41
+00:01:59,290 --> 00:02:00,950
+which the component resolves its
+
+42
+00:02:00,950 --> 00:02:03,400
+directives and dependencies? How will our
+
+43
+00:02:03,400 --> 00:02:07,180
+application find this ngIf directive?
+
+44
+00:02:07,180 --> 00:02:09,169
+Looking back at the illustration of our
+
+45
+00:02:09,169 --> 00:02:12,009
+AppModule, we see that it imports
+
+46
+00:02:12,009 --> 00:02:14,930
+BrowserModule. Luckily for us,
+
+47
+00:02:14,930 --> 00:02:19,759
+BrowserModule exposes the ngIf and ngFor
+
+48
+00:02:19,759 --> 00:02:22,990
+directives. So any component declared by
+
+49
+00:02:22,990 --> 00:02:26,240
+the AppModule can use the ngIf or ngFor
+
+50
+00:02:26,240 --> 00:02:29,430
+directives. With that settled, let's try
+
+51
+00:02:29,430 --> 00:02:33,650
+out the ngIf directive. We are back in the
+
+52
+00:02:33,650 --> 00:02:35,500
+sample application, looking at the
+
+53
+00:02:35,500 --> 00:02:38,240
+ProductListComponent and its template. We
+
+54
+00:02:38,240 --> 00:02:40,169
+only want to display this table of
+
+55
+00:02:40,169 --> 00:02:42,599
+products if there are some products to
+
+56
+00:02:42,599 --> 00:02:45,419
+display, so the first thing we need is a
+
+57
+00:02:45,419 --> 00:02:48,340
+property to hold the list of products.
+
+58
+00:02:48,340 --> 00:02:51,400
+Where do we define that products property?
+
+59
+00:02:51,400 --> 00:02:54,300
+In the component's class, of course. We'll
+
+60
+00:02:54,300 --> 00:02:58,000
+add a products property here. Hmm. But
+
+61
+00:02:58,000 --> 00:03:01,379
+what is the type of this property? Well,
+
+62
+00:03:01,379 --> 00:03:04,909
+we want an array of product instances, but
+
+63
+00:03:04,909 --> 00:03:06,710
+we don't currently have anything that
+
+64
+00:03:06,710 --> 00:03:09,729
+defines what a product is. We'll have a
+
+65
+00:03:09,729 --> 00:03:12,400
+better solution in a later module, but for
+
+66
+00:03:12,400 --> 00:03:15,349
+now we'll just define products as an array
+
+67
+00:03:15,349 --> 00:03:19,180
+of any. In TypeScript, we use any as the
+
+68
+00:03:19,180 --> 00:03:22,259
+data type any time we don't know or don't
+
+69
+00:03:22,259 --> 00:03:25,460
+care what the specific data type is. We
+
+70
+00:03:25,460 --> 00:03:27,939
+need to populate our array, but where do
+
+71
+00:03:27,939 --> 00:03:31,050
+we get the data? In many cases, we would
+
+72
+00:03:31,050 --> 00:03:33,180
+communicate with a back‑end server to get
+
+73
+00:03:33,180 --> 00:03:35,969
+this data. We'll look at how to do that
+
+74
+00:03:35,969 --> 00:03:38,810
+later in this course. For now, we'll just
+
+75
+00:03:38,810 --> 00:03:42,520
+hard code in a set of products. If you are
+
+76
+00:03:42,520 --> 00:03:45,210
+coding along, consider copying a few of
+
+77
+00:03:45,210 --> 00:03:47,990
+the products from the products.json file
+
+78
+00:03:47,990 --> 00:03:50,405
+provided with the starter files under the
+
+79
+00:03:50,405 --> 00:03:54,870
+api products folder. With the products
+
+80
+00:03:54,870 --> 00:03:57,199
+property in place, we're ready to use it
+
+81
+00:03:57,199 --> 00:04:00,449
+in the HTML. We want to put it on the
+
+82
+00:04:00,449 --> 00:04:03,139
+table element because that is the element
+
+83
+00:04:03,139 --> 00:04:06,030
+we want to add or remove from the DOM.
+
+84
+00:04:06,030 --> 00:04:11,659
+Type *ngIf= and then our expression
+
+85
+00:04:11,659 --> 00:04:14,400
+enclosed in quotes. We only want to show
+
+86
+00:04:14,400 --> 00:04:17,540
+the table if there is a list of products,
+
+87
+00:04:17,540 --> 00:04:20,529
+and that list of products contain some
+
+88
+00:04:20,529 --> 00:04:23,790
+elements. Let's see what this looks like
+
+89
+00:04:23,790 --> 00:04:27,050
+in the browser. We see the table header,
+
+90
+00:04:27,050 --> 00:04:30,430
+so we know our table is displayed. Let's
+
+91
+00:04:30,430 --> 00:04:33,949
+try this: Let's comment out the product
+
+92
+00:04:33,949 --> 00:04:36,600
+data, bring up the browser again, and we
+
+93
+00:04:36,600 --> 00:04:39,870
+see that the table disappeared. Now, if we
+
+94
+00:04:39,870 --> 00:04:42,399
+uncomment out the product data and look
+
+95
+00:04:42,399 --> 00:04:46,139
+again at the browser, our table reappears.
+
+96
+00:04:46,139 --> 00:04:49,300
+With ngIf, the associated element and its
+
+97
+00:04:49,300 --> 00:04:52,160
+children are literally added or removed
+
+98
+00:04:52,160 --> 00:04:55,050
+from the DOM. But notice that we still
+
+99
+00:04:55,050 --> 00:05:01,000
+aren't populating the table with our products. Let's do that next.
+

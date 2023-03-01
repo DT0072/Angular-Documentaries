@@ -1,0 +1,560 @@
+0
+00:00:01,340 --> 00:00:02,930
+Here is our newly created
+
+1
+00:00:02,930 --> 00:00:05,730
+product‑list.component. And here is the
+
+2
+00:00:05,730 --> 00:00:08,660
+app.component we created earlier. Note
+
+3
+00:00:08,660 --> 00:00:10,339
+that I've excluded some of the code here
+
+4
+00:00:10,339 --> 00:00:12,609
+on this slide, such as the import
+
+5
+00:00:12,609 --> 00:00:15,000
+statements and class details for a better
+
+6
+00:00:15,000 --> 00:00:17,140
+fit. We'll see the complete code when we
+
+7
+00:00:17,140 --> 00:00:19,920
+get back to the demo. When a component has
+
+8
+00:00:19,920 --> 00:00:22,989
+a selector defined, as we have here, we
+
+9
+00:00:22,989 --> 00:00:26,050
+can use the component as a directive. This
+
+10
+00:00:26,050 --> 00:00:28,350
+means that we can insert this component's
+
+11
+00:00:28,350 --> 00:00:31,190
+template into any other component's
+
+12
+00:00:31,190 --> 00:00:34,890
+template by using the selector as an HTML
+
+13
+00:00:34,890 --> 00:00:37,490
+tag like this. The
+
+14
+00:00:37,490 --> 00:00:40,060
+product‑list.component's template is then
+
+15
+00:00:40,060 --> 00:00:42,770
+inserted into this location in the
+
+16
+00:00:42,770 --> 00:00:45,469
+app.component's template. So this is the
+
+17
+00:00:45,469 --> 00:00:48,060
+first step when using a component as a
+
+18
+00:00:48,060 --> 00:00:50,850
+directive. Use the name defined in this
+
+19
+00:00:50,850 --> 00:00:54,030
+selector as an HTML tag in another
+
+20
+00:00:54,030 --> 00:00:56,640
+component's template. When this template
+
+21
+00:00:56,640 --> 00:00:58,700
+is displayed, Angular looks for a
+
+22
+00:00:58,700 --> 00:01:01,000
+component that has a selector with this
+
+23
+00:01:01,000 --> 00:01:04,090
+name. We could have hundreds of components
+
+24
+00:01:04,090 --> 00:01:06,069
+in our application. How does our
+
+25
+00:01:06,069 --> 00:01:08,150
+application know where to look for this
+
+26
+00:01:08,150 --> 00:01:10,920
+selector? The application looks to the
+
+27
+00:01:10,920 --> 00:01:14,310
+Angular module that owns this component to
+
+28
+00:01:14,310 --> 00:01:16,170
+find all of the directives that are
+
+29
+00:01:16,170 --> 00:01:19,510
+visible to this component. Every Angular
+
+30
+00:01:19,510 --> 00:01:22,310
+application must have at least one Angular
+
+31
+00:01:22,310 --> 00:01:25,359
+module, the root application module,
+
+32
+00:01:25,359 --> 00:01:28,555
+commonly called AppModule. Currently our
+
+33
+00:01:28,555 --> 00:01:31,430
+AppModule declares our root application
+
+34
+00:01:31,430 --> 00:01:34,739
+component, AppComponent. A component must
+
+35
+00:01:34,739 --> 00:01:38,540
+belong to one and only one Angular module.
+
+36
+00:01:38,540 --> 00:01:40,700
+Because the AppModule declares the
+
+37
+00:01:40,700 --> 00:01:43,859
+AppComponent, the AppComponent belongs to
+
+38
+00:01:43,859 --> 00:01:46,960
+the AppModule. The AppModule bootstraps
+
+39
+00:01:46,960 --> 00:01:50,019
+the application with this component, so it
+
+40
+00:01:50,019 --> 00:01:52,150
+is the first component that is loaded for
+
+41
+00:01:52,150 --> 00:01:55,500
+our application. Our AppModule also
+
+42
+00:01:55,500 --> 00:01:58,689
+imports the system browser module to pull
+
+43
+00:01:58,689 --> 00:02:00,569
+in the features it needs to run this
+
+44
+00:02:00,569 --> 00:02:03,439
+application in a browser. So this is what
+
+45
+00:02:03,439 --> 00:02:06,340
+our AppModule currently looks like. An
+
+46
+00:02:06,340 --> 00:02:08,689
+Angular module defines the boundary or
+
+47
+00:02:08,689 --> 00:02:11,240
+context within which the component
+
+48
+00:02:11,240 --> 00:02:14,340
+resolves its directives and dependencies.
+
+49
+00:02:14,340 --> 00:02:17,189
+So when a component contains a directive,
+
+50
+00:02:17,189 --> 00:02:19,960
+Angular looks to the component's module to
+
+51
+00:02:19,960 --> 00:02:22,340
+determine which directives are visible to
+
+52
+00:02:22,340 --> 00:02:24,979
+that component. What does that mean for
+
+53
+00:02:24,979 --> 00:02:27,590
+us? Well, for Angular to find the
+
+54
+00:02:27,590 --> 00:02:30,020
+pm‑products directive used in the
+
+55
+00:02:30,020 --> 00:02:33,150
+app.component, the product‑list.component
+
+56
+00:02:33,150 --> 00:02:36,050
+must also be declared in this Angular
+
+57
+00:02:36,050 --> 00:02:39,409
+module. This is the second step when using
+
+58
+00:02:39,409 --> 00:02:42,169
+a component as a directive. We need to
+
+59
+00:02:42,169 --> 00:02:44,740
+ensure that the directive is visible to
+
+60
+00:02:44,740 --> 00:02:47,710
+any component that uses it. There are two
+
+61
+00:02:47,710 --> 00:02:50,259
+ways to expose a directive in an Angular
+
+62
+00:02:50,259 --> 00:02:53,300
+module. We can declare the component in
+
+63
+00:02:53,300 --> 00:02:56,930
+the Angular module as we show here, or if
+
+64
+00:02:56,930 --> 00:02:59,000
+the component is already declared in
+
+65
+00:02:59,000 --> 00:03:02,150
+another Angular module, we can import that
+
+66
+00:03:02,150 --> 00:03:04,500
+module similar to how we import
+
+67
+00:03:04,500 --> 00:03:07,419
+BrowserModule here. Now let's jump back to
+
+68
+00:03:07,419 --> 00:03:10,979
+the demo and give this a try. We are back
+
+69
+00:03:10,979 --> 00:03:13,919
+in our sample app. We defined a selector
+
+70
+00:03:13,919 --> 00:03:16,590
+for our product‑list.component here so we
+
+71
+00:03:16,590 --> 00:03:18,810
+can use it as a directive in any other
+
+72
+00:03:18,810 --> 00:03:21,539
+component. Let's use it in the
+
+73
+00:03:21,539 --> 00:03:24,340
+app.component. Open the app.component
+
+74
+00:03:24,340 --> 00:03:27,500
+file. So instead of displaying My First
+
+75
+00:03:27,500 --> 00:03:30,750
+Component, we'll display our new product
+
+76
+00:03:30,750 --> 00:03:33,699
+list template here. Replace the div tags
+
+77
+00:03:33,699 --> 00:03:37,439
+with pm‑products. Are we ready to see our
+
+78
+00:03:37,439 --> 00:03:40,289
+result in the browser? What you'll see in
+
+79
+00:03:40,289 --> 00:03:42,409
+the browser depends on when you last
+
+80
+00:03:42,409 --> 00:03:45,689
+started the compiler with npm start. You
+
+81
+00:03:45,689 --> 00:03:48,680
+may see the app.component page title but
+
+82
+00:03:48,680 --> 00:03:51,360
+not our product‑list.component. In this
+
+83
+00:03:51,360 --> 00:03:53,419
+case, the browser displayed the last
+
+84
+00:03:53,419 --> 00:03:56,250
+successful compiled files, so you don't
+
+85
+00:03:56,250 --> 00:03:59,469
+see our new component. Using the F12
+
+86
+00:03:59,469 --> 00:04:02,930
+tools, no error is shown. Or you may see
+
+87
+00:04:02,930 --> 00:04:05,990
+the message, Cannot GET. Opening the
+
+88
+00:04:05,990 --> 00:04:08,539
+developer tools, you see the error is
+
+89
+00:04:08,539 --> 00:04:11,050
+Failed to load resource: the server
+
+90
+00:04:11,050 --> 00:04:14,159
+responded with a status of 404 (Not
+
+91
+00:04:14,159 --> 00:04:17,199
+Found). You may see this error whenever
+
+92
+00:04:17,199 --> 00:04:19,529
+the application can't compile and,
+
+93
+00:04:19,529 --> 00:04:21,490
+therefore, can't serve the files to the
+
+94
+00:04:21,490 --> 00:04:25,170
+browser. Or you may get lucky and see the
+
+95
+00:04:25,170 --> 00:04:28,370
+actual error, pm‑products is not a known
+
+96
+00:04:28,370 --> 00:04:31,430
+element. Whenever you see unexpected
+
+97
+00:04:31,430 --> 00:04:34,639
+results or errors in the browser, check
+
+98
+00:04:34,639 --> 00:04:37,279
+the VS Code terminal window for compile
+
+99
+00:04:37,279 --> 00:04:41,160
+issues. Here we see the error pm‑products
+
+100
+00:04:41,160 --> 00:04:44,029
+is not a known element. And with this
+
+101
+00:04:44,029 --> 00:04:47,389
+error, Angular gives us a solution. If
+
+102
+00:04:47,389 --> 00:04:49,829
+pm‑products is an Angular component, and
+
+103
+00:04:49,829 --> 00:04:52,899
+in our case it is, then verify that it is
+
+104
+00:04:52,899 --> 00:04:57,350
+part of this module. Ah, yes. We didn't do
+
+105
+00:04:57,350 --> 00:05:00,290
+step two and declare it in our
+
+106
+00:05:00,290 --> 00:05:02,199
+application's Angular module. Let's go
+
+107
+00:05:02,199 --> 00:05:04,910
+back to the code. We'll open the
+
+108
+00:05:04,910 --> 00:05:08,180
+app.module and add ProductListComponent to
+
+109
+00:05:08,180 --> 00:05:10,720
+the declarations array. Well, we're
+
+110
+00:05:10,720 --> 00:05:12,720
+getting a squiggly line here. That means
+
+111
+00:05:12,720 --> 00:05:15,350
+we have an error. Any guess as to what's
+
+112
+00:05:15,350 --> 00:05:17,639
+wrong? If you said we're missing the
+
+113
+00:05:17,639 --> 00:05:20,220
+import, you are correct. Everything we
+
+114
+00:05:20,220 --> 00:05:23,995
+declare must be imported. With VS Code,
+
+115
+00:05:23,995 --> 00:05:26,800
+this is easy. Notice the lightbulb icon on
+
+116
+00:05:26,800 --> 00:05:29,470
+the left. It is indicating that it has a
+
+117
+00:05:29,470 --> 00:05:32,540
+quick fix for this underlined issue. Click
+
+118
+00:05:32,540 --> 00:05:35,290
+the lightbulb and select the desired fix,
+
+119
+00:05:35,290 --> 00:05:38,089
+and VS Code adds the appropriate import
+
+120
+00:05:38,089 --> 00:05:41,470
+line for us. Cool! Now that our syntax
+
+121
+00:05:41,470 --> 00:05:44,689
+error is gone, let's try it again. There's
+
+122
+00:05:44,689 --> 00:05:48,040
+our page. It's not complete, and it's not
+
+123
+00:05:48,040 --> 00:05:50,670
+interactive yet, but we have the basics in
+
+124
+00:05:50,670 --> 00:05:53,860
+place. Note that after a compile error,
+
+125
+00:05:53,860 --> 00:05:56,620
+you may need to refresh the browser page
+
+126
+00:05:56,620 --> 00:05:59,670
+or restart the compiler in order to see
+
+127
+00:05:59,670 --> 00:06:02,990
+the changes in the browser. To restart,
+
+128
+00:06:02,990 --> 00:06:05,620
+use the VS Code terminal window and type
+
+129
+00:06:05,620 --> 00:06:10,149
+Ctrl+C or Cmd+C to stop the compiler and
+
+130
+00:06:10,149 --> 00:06:13,779
+npm start to restart the compiler. So we
+
+131
+00:06:13,779 --> 00:06:15,089
+successfully used our
+
+132
+00:06:15,089 --> 00:06:18,050
+product‑list.component as a directive. We
+
+133
+00:06:18,050 --> 00:06:20,310
+added the selector as the directive in the
+
+134
+00:06:20,310 --> 00:06:23,009
+containing component's template. We
+
+135
+00:06:23,009 --> 00:06:24,439
+declared the component to the
+
+136
+00:06:24,439 --> 00:06:27,790
+application's Angular module, and we added
+
+137
+00:06:27,790 --> 00:06:30,990
+the appropriate import statement. Now we
+
+138
+00:06:30,990 --> 00:06:33,290
+are ready to power up our user interface
+
+139
+00:06:33,290 --> 00:05:29,000
+with data binding and some built‑in Angular directives.
+

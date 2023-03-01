@@ -1,0 +1,196 @@
+0
+00:00:02,339 --> 00:00:03,960
+To build the user interface for our
+
+1
+00:00:03,960 --> 00:00:06,160
+application in Angular, we create a
+
+2
+00:00:06,160 --> 00:00:09,960
+template with HTML. To really power up
+
+3
+00:00:09,960 --> 00:00:12,410
+that user interface, we need Angular's
+
+4
+00:00:12,410 --> 00:00:15,390
+data binding and directives. Welcome back
+
+5
+00:00:15,390 --> 00:00:17,219
+to Angular: Getting Started, from
+
+6
+00:00:17,219 --> 00:00:20,089
+Pluralsight. My name is Deborah Kurata,
+
+7
+00:00:20,089 --> 00:00:22,550
+and in these next two modules, we create
+
+8
+00:00:22,550 --> 00:00:25,039
+the user interface using templates,
+
+9
+00:00:25,039 --> 00:00:28,920
+directives, and data binding. Web
+
+10
+00:00:28,920 --> 00:00:30,949
+applications are all about the user
+
+11
+00:00:30,949 --> 00:00:33,850
+interface, and Angular makes it easier to
+
+12
+00:00:33,850 --> 00:00:37,240
+build rich and powerful user interfaces.
+
+13
+00:00:37,240 --> 00:00:39,619
+Angular gives us data binding so we can
+
+14
+00:00:39,619 --> 00:00:42,009
+easily display information and respond to
+
+15
+00:00:42,009 --> 00:00:45,240
+user actions. With Angular directives, we
+
+16
+00:00:45,240 --> 00:00:48,070
+add logic to our HTML such as if
+
+17
+00:00:48,070 --> 00:00:50,969
+statements and for loops. And with Angular
+
+18
+00:00:50,969 --> 00:00:53,439
+components, we build nested user interface
+
+19
+00:00:53,439 --> 00:00:56,490
+fragments such as an image rotator or
+
+20
+00:00:56,490 --> 00:00:59,750
+rating stars. We've seen that an Angular
+
+21
+00:00:59,750 --> 00:01:01,820
+component is a view defined with a
+
+22
+00:01:01,820 --> 00:01:04,959
+template, its associated code defined with
+
+23
+00:01:04,959 --> 00:01:07,900
+a class, and additional information
+
+24
+00:01:07,900 --> 00:01:10,329
+defined with metadata and set using a
+
+25
+00:01:10,329 --> 00:01:13,129
+component decorator. In these next two
+
+26
+00:01:13,129 --> 00:01:15,500
+modules, we'll focus on techniques for
+
+27
+00:01:15,500 --> 00:01:19,879
+building the template. In this module, we
+
+28
+00:01:19,879 --> 00:01:22,030
+evaluate the different ways we can build a
+
+29
+00:01:22,030 --> 00:01:24,859
+template for our component and demonstrate
+
+30
+00:01:24,859 --> 00:01:26,900
+how to create a linked template for our
+
+31
+00:01:26,900 --> 00:01:29,489
+view. Then we'll build a component
+
+32
+00:01:29,489 --> 00:01:31,959
+associated with that template and use it
+
+33
+00:01:31,959 --> 00:01:35,099
+as a directive. We'll detail how to set up
+
+34
+00:01:35,099 --> 00:01:37,560
+data binding using interpolation and
+
+35
+00:01:37,560 --> 00:01:39,609
+display the value of our component class
+
+36
+00:01:39,609 --> 00:01:42,760
+properties in the view. We need some basic
+
+37
+00:01:42,760 --> 00:01:45,049
+logic in the template, so we'll leverage
+
+38
+00:01:45,049 --> 00:01:47,890
+Angular's built‑ in directives. In the
+
+39
+00:01:47,890 --> 00:01:50,250
+next module, we'll look at additional data
+
+40
+00:01:50,250 --> 00:01:53,189
+binding techniques. Looking at our
+
+41
+00:01:53,189 --> 00:01:55,579
+application architecture, we currently
+
+42
+00:01:55,579 --> 00:01:58,469
+have the index.html file and our root
+
+43
+00:01:58,469 --> 00:02:01,109
+AppComponent in place. So we have a
+
+44
+00:02:01,109 --> 00:02:03,640
+working sample application, but it doesn't
+
+45
+00:02:03,640 --> 00:02:06,060
+look like much. What we really want is a
+
+46
+00:02:06,060 --> 00:02:08,819
+list of products. In this module, we'll
+
+47
+00:02:08,819 --> 00:02:10,879
+begin work on the product list component
+
+48
+00:02:10,879 --> 00:02:17,000
+to display that list of products. Let's get started.
+

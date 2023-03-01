@@ -1,0 +1,364 @@
+0
+00:00:02,339 --> 00:00:06,219
+Another structural directive is ngFor.
+
+1
+00:00:06,219 --> 00:00:08,779
+NgFor repeats a portion of the DOM tree
+
+2
+00:00:08,779 --> 00:00:12,429
+once for each item in an iterable list. So
+
+3
+00:00:12,429 --> 00:00:15,279
+we define a block of HTML that defines how
+
+4
+00:00:15,279 --> 00:00:18,260
+we want to display a single item and tell
+
+5
+00:00:18,260 --> 00:00:20,800
+Angular to use that block for displaying
+
+6
+00:00:20,800 --> 00:00:24,339
+each item in the list. For example, say we
+
+7
+00:00:24,339 --> 00:00:27,000
+want to display each product in a row of a
+
+8
+00:00:27,000 --> 00:00:30,420
+table. We define one table row and its
+
+9
+00:00:30,420 --> 00:00:33,969
+child table data elements. That table row
+
+10
+00:00:33,969 --> 00:00:36,630
+element and its children are then repeated
+
+11
+00:00:36,630 --> 00:00:39,969
+for each product in the list of products.
+
+12
+00:00:39,969 --> 00:00:42,179
+The let keyword here creates a template
+
+13
+00:00:42,179 --> 00:00:45,049
+input variable called product. We can
+
+14
+00:00:45,049 --> 00:00:47,200
+reference this variable anywhere on this
+
+15
+00:00:47,200 --> 00:00:50,729
+element, on any sibling element, or on any
+
+16
+00:00:50,729 --> 00:00:54,240
+child element. And notice the of instead
+
+17
+00:00:54,240 --> 00:00:57,229
+of in here. We'll talk more about that in
+
+18
+00:00:57,229 --> 00:01:00,100
+a moment. For now, let's jump back to our
+
+19
+00:01:00,100 --> 00:01:03,840
+demo. We are once again looking at the
+
+20
+00:01:03,840 --> 00:01:06,615
+ProductListComponent and its template.
+
+21
+00:01:06,615 --> 00:01:09,909
+Here in the table body, we want to repeat
+
+22
+00:01:09,909 --> 00:01:12,659
+a table row for each product in the list
+
+23
+00:01:12,659 --> 00:01:16,189
+of products. In the table body, we'll add
+
+24
+00:01:16,189 --> 00:01:19,659
+a tr element for the table row. And in the
+
+25
+00:01:19,659 --> 00:01:26,629
+tr element, we'll specify the ngFor,
+
+26
+00:01:26,629 --> 00:01:31,060
+*ngFor='let product of products'. Next,
+
+27
+00:01:31,060 --> 00:01:33,530
+we'll add the child elements. We'll insert
+
+28
+00:01:33,530 --> 00:01:36,310
+a td or a table data element for each
+
+29
+00:01:36,310 --> 00:01:38,200
+property of the product that we want to
+
+30
+00:01:38,200 --> 00:01:41,030
+display in the table. We'll need to match
+
+31
+00:01:41,030 --> 00:01:43,659
+them up with the table header elements.
+
+32
+00:01:43,659 --> 00:01:45,609
+The first column displays the product
+
+33
+00:01:45,609 --> 00:01:48,670
+image. Let's skip the image for now. We'll
+
+34
+00:01:48,670 --> 00:01:51,049
+add that in the next module, but we'll
+
+35
+00:01:51,049 --> 00:01:54,540
+still add the td element as a placeholder.
+
+36
+00:01:54,540 --> 00:01:57,319
+The next table header says Product. So in
+
+37
+00:01:57,319 --> 00:02:00,420
+this column, we want the product name.
+
+38
+00:02:00,420 --> 00:02:02,519
+We'll use interpolation to bind to the
+
+39
+00:02:02,519 --> 00:02:05,590
+product's name by using the local variable
+
+40
+00:02:05,590 --> 00:02:08,169
+product and a dot to drill down to the
+
+41
+00:02:08,169 --> 00:02:11,189
+product properties. We want productName
+
+42
+00:02:11,189 --> 00:02:14,550
+here. How did we know that property name?
+
+43
+00:02:14,550 --> 00:02:16,290
+Looking here at the ProductListComponent,
+
+44
+00:02:16,290 --> 00:02:20,000
+we see the product property names here. So
+
+45
+00:02:20,000 --> 00:02:21,650
+these are the names we use in the
+
+46
+00:02:21,650 --> 00:02:25,659
+interpolation template expressions. Next,
+
+47
+00:02:25,659 --> 00:02:27,960
+I'll add td elements for some of the other
+
+48
+00:02:27,960 --> 00:02:31,900
+product properties. So for each product in
+
+49
+00:02:31,900 --> 00:02:34,849
+our list of products, we will get a tr
+
+50
+00:02:34,849 --> 00:02:38,409
+element for a table row and td elements
+
+51
+00:02:38,409 --> 00:02:41,830
+for table data. Want to see how this looks
+
+52
+00:02:41,830 --> 00:02:46,020
+in the browser? Wow, we have our products.
+
+53
+00:02:46,020 --> 00:02:49,500
+Doesn't that look nice? Well, our price is
+
+54
+00:02:49,500 --> 00:02:51,780
+not very well‑formatted, and it doesn't
+
+55
+00:02:51,780 --> 00:02:54,479
+have a currency symbol. We'll fix that
+
+56
+00:02:54,479 --> 00:02:58,169
+with pipes in the next module. Looking
+
+57
+00:02:58,169 --> 00:03:00,969
+back at the component, we defined an array
+
+58
+00:03:00,969 --> 00:03:04,099
+for our list of products. In the template,
+
+59
+00:03:04,099 --> 00:03:06,870
+we laid out the HTML to display one
+
+60
+00:03:06,870 --> 00:03:09,129
+product. The product is displayed in a
+
+61
+00:03:09,129 --> 00:03:11,699
+table row with product properties in the
+
+62
+00:03:11,699 --> 00:03:14,800
+appropriate columns. Using an ngFor
+
+63
+00:03:14,800 --> 00:03:17,479
+structural directive, we repeat this table
+
+64
+00:03:17,479 --> 00:03:19,960
+row and its columns for each product in
+
+65
+00:03:19,960 --> 00:03:23,990
+the list of products. So why is this ngFor
+
+66
+00:03:23,990 --> 00:03:28,009
+syntax product of products and not product
+
+67
+00:03:28,009 --> 00:03:32,610
+in products? The reasoning for this has to
+
+68
+00:03:32,610 --> 00:03:37,889
+do with ES2015 for loops. Yes, 2015 has
+
+69
+00:03:37,889 --> 00:03:42,219
+both a for...of loop and a for...in loop.
+
+70
+00:03:42,219 --> 00:03:45,039
+The for...of loop is similar to a for each
+
+71
+00:03:45,039 --> 00:03:47,949
+style loop. It iterates over an iterable
+
+72
+00:03:47,949 --> 00:03:51,539
+object, such as an array. For example, say
+
+73
+00:03:51,539 --> 00:03:54,500
+we have an array of persons nicknames. If
+
+74
+00:03:54,500 --> 00:03:57,909
+we use for...of to iterate over this list,
+
+75
+00:03:57,909 --> 00:04:00,689
+we'll see each nickname logged to the
+
+76
+00:04:00,689 --> 00:04:03,520
+console. The for...in loop iterates over
+
+77
+00:04:03,520 --> 00:04:06,330
+the properties of an object. When working
+
+78
+00:04:06,330 --> 00:04:09,159
+with an array, such as this example, the
+
+79
+00:04:09,159 --> 00:04:12,449
+array indexes are enumerable properties
+
+80
+00:04:12,449 --> 00:04:15,120
+with integer names and are otherwise
+
+81
+00:04:15,120 --> 00:04:18,709
+identical to general object properties. So
+
+82
+00:04:18,709 --> 00:04:21,410
+we see each array index logged to the
+
+83
+00:04:21,410 --> 00:04:24,279
+console. To help remember the difference,
+
+84
+00:04:24,279 --> 00:04:28,759
+think of in as iterating the index. Since
+
+85
+00:04:28,759 --> 00:04:31,910
+the ngFor directive iterates over iterable
+
+86
+00:04:31,910 --> 00:04:35,009
+objects, not their properties, Angular
+
+87
+00:04:35,009 --> 00:04:37,865
+selected to use the of keyword in the
+
+88
+00:04:37,865 --> 00:04:41,009
+ngFor expression. Now let's finish up this
+
+89
+00:04:41,009 --> 00:04:43,600
+module with some checklists we can use as
+
+90
+00:04:43,600 --> 00:04:49,000
+we work with templates, interpolation, and directives.
+

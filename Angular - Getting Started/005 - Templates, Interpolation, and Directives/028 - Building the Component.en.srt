@@ -1,0 +1,196 @@
+0
+00:00:02,370 --> 00:00:04,019
+Remember the steps for building a
+
+1
+00:00:04,019 --> 00:00:06,650
+component that we covered in the last
+
+2
+00:00:06,650 --> 00:00:09,060
+module? We define a class, we add a
+
+3
+00:00:09,060 --> 00:00:11,429
+component decorator to define the metadata
+
+4
+00:00:11,429 --> 00:00:14,220
+and specify the template, and we import
+
+5
+00:00:14,220 --> 00:00:16,739
+what we need. The only thing that's really
+
+6
+00:00:16,739 --> 00:00:18,600
+different from the component we created in
+
+7
+00:00:18,600 --> 00:00:21,839
+the last module is the template property.
+
+8
+00:00:21,839 --> 00:00:24,710
+Here we are using templateUrl to define
+
+9
+00:00:24,710 --> 00:00:27,105
+the location of our linked template
+
+10
+00:00:27,105 --> 00:00:30,440
+instead of defining an HTML string. Notice
+
+11
+00:00:30,440 --> 00:00:33,539
+the syntax of the path here. If we follow
+
+12
+00:00:33,539 --> 00:00:35,750
+the convention of defining the template
+
+13
+00:00:35,750 --> 00:00:38,799
+HTML file in the same folder as the
+
+14
+00:00:38,799 --> 00:00:41,219
+associated component, we can use a
+
+15
+00:00:41,219 --> 00:00:45,115
+relative path by specifying dot slash.
+
+16
+00:00:45,115 --> 00:00:47,399
+Let's jump right back to the demo and give
+
+17
+00:00:47,399 --> 00:00:51,899
+this a try. We are back with the sample
+
+18
+00:00:51,899 --> 00:00:54,929
+application exactly where we left it, and
+
+19
+00:00:54,929 --> 00:00:57,990
+we are ready to build a new component. We
+
+20
+00:00:57,990 --> 00:01:00,560
+start by creating a new file in the
+
+21
+00:01:00,560 --> 00:01:03,240
+products folder. We'll name it using the
+
+22
+00:01:03,240 --> 00:01:05,879
+component naming convention, dot
+
+23
+00:01:05,879 --> 00:01:07,739
+component, because it is an Angular
+
+24
+00:01:07,739 --> 00:01:11,840
+component, and dot ts for the extension.
+
+25
+00:01:11,840 --> 00:01:15,939
+Then we create the class, export class
+
+26
+00:01:15,939 --> 00:01:18,969
+ProductListComponent. We're exporting this
+
+27
+00:01:18,969 --> 00:01:21,209
+class so it is available to other parts of
+
+28
+00:01:21,209 --> 00:01:24,200
+the application. Next we decorate the
+
+29
+00:01:24,200 --> 00:01:27,400
+class with a component decorator. It is
+
+30
+00:01:27,400 --> 00:01:29,310
+the component decorator that makes this
+
+31
+00:01:29,310 --> 00:01:31,959
+class a component, and we know what that
+
+32
+00:01:31,959 --> 00:01:34,769
+underlying means, we need the import
+
+33
+00:01:34,769 --> 00:01:37,530
+statement. Let's pass an object into the
+
+34
+00:01:37,530 --> 00:01:39,650
+component decorator with the appropriate
+
+35
+00:01:39,650 --> 00:01:43,765
+properties. For the selector, we'll set pm
+
+36
+00:01:43,765 --> 00:01:46,510
+products. We'll use the same prefix is in
+
+37
+00:01:46,510 --> 00:01:48,340
+the app component to distinguish the
+
+38
+00:01:48,340 --> 00:01:50,689
+selector as part of the product management
+
+39
+00:01:50,689 --> 00:01:53,620
+application. Then we define the
+
+40
+00:01:53,620 --> 00:01:56,750
+templateUrl. Here we provide the path to
+
+41
+00:01:56,750 --> 00:02:00,439
+our HTML file. Since we define the HTML
+
+42
+00:02:00,439 --> 00:02:03,540
+file in the same folder as the component,
+
+43
+00:02:03,540 --> 00:02:06,409
+we can use the dot slash relative past
+
+44
+00:02:06,409 --> 00:02:09,694
+syntax here. So now we have our template
+
+45
+00:02:09,694 --> 00:02:12,189
+defining our view, our class, which
+
+46
+00:02:12,189 --> 00:02:14,879
+defines our associated code, and the
+
+47
+00:02:14,879 --> 00:02:17,189
+component decorator that defines the
+
+48
+00:02:17,189 --> 00:02:25,000
+metadata. Our component is complete and we're ready to use it. But how?
+
