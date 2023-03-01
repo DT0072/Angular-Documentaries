@@ -1,0 +1,220 @@
+0
+00:00:02,549 --> 00:00:04,940
+A class becomes an Angular component when
+
+1
+00:00:04,940 --> 00:00:08,060
+we give it component metadata. Angular
+
+2
+00:00:08,060 --> 00:00:10,470
+needs that metadata to understand how to
+
+3
+00:00:10,470 --> 00:00:12,210
+instantiate the component, construct the
+
+4
+00:00:12,210 --> 00:00:15,220
+view, and interact with the component. We
+
+5
+00:00:15,220 --> 00:00:17,210
+define a component's metadata with the
+
+6
+00:00:17,210 --> 00:00:20,359
+Angular component function. In TypeScript,
+
+7
+00:00:20,359 --> 00:00:22,730
+we attach that function to the class as a
+
+8
+00:00:22,730 --> 00:00:26,670
+decorator. A decorator is a function that
+
+9
+00:00:26,670 --> 00:00:29,670
+adds metadata to a class, its members, or
+
+10
+00:00:29,670 --> 00:00:32,719
+its method arguments. A decorator is a
+
+11
+00:00:32,719 --> 00:00:34,740
+JavaScript language feature that is
+
+12
+00:00:34,740 --> 00:00:37,329
+implemented in TypeScript. The scope of
+
+13
+00:00:37,329 --> 00:00:39,409
+the decorator is limited to the feature
+
+14
+00:00:39,409 --> 00:00:42,539
+that it decorates. A decorator is always
+
+15
+00:00:42,539 --> 00:00:45,270
+prefixed with an @ sign. Angular has
+
+16
+00:00:45,270 --> 00:00:47,479
+several built‑in decorators we used to
+
+17
+00:00:47,479 --> 00:00:50,009
+provide additional information to Angular.
+
+18
+00:00:50,009 --> 00:00:52,570
+We can also build our own decorators, but
+
+19
+00:00:52,570 --> 00:00:55,439
+that is out of the scope of this course.
+
+20
+00:00:55,439 --> 00:00:57,719
+We apply a decorator by positioning it
+
+21
+00:00:57,719 --> 00:00:59,520
+immediately in front of the feature we are
+
+22
+00:00:59,520 --> 00:01:02,429
+decorating. When decorating a class, as in
+
+23
+00:01:02,429 --> 00:01:04,609
+this example, we define the decorator
+
+24
+00:01:04,609 --> 00:01:07,340
+immediately above the class signature.
+
+25
+00:01:07,340 --> 00:01:09,870
+Notice that there is no semicolon here.
+
+26
+00:01:09,870 --> 00:01:12,420
+This syntax is similar to attributes used
+
+27
+00:01:12,420 --> 00:01:15,129
+in other programming languages. We used
+
+28
+00:01:15,129 --> 00:01:17,569
+the @Component decorator to identify the
+
+29
+00:01:17,569 --> 00:01:20,609
+class as a component. Since the decorator
+
+30
+00:01:20,609 --> 00:01:23,420
+is a function, we always add parentheses.
+
+31
+00:01:23,420 --> 00:01:25,290
+We pass an object to the component
+
+32
+00:01:25,290 --> 00:01:27,200
+function as indicated with the curly
+
+33
+00:01:27,200 --> 00:01:30,439
+braces. The object we pass in, has many
+
+34
+00:01:30,439 --> 00:01:33,030
+properties. We are only using two of them
+
+35
+00:01:33,030 --> 00:01:35,700
+here. If we plan to reference the
+
+36
+00:01:35,700 --> 00:01:38,689
+component in any HTML, we specify a
+
+37
+00:01:38,689 --> 00:01:41,159
+selector. The selector defines the
+
+38
+00:01:41,159 --> 00:01:44,349
+component's directive name. A directive is
+
+39
+00:01:44,349 --> 00:01:47,930
+simply a custom HTML tag. Whenever this
+
+40
+00:01:47,930 --> 00:01:50,590
+directive is used in the HTML, Angular
+
+41
+00:01:50,590 --> 00:01:53,519
+renders this component's template. We'll
+
+42
+00:01:53,519 --> 00:01:56,379
+see how this works in the upcoming demo. A
+
+43
+00:01:56,379 --> 00:01:58,849
+component should always have a template.
+
+44
+00:01:58,849 --> 00:02:01,340
+Here we define the layout for the user
+
+45
+00:02:01,340 --> 00:02:03,560
+interface fragment or view managed by this
+
+46
+00:02:03,560 --> 00:02:06,120
+component. The double curly braces
+
+47
+00:02:06,120 --> 00:02:09,360
+indicate data binding. We bind the h1
+
+48
+00:02:09,360 --> 00:02:11,919
+element value to the pageTitle property of
+
+49
+00:02:11,919 --> 00:02:15,419
+the class. So when this HTML is rendered,
+
+50
+00:02:15,419 --> 00:02:18,150
+the h1 element displays Acme Product
+
+51
+00:02:18,150 --> 00:02:20,680
+Management. We'll see that in the upcoming
+
+52
+00:02:20,680 --> 00:02:22,909
+demo as well, and we'll cover more about
+
+53
+00:02:22,909 --> 00:02:25,650
+binding in a later module. There is one
+
+54
+00:02:25,650 --> 00:02:32,000
+more key task before our component is complete, importing.
+

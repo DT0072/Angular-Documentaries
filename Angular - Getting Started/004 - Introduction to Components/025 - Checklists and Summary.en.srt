@@ -1,0 +1,511 @@
+﻿1
+00:00:01,540 --> 00:00:04,290
+Angular is all about components, so our
+
+2
+00:00:04,290 --> 00:00:06,530
+first set of checklists are for building a
+
+3
+00:00:06,530 --> 00:00:08,900
+component. We create a class for the
+
+4
+00:00:08,900 --> 00:00:11,250
+component with code to support the view.
+
+5
+00:00:11,470 --> 00:00:13,940
+We use a decorator to define the component
+
+6
+00:00:13,940 --> 00:00:16,610
+metadata, which includes the HTML for the
+
+7
+00:00:16,610 --> 00:00:19,240
+component's template. And we import what
+
+8
+00:00:19,240 --> 00:00:21,900
+we need from any thirdâ€‘party library, from
+
+9
+00:00:21,900 --> 00:00:25,625
+our modules, or from Angular itself. When
+
+10
+00:00:25,625 --> 00:00:27,870
+creating the component class, we give it a
+
+11
+00:00:27,870 --> 00:00:30,140
+clear name. This is not only the name of
+
+12
+00:00:30,140 --> 00:00:32,259
+the class but the name of the component as
+
+13
+00:00:32,259 --> 00:00:35,050
+well. Be sure to watch the casing since
+
+14
+00:00:35,050 --> 00:00:37,570
+JavaScript is case sensitive. By
+
+15
+00:00:37,570 --> 00:00:40,640
+convention use PascalCasing, whereby every
+
+16
+00:00:40,640 --> 00:00:43,190
+word of the name is capitalized. It is
+
+17
+00:00:43,190 --> 00:00:45,290
+common to append component to the end of
+
+18
+00:00:45,290 --> 00:00:47,800
+the class name to make it clear that it is
+
+19
+00:00:47,800 --> 00:00:50,880
+a component class. Be sure to include the
+
+20
+00:00:50,880 --> 00:00:53,370
+export keyword on the class signature.
+
+21
+00:00:53,810 --> 00:00:56,730
+Recall what the export keyword does? It
+
+22
+00:00:56,730 --> 00:00:59,070
+makes the class accessible to be imported
+
+23
+00:00:59,070 --> 00:01:01,720
+by other parts of the application. If the
+
+24
+00:01:01,720 --> 00:01:04,209
+component view displays data, such as a
+
+25
+00:01:04,209 --> 00:01:06,940
+title, the data element is defined as a
+
+26
+00:01:06,940 --> 00:01:09,370
+property of the class. To leverage
+
+27
+00:01:09,950 --> 00:01:11,850
+TypeScript's strong typing, be sure to set
+
+28
+00:01:11,850 --> 00:01:13,660
+the appropriate data type for each
+
+29
+00:01:13,660 --> 00:01:16,420
+property, and set a default value where
+
+30
+00:01:16,420 --> 00:01:19,260
+appropriate. Use camelCase for property
+
+31
+00:01:19,260 --> 00:01:22,390
+names with the first letter lowercase. If
+
+32
+00:01:22,390 --> 00:01:24,990
+the component view has functionality, such
+
+33
+00:01:24,990 --> 00:01:27,380
+as hiding and showing an image, the logic
+
+34
+00:01:27,380 --> 00:01:30,450
+is defined as methods in the class. Use
+
+35
+00:01:30,450 --> 00:01:32,840
+camelCase for method names with the first
+
+36
+00:01:32,840 --> 00:01:36,220
+letter lowercase. How do we define the
+
+37
+00:01:36,220 --> 00:01:39,150
+metadata for our component? If you said a
+
+38
+00:01:39,150 --> 00:01:41,820
+component decorator, you are right. A
+
+39
+00:01:41,820 --> 00:01:44,200
+class is not a component unless it has a
+
+40
+00:01:44,200 --> 00:01:47,330
+component decorator. Be sure to prefix the
+
+41
+00:01:47,330 --> 00:01:50,080
+decorator with an @. Since a decorator is
+
+42
+00:01:50,080 --> 00:01:52,380
+a function, add parentheses, and pass in
+
+43
+00:01:52,380 --> 00:01:55,380
+the appropriate object properties. Use the
+
+44
+00:01:55,380 --> 00:01:57,410
+selector property to define the name of
+
+45
+00:01:57,410 --> 00:01:59,600
+the component when used as a directive in
+
+46
+00:02:00,195 --> 00:02:02,910
+HTML. Be sure to prefix the selector for
+
+47
+00:02:02,910 --> 00:02:05,480
+clarity. Note that the selector property
+
+48
+00:02:05,480 --> 00:02:08,310
+is not needed if the component is not used
+
+49
+00:02:08,310 --> 00:02:11,300
+in any HTML, as we'll see later in this
+
+50
+00:02:11,950 --> 00:02:13,910
+course. Use the template property in the
+
+51
+00:02:13,910 --> 00:02:16,330
+component metadata to define the view's
+
+52
+00:02:16,340 --> 00:02:20,130
+HTML. Since we define the HTML in a string
+
+53
+00:02:20,130 --> 00:02:22,990
+literal, we often get no IntelliSense or
+
+54
+00:02:22,990 --> 00:02:25,780
+syntax checking. So take care to define
+
+55
+00:02:26,370 --> 00:02:29,080
+correct HTML syntax. We'll see alternate
+
+56
+00:02:29,080 --> 00:02:30,710
+ways to create the template for a
+
+57
+00:02:30,710 --> 00:02:34,910
+component in the next module. So why do we
+
+58
+00:02:34,910 --> 00:02:37,950
+need to use import? The import statement
+
+59
+00:02:37,950 --> 00:02:39,890
+tells Angular where to find the members
+
+60
+00:02:39,890 --> 00:02:41,610
+that this component needs from any
+
+61
+00:02:41,610 --> 00:02:44,830
+external modules. The import statement
+
+62
+00:02:44,830 --> 00:02:47,280
+requires the import keyword followed by
+
+63
+00:02:47,280 --> 00:02:50,130
+the member name and module path. Take care
+
+64
+00:02:50,130 --> 00:02:52,100
+when defining the member name as it is
+
+65
+00:02:52,100 --> 00:02:54,980
+case sensitive. The path to the module
+
+66
+00:02:54,980 --> 00:02:57,770
+file must be enclosed in quotes and is
+
+67
+00:02:57,770 --> 00:03:00,610
+also case sensitive. And remember that we
+
+68
+00:03:00,610 --> 00:03:03,470
+don't need to specify the file extension.
+
+69
+00:03:04,140 --> 00:03:06,400
+So what do you do if you followed the
+
+70
+00:03:06,970 --> 00:03:08,710
+steps, but the sample application doesn't
+
+71
+00:03:08,710 --> 00:03:11,190
+work for you? You follow the Something's
+
+72
+00:03:11,190 --> 00:03:14,610
+Wrong! checklist. First, press the F12 key
+
+73
+00:03:14,610 --> 00:03:17,090
+in the browser to view the developer tools
+
+74
+00:03:17,100 --> 00:03:19,730
+and check the console. If that wasn't
+
+75
+00:03:19,730 --> 00:03:21,890
+helpful, check the VS Code terminal
+
+76
+00:03:21,890 --> 00:03:24,680
+window. That will display any syntax or
+
+77
+00:03:24,680 --> 00:03:27,770
+compile errors. The compile messages are
+
+78
+00:03:27,780 --> 00:03:30,140
+often quite clear if you scroll up and
+
+79
+00:03:30,140 --> 00:03:32,250
+read the first one generated after the
+
+80
+00:03:32,250 --> 00:03:35,250
+last compile. It may also be useful to
+
+81
+00:03:35,250 --> 00:03:39,110
+stop the compiler with Ctrl+C or Cmd+C and
+
+82
+00:03:39,110 --> 00:03:41,950
+restart it with npm start for a fresh
+
+83
+00:03:41,950 --> 00:03:44,990
+compile. That will display any current
+
+84
+00:03:44,990 --> 00:03:47,930
+compilation errors. When resolving an
+
+85
+00:03:47,930 --> 00:03:50,010
+error, or if you aren't getting expected
+
+86
+00:03:50,010 --> 00:03:52,845
+results in the browser, recheck your code.
+
+87
+00:03:52,845 --> 00:03:56,200
+For any HTML, be sure the tags are all
+
+88
+00:03:56,200 --> 00:03:58,560
+correctly closed and that all of the
+
+89
+00:03:58,560 --> 00:04:00,920
+Angular directives are correctly spelled
+
+90
+00:04:00,930 --> 00:04:04,170
+and cased. Angular directives are case
+
+91
+00:04:04,170 --> 00:04:07,459
+sensitive. For the TypeScript code, be
+
+92
+00:04:07,460 --> 00:04:10,160
+sure the braces are all properly closed.
+
+93
+00:04:10,290 --> 00:04:13,080
+And just like JavaScript, TypeScript is
+
+94
+00:04:13,080 --> 00:04:15,930
+case sensitive, so ensure everything has
+
+95
+00:04:15,930 --> 00:04:18,390
+the appropriate case. If there doesn't
+
+96
+00:04:18,390 --> 00:04:20,540
+appear to be anything wrong with the code,
+
+97
+00:04:20,800 --> 00:04:23,010
+check my blog post as described in the
+
+98
+00:04:23,010 --> 00:04:26,420
+first course module. Here's the link. I'll
+
+99
+00:04:26,420 --> 00:04:29,060
+add common sample application problems and
+
+100
+00:04:29,060 --> 00:04:32,220
+their solutions to this post. Note that I
+
+101
+00:04:32,220 --> 00:04:34,640
+don't get notified if you post comments on
+
+102
+00:04:34,640 --> 00:04:37,450
+my blog, so consider posting comments
+
+103
+00:04:37,460 --> 00:04:40,290
+elsewhere, as described next. If there's
+
+104
+00:04:40,290 --> 00:04:42,730
+nothing on my blog that solves your issue,
+
+105
+00:04:42,960 --> 00:04:45,120
+post a comment on the Discussion page for
+
+106
+00:04:45,120 --> 00:04:48,270
+the course. Here's the link. I normally
+
+107
+00:04:48,270 --> 00:04:50,260
+get notified of every post to the
+
+108
+00:04:50,260 --> 00:04:53,085
+Discussion page, plus other Pluralsight
+
+109
+00:04:53,085 --> 00:04:55,050
+subscribers will see your post and can
+
+110
+00:04:55,050 --> 00:04:57,950
+respond. Following these steps should get
+
+111
+00:04:57,950 --> 00:05:00,200
+you back on the path to success with
+
+112
+00:05:00,210 --> 00:05:03,950
+Angular. In this module, we detailed what
+
+113
+00:05:03,950 --> 00:05:06,420
+a component was and how to build one by
+
+114
+00:05:06,420 --> 00:05:08,790
+creating a component class, defining the
+
+115
+00:05:08,790 --> 00:05:11,970
+metadata, and importing what we need. And
+
+116
+00:05:11,970 --> 00:05:13,410
+we discovered how to bootstrap the
+
+117
+00:05:13,410 --> 00:05:15,100
+component we built to bring our
+
+118
+00:05:15,100 --> 00:05:18,580
+application to life. Lastly, we discussed
+
+119
+00:05:18,580 --> 00:05:20,790
+the Angular compiler and where to find
+
+120
+00:05:20,790 --> 00:05:23,880
+syntax and compiler error messages in case
+
+121
+00:05:23,880 --> 00:05:27,260
+something goes wrong. Here, again, is our
+
+122
+00:05:27,260 --> 00:05:30,530
+application architecture. In this module,
+
+123
+00:05:30,540 --> 00:05:33,420
+we rebuilt the app component and have the
+
+124
+00:05:33,420 --> 00:05:35,980
+very basics of our application working.
+
+125
+00:05:36,540 --> 00:05:38,740
+Next up, let's take a closer look at
+
+126
+00:05:38,740 --> 00:05:41,220
+templates and how Angular can power them
+
+127
+00:05:41,220 --> 00:05:43,880
+up with binding and directives as we start
+
+128
+00:05:43,880 --> 00:05:46,010
+building the product list component.

@@ -1,0 +1,252 @@
+0
+00:00:01,340 --> 00:00:03,270
+Because browsers don't understand the
+
+1
+00:00:03,270 --> 00:00:05,889
+components and templates we build, Angular
+
+2
+00:00:05,889 --> 00:00:09,169
+applications require a compile process to
+
+3
+00:00:09,169 --> 00:00:11,619
+convert our templates and TypeScript code
+
+4
+00:00:11,619 --> 00:00:14,720
+into JavaScript. Angular has two
+
+5
+00:00:14,720 --> 00:00:17,660
+compilers, a Just In Time, or JIT,
+
+6
+00:00:17,660 --> 00:00:19,440
+compiler, which was used during
+
+7
+00:00:19,440 --> 00:00:22,129
+development. It compiles our application
+
+8
+00:00:22,129 --> 00:00:25,449
+in the browser at runtime, making it quick
+
+9
+00:00:25,449 --> 00:00:28,554
+and forgiving. And an Ahead Of Time, or
+
+10
+00:00:28,554 --> 00:00:30,989
+AOT, compiler, which was used for
+
+11
+00:00:30,989 --> 00:00:33,899
+deployment. It compiles the application
+
+12
+00:00:33,899 --> 00:00:36,149
+ahead of time before serving it to the
+
+13
+00:00:36,149 --> 00:00:38,759
+browser, so we don't need to include the
+
+14
+00:00:38,759 --> 00:00:41,520
+Angular compiler and the compiled bundles,
+
+15
+00:00:41,520 --> 00:00:43,939
+which means smaller bundles, less for the
+
+16
+00:00:43,939 --> 00:00:47,439
+users to download, and faster rendering.
+
+17
+00:00:47,439 --> 00:00:49,500
+Having two compilers was sometimes a
+
+18
+00:00:49,500 --> 00:00:51,789
+problem in that our code would work fine
+
+19
+00:00:51,789 --> 00:00:53,859
+when compiled with the JIT compiler during
+
+20
+00:00:53,859 --> 00:00:56,659
+development, but would fail when compiled
+
+21
+00:00:56,659 --> 00:01:00,189
+with the AOT compiler for production.
+
+22
+00:01:00,189 --> 00:01:02,710
+Starting with Angular version 9, the
+
+23
+00:01:02,710 --> 00:01:05,430
+performance of the AOT compiler was
+
+24
+00:01:05,430 --> 00:01:08,280
+improved enough to use it for development
+
+25
+00:01:08,280 --> 00:01:11,814
+as well. It now compiles before serving
+
+26
+00:01:11,814 --> 00:01:14,719
+the application to the browser. Using one
+
+27
+00:01:14,719 --> 00:01:17,099
+compiler for both development and
+
+28
+00:01:17,099 --> 00:01:20,430
+deployment mitigates any issues early and
+
+29
+00:01:20,430 --> 00:01:22,269
+not during that final build for
+
+30
+00:01:22,269 --> 00:01:25,829
+production. However, the AOT compiler
+
+31
+00:01:25,829 --> 00:01:28,489
+comes with some changes in how we see our
+
+32
+00:01:28,489 --> 00:01:32,219
+syntax and compile errors. When we start
+
+33
+00:01:32,219 --> 00:01:36,079
+our application with npm start, Angular
+
+34
+00:01:36,079 --> 00:01:38,359
+compiles then serves the application to
+
+35
+00:01:38,359 --> 00:01:41,500
+the browser. If the application has
+
+36
+00:01:41,500 --> 00:01:44,519
+compilation errors, we may see this in the
+
+37
+00:01:44,519 --> 00:01:47,950
+browser, cannot GET. That's not very
+
+38
+00:01:47,950 --> 00:01:51,140
+helpful. Using the F12 developer tools, we
+
+39
+00:01:51,140 --> 00:01:53,879
+see Failed to load resource: the server
+
+40
+00:01:53,879 --> 00:01:56,709
+responded with a status of 404 (Not
+
+41
+00:01:56,709 --> 00:01:59,819
+Found). In this case, this message is
+
+42
+00:01:59,819 --> 00:02:02,189
+telling us that Angular could not serve
+
+43
+00:02:02,189 --> 00:02:04,879
+our application to the browser because it
+
+44
+00:02:04,879 --> 00:02:08,199
+could not successfully compile it. If the
+
+45
+00:02:08,199 --> 00:02:09,889
+application was already running
+
+46
+00:02:09,889 --> 00:02:12,569
+successfully, and then we make a change
+
+47
+00:02:12,569 --> 00:02:15,280
+that causes a compile error, we may see
+
+48
+00:02:15,280 --> 00:02:17,699
+the last successful compile files in the
+
+49
+00:02:17,699 --> 00:02:20,830
+browser, or we may see a black overlay
+
+50
+00:02:20,830 --> 00:02:24,020
+with an error message. In any of these
+
+51
+00:02:24,020 --> 00:02:26,580
+cases, the best course of action is to
+
+52
+00:02:26,580 --> 00:02:29,650
+open the VS Code terminal window. It will
+
+53
+00:02:29,650 --> 00:02:32,610
+display any and all compile errors.
+
+54
+00:02:32,610 --> 00:02:34,539
+Consider the terminal window to be the
+
+55
+00:02:34,539 --> 00:02:36,860
+source of truth for compile‑related
+
+56
+00:02:36,860 --> 00:02:40,090
+errors. You may, however, find from time
+
+57
+00:02:40,090 --> 00:02:43,129
+to time that as you modify the code, the
+
+58
+00:02:43,129 --> 00:02:45,310
+terminal window shows errors that were
+
+59
+00:02:45,310 --> 00:02:48,770
+already corrected. When that happens, stop
+
+60
+00:02:48,770 --> 00:02:52,349
+the compiler with Ctrl+C or Cmd+C and
+
+61
+00:02:52,349 --> 00:02:56,039
+restart it with npm start. Now let's
+
+62
+00:02:56,039 --> 00:05:15,000
+finish up this module with some checklists we can use as we build our own components.
+

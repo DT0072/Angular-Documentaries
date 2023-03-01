@@ -1,0 +1,420 @@
+0
+00:00:02,439 --> 00:00:04,419
+You may have heard the saying, pulling
+
+1
+00:00:04,419 --> 00:00:07,299
+yourself up by your bootstraps, originally
+
+2
+00:00:07,299 --> 00:00:09,490
+meaning to improve your situation by your
+
+3
+00:00:09,490 --> 00:00:12,009
+own efforts. In tech, it has come to mean
+
+4
+00:00:12,009 --> 00:00:14,419
+a self‑starting process that loads and
+
+5
+00:00:14,419 --> 00:00:17,070
+goes. We need to tell Angular to load our
+
+6
+00:00:17,070 --> 00:00:19,129
+root component through a process that is
+
+7
+00:00:19,129 --> 00:00:21,879
+called bootstrapping. We first set up the
+
+8
+00:00:21,879 --> 00:00:25,420
+index.html file to host our application.
+
+9
+00:00:25,420 --> 00:00:27,839
+Then we define our root Angular module to
+
+10
+00:00:27,839 --> 00:00:30,750
+bootstrap our root component. Let's look
+
+11
+00:00:30,750 --> 00:00:33,899
+at both of these steps. Client‑side web
+
+12
+00:00:33,899 --> 00:00:36,979
+applications often work like this: A user
+
+13
+00:00:36,979 --> 00:00:40,210
+accesses a specific URL. The server
+
+14
+00:00:40,210 --> 00:00:43,119
+associated with that URL is located and
+
+15
+00:00:43,119 --> 00:00:46,299
+sent a request. The server responds by
+
+16
+00:00:46,299 --> 00:00:48,530
+returning its default web page,
+
+17
+00:00:48,530 --> 00:00:52,359
+index.html. The browser receives and
+
+18
+00:00:52,359 --> 00:00:56,289
+processes that index.html file. For an
+
+19
+00:00:56,289 --> 00:00:59,570
+Angular application, the index.html file
+
+20
+00:00:59,570 --> 00:01:01,789
+contains script tags referencing the
+
+21
+00:01:01,789 --> 00:01:04,879
+application files that were transpired and
+
+22
+00:01:04,879 --> 00:01:08,230
+bundled into several JavaScript files.
+
+23
+00:01:08,230 --> 00:01:09,939
+These application files are then
+
+24
+00:01:09,939 --> 00:01:11,989
+downloaded to and processed by the
+
+25
+00:01:11,989 --> 00:01:14,879
+browser, and the application's main page
+
+26
+00:01:14,879 --> 00:01:19,150
+appears. The index.html file contains that
+
+27
+00:01:19,150 --> 00:01:22,170
+main page for the application. This
+
+28
+00:01:22,170 --> 00:01:25,920
+index.html file is often the one true web
+
+29
+00:01:25,920 --> 00:01:28,430
+page of the application. Hence, an
+
+30
+00:01:28,430 --> 00:01:31,260
+application is often called a single‑page
+
+31
+00:01:31,260 --> 00:01:35,299
+application, or SPA. But don't worry. It
+
+32
+00:01:35,299 --> 00:01:37,349
+will look to the user like we have lots of
+
+33
+00:01:37,349 --> 00:01:39,260
+pages, as we saw in the demo at the
+
+34
+00:01:39,260 --> 00:01:41,900
+beginning of this course. What we do is
+
+35
+00:01:41,900 --> 00:01:45,625
+insert bits of HTML into the one HTML page
+
+36
+00:01:45,625 --> 00:01:49,370
+defined in index.html. Let's see how that
+
+37
+00:01:49,370 --> 00:01:53,090
+works. Here again is our AppComponent just
+
+38
+00:01:53,090 --> 00:01:55,579
+shifted to the right. Recall that the
+
+39
+00:01:55,579 --> 00:01:57,750
+selector is the name of the component when
+
+40
+00:01:57,750 --> 00:02:01,209
+we use it as a directive in HTML. And the
+
+41
+00:02:01,209 --> 00:02:03,670
+template defines the HTML that we want to
+
+42
+00:02:03,670 --> 00:02:07,689
+display. So in the index.html file we
+
+43
+00:02:07,689 --> 00:02:10,150
+simply add the selector where we want our
+
+44
+00:02:10,150 --> 00:02:12,649
+template displayed. Here in the template
+
+45
+00:02:12,649 --> 00:02:15,620
+we call this a directive. A directive is
+
+46
+00:02:15,620 --> 00:02:18,639
+basically a custom element. As soon as the
+
+47
+00:02:18,639 --> 00:02:21,469
+loading is complete, the HTML defined in
+
+48
+00:02:21,469 --> 00:02:23,870
+the component template is inserted between
+
+49
+00:02:23,870 --> 00:02:26,849
+the selector element tags and appears on
+
+50
+00:02:26,849 --> 00:02:29,550
+the page. But how does the Angular
+
+51
+00:02:29,550 --> 00:02:32,550
+compiler know about this custom HTML
+
+52
+00:02:32,550 --> 00:02:36,770
+element? It looks in an Angular module.
+
+53
+00:02:36,770 --> 00:02:38,969
+Angular modules help us organize our
+
+54
+00:02:38,969 --> 00:02:40,960
+application into cohesive blocks of
+
+55
+00:02:40,960 --> 00:02:43,580
+functionality and provide boundaries
+
+56
+00:02:43,580 --> 00:02:46,939
+within our application. They also provide
+
+57
+00:02:46,939 --> 00:02:49,789
+a template resolution environment. What
+
+58
+00:02:49,789 --> 00:02:52,449
+does that mean? When the Angular compiler
+
+59
+00:02:52,449 --> 00:02:54,900
+sees a directive and a template, it looks
+
+60
+00:02:54,900 --> 00:02:58,050
+to the Angular module for the definition.
+
+61
+00:02:58,050 --> 00:03:00,150
+So we declare the AppComponent in an
+
+62
+00:03:00,150 --> 00:03:02,770
+Angular module so the compiler can find
+
+63
+00:03:02,770 --> 00:03:05,870
+it. We also use the module to bootstrap
+
+64
+00:03:05,870 --> 00:03:08,189
+our startup component, which is our
+
+65
+00:03:08,189 --> 00:03:11,180
+AppComponent. And we want our application
+
+66
+00:03:11,180 --> 00:03:13,430
+to work correctly in the browser, so we
+
+67
+00:03:13,430 --> 00:03:16,500
+add Angular's BrowserModule to our Angular
+
+68
+00:03:16,500 --> 00:03:20,340
+module's imports. Okay, pictures are nice,
+
+69
+00:03:20,340 --> 00:03:23,610
+but what does that look like in code? Here
+
+70
+00:03:23,610 --> 00:03:27,129
+is our application's root Angular module.
+
+71
+00:03:27,129 --> 00:03:29,169
+As with most everything in Angular, we
+
+72
+00:03:29,169 --> 00:03:32,719
+define an Angular module using a class. We
+
+73
+00:03:32,719 --> 00:03:35,930
+identify the class as an Angular module by
+
+74
+00:03:35,930 --> 00:03:39,039
+attaching the NgModule decorator and
+
+75
+00:03:39,039 --> 00:03:41,669
+passing in metadata defining the details
+
+76
+00:03:41,669 --> 00:03:45,019
+of this Angular module. For the NgModule
+
+77
+00:03:45,019 --> 00:03:48,379
+decorator, the properties are arrays. In
+
+78
+00:03:48,379 --> 00:03:50,909
+the declarations array, we define which of
+
+79
+00:03:50,909 --> 00:03:54,409
+our components belong to this module. By
+
+80
+00:03:54,409 --> 00:03:56,409
+convention, our root application
+
+81
+00:03:56,409 --> 00:03:59,229
+component, AppComponent, belongs to the
+
+82
+00:03:59,229 --> 00:04:01,770
+application's root Angular module,
+
+83
+00:04:01,770 --> 00:04:05,389
+AppModule, so we declare it here. We can
+
+84
+00:04:05,389 --> 00:04:07,939
+add other components here as well. We'll
+
+85
+00:04:07,939 --> 00:04:10,189
+cover best practices for organizing our
+
+86
+00:04:10,189 --> 00:04:12,930
+application into Angular modules later in
+
+87
+00:04:12,930 --> 00:04:15,229
+this course. For now, all of our
+
+88
+00:04:15,229 --> 00:04:18,149
+components will be declared here. In the
+
+89
+00:04:18,149 --> 00:04:20,790
+imports array, we define the external
+
+90
+00:04:20,790 --> 00:04:23,180
+modules that we want to have available to
+
+91
+00:04:23,180 --> 00:04:25,360
+all of the components that belong to this
+
+92
+00:04:25,360 --> 00:04:28,209
+Angular module. External modules could be
+
+93
+00:04:28,209 --> 00:04:30,670
+modules provided by Angular, a third
+
+94
+00:04:30,670 --> 00:04:34,589
+party, or our own Angular modules. Here we
+
+95
+00:04:34,589 --> 00:04:37,410
+import BrowserModule, which every browser
+
+96
+00:04:37,410 --> 00:04:40,480
+application must import. BrowserModule
+
+97
+00:04:40,480 --> 00:04:43,279
+registers important application service
+
+98
+00:04:43,279 --> 00:04:45,430
+providers such as error handling. The
+
+99
+00:04:45,430 --> 00:04:47,550
+bootstrap array defines the startup
+
+100
+00:04:47,550 --> 00:04:50,360
+component of the application, which is our
+
+101
+00:04:50,360 --> 00:04:53,069
+AppComponent. The startup component should
+
+102
+00:04:53,069 --> 00:04:55,069
+contain the selector we use in the
+
+103
+00:04:55,069 --> 00:04:58,529
+index.html file, which in this case it
+
+104
+00:04:58,529 --> 00:04:22,000
+does. Now let's check it out in the sample application.
+

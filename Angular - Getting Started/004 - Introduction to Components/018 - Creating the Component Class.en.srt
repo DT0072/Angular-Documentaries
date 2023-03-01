@@ -1,0 +1,200 @@
+0
+00:00:02,339 --> 00:00:04,429
+If you have done any object‑oriented
+
+1
+00:00:04,429 --> 00:00:06,990
+programming in languages such a C#,
+
+2
+00:00:06,990 --> 00:00:10,720
+VB.NET, Java, or C++, this code should
+
+3
+00:00:10,720 --> 00:00:13,800
+look familiar. A class is a construct that
+
+4
+00:00:13,800 --> 00:00:16,480
+allows us to create a type with properties
+
+5
+00:00:16,480 --> 00:00:18,960
+that define the data elements and methods
+
+6
+00:00:18,960 --> 00:00:21,719
+that provide functionality. We define a
+
+7
+00:00:21,719 --> 00:00:24,589
+class using the class keyword followed by
+
+8
+00:00:24,589 --> 00:00:26,960
+the class name. A common Angular
+
+9
+00:00:26,960 --> 00:00:29,489
+convention is to name each component class
+
+10
+00:00:29,489 --> 00:00:31,469
+with the feature name, then append the
+
+11
+00:00:31,469 --> 00:00:34,780
+word component as the suffix. Also, by
+
+12
+00:00:34,780 --> 00:00:36,609
+convention, the root component for an
+
+13
+00:00:36,609 --> 00:00:39,509
+application is called AppComponent, as
+
+14
+00:00:39,509 --> 00:00:42,439
+shown here. This class name is used as the
+
+15
+00:00:42,439 --> 00:00:44,250
+component name when the component is
+
+16
+00:00:44,250 --> 00:00:47,100
+referenced in code. The export keyword
+
+17
+00:00:47,100 --> 00:00:49,789
+here at the front exports this class,
+
+18
+00:00:49,789 --> 00:00:52,000
+thereby making it available for use by
+
+19
+00:00:52,000 --> 00:00:54,850
+other components of the application. And
+
+20
+00:00:54,850 --> 00:00:57,159
+as we learned in the last course module,
+
+21
+00:00:57,159 --> 00:00:59,189
+since this file exports something, this
+
+22
+00:00:59,189 --> 00:01:02,420
+file is now an ES module. Within the body
+
+23
+00:01:02,420 --> 00:01:04,370
+of the class are the properties and
+
+24
+00:01:04,370 --> 00:01:07,359
+methods. In this example, we only have one
+
+25
+00:01:07,359 --> 00:01:10,349
+property and no methods. A property
+
+26
+00:01:10,349 --> 00:01:12,790
+defines a data element associated with the
+
+27
+00:01:12,790 --> 00:01:15,650
+class. We start with the property name,
+
+28
+00:01:15,650 --> 00:01:18,049
+which by convention is a noun describing
+
+29
+00:01:18,049 --> 00:01:20,950
+the data element, and it is in camelCase,
+
+30
+00:01:20,950 --> 00:01:22,780
+whereby the first letter of the name is
+
+31
+00:01:22,780 --> 00:01:25,510
+lowercase. In this example, it is the
+
+32
+00:01:25,510 --> 00:01:28,590
+title of the page. Using TypeScript's
+
+33
+00:01:28,590 --> 00:01:31,090
+strong typing, we follow the property name
+
+34
+00:01:31,090 --> 00:01:33,989
+with a colon and its data type. In this
+
+35
+00:01:33,989 --> 00:01:35,989
+example, the pageTitle property is a
+
+36
+00:01:35,989 --> 00:01:38,980
+string. We can optionally assign a default
+
+37
+00:01:38,980 --> 00:01:41,750
+value to the property as shown in this
+
+38
+00:01:41,750 --> 00:01:43,709
+example. Methods are normally defined
+
+39
+00:01:43,709 --> 00:01:46,090
+within the class body after all of the
+
+40
+00:01:46,090 --> 00:01:49,090
+properties. Method names are often verbs
+
+41
+00:01:49,090 --> 00:01:50,760
+that describe the action the method
+
+42
+00:01:50,760 --> 00:01:53,260
+performs. Method names are also in
+
+43
+00:01:53,260 --> 00:01:55,280
+camelCase, whereby the first letter of the
+
+44
+00:01:55,280 --> 00:01:58,969
+name is lowercase. So that's it for the
+
+45
+00:01:58,969 --> 00:02:02,060
+class. But a class alone is not enough to
+
+46
+00:02:02,060 --> 00:02:04,790
+define a component. We need to define the
+
+47
+00:02:04,790 --> 00:02:06,930
+template associated with this component
+
+48
+00:02:06,930 --> 00:02:09,539
+class. How do we provide this extra
+
+49
+00:02:09,539 --> 00:02:17,000
+information to Angular? With metadata. Let's look at that next.
+

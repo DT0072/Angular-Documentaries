@@ -1,0 +1,176 @@
+0
+00:00:02,339 --> 00:00:04,870
+An Angular component includes a template,
+
+1
+00:00:04,870 --> 00:00:06,690
+which lays out the user interface
+
+2
+00:00:06,690 --> 00:00:08,550
+fragment, defining a view for the
+
+3
+00:00:08,550 --> 00:00:12,089
+application. It is created with HTML and
+
+4
+00:00:12,089 --> 00:00:14,800
+defines what is rendered on the page. We
+
+5
+00:00:14,800 --> 00:00:17,010
+use Angular binding and directives in the
+
+6
+00:00:17,010 --> 00:00:20,070
+HTML to power up the view. We'll cover
+
+7
+00:00:20,070 --> 00:00:23,039
+binding and directives in a later module.
+
+8
+00:00:23,039 --> 00:00:24,750
+Add to that a class for the code
+
+9
+00:00:24,750 --> 00:00:27,199
+associated with the view, the classes
+
+10
+00:00:27,199 --> 00:00:29,769
+created with TypeScript. The class
+
+11
+00:00:29,769 --> 00:00:32,119
+contains the properties or data elements
+
+12
+00:00:32,119 --> 00:00:34,310
+available for use in the view. For
+
+13
+00:00:34,310 --> 00:00:36,840
+example, if we want to display a title in
+
+14
+00:00:36,840 --> 00:00:39,369
+the view, we define a class property for
+
+15
+00:00:39,369 --> 00:00:41,740
+that title. The class also contains
+
+16
+00:00:41,740 --> 00:00:43,570
+methods, which are the functions for the
+
+17
+00:00:43,570 --> 00:00:46,890
+logic needed by the view. For example, if
+
+18
+00:00:46,890 --> 00:00:49,009
+we want to show and hide an image, we'd
+
+19
+00:00:49,009 --> 00:00:51,920
+write the logic in a class method. A
+
+20
+00:00:51,920 --> 00:00:54,500
+component also has metadata, which
+
+21
+00:00:54,500 --> 00:00:56,479
+provides additional information about the
+
+22
+00:00:56,479 --> 00:00:59,689
+component to Angular. It is this metadata
+
+23
+00:00:59,689 --> 00:01:02,259
+that defines this class as an Angular
+
+24
+00:01:02,259 --> 00:01:05,420
+component. The metadata is defined with a
+
+25
+00:01:05,420 --> 00:01:08,269
+decorator. A decorator is a function that
+
+26
+00:01:08,269 --> 00:01:11,489
+adds metadata to a class, its members, or
+
+27
+00:01:11,489 --> 00:01:14,780
+its method arguments. So a component is a
+
+28
+00:01:14,780 --> 00:01:17,049
+view defined in a template, it's
+
+29
+00:01:17,049 --> 00:01:19,640
+associated code defined with the class,
+
+30
+00:01:19,640 --> 00:01:23,140
+and metadata defined with a decorator.
+
+31
+00:01:23,140 --> 00:01:26,250
+Want to see what a component looks like in
+
+32
+00:01:26,250 --> 00:01:29,099
+TypeScript? Here is a simple component. It
+
+33
+00:01:29,099 --> 00:01:31,000
+might look complex at first, so let's
+
+34
+00:01:31,000 --> 00:01:33,219
+break this component into chunks, starting
+
+35
+00:01:33,219 --> 00:01:36,370
+at the bottom. Here is our class. It
+
+36
+00:01:36,370 --> 00:01:38,519
+defines the properties and methods needed
+
+37
+00:01:38,519 --> 00:01:41,129
+by our view. Here is the component
+
+38
+00:01:41,129 --> 00:01:44,049
+decorator that defines the metadata. The
+
+39
+00:01:44,049 --> 00:01:46,500
+metadata includes the template that lays
+
+40
+00:01:46,500 --> 00:01:49,239
+out the view managed by this component,
+
+41
+00:01:49,239 --> 00:01:51,510
+and here we import the members that we
+
+42
+00:01:51,510 --> 00:01:54,290
+need. Let's examine each of these chunks
+
+43
+00:01:54,290 --> 00:01:59,000
+in more detail, starting at the bottom with the class.
+

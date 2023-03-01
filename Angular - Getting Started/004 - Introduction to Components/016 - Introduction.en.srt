@@ -1,0 +1,148 @@
+0
+00:00:01,439 --> 00:00:03,180
+In the last module, we set up the
+
+1
+00:00:03,180 --> 00:00:04,620
+infrastructure for our Angular
+
+2
+00:00:04,620 --> 00:00:07,669
+application. Now we are ready to build our
+
+3
+00:00:07,669 --> 00:00:10,660
+first component. Welcome back to Angular:
+
+4
+00:00:10,660 --> 00:00:13,310
+Getting Started, from Pluralsight. My name
+
+5
+00:00:13,310 --> 00:00:16,120
+is Deborah Kurata, and in this module, we
+
+6
+00:00:16,120 --> 00:00:17,699
+walk through building a very basic
+
+7
+00:00:17,699 --> 00:00:20,449
+component with a focus on clearly defining
+
+8
+00:00:20,449 --> 00:00:23,300
+the component's parts, their meaning, and
+
+9
+00:00:23,300 --> 00:00:26,390
+their purpose. We can think of our Angular
+
+10
+00:00:26,390 --> 00:00:29,089
+application as a set of components. We
+
+11
+00:00:29,089 --> 00:00:31,480
+create each component, then arrange them
+
+12
+00:00:31,480 --> 00:00:34,579
+to form our application. If all goes well,
+
+13
+00:00:34,579 --> 00:00:36,920
+those components work together in harmony
+
+14
+00:00:36,920 --> 00:00:38,700
+to provide the user with a great
+
+15
+00:00:38,700 --> 00:00:42,509
+experience. In this module, we take a
+
+16
+00:00:42,509 --> 00:00:44,719
+closer look at what an Angular component
+
+17
+00:00:44,719 --> 00:00:47,039
+is and examine the code we need to build
+
+18
+00:00:47,039 --> 00:00:49,259
+one. We walk through how to create the
+
+19
+00:00:49,259 --> 00:00:51,859
+component's class and how and why we need
+
+20
+00:00:51,859 --> 00:00:54,420
+to define metadata. We look at how to
+
+21
+00:00:54,420 --> 00:00:57,490
+import what we need from external modules,
+
+22
+00:00:57,490 --> 00:00:59,959
+and we discover how to bootstrap the app
+
+23
+00:00:59,959 --> 00:01:02,250
+component to bring our application to
+
+24
+00:01:02,250 --> 00:01:04,379
+life. We'll continue to add to this
+
+25
+00:01:04,379 --> 00:01:07,299
+application throughout this course.
+
+26
+00:01:07,299 --> 00:01:10,280
+Lastly, we discuss the Angular compiler
+
+27
+00:01:10,280 --> 00:01:12,709
+and where to find syntax and compiler
+
+28
+00:01:12,709 --> 00:01:15,180
+error messages in case something goes
+
+29
+00:01:15,180 --> 00:01:18,459
+wrong along the way. Looking again at our
+
+30
+00:01:18,459 --> 00:01:20,680
+application architecture that we defined
+
+31
+00:01:20,680 --> 00:01:23,049
+in the first module, I had used the
+
+32
+00:01:23,049 --> 00:01:25,810
+Angular CLI to create the initial content
+
+33
+00:01:25,810 --> 00:01:28,370
+for my starter files, including the
+
+34
+00:01:28,370 --> 00:01:31,950
+index.html file and the app component,
+
+35
+00:01:31,950 --> 00:01:34,090
+which I then updated for our sample
+
+36
+00:01:34,090 --> 00:01:26,000
+application. In this module, we'll rebuild this app component. Let's get started.
+

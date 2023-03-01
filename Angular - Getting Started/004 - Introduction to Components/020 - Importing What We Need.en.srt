@@ -1,0 +1,180 @@
+0
+00:00:02,439 --> 00:00:04,480
+Before we can use an external function or
+
+1
+00:00:04,480 --> 00:00:07,580
+class, we need to define where to find it.
+
+2
+00:00:07,580 --> 00:00:10,660
+We do that with an import statement. The
+
+3
+00:00:10,660 --> 00:00:13,779
+import statement is part of ES2015 and
+
+4
+00:00:13,779 --> 00:00:15,919
+implemented in TypeScript. It is
+
+5
+00:00:15,919 --> 00:00:17,870
+conceptually similar to the import
+
+6
+00:00:17,870 --> 00:00:20,589
+statement in Java or the C# using
+
+7
+00:00:20,589 --> 00:00:23,280
+statement. The import statement allows us
+
+8
+00:00:23,280 --> 00:00:25,850
+to use exported members from external
+
+9
+00:00:25,850 --> 00:00:29,129
+modules. Remember how we just exported our
+
+10
+00:00:29,129 --> 00:00:32,020
+class using the export keyword? That means
+
+11
+00:00:32,020 --> 00:00:34,109
+that other modules in our application can
+
+12
+00:00:34,109 --> 00:00:37,420
+import our exported class if needed. We'll
+
+13
+00:00:37,420 --> 00:00:39,200
+use the import statement throughout our
+
+14
+00:00:39,200 --> 00:00:42,149
+code to import any third‑party library,
+
+15
+00:00:42,149 --> 00:00:45,170
+any of our own modules, or from Angular
+
+16
+00:00:45,170 --> 00:00:49,039
+itself. We can import from Angular because
+
+17
+00:00:49,039 --> 00:00:52,409
+Angular is modular. It is a collection of
+
+18
+00:00:52,409 --> 00:00:55,789
+library modules. Each library is itself a
+
+19
+00:00:55,789 --> 00:00:58,299
+module made up of several related feature
+
+20
+00:00:58,299 --> 00:01:00,579
+modules. When we need something from
+
+21
+00:01:00,579 --> 00:01:02,549
+Angular, we import it from an Angular
+
+22
+00:01:02,549 --> 00:01:05,370
+library module, just like we import from
+
+23
+00:01:05,370 --> 00:01:08,659
+any other external module. Use this link
+
+24
+00:01:08,659 --> 00:01:10,609
+if you want to view the list of available
+
+25
+00:01:10,609 --> 00:01:13,280
+Angular library packages and their current
+
+26
+00:01:13,280 --> 00:01:16,650
+versions. In our component code, we use
+
+27
+00:01:16,650 --> 00:01:18,750
+the @Component decorator function from
+
+28
+00:01:18,750 --> 00:01:20,689
+Angular to define our class as a
+
+29
+00:01:20,689 --> 00:01:23,659
+component. We need to tell Angular where
+
+30
+00:01:23,659 --> 00:01:26,400
+to find this function, so we add an import
+
+31
+00:01:26,400 --> 00:01:28,700
+statement and import { Component } from
+
+32
+00:01:28,700 --> 00:01:31,829
+'@angular/core'; like this. We start with
+
+33
+00:01:31,829 --> 00:01:34,709
+the import keyword. We identify the name
+
+34
+00:01:34,709 --> 00:01:37,599
+of the member we need within curly braces.
+
+35
+00:01:37,599 --> 00:01:39,359
+In this case, we need the @Component
+
+36
+00:01:39,359 --> 00:01:42,299
+decorator function, and we define the path
+
+37
+00:01:42,299 --> 00:01:44,819
+to the module containing that member. In
+
+38
+00:01:44,819 --> 00:01:46,870
+this case, the @angular/core library
+
+39
+00:01:46,870 --> 00:01:49,739
+module. If we need multiple members from
+
+40
+00:01:49,739 --> 00:01:52,170
+the same module, we can list them all in
+
+41
+00:01:52,170 --> 00:01:55,030
+the imports list, separated by commas.
+
+42
+00:01:55,030 --> 00:01:57,049
+We'll see examples of that later in this
+
+43
+00:01:57,049 --> 00:02:01,069
+course. So this is a component. Now we're
+
+44
+00:02:01,069 --> 00:02:08,000
+ready to build the first component for our sample application. Let's jump in.
+
