@@ -1,0 +1,440 @@
+0
+00:00:02,140 --> 00:00:04,910
+Here again is our diagram. In the last
+
+1
+00:00:04,910 --> 00:00:06,969
+clip, we saw how to register the service
+
+2
+00:00:06,969 --> 00:00:09,689
+with the Angular injector. Now we just
+
+3
+00:00:09,689 --> 00:00:12,320
+need to define it as a dependency so the
+
+4
+00:00:12,320 --> 00:00:14,320
+injector will provide the instance in the
+
+5
+00:00:14,320 --> 00:00:18,929
+classes that need it. So how do we do
+
+6
+00:00:18,929 --> 00:00:21,339
+dependency injection in Angular? Well, the
+
+7
+00:00:21,339 --> 00:00:23,550
+better question is, how do we do
+
+8
+00:00:23,550 --> 00:00:26,390
+dependency injection in TypeScript? The
+
+9
+00:00:26,390 --> 00:00:29,989
+answer is in the constructor. Every class
+
+10
+00:00:29,989 --> 00:00:32,310
+has a constructor that is executed when an
+
+11
+00:00:32,310 --> 00:00:34,939
+instance of the class is created. If there
+
+12
+00:00:34,939 --> 00:00:37,009
+is no explicit constructor defined for the
+
+13
+00:00:37,009 --> 00:00:39,939
+class, an implicit constructor is used,
+
+14
+00:00:39,939 --> 00:00:42,829
+but if we want to inject dependencies such
+
+15
+00:00:42,829 --> 00:00:45,320
+as an instance of a service, we need an
+
+16
+00:00:45,320 --> 00:00:48,469
+explicit constructor. In TypeScript, a
+
+17
+00:00:48,469 --> 00:00:50,899
+constructor is defined with a constructor
+
+18
+00:00:50,899 --> 00:00:53,570
+function. What type of code normally goes
+
+19
+00:00:53,570 --> 00:00:55,950
+into the constructor function? As little
+
+20
+00:00:55,950 --> 00:00:58,280
+as possible. Since the constructor
+
+21
+00:00:58,280 --> 00:01:00,520
+function is executed when the component is
+
+22
+00:01:00,520 --> 00:01:02,840
+created, it is primarily used for
+
+23
+00:01:02,840 --> 00:01:05,540
+initialization and not for code that has
+
+24
+00:01:05,540 --> 00:01:09,450
+side effects or takes time to execute. We
+
+25
+00:01:09,450 --> 00:01:11,959
+identify our dependencies by specifying
+
+26
+00:01:11,959 --> 00:01:14,189
+them as parameters to the constructor
+
+27
+00:01:14,189 --> 00:01:17,230
+function like this. Here we define a
+
+28
+00:01:17,230 --> 00:01:19,299
+private variable to hold the injected
+
+29
+00:01:19,299 --> 00:01:21,750
+service instance. We create another
+
+30
+00:01:21,750 --> 00:01:24,250
+variable as the constructor parameter.
+
+31
+00:01:24,250 --> 00:01:26,459
+When this class is constructed, the
+
+32
+00:01:26,459 --> 00:01:28,959
+Angular injector sets this parameter to
+
+33
+00:01:28,959 --> 00:01:30,959
+the injected instance of the requested
+
+34
+00:01:30,959 --> 00:01:33,400
+service. We then assign the injected
+
+35
+00:01:33,400 --> 00:01:36,269
+service instance to our local variable. We
+
+36
+00:01:36,269 --> 00:01:38,480
+can then use this variable anywhere in our
+
+37
+00:01:38,480 --> 00:01:41,200
+class to access service properties or
+
+38
+00:01:41,200 --> 00:01:44,319
+methods. This is such a common pattern
+
+39
+00:01:44,319 --> 00:01:46,849
+that TypeScript defined a shorthand syntax
+
+40
+00:01:46,849 --> 00:01:50,280
+for all of this code. We simply add the
+
+41
+00:01:50,280 --> 00:01:53,670
+accessor keyword, such as private here, to
+
+42
+00:01:53,670 --> 00:01:56,359
+the constructor parameter. Then this is a
+
+43
+00:01:56,359 --> 00:01:58,829
+shortcut for declaring this variable,
+
+44
+00:01:58,829 --> 00:02:01,060
+defining a parameter, and setting the
+
+45
+00:02:01,060 --> 00:02:04,040
+variable to the parameter. Neat! You'll
+
+46
+00:02:04,040 --> 00:02:05,829
+see this technique used throughout the
+
+47
+00:02:05,829 --> 00:02:08,270
+Angular documentation and other code
+
+48
+00:02:08,270 --> 00:02:12,860
+examples. Ready to give it a try? We want
+
+49
+00:02:12,860 --> 00:02:15,060
+to use our service to get products in the
+
+50
+00:02:15,060 --> 00:02:17,810
+product list component. So we'll define
+
+51
+00:02:17,810 --> 00:02:20,280
+our product service as a dependency in the
+
+52
+00:02:20,280 --> 00:02:22,819
+product list component. We don't have to
+
+53
+00:02:22,819 --> 00:02:25,389
+add the providers array here, because the
+
+54
+00:02:25,389 --> 00:02:27,819
+product service is already registered. All
+
+55
+00:02:27,819 --> 00:02:30,620
+we need is a constructor, and we already
+
+56
+00:02:30,620 --> 00:02:33,400
+have one here. We'll use the shorthand
+
+57
+00:02:33,400 --> 00:02:36,400
+syntax to define the dependency; private
+
+58
+00:02:36,400 --> 00:02:39,340
+productService. Then because we are using
+
+59
+00:02:39,340 --> 00:02:42,000
+TypeScript, we type colon and the type,
+
+60
+00:02:42,000 --> 00:02:44,500
+which is ProductService. Note that the
+
+61
+00:02:44,500 --> 00:02:46,939
+excessor doesn't have to be private. This
+
+62
+00:02:46,939 --> 00:02:49,340
+shorthand syntax works with public and
+
+63
+00:02:49,340 --> 00:02:52,789
+protected as well. So now we have a syntax
+
+64
+00:02:52,789 --> 00:02:56,259
+error here. I bet you know why. Yes, we
+
+65
+00:02:56,259 --> 00:02:58,719
+need to import ProductService so we can
+
+66
+00:02:58,719 --> 00:03:02,060
+use it as the data type here. Now, when an
+
+67
+00:03:02,060 --> 00:03:04,039
+instance of the product list component is
+
+68
+00:03:04,039 --> 00:03:06,949
+created, the Angular injector injects in
+
+69
+00:03:06,949 --> 00:03:09,944
+the instance of the product service. We
+
+70
+00:03:09,944 --> 00:03:12,069
+are at the point now where we can actually
+
+71
+00:03:12,069 --> 00:03:14,939
+use the product service. First, let's
+
+72
+00:03:14,939 --> 00:03:17,129
+delete the hard‑coded products from here.
+
+73
+00:03:17,129 --> 00:03:20,370
+We'll instead get them from the service.
+
+74
+00:03:20,370 --> 00:03:23,039
+Now the question is, where should we put
+
+75
+00:03:23,039 --> 00:03:25,750
+the code to call the service? One thought
+
+76
+00:03:25,750 --> 00:03:28,300
+might be to put it in the constructor, but
+
+77
+00:03:28,300 --> 00:03:30,389
+ultimately our product service will go out
+
+78
+00:03:30,389 --> 00:03:32,889
+to a back‑end server to get the data. We
+
+79
+00:03:32,889 --> 00:03:34,740
+don't want all of that executed in the
+
+80
+00:03:34,740 --> 00:03:38,199
+constructor. Other thoughts? Remember our
+
+81
+00:03:38,199 --> 00:03:40,979
+discussion about lifecycle hooks? Earlier
+
+82
+00:03:40,979 --> 00:03:42,465
+in this course, we said that OnInit
+
+83
+00:03:42,465 --> 00:03:45,560
+lifecycle hook provides a place to perform
+
+84
+00:03:45,560 --> 00:03:48,389
+any component initialization, and it's a
+
+85
+00:03:48,389 --> 00:03:50,310
+great place to retrieve the data for the
+
+86
+00:03:50,310 --> 00:03:53,300
+template. Let's use the OnInit lifecycle
+
+87
+00:03:53,300 --> 00:03:56,139
+hook. We want to set the products property
+
+88
+00:03:56,139 --> 00:03:58,404
+to the products returned from our service.
+
+89
+00:03:58,404 --> 00:04:01,060
+To call the service, we use our private
+
+90
+00:04:01,060 --> 00:04:03,469
+variable containing the injected server
+
+91
+00:04:03,469 --> 00:04:06,580
+instance. We then type a dot and the name
+
+92
+00:04:06,580 --> 00:04:08,810
+of the method we want to call. Notice how
+
+93
+00:04:08,810 --> 00:04:11,740
+IntelliSense helps us with all of this.
+
+94
+00:04:11,740 --> 00:04:13,650
+There is a small problem with our code at
+
+95
+00:04:13,650 --> 00:04:16,120
+this point. Since the constructor is
+
+96
+00:04:16,120 --> 00:04:20,000
+executed before the ngOnInit, the list of
+
+97
+00:04:20,000 --> 00:04:22,709
+products will be empty here. We want to
+
+98
+00:04:22,709 --> 00:04:25,290
+set our filtered list of products to this
+
+99
+00:04:25,290 --> 00:04:27,910
+list of products, so we need to move this
+
+100
+00:04:27,910 --> 00:04:31,180
+line of code to the ngOnInit as well.
+
+101
+00:04:31,180 --> 00:04:33,660
+Let's make one more little change. Let's
+
+102
+00:04:33,660 --> 00:04:36,310
+remove the default list filter value so
+
+103
+00:04:36,310 --> 00:04:39,439
+we'll see all of the products in the list.
+
+104
+00:04:39,439 --> 00:04:41,699
+We should be all set to see our result in
+
+105
+00:04:41,699 --> 00:04:44,187
+the browser. And here are our products.
+
+106
+00:04:44,187 --> 00:04:47,290
+Yay! Notice that we have more products
+
+107
+00:04:47,290 --> 00:04:49,470
+displayed now, because I hard‑coded more
+
+108
+00:04:49,470 --> 00:04:52,509
+products into the service. Let's finish up
+
+109
+00:04:52,509 --> 00:04:59,000
+this module with some checklists we can use as we build our services.
+

@@ -1,0 +1,192 @@
+0
+00:00:02,439 --> 00:00:04,240
+We build a service using the same
+
+1
+00:00:04,240 --> 00:00:06,500
+techniques as when we build components and
+
+2
+00:00:06,500 --> 00:00:09,320
+custom pipes. We start by creating the
+
+3
+00:00:09,320 --> 00:00:12,570
+Service class. We specify a clear class
+
+4
+00:00:12,570 --> 00:00:14,589
+name appropriate for the services it
+
+5
+00:00:14,589 --> 00:00:17,940
+provides. Use PascalCasing where each word
+
+6
+00:00:17,940 --> 00:00:20,750
+of the name is capitalized, append service
+
+7
+00:00:20,750 --> 00:00:23,250
+to the name, and don't forget the export
+
+8
+00:00:23,250 --> 00:00:26,050
+keyword. We then decorate the Service
+
+9
+00:00:26,050 --> 00:00:29,550
+class with the Injectable decorator. Don't
+
+10
+00:00:29,550 --> 00:00:31,660
+forget the @ prefix, and since the
+
+11
+00:00:31,660 --> 00:00:33,929
+decorator is a function, follow it with
+
+12
+00:00:33,929 --> 00:00:36,960
+open and closing parentheses, and be sure
+
+13
+00:00:36,960 --> 00:00:39,880
+to define the appropriate imports. The
+
+14
+00:00:39,880 --> 00:00:42,630
+first step to registering a service is to
+
+15
+00:00:42,630 --> 00:00:44,880
+select the appropriate level in the
+
+16
+00:00:44,880 --> 00:00:47,340
+injector hierarchy that the service should
+
+17
+00:00:47,340 --> 00:00:50,619
+be registered. Use the root application
+
+18
+00:00:50,619 --> 00:00:53,130
+injector if the service is shared
+
+19
+00:00:53,130 --> 00:00:56,119
+throughout the application. If only one
+
+20
+00:00:56,119 --> 00:00:58,820
+component and its children needs the
+
+21
+00:00:58,820 --> 00:01:01,640
+service, register it with that component's
+
+22
+00:01:01,640 --> 00:01:06,010
+injector. Pick one or the other, not both.
+
+23
+00:01:06,010 --> 00:01:08,300
+Register a service with the root injector
+
+24
+00:01:08,300 --> 00:01:11,030
+using the Injectable decorator of the
+
+25
+00:01:11,030 --> 00:01:14,480
+service. Set the providedIn property to
+
+26
+00:01:14,480 --> 00:01:18,540
+root. Register a service for a specific
+
+27
+00:01:18,540 --> 00:01:20,549
+component and its children using its
+
+28
+00:01:20,549 --> 00:01:23,700
+Component decorator. Use the providers
+
+29
+00:01:23,700 --> 00:01:27,950
+property to register the service. In any
+
+30
+00:01:27,950 --> 00:01:30,420
+class that needs the service, specify the
+
+31
+00:01:30,420 --> 00:01:33,609
+service as a dependency. Use a constructor
+
+32
+00:01:33,609 --> 00:01:36,480
+parameter to define the dependency. The
+
+33
+00:01:36,480 --> 00:01:38,790
+Angular injector will inject an instance
+
+34
+00:01:38,790 --> 00:01:40,659
+of the service when the component is
+
+35
+00:01:40,659 --> 00:01:44,469
+instantiated. This module was all about
+
+36
+00:01:44,469 --> 00:01:47,519
+services. We began with an overview of how
+
+37
+00:01:47,519 --> 00:01:49,989
+services and dependency injection work in
+
+38
+00:01:49,989 --> 00:01:52,189
+Angular. Then we walked through how to
+
+39
+00:01:52,189 --> 00:01:55,209
+build a simple service. We defined how and
+
+40
+00:01:55,209 --> 00:01:56,680
+where to register the service with
+
+41
+00:01:56,680 --> 00:01:59,579
+Angular, and we examined how to define the
+
+42
+00:01:59,579 --> 00:02:02,170
+service as a dependency so the service
+
+43
+00:02:02,170 --> 00:02:05,180
+instance is injected into any class that
+
+44
+00:02:05,180 --> 00:02:08,430
+needs it. In this module, we built the
+
+45
+00:02:08,430 --> 00:02:11,000
+product data service, so our product list
+
+46
+00:02:11,000 --> 00:02:13,419
+component no longer has hard‑coded
+
+47
+00:02:13,419 --> 00:02:23,000
+products. Next up, we'll see how to modify the service to retrieve data using HTTP.
+

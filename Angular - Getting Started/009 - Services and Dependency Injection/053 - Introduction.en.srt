@@ -1,0 +1,144 @@
+0
+00:00:02,140 --> 00:00:04,480
+Components are great and all, but what do
+
+1
+00:00:04,480 --> 00:00:06,719
+we do with data or logic that is not
+
+2
+00:00:06,719 --> 00:00:09,539
+associated with a specific view or that we
+
+3
+00:00:09,539 --> 00:00:13,009
+want to share across components? We build
+
+4
+00:00:13,009 --> 00:00:16,370
+services. Welcome back to Angular: Getting
+
+5
+00:00:16,370 --> 00:00:19,250
+Started, from Pluralsight. Deborah Kurata
+
+6
+00:00:19,250 --> 00:00:22,489
+here at your service, and in this module,
+
+7
+00:00:22,489 --> 00:00:24,929
+we create a service and use dependency
+
+8
+00:00:24,929 --> 00:00:27,570
+injection to inject that service into any
+
+9
+00:00:27,570 --> 00:00:30,859
+component that needs it. Applications
+
+10
+00:00:30,859 --> 00:00:33,630
+often require services such as a product
+
+11
+00:00:33,630 --> 00:00:36,880
+data service or a logging service. Our
+
+12
+00:00:36,880 --> 00:00:39,280
+components depend on these services to do
+
+13
+00:00:39,280 --> 00:00:41,969
+the heavy lifting. Wouldn't it be nice if
+
+14
+00:00:41,969 --> 00:00:44,039
+Angular could serve us up those services
+
+15
+00:00:44,039 --> 00:00:47,829
+on a platter? Well, yes, it can. But what
+
+16
+00:00:47,829 --> 00:00:52,369
+are services exactly? A service is a class
+
+17
+00:00:52,369 --> 00:00:55,159
+with a focused purpose. We often create a
+
+18
+00:00:55,159 --> 00:00:57,500
+service to implement functionality that is
+
+19
+00:00:57,500 --> 00:01:00,479
+independent from any particular component
+
+20
+00:01:00,479 --> 00:01:03,210
+to share data or logic across components
+
+21
+00:01:03,210 --> 00:01:06,340
+or encapsulate external interactions such
+
+22
+00:01:06,340 --> 00:01:09,090
+as data access. By shifting these
+
+23
+00:01:09,090 --> 00:01:11,250
+responsibilities from the component to a
+
+24
+00:01:11,250 --> 00:01:13,780
+service, the code is easier to test,
+
+25
+00:01:13,780 --> 00:01:17,950
+debug, and reuse. In this module, we start
+
+26
+00:01:17,950 --> 00:01:19,819
+with an overview of how services and
+
+27
+00:01:19,819 --> 00:01:23,140
+dependency injection work in Angular. Then
+
+28
+00:01:23,140 --> 00:01:25,400
+we'll build a service, we'll register that
+
+29
+00:01:25,400 --> 00:01:27,719
+service, and we'll examine how to use the
+
+30
+00:01:27,719 --> 00:01:31,090
+service in a component. We currently have
+
+31
+00:01:31,090 --> 00:01:33,000
+several pieces of our application in
+
+32
+00:01:33,000 --> 00:01:36,780
+place, but we hardcoded our data directly
+
+33
+00:01:36,780 --> 00:01:39,689
+in the Product List Component. In this
+
+34
+00:01:39,689 --> 00:01:42,269
+module, we'll shift the responsibility for
+
+35
+00:01:42,269 --> 00:01:49,000
+providing the product data to a product data service. Let's get started.
+

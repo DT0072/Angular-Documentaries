@@ -1,0 +1,340 @@
+0
+00:00:02,129 --> 00:00:04,929
+As we illustrated in this diagram, we
+
+1
+00:00:04,929 --> 00:00:07,049
+register the service with the Angular
+
+2
+00:00:07,049 --> 00:00:09,679
+injector, and the injector provides the
+
+3
+00:00:09,679 --> 00:00:12,009
+service instance to any component that
+
+4
+00:00:12,009 --> 00:00:15,199
+injects it using the constructor. The
+
+5
+00:00:15,199 --> 00:00:17,670
+injector represented here is the root
+
+6
+00:00:17,670 --> 00:00:21,160
+application injector, but wait, there's
+
+7
+00:00:21,160 --> 00:00:24,899
+more. In addition to the root application
+
+8
+00:00:24,899 --> 00:00:28,269
+injector, Angular has an injector for each
+
+9
+00:00:28,269 --> 00:00:31,949
+component, mirroring the component tree. A
+
+10
+00:00:31,949 --> 00:00:33,630
+service registered with the root
+
+11
+00:00:33,630 --> 00:00:36,840
+application injector is available to any
+
+12
+00:00:36,840 --> 00:00:38,859
+component or other service in the
+
+13
+00:00:38,859 --> 00:00:42,009
+application. A service registered with a
+
+14
+00:00:42,009 --> 00:00:45,530
+specific component is only available to
+
+15
+00:00:45,530 --> 00:00:48,640
+that component and its child or nested
+
+16
+00:00:48,640 --> 00:00:52,329
+components. For example, if a service is
+
+17
+00:00:52,329 --> 00:00:54,539
+registered with the ProductList components
+
+18
+00:00:54,539 --> 00:00:57,359
+injector, the service is only available
+
+19
+00:00:57,359 --> 00:01:00,119
+for injection in the ProductList component
+
+20
+00:01:00,119 --> 00:01:04,530
+and its child, the StarComponent. So when
+
+21
+00:01:04,530 --> 00:01:06,390
+should you register your service with the
+
+22
+00:01:06,390 --> 00:01:10,620
+root injector versus a component injector?
+
+23
+00:01:10,620 --> 00:01:12,420
+Registering a service with the root
+
+24
+00:01:12,420 --> 00:01:14,879
+injector ensures that the service is
+
+25
+00:01:14,879 --> 00:01:18,079
+available throughout the application. In
+
+26
+00:01:18,079 --> 00:01:20,019
+most scenarios, you'll register the
+
+27
+00:01:20,019 --> 00:01:22,859
+service with the root injector. If you
+
+28
+00:01:22,859 --> 00:01:24,900
+register a service with a component
+
+29
+00:01:24,900 --> 00:01:27,950
+injector, the service is only available to
+
+30
+00:01:27,950 --> 00:01:31,079
+that component and it's child or nested
+
+31
+00:01:31,079 --> 00:01:34,250
+components. This isolates a service that
+
+32
+00:01:34,250 --> 00:01:36,959
+is used by only one component and its
+
+33
+00:01:36,959 --> 00:01:39,579
+children, and it provides multiple
+
+34
+00:01:39,579 --> 00:01:41,890
+instances of the service for multiple
+
+35
+00:01:41,890 --> 00:01:45,370
+instances of the component. For example,
+
+36
+00:01:45,370 --> 00:01:47,530
+we have multiple instances of the
+
+37
+00:01:47,530 --> 00:01:50,739
+StarComponent on the ProductList page, one
+
+38
+00:01:50,739 --> 00:01:53,549
+for each row. If we had a service that
+
+39
+00:01:53,549 --> 00:01:56,030
+tracks some settings for each
+
+40
+00:01:56,030 --> 00:01:57,709
+StarComponent instance, we would want
+
+41
+00:01:57,709 --> 00:02:00,950
+multiple instances of the service, one for
+
+42
+00:02:00,950 --> 00:02:03,780
+each instance of the component, but this
+
+43
+00:02:03,780 --> 00:02:06,959
+is not a common scenario. With that, the
+
+44
+00:02:06,959 --> 00:02:10,300
+next question is how, how do we register a
+
+45
+00:02:10,300 --> 00:02:13,840
+service? That depends on which injector we
+
+46
+00:02:13,840 --> 00:02:17,680
+use. We register the service with the root
+
+47
+00:02:17,680 --> 00:02:21,599
+application injector in the service. We
+
+48
+00:02:21,599 --> 00:02:23,800
+pass an object into the Injectable
+
+49
+00:02:23,800 --> 00:02:26,699
+decorator and set the providedIn property
+
+50
+00:02:26,699 --> 00:02:29,889
+to root. We can then access the service
+
+51
+00:02:29,889 --> 00:02:32,680
+from any component or other service in the
+
+52
+00:02:32,680 --> 00:02:35,400
+application. We want to use our
+
+53
+00:02:35,400 --> 00:02:38,379
+ProductService in several components, so
+
+54
+00:02:38,379 --> 00:02:40,080
+we'll register it with the root
+
+55
+00:02:40,080 --> 00:02:44,770
+application injector. Let's do that now.
+
+56
+00:02:44,770 --> 00:02:47,830
+Here in the service, we add the providedIn
+
+57
+00:02:47,830 --> 00:02:50,979
+property to the Injectable decorator, and
+
+58
+00:02:50,979 --> 00:02:54,020
+set it to root. An instance of the
+
+59
+00:02:54,020 --> 00:02:55,949
+ProductService is then available for
+
+60
+00:02:55,949 --> 00:02:59,800
+injection anywhere in the application, but
+
+61
+00:02:59,800 --> 00:03:01,719
+what if we only wanted to access the
+
+62
+00:03:01,719 --> 00:03:05,579
+service from one component instead? For
+
+63
+00:03:05,579 --> 00:03:08,449
+most scenarios, we'll register our service
+
+64
+00:03:08,449 --> 00:03:10,840
+in the service using the providedIn
+
+65
+00:03:10,840 --> 00:03:13,659
+property. The service is then available to
+
+66
+00:03:13,659 --> 00:03:16,909
+the entire application. To register our
+
+67
+00:03:16,909 --> 00:03:19,949
+service for a specific component, such as
+
+68
+00:03:19,949 --> 00:03:22,509
+the ProductList component, we register the
+
+69
+00:03:22,509 --> 00:03:26,120
+service in that component like this. The
+
+70
+00:03:26,120 --> 00:03:28,490
+service is then available to the component
+
+71
+00:03:28,490 --> 00:03:32,000
+and its child components. Note that the
+
+72
+00:03:32,000 --> 00:03:34,729
+providedIn feature is new in Angular
+
+73
+00:03:34,729 --> 00:03:38,110
+version 6. In older code, you'll see the
+
+74
+00:03:38,110 --> 00:03:41,849
+service registered in a module like this.
+
+75
+00:03:41,849 --> 00:03:45,460
+This syntax is still valid; however, the
+
+76
+00:03:45,460 --> 00:03:47,960
+recommended practice is to use the new
+
+77
+00:03:47,960 --> 00:03:51,110
+providedIn feature in the service instead.
+
+78
+00:03:51,110 --> 00:03:54,710
+This provides better tree shaking. Tree
+
+79
+00:03:54,710 --> 00:03:57,080
+shaking is a process whereby the Angular
+
+80
+00:03:57,080 --> 00:03:59,990
+compiler shakes out unused code for
+
+81
+00:03:59,990 --> 00:04:02,990
+smaller deployed bundles. We'll talk more
+
+82
+00:04:02,990 --> 00:04:06,080
+about tree shaking later in this course.
+
+83
+00:04:06,080 --> 00:04:08,120
+Now that we've registered the service,
+
+84
+00:04:08,120 --> 00:04:13,000
+let's see how to inject the service so we can use it.
+

@@ -1,0 +1,240 @@
+0
+00:00:02,140 --> 00:00:05,019
+Are we ready to build a service? Here are
+
+1
+00:00:05,019 --> 00:00:08,240
+the steps. Create the service class to
+
+2
+00:00:08,240 --> 00:00:11,050
+find the metadata with the decorator, and
+
+3
+00:00:11,050 --> 00:00:14,300
+import what we need. Look familiar? These
+
+4
+00:00:14,300 --> 00:00:16,320
+are the same basic steps we follow to
+
+5
+00:00:16,320 --> 00:00:19,789
+build our components and our custom pipe.
+
+6
+00:00:19,789 --> 00:00:21,519
+Let's look at the code for a simple
+
+7
+00:00:21,519 --> 00:00:25,399
+service. Here is the class, we export it
+
+8
+00:00:25,399 --> 00:00:27,570
+so the service can be used from any other
+
+9
+00:00:27,570 --> 00:00:30,210
+parts of the application. This class
+
+10
+00:00:30,210 --> 00:00:33,149
+currently has one method, getProducts.
+
+11
+00:00:33,149 --> 00:00:36,250
+This method returns an array of products.
+
+12
+00:00:36,250 --> 00:00:38,600
+Next, we add a decorator for the service
+
+13
+00:00:38,600 --> 00:00:41,670
+metadata. When building services, we often
+
+14
+00:00:41,670 --> 00:00:45,219
+use the Injectable decorator. Lastly, we
+
+15
+00:00:45,219 --> 00:00:47,850
+import what we need, in this case
+
+16
+00:00:47,850 --> 00:00:52,340
+Injectable. Now let's build our service.
+
+17
+00:00:52,340 --> 00:00:54,060
+I've opened the folder for the sample
+
+18
+00:00:54,060 --> 00:00:56,759
+application in the editor once again.
+
+19
+00:00:56,759 --> 00:00:58,729
+Since our service will only provide
+
+20
+00:00:58,729 --> 00:01:01,289
+product data, we'll add it to the products
+
+21
+00:01:01,289 --> 00:01:04,019
+folder. We'll create a new file and call
+
+22
+00:01:04,019 --> 00:01:08,530
+it productservice.ts to follow our naming
+
+23
+00:01:08,530 --> 00:01:11,290
+conventions. We're then ready to create
+
+24
+00:01:11,290 --> 00:01:13,859
+the service class. I bet you can do it in
+
+25
+00:01:13,859 --> 00:01:17,310
+your sleep by now. Export class and the
+
+26
+00:01:17,310 --> 00:01:19,799
+class name. Since the service provides
+
+27
+00:01:19,799 --> 00:01:23,340
+products, we'll call it ProductService.
+
+28
+00:01:23,340 --> 00:01:25,349
+Next, we decorate the class with the
+
+29
+00:01:25,349 --> 00:01:28,090
+Injectable decorator, and we'll add the
+
+30
+00:01:28,090 --> 00:01:31,010
+import statement for that decorator. Now
+
+31
+00:01:31,010 --> 00:01:32,599
+that we have the structure in place, we
+
+32
+00:01:32,599 --> 00:01:34,530
+can add properties or methods to the class
+
+33
+00:01:34,530 --> 00:01:36,849
+as needed. Unless marked private or
+
+34
+00:01:36,849 --> 00:01:39,239
+protected, the properties and methods
+
+35
+00:01:39,239 --> 00:01:41,599
+defined in the class are accessible to any
+
+36
+00:01:41,599 --> 00:01:44,209
+class that uses this service. For our
+
+37
+00:01:44,209 --> 00:01:46,349
+ProductService, we want a getProducts
+
+38
+00:01:46,349 --> 00:01:49,140
+method that returns the list of products.
+
+39
+00:01:49,140 --> 00:01:51,620
+We strongly type this return value using
+
+40
+00:01:51,620 --> 00:01:54,209
+our IProduct interface, so we need to
+
+41
+00:01:54,209 --> 00:01:57,969
+import this interface. In the next module,
+
+42
+00:01:57,969 --> 00:01:59,879
+we'll see how to retrieve the products
+
+43
+00:01:59,879 --> 00:02:03,569
+using HTTP. For now, we'll hard code them
+
+44
+00:02:03,569 --> 00:02:07,159
+in here. If you're coding along, feel free
+
+45
+00:02:07,159 --> 00:02:09,039
+to copy some products from the
+
+46
+00:02:09,039 --> 00:02:12,650
+products.json file in the api products
+
+47
+00:02:12,650 --> 00:02:15,659
+folder. Notice that we have no properties
+
+48
+00:02:15,659 --> 00:02:18,300
+defined in this class, so we are not using
+
+49
+00:02:18,300 --> 00:02:21,090
+this particular service to share data. We
+
+50
+00:02:21,090 --> 00:02:22,969
+are using it to encapsulate the data
+
+51
+00:02:22,969 --> 00:02:25,960
+access features. By using the service to
+
+52
+00:02:25,960 --> 00:02:28,099
+provide the list of products, we take the
+
+53
+00:02:28,099 --> 00:02:31,000
+responsibility for managing the data away
+
+54
+00:02:31,000 --> 00:02:33,590
+from the individual component, that makes
+
+55
+00:02:33,590 --> 00:02:37,039
+it easier to modify or reuse this logic.
+
+56
+00:02:37,039 --> 00:02:39,139
+So we're done with our service for now.
+
+57
+00:02:39,139 --> 00:02:42,639
+How do we use it? Well, a service is just
+
+58
+00:02:42,639 --> 00:02:45,789
+really an ordinary class until we register
+
+59
+00:02:45,789 --> 00:02:51,000
+it with an Angular injector. Let's do that next.
+
