@@ -1,0 +1,292 @@
+0
+00:00:02,140 --> 00:00:03,919
+We want to add a Back button to our
+
+1
+00:00:03,919 --> 00:00:06,469
+product detail page that navigates back to
+
+2
+00:00:06,469 --> 00:00:09,140
+the product list page. We could activate
+
+3
+00:00:09,140 --> 00:00:11,279
+this route using the routerLink directive
+
+4
+00:00:11,279 --> 00:00:13,429
+in the component template, just like we
+
+5
+00:00:13,429 --> 00:00:15,839
+did with the menu options. But it's also
+
+6
+00:00:15,839 --> 00:00:18,589
+possible to route with code, so let's try
+
+7
+00:00:18,589 --> 00:00:21,059
+that out instead. When would you want to
+
+8
+00:00:21,059 --> 00:00:23,070
+navigate with code instead of the
+
+9
+00:00:23,070 --> 00:00:25,309
+routerLink directive and a template? One
+
+10
+00:00:25,309 --> 00:00:27,679
+example is a save button where you need to
+
+11
+00:00:27,679 --> 00:00:30,289
+execute some code to save the data and
+
+12
+00:00:30,289 --> 00:00:34,049
+then route. To route with code we use the
+
+13
+00:00:34,049 --> 00:00:36,490
+Router service. We import the Router
+
+14
+00:00:36,490 --> 00:00:39,289
+service from angular/router. We define a
+
+15
+00:00:39,289 --> 00:00:41,420
+dependency on the router service using a
+
+16
+00:00:41,420 --> 00:00:44,009
+constructor parameter. The router instance
+
+17
+00:00:44,009 --> 00:00:46,259
+is then injected into this component
+
+18
+00:00:46,259 --> 00:00:48,880
+class. Every time we inject a service
+
+19
+00:00:48,880 --> 00:00:51,380
+dependency into a class, we should ask
+
+20
+00:00:51,380 --> 00:00:54,679
+ourselves, hmm, did we register this
+
+21
+00:00:54,679 --> 00:00:57,409
+service with the Angular injector? In the
+
+22
+00:00:57,409 --> 00:00:59,630
+case of Router, it is registered in
+
+23
+00:00:59,630 --> 00:01:02,659
+RouterModule, which we added to our
+
+24
+00:01:02,659 --> 00:01:04,170
+application's Angular module imports
+
+25
+00:01:04,170 --> 00:01:06,859
+array. We use this router instance to
+
+26
+00:01:06,859 --> 00:01:09,939
+activate a route. Here we define a method
+
+27
+00:01:09,939 --> 00:01:11,980
+that we can call from the template based
+
+28
+00:01:11,980 --> 00:01:15,000
+on a user action. The code uses the
+
+29
+00:01:15,000 --> 00:01:17,569
+navigate method of the Router service and
+
+30
+00:01:17,569 --> 00:01:20,640
+passes in the same link parameter array we
+
+31
+00:01:20,640 --> 00:01:23,340
+use when binding the router link. In this
+
+32
+00:01:23,340 --> 00:01:25,760
+example, we route to the products route
+
+33
+00:01:25,760 --> 00:01:28,810
+and don't pass any arguments. Let's give
+
+34
+00:01:28,810 --> 00:01:32,670
+this a try. Here we are looking at the
+
+35
+00:01:32,670 --> 00:01:35,099
+ProductDetailComponent. We want the
+
+36
+00:01:35,099 --> 00:01:37,620
+ProductDetailComponent to navigate back to
+
+37
+00:01:37,620 --> 00:01:40,000
+the ProductListComponent. We define the
+
+38
+00:01:40,000 --> 00:01:42,670
+router as a dependency by adding another
+
+39
+00:01:42,670 --> 00:01:45,439
+constructor parameter. When this component
+
+40
+00:01:45,439 --> 00:01:48,000
+class is constructed we'll get an instance
+
+41
+00:01:48,000 --> 00:01:50,420
+of both the ActivatedRoute service and the
+
+42
+00:01:50,420 --> 00:01:54,010
+Router service. Now we can build a method
+
+43
+00:01:54,010 --> 00:01:56,879
+that navigates with code. Since the
+
+44
+00:01:56,879 --> 00:01:58,950
+purpose of this method is to navigate
+
+45
+00:01:58,950 --> 00:02:02,487
+back, we'll call it onBack. It doesn't
+
+46
+00:02:02,487 --> 00:02:04,897
+return anything, so we'll set its return
+
+47
+00:02:04,897 --> 00:02:08,337
+type to void. In this method, we use the
+
+48
+00:02:08,337 --> 00:02:11,467
+this.router instance and call the navigate
+
+49
+00:02:11,467 --> 00:02:14,198
+method. We pass it a link parameters
+
+50
+00:02:14,198 --> 00:02:16,448
+array. In this example, we want to
+
+51
+00:02:16,448 --> 00:02:19,098
+navigate back to the ProductListComponent,
+
+52
+00:02:19,098 --> 00:02:21,867
+and we don't need any parameters. We just
+
+53
+00:02:21,867 --> 00:02:24,728
+define the route path, which is products.
+
+54
+00:02:24,728 --> 00:02:28,307
+In the product detail template, we'll add
+
+55
+00:02:28,307 --> 00:02:30,578
+a button. We again use the Twitter
+
+56
+00:02:30,578 --> 00:02:32,728
+Bootstrap style classes to give the button
+
+57
+00:02:32,728 --> 00:02:35,538
+some style. We use event binding to bind
+
+58
+00:02:35,538 --> 00:02:37,117
+the click event of the button to the
+
+59
+00:02:37,117 --> 00:02:40,337
+onBack method we defined in the class. Now
+
+60
+00:02:40,337 --> 00:02:43,087
+let's check it out in the browser. Click
+
+61
+00:02:43,087 --> 00:02:45,457
+on the menu option to display the product
+
+62
+00:02:45,457 --> 00:02:48,538
+list then click on a product. The product
+
+63
+00:02:48,538 --> 00:02:51,147
+detail page is displayed. We click our
+
+64
+00:02:51,147 --> 00:02:53,948
+Back button and we are back on the product
+
+65
+00:02:53,948 --> 00:02:57,448
+list page. Let's try another one. We see
+
+66
+00:02:57,448 --> 00:02:59,888
+the detail page. Now we're back on the
+
+67
+00:02:59,888 --> 00:03:02,217
+product list page. Our code‑based
+
+68
+00:03:02,217 --> 00:03:05,207
+navigation is working. So routing with
+
+69
+00:03:05,207 --> 00:03:08,038
+code involves importing the router and
+
+70
+00:03:08,038 --> 00:03:10,448
+using its navigate method to activate the
+
+71
+00:03:10,448 --> 00:03:13,608
+route. Now that we have several routes in
+
+72
+00:03:13,608 --> 00:03:20,000
+place, let's look at how to protect them with guards.
+

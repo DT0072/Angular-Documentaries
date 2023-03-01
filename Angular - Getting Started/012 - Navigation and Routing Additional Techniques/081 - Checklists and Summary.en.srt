@@ -1,0 +1,256 @@
+0
+00:00:02,240 --> 00:00:04,849
+We can pass any number of parameters to a
+
+1
+00:00:04,849 --> 00:00:07,910
+route, separated by slashes. Add the
+
+2
+00:00:07,910 --> 00:00:10,460
+parameter to the route configuration path
+
+3
+00:00:10,460 --> 00:00:13,419
+by specifying a slash, a colon, and the
+
+4
+00:00:13,419 --> 00:00:16,410
+parameter name. Pass the parameter value
+
+5
+00:00:16,410 --> 00:00:18,719
+by adding it to an element of the link
+
+6
+00:00:18,719 --> 00:00:21,260
+parameters array bound to the routerLink
+
+7
+00:00:21,260 --> 00:00:24,109
+directive. Read the parameter value in the
+
+8
+00:00:24,109 --> 00:00:26,219
+navigated component using the
+
+9
+00:00:26,219 --> 00:00:29,070
+ActivatedRoute service. Notice here that
+
+10
+00:00:29,070 --> 00:00:32,140
+the parameter name, id in this example, is
+
+11
+00:00:32,140 --> 00:00:34,039
+exactly the same as in the route
+
+12
+00:00:34,039 --> 00:00:37,960
+definition. To activate a route with code,
+
+13
+00:00:37,960 --> 00:00:40,619
+use the router service. Be sure to import
+
+14
+00:00:40,619 --> 00:00:42,829
+the service and define it as a dependency
+
+15
+00:00:42,829 --> 00:00:45,479
+on the constructor. Create a method that
+
+16
+00:00:45,479 --> 00:00:47,399
+calls the navigate method of the router
+
+17
+00:00:47,399 --> 00:00:50,030
+service instance and pass in the link
+
+18
+00:00:50,030 --> 00:00:53,130
+parameters array. Add a user interface
+
+19
+00:00:53,130 --> 00:00:55,750
+element and use event binding to call the
+
+20
+00:00:55,750 --> 00:00:58,939
+created method. We can use guards to
+
+21
+00:00:58,939 --> 00:01:01,350
+prevent access to a route, confirm
+
+22
+00:01:01,350 --> 00:01:03,810
+navigation away from a route, or to
+
+23
+00:01:03,810 --> 00:01:07,060
+preload data for a route. To create a
+
+24
+00:01:07,060 --> 00:01:10,200
+router guard, we build a guard service,
+
+25
+00:01:10,200 --> 00:01:12,519
+implement the guard type, in our case
+
+26
+00:01:12,519 --> 00:01:15,370
+CanActivate, and create the associated
+
+27
+00:01:15,370 --> 00:01:18,189
+method. We then register the guard service
+
+28
+00:01:18,189 --> 00:01:21,250
+provider. Lastly, we add the guard to the
+
+29
+00:01:21,250 --> 00:01:24,870
+desired route. In this module, we covered
+
+30
+00:01:24,870 --> 00:01:27,019
+some additional routing techniques,
+
+31
+00:01:27,019 --> 00:01:29,780
+including passing parameters to a route,
+
+32
+00:01:29,780 --> 00:01:31,890
+activating a route with code, and
+
+33
+00:01:31,890 --> 00:01:34,480
+protecting routes with guards. But we've
+
+34
+00:01:34,480 --> 00:01:37,719
+only just touched on the basics. If you
+
+35
+00:01:37,719 --> 00:01:39,530
+are interested in learning more about
+
+36
+00:01:39,530 --> 00:01:42,109
+routing, check out my Angular Routing
+
+37
+00:01:42,109 --> 00:01:44,959
+course, here on Pluralsight. You'll learn
+
+38
+00:01:44,959 --> 00:01:47,670
+how to pass required, optional, and query
+
+39
+00:01:47,670 --> 00:01:50,469
+parameters on a route, how to fetch data
+
+40
+00:01:50,469 --> 00:01:53,439
+with route resolvers, how to define child
+
+41
+00:01:53,439 --> 00:01:56,640
+and secondary, or named, router outlets,
+
+42
+00:01:56,640 --> 00:01:59,859
+and more on router guards. Plus, you'll
+
+43
+00:01:59,859 --> 00:02:02,629
+see how to improve your application
+
+44
+00:02:02,629 --> 00:02:05,980
+performance with lazy loading. We now have
+
+45
+00:02:05,980 --> 00:02:09,539
+routing to our ProductDetailComponent.
+
+46
+00:02:09,539 --> 00:02:11,860
+Yay! However, the Product DetailComponent
+
+47
+00:02:11,860 --> 00:02:13,979
+and its associated template are not
+
+48
+00:02:13,979 --> 00:02:16,479
+finished. We only wired up the bare
+
+49
+00:02:16,479 --> 00:02:19,159
+minimum to demonstrate routing. As a
+
+50
+00:02:19,159 --> 00:02:21,379
+homework assignment, try building the
+
+51
+00:02:21,379 --> 00:02:23,629
+remainder of the product detail template
+
+52
+00:02:23,629 --> 00:02:26,275
+and code. To check your answer, you can
+
+53
+00:02:26,275 --> 00:02:28,310
+find the completed application on my
+
+54
+00:02:28,310 --> 00:02:31,060
+GitHub, as described in the First Things
+
+55
+00:02:31,060 --> 00:02:34,039
+First module. There, you will also find a
+
+56
+00:02:34,039 --> 00:02:36,650
+version of the product data service that
+
+57
+00:02:36,650 --> 00:02:40,150
+retrieves one product by id. You'll need
+
+58
+00:02:40,150 --> 00:02:41,759
+that to get the data for the
+
+59
+00:02:41,759 --> 00:02:46,189
+ProductDetailComponent. At this point, our
+
+60
+00:02:46,189 --> 00:02:48,039
+AppModule is looking a little cluttered
+
+61
+00:02:48,039 --> 00:02:51,129
+and hard to manage. Up next, let's spend
+
+62
+00:02:51,129 --> 00:02:53,650
+some more time with Angular modules and
+
+63
+00:02:53,650 --> 00:03:00,000
+look at how to refactor our application into more manageable pieces.
+

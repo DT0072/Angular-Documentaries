@@ -1,0 +1,260 @@
+0
+00:00:02,240 --> 00:00:04,910
+We sometimes need to pass parameters to a
+
+1
+00:00:04,910 --> 00:00:07,980
+route. For example, to navigate to the
+
+2
+00:00:07,980 --> 00:00:10,669
+product detail view. we need to define
+
+3
+00:00:10,669 --> 00:00:14,160
+which products details to display. The
+
+4
+00:00:14,160 --> 00:00:16,039
+first step to passing parameters to a
+
+5
+00:00:16,039 --> 00:00:17,839
+route is to configure the route with
+
+6
+00:00:17,839 --> 00:00:20,519
+parameters. We've already done this step
+
+7
+00:00:20,519 --> 00:00:23,140
+to route to our product detail component.
+
+8
+00:00:23,140 --> 00:00:25,600
+Here we define a slash, a colon, and a
+
+9
+00:00:25,600 --> 00:00:28,329
+placeholder for the parameter. If multiple
+
+10
+00:00:28,329 --> 00:00:30,800
+parameters are needed, we'd repeat this
+
+11
+00:00:30,800 --> 00:00:32,979
+with another slash, colon, and
+
+12
+00:00:32,979 --> 00:00:35,909
+placeholder. With the route definition in
+
+13
+00:00:35,909 --> 00:00:38,009
+place, we can decide where we want the
+
+14
+00:00:38,009 --> 00:00:40,640
+user to activate this route. Will we add a
+
+15
+00:00:40,640 --> 00:00:43,799
+menu option or a data link? It is there we
+
+16
+00:00:43,799 --> 00:00:45,920
+set the router link and pass in the
+
+17
+00:00:45,920 --> 00:00:48,399
+required parameter. In the product list
+
+18
+00:00:48,399 --> 00:00:50,820
+component template, we display a table of
+
+19
+00:00:50,820 --> 00:00:53,640
+products. Each table row contains the
+
+20
+00:00:53,640 --> 00:00:56,770
+product name so we add a router link to
+
+21
+00:00:56,770 --> 00:00:59,700
+this anchor tag and assign it to the link
+
+22
+00:00:59,700 --> 00:01:02,350
+parameters array. The first element of the
+
+23
+00:01:02,350 --> 00:01:05,230
+array is the string path of the route. The
+
+24
+00:01:05,230 --> 00:01:07,609
+second element of the array is the value
+
+25
+00:01:07,609 --> 00:01:10,140
+for the route parameter. When the router
+
+26
+00:01:10,140 --> 00:01:13,049
+composes the URL, it uses this array
+
+27
+00:01:13,049 --> 00:01:14,780
+element to construct the defined
+
+28
+00:01:14,780 --> 00:01:17,909
+parameter. To display the appropriate
+
+29
+00:01:17,909 --> 00:01:20,230
+product, the product detail component
+
+30
+00:01:20,230 --> 00:01:23,019
+reads this parameter from the URL. It then
+
+31
+00:01:23,019 --> 00:01:24,769
+uses the parameter to retrieve the
+
+32
+00:01:24,769 --> 00:01:27,069
+appropriate product and display it in the
+
+33
+00:01:27,069 --> 00:01:30,079
+view. To get the parameter from the URL,
+
+34
+00:01:30,079 --> 00:01:32,799
+we use the activated route service
+
+35
+00:01:32,799 --> 00:01:35,019
+provided by the router. We want an
+
+36
+00:01:35,019 --> 00:01:37,579
+instance of the service so we define it as
+
+37
+00:01:37,579 --> 00:01:40,450
+a dependency in our constructor. We've
+
+38
+00:01:40,450 --> 00:01:43,629
+seen this syntax before. This line of code
+
+39
+00:01:43,629 --> 00:01:46,140
+defines a private variable called route
+
+40
+00:01:46,140 --> 00:01:47,920
+and assigns it to the instance of the
+
+41
+00:01:47,920 --> 00:01:50,109
+activated route provided by the Angular
+
+42
+00:01:50,109 --> 00:01:52,799
+service injector. Then we use the instance
+
+43
+00:01:52,799 --> 00:01:54,819
+of the activated route service to get the
+
+44
+00:01:54,819 --> 00:01:57,549
+desired parameter. There are two different
+
+45
+00:01:57,549 --> 00:02:00,019
+ways to get the parameter. We could use a
+
+46
+00:02:00,019 --> 00:02:02,810
+snapshot or we could use an observable.
+
+47
+00:02:02,810 --> 00:02:05,575
+Use the snapshot approach if you only need
+
+48
+00:02:05,575 --> 00:02:08,324
+to get the initial value of the parameter.
+
+49
+00:02:08,324 --> 00:02:10,365
+The code is then a one‑liner, as shown
+
+50
+00:02:10,365 --> 00:02:13,555
+here. In our example, the user is always
+
+51
+00:02:13,555 --> 00:02:15,405
+returned to the list page before
+
+52
+00:02:15,405 --> 00:02:17,645
+navigating to another product so the
+
+53
+00:02:17,645 --> 00:02:20,284
+snapshot approach would be sufficient. If
+
+54
+00:02:20,284 --> 00:02:22,814
+you expect the parameter to change without
+
+55
+00:02:22,814 --> 00:02:26,215
+leaving the page, use an observable. For
+
+56
+00:02:26,215 --> 00:02:28,824
+example, if we had a Next button on the
+
+57
+00:02:28,824 --> 00:02:31,034
+product detail page to display the next
+
+58
+00:02:31,034 --> 00:02:33,764
+product, the URL will change to the next
+
+59
+00:02:33,764 --> 00:02:36,324
+product's id. So you'd want to use an
+
+60
+00:02:36,324 --> 00:02:39,284
+observable instead. We use the activated
+
+61
+00:02:39,284 --> 00:02:41,935
+routes snapshot method here and access the
+
+62
+00:02:41,935 --> 00:02:44,275
+appropriate parameter from its parameter
+
+63
+00:02:44,275 --> 00:02:47,324
+array. The string specified here must
+
+64
+00:02:47,324 --> 00:02:55,000
+match the name of the parameter from the path. Let's give this a try.
+

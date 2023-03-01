@@ -1,0 +1,352 @@
+0
+00:00:02,520 --> 00:00:05,730
+In this demo, we pass a parameter as part
+
+1
+00:00:05,730 --> 00:00:08,539
+of the ProductDetailRoute and read that
+
+2
+00:00:08,539 --> 00:00:12,539
+parameter in the ProductDetailComponent.
+
+3
+00:00:12,539 --> 00:00:13,550
+We already have the
+
+4
+00:00:13,550 --> 00:00:15,810
+ProductDetailComponent's route configured
+
+5
+00:00:15,810 --> 00:00:18,579
+with a parameter. Looking at that route,
+
+6
+00:00:18,579 --> 00:00:20,300
+here in the path, we provide any
+
+7
+00:00:20,300 --> 00:00:22,410
+parameters prefixed with a colon and
+
+8
+00:00:22,410 --> 00:00:24,579
+separated by slashes. For the
+
+9
+00:00:24,579 --> 00:00:27,160
+ProductDetailComponent, we pass a product
+
+10
+00:00:27,160 --> 00:00:29,370
+id so the view knows which product's
+
+11
+00:00:29,370 --> 00:00:32,670
+detail to display. Next, we need to decide
+
+12
+00:00:32,670 --> 00:00:35,340
+where to tie this route to a user action.
+
+13
+00:00:35,340 --> 00:00:37,450
+We can't add the product detail to the
+
+14
+00:00:37,450 --> 00:00:39,840
+menu because we don't have an easy way for
+
+15
+00:00:39,840 --> 00:00:42,649
+the user to specify the ID of the desired
+
+16
+00:00:42,649 --> 00:00:45,159
+product. Let's instead modify the list of
+
+17
+00:00:45,159 --> 00:00:47,579
+products in the product list view such
+
+18
+00:00:47,579 --> 00:00:50,250
+that each product name is a link, then the
+
+19
+00:00:50,250 --> 00:00:52,549
+user can click on the product to display
+
+20
+00:00:52,549 --> 00:00:56,280
+its details. In the product‑list template,
+
+21
+00:00:56,280 --> 00:00:58,969
+we'll add an anchor tag so the productName
+
+22
+00:00:58,969 --> 00:01:01,520
+becomes a link. We add the routerLink
+
+23
+00:01:01,520 --> 00:01:04,219
+directive to the anchor tag and set up the
+
+24
+00:01:04,219 --> 00:01:06,969
+link parameter's array. In the array, we
+
+25
+00:01:06,969 --> 00:01:09,260
+define the path of the route to activate
+
+26
+00:01:09,260 --> 00:01:11,459
+in the first element and pass the
+
+27
+00:01:11,459 --> 00:01:14,450
+parameter value in the second element. In
+
+28
+00:01:14,450 --> 00:01:16,250
+this example, we want to pass the
+
+29
+00:01:16,250 --> 00:01:19,989
+product's ID. When we view the result in
+
+30
+00:01:19,989 --> 00:01:22,560
+the browser, we see that the product names
+
+31
+00:01:22,560 --> 00:01:25,879
+are now links. And if we click a link, we
+
+32
+00:01:25,879 --> 00:01:28,930
+see the ID in the URL, and we navigate to
+
+33
+00:01:28,930 --> 00:01:31,370
+the ProductDetailComponent. But that
+
+34
+00:01:31,370 --> 00:01:33,629
+component does not yet get the parameter
+
+35
+00:01:33,629 --> 00:01:37,870
+from the URL. Let's do that next. We add
+
+36
+00:01:37,870 --> 00:01:40,260
+code in the ProductDetailComponent to get
+
+37
+00:01:40,260 --> 00:01:43,469
+the parameter passed in on the URL. We use
+
+38
+00:01:43,469 --> 00:01:45,609
+the activated route service provided by
+
+39
+00:01:45,609 --> 00:01:48,340
+the router to help us. First, we import
+
+40
+00:01:48,340 --> 00:01:50,739
+the service. We don't have to register
+
+41
+00:01:50,739 --> 00:01:53,010
+this service. Because it is registered as
+
+42
+00:01:53,010 --> 00:01:55,230
+part of the router module, we add it to
+
+43
+00:01:55,230 --> 00:01:57,500
+the imports array in the last course
+
+44
+00:01:57,500 --> 00:02:00,692
+module. We then set ActivatedRoute as a
+
+45
+00:02:00,692 --> 00:02:03,472
+dependency by defining it as a parameter
+
+46
+00:02:03,472 --> 00:02:05,563
+to the constructor function. The
+
+47
+00:02:05,563 --> 00:02:07,882
+ActivatedRoute instance is then injected
+
+48
+00:02:07,882 --> 00:02:11,092
+into this component class. Now let's get
+
+49
+00:02:11,092 --> 00:02:13,193
+the ID from the route and store it in a
+
+50
+00:02:13,193 --> 00:02:15,693
+local variable. We'll use the snapshot
+
+51
+00:02:15,693 --> 00:02:17,592
+approach here because we don't expect the
+
+52
+00:02:17,592 --> 00:02:20,383
+URL to change. Where do we put the code to
+
+53
+00:02:20,383 --> 00:02:22,663
+read the parameter? We don't want it in
+
+54
+00:02:22,663 --> 00:02:25,242
+the constructor. We'll instead use the
+
+55
+00:02:25,242 --> 00:02:28,252
+OnInIt lifecycle hook. We start by reading
+
+56
+00:02:28,252 --> 00:02:31,293
+the parameter into a variable. We use let
+
+57
+00:02:31,293 --> 00:02:34,502
+here, which is new in ES2015 and defines a
+
+58
+00:02:34,502 --> 00:02:37,152
+block scoped variable. We then use
+
+59
+00:02:37,152 --> 00:02:40,473
+this.route.snapshot to get the parameter.
+
+60
+00:02:40,473 --> 00:02:42,393
+We pass in the name of the parameter we
+
+61
+00:02:42,393 --> 00:02:44,872
+want to read. The parameter name we
+
+62
+00:02:44,872 --> 00:02:47,457
+defined in the route configuration is id,
+
+63
+00:02:47,457 --> 00:02:49,862
+so that's the parameter name we specify
+
+64
+00:02:49,862 --> 00:02:52,242
+here. And because the parameter is
+
+65
+00:02:52,242 --> 00:02:55,233
+provided as a string, we'll add a + here
+
+66
+00:02:55,233 --> 00:02:57,832
+at the beginning. The + is a JavaScript
+
+67
+00:02:57,832 --> 00:03:00,152
+shortcut to convert the parameter string
+
+68
+00:03:00,152 --> 00:03:03,112
+to a numeric ID. At this point, we could
+
+69
+00:03:03,112 --> 00:03:05,272
+add code here to retrieve the desired
+
+70
+00:03:05,272 --> 00:03:08,122
+product using this ID. But since we are
+
+71
+00:03:08,122 --> 00:03:11,103
+focused in this module on routing and not
+
+72
+00:03:11,103 --> 00:03:15,272
+on HTTP, we'll hard code the product here.
+
+73
+00:03:15,272 --> 00:03:17,592
+To make it easy to see the ID we got from
+
+74
+00:03:17,592 --> 00:03:20,052
+the URL, let's display it as part of the
+
+75
+00:03:20,052 --> 00:03:23,793
+pageTitle. Here, we use the ES2015
+
+76
+00:03:23,793 --> 00:03:26,372
+backticks to define a template string and
+
+77
+00:03:26,372 --> 00:03:29,872
+display the ID. Let's see the result in
+
+78
+00:03:29,872 --> 00:03:32,402
+the browser. Click the menu option to
+
+79
+00:03:32,402 --> 00:03:35,252
+display the Product List, then click a
+
+80
+00:03:35,252 --> 00:03:38,242
+product. The URL changes to include the
+
+81
+00:03:38,242 --> 00:03:40,842
+parameter and the product detail page is
+
+82
+00:03:40,842 --> 00:03:43,943
+displayed. If everything worked, the title
+
+83
+00:03:43,943 --> 00:03:46,362
+displays the same parameter as shown in
+
+84
+00:03:46,362 --> 00:03:50,052
+the URL. Yeah! To get back to the Product
+
+85
+00:03:50,052 --> 00:03:52,432
+List, we could use the menu option here,
+
+86
+00:03:52,432 --> 00:03:54,272
+but it would be nicer to have a back
+
+87
+00:03:54,272 --> 00:04:02,000
+button. Let's add a back button and see how to activate a route with code.
+

@@ -1,0 +1,172 @@
+0
+00:00:02,140 --> 00:00:04,030
+There may be times that we want to limit
+
+1
+00:00:04,030 --> 00:00:06,969
+access to a route. We want routes only
+
+2
+00:00:06,969 --> 00:00:09,519
+accessible to specific users such as an
+
+3
+00:00:09,519 --> 00:00:12,300
+administrator, for example, or we want the
+
+4
+00:00:12,300 --> 00:00:15,230
+user to confirm a navigation operation
+
+5
+00:00:15,230 --> 00:00:17,210
+such as asking whether to save before
+
+6
+00:00:17,210 --> 00:00:20,210
+navigating away from an edit page. For
+
+7
+00:00:20,210 --> 00:00:23,559
+that, we use guards. The Angular router
+
+8
+00:00:23,559 --> 00:00:26,050
+provides several guards, including
+
+9
+00:00:26,050 --> 00:00:29,002
+CanActivate to guard navigation to a
+
+10
+00:00:29,002 --> 00:00:32,250
+route, CanDeactivate to guard navigation
+
+11
+00:00:32,250 --> 00:00:35,219
+away from the current route, Resolve to
+
+12
+00:00:35,219 --> 00:00:37,950
+prefetch data before activating a route,
+
+13
+00:00:37,950 --> 00:00:40,880
+and CanLoad to prevent asynchronous
+
+14
+00:00:40,880 --> 00:00:44,224
+routing. In this clip, we work through how
+
+15
+00:00:44,224 --> 00:00:46,859
+to implement the CanActivate guard. You
+
+16
+00:00:46,859 --> 00:00:48,780
+can use the same techniques we're covering
+
+17
+00:00:48,780 --> 00:00:51,609
+here to implement any other type of route
+
+18
+00:00:51,609 --> 00:00:54,890
+guard. We'll build a guard that prevents
+
+19
+00:00:54,890 --> 00:00:57,120
+navigation to the ProductDetail route
+
+20
+00:00:57,120 --> 00:00:59,820
+unless a specific condition is true.
+
+21
+00:00:59,820 --> 00:01:02,100
+Building a guard clause follows the common
+
+22
+00:01:02,100 --> 00:01:04,640
+pattern used throughout Angular, create a
+
+23
+00:01:04,640 --> 00:01:06,969
+class, add a decorator, and import what we
+
+24
+00:01:06,969 --> 00:01:10,760
+need. Here we define a guard class. Since
+
+25
+00:01:10,760 --> 00:01:12,359
+we are implementing this guard as a
+
+26
+00:01:12,359 --> 00:01:15,799
+service, we use the Injectable decorator.
+
+27
+00:01:15,799 --> 00:01:18,650
+This class implements CanActivate. To
+
+28
+00:01:18,650 --> 00:01:20,594
+create one of the other kinds of guards,
+
+29
+00:01:20,594 --> 00:01:22,739
+change this to implement one of the other
+
+30
+00:01:22,739 --> 00:01:25,239
+guard types. We then implement the
+
+31
+00:01:25,239 --> 00:01:28,650
+CanActivate method. For simple cases, this
+
+32
+00:01:28,650 --> 00:01:31,590
+method can return a boolean value, true to
+
+33
+00:01:31,590 --> 00:01:34,260
+activate the route and false to cancel the
+
+34
+00:01:34,260 --> 00:01:37,609
+route activation. For more complex cases,
+
+35
+00:01:37,609 --> 00:01:40,140
+we could return an observable or a promise
+
+36
+00:01:40,140 --> 00:01:44,069
+from this method. Using a guard is simple.
+
+37
+00:01:44,069 --> 00:01:45,709
+We built the guard to protect the
+
+38
+00:01:45,709 --> 00:01:48,439
+ProductDetail route, so we add the guard
+
+39
+00:01:48,439 --> 00:01:51,269
+to the ProductDetail route. We add
+
+40
+00:01:51,269 --> 00:01:53,700
+CanActivate and set it to an array
+
+41
+00:01:53,700 --> 00:01:55,969
+containing the guards to execute before
+
+42
+00:01:55,969 --> 00:02:04,000
+this route is activated. In our case, there is only one. Let's give this a try.
+

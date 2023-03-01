@@ -1,0 +1,100 @@
+0
+00:00:01,240 --> 00:00:03,129
+Now that we know the basics of routing,
+
+1
+00:00:03,129 --> 00:00:05,639
+we're ready for more. Welcome back to
+
+2
+00:00:05,639 --> 00:00:08,669
+Angular: Getting Started from Pluralsight.
+
+3
+00:00:08,669 --> 00:00:11,269
+My name is Deborah Kurata, and in this
+
+4
+00:00:11,269 --> 00:00:13,580
+module, we look at several additional
+
+5
+00:00:13,580 --> 00:00:16,570
+routing techniques. With what we learned
+
+6
+00:00:16,570 --> 00:00:18,899
+in the prior module, a user can now
+
+7
+00:00:18,899 --> 00:00:21,070
+navigate to any defined route in our
+
+8
+00:00:21,070 --> 00:00:23,530
+application. But that only covered the
+
+9
+00:00:23,530 --> 00:00:26,539
+very basic routing scenarios. What if we
+
+10
+00:00:26,539 --> 00:00:28,960
+need to pass parameters to a route or
+
+11
+00:00:28,960 --> 00:00:30,969
+activate a route with code instead of with
+
+12
+00:00:30,969 --> 00:00:33,630
+a clickable element? Or what if we need to
+
+13
+00:00:33,630 --> 00:00:36,450
+protect a route and only allow access to
+
+14
+00:00:36,450 --> 00:00:39,780
+it in special cases or by certain users or
+
+15
+00:00:39,780 --> 00:00:42,189
+ask a user to save changes before leaving
+
+16
+00:00:42,189 --> 00:00:45,689
+a route? In this second module on routing,
+
+17
+00:00:45,689 --> 00:00:48,070
+we examine how to pass parameters to a
+
+18
+00:00:48,070 --> 00:00:50,560
+route, how to activate a route with code,
+
+19
+00:00:50,560 --> 00:00:53,939
+and how to protect our routes with guards.
+
+20
+00:00:53,939 --> 00:00:55,799
+When we're finished with this module,
+
+21
+00:00:55,799 --> 00:00:57,509
+we'll know how to handle additional
+
+22
+00:00:57,509 --> 00:01:00,109
+routing scenarios, including routing to a
+
+23
+00:01:00,109 --> 00:01:02,890
+component that requires parameters, such
+
+24
+00:01:02,890 --> 00:01:08,000
+as our product detail component. Let's get started.
+
