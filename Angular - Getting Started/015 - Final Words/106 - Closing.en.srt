@@ -1,0 +1,48 @@
+0
+00:00:02,240 --> 00:00:05,867
+Congratulations, you've made it, yay!
+
+1
+00:00:05,867 --> 00:00:07,849
+You've completed the journey through the
+
+2
+00:00:07,849 --> 00:00:11,550
+basics of Angular. But the road goes ever
+
+3
+00:00:11,550 --> 00:00:14,089
+on and on. There are so many more paths
+
+4
+00:00:14,089 --> 00:00:17,414
+for us to take and so much more to learn.
+
+5
+00:00:17,414 --> 00:00:19,815
+Thoughts or comments about this course?
+
+6
+00:00:19,815 --> 00:00:21,850
+Please use the Discussion tab on the
+
+7
+00:00:21,850 --> 00:00:23,960
+Pluralsight page for the course to leave
+
+8
+00:00:23,960 --> 00:00:27,839
+your feedback. And follow me on Twitter.
+
+9
+00:00:27,839 --> 00:00:29,589
+It would be great to hear about your
+
+10
+00:00:29,589 --> 00:00:32,670
+Angular adventures. Thanks for listening,
+
+11
+00:00:32,670 --> 00:00:38,000
+and I hope you enjoyed our adventure through Angular.
+

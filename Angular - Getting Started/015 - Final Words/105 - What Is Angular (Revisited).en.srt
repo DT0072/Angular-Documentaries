@@ -1,0 +1,84 @@
+0
+00:00:02,540 --> 00:00:04,370
+At the beginning of this course, we
+
+1
+00:00:04,370 --> 00:00:07,389
+defined Angular as a JavaScript framework
+
+2
+00:00:07,389 --> 00:00:09,519
+for building client‑side applications
+
+3
+00:00:09,519 --> 00:00:12,970
+using HTML, CSS, and a language such as
+
+4
+00:00:12,970 --> 00:00:15,669
+JavaScript. But this is a somewhat narrow
+
+5
+00:00:15,669 --> 00:00:18,839
+view of Angular, focusing on using it just
+
+6
+00:00:18,839 --> 00:00:21,550
+for client‑side web applications. But
+
+7
+00:00:21,550 --> 00:00:25,379
+Angular is actually so much more. A better
+
+8
+00:00:25,379 --> 00:00:29,339
+definition is that Angular is a platform.
+
+9
+00:00:29,339 --> 00:00:32,020
+It supports multiple languages, multiple
+
+10
+00:00:32,020 --> 00:00:34,689
+templating syntaxes, and multiple
+
+11
+00:00:34,689 --> 00:00:37,579
+rendering targets. It has features to
+
+12
+00:00:37,579 --> 00:00:40,179
+support mobile web, such as material
+
+13
+00:00:40,179 --> 00:00:42,710
+design, a set of widgets that work across
+
+14
+00:00:42,710 --> 00:00:46,219
+devices, Angular Universal to prerender
+
+15
+00:00:46,219 --> 00:00:49,109
+views on the server, and web workers for
+
+16
+00:00:49,109 --> 00:00:52,479
+background processing. And Angular
+
+17
+00:00:52,479 --> 00:00:54,679
+supports native mobile development using
+
+18
+00:00:54,679 --> 00:00:57,590
+products such as Ionic and NativeScript.
+
+19
+00:00:57,590 --> 00:01:00,729
+Keep an eye on Pluralsight and Angular.io
+
+20
+00:01:00,729 --> 00:01:06,000
+for more information on these exciting technologies.
+

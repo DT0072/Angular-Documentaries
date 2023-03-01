@@ -1,0 +1,44 @@
+0
+00:00:02,339 --> 00:00:04,299
+As you have seen throughout this course,
+
+1
+00:00:04,299 --> 00:00:06,290
+Angular provides a consistent set of
+
+2
+00:00:06,290 --> 00:00:08,369
+patterns for building components,
+
+3
+00:00:08,369 --> 00:00:10,880
+templates, and services, helping us to
+
+4
+00:00:10,880 --> 00:00:13,939
+come up to speed quickly. Welcome back too
+
+5
+00:00:13,939 --> 00:00:16,719
+Angular: Getting Started from Pluralsight.
+
+6
+00:00:16,719 --> 00:00:19,350
+My name is Deborah Kurata, and the final
+
+7
+00:00:19,350 --> 00:00:21,629
+words in this course include a recap of
+
+8
+00:00:21,629 --> 00:00:24,250
+our journey, a few pointers to additional
+
+9
+00:00:24,250 --> 00:00:26,769
+information, and a look at a broader
+
+10
+00:00:26,769 --> 00:00:33,000
+description of Angular. Let's jump right into this short module.
+

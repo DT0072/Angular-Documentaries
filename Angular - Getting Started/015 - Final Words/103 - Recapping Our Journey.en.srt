@@ -1,0 +1,168 @@
+0
+00:00:02,580 --> 00:00:04,849
+The goal of this course was to guide you
+
+1
+00:00:04,849 --> 00:00:07,179
+down the right path, making your own
+
+2
+00:00:07,179 --> 00:00:09,330
+adventures with Angular more pleasant and
+
+3
+00:00:09,330 --> 00:00:12,660
+productive. Let's recap our journey and
+
+4
+00:00:12,660 --> 00:00:14,939
+review the answers to the key questions we
+
+5
+00:00:14,939 --> 00:00:16,679
+identified at the beginning of this
+
+6
+00:00:16,679 --> 00:00:20,910
+course. What is a component? We discovered
+
+7
+00:00:20,910 --> 00:00:23,370
+that a component is a view defined with a
+
+8
+00:00:23,370 --> 00:00:26,429
+template, logic defined with the class,
+
+9
+00:00:26,429 --> 00:00:30,440
+and meta data defined with a decorator.
+
+10
+00:00:30,440 --> 00:00:32,939
+Where do we put the HTML for our user
+
+11
+00:00:32,939 --> 00:00:36,079
+interface? Either in the metadata using
+
+12
+00:00:36,079 --> 00:00:38,329
+the template property or in a separate
+
+13
+00:00:38,329 --> 00:00:41,590
+HTML file using the template URL property
+
+14
+00:00:41,590 --> 00:00:44,369
+in the metadata. When should we use
+
+15
+00:00:44,369 --> 00:00:46,960
+binding? Any time we want to display a
+
+16
+00:00:46,960 --> 00:00:49,030
+component class property value in the
+
+17
+00:00:49,030 --> 00:00:51,960
+view, when we want to control the DOM by
+
+18
+00:00:51,960 --> 00:00:54,740
+setting a DOM element property in code,
+
+19
+00:00:54,740 --> 00:00:57,740
+when we want to respond to user actions,
+
+20
+00:00:57,740 --> 00:00:59,759
+and when we want to display a component
+
+21
+00:00:59,759 --> 00:01:02,630
+class property and update the property
+
+22
+00:01:02,630 --> 00:01:05,909
+when the user makes a change. Why do we
+
+23
+00:01:05,909 --> 00:01:08,670
+need a service? We uncovered several
+
+24
+00:01:08,670 --> 00:01:10,879
+reasons for building a service: to
+
+25
+00:01:10,879 --> 00:01:12,590
+implement functionality that is
+
+26
+00:01:12,590 --> 00:01:15,340
+independent from any particular component,
+
+27
+00:01:15,340 --> 00:01:17,859
+to share data and logic across components,
+
+28
+00:01:17,859 --> 00:01:21,069
+and to encapsulate external interactions,
+
+29
+00:01:21,069 --> 00:01:26,180
+such as with data access. And how? How do
+
+30
+00:01:26,180 --> 00:01:29,310
+we build an Angular application? With code
+
+31
+00:01:29,310 --> 00:01:32,120
+that looks like this. Export a class,
+
+32
+00:01:32,120 --> 00:01:34,480
+attach a decorator. and import what we
+
+33
+00:01:34,480 --> 00:01:37,450
+need. Then put each component directive
+
+34
+00:01:37,450 --> 00:01:39,659
+and pipe in its appropriate Angular
+
+35
+00:01:39,659 --> 00:01:43,019
+module. Leverage the Angular CLI for
+
+36
+00:01:43,019 --> 00:01:45,579
+creating building, testing, and deploying
+
+37
+00:01:45,579 --> 00:01:49,159
+your Angular application. Along the way,
+
+38
+00:01:49,159 --> 00:01:52,109
+each module provided a set of checklists
+
+39
+00:01:52,109 --> 00:01:55,180
+containing steps and tips. Feel free to
+
+40
+00:01:55,180 --> 00:01:57,620
+revisit and reference these checklists as
+
+41
+00:01:57,620 --> 00:02:02,000
+you start building your own Angular applications.
+
