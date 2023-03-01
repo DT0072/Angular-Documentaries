@@ -1,0 +1,292 @@
+0
+00:00:02,339 --> 00:00:04,690
+So far in this course, we created the root
+
+1
+00:00:04,690 --> 00:00:08,019
+application module, AppModule. It declares
+
+2
+00:00:08,019 --> 00:00:10,599
+all of our components and our pipe. It
+
+3
+00:00:10,599 --> 00:00:12,859
+imports the system Angular modules that
+
+4
+00:00:12,859 --> 00:00:15,310
+our components need, but this is getting a
+
+5
+00:00:15,310 --> 00:00:18,039
+little unwieldy. We have no separation of
+
+6
+00:00:18,039 --> 00:00:20,710
+responsibilities. Here we are mixing our
+
+7
+00:00:20,710 --> 00:00:23,059
+basic application features, such as the
+
+8
+00:00:23,059 --> 00:00:25,179
+WelcomeComponent, with our product
+
+9
+00:00:25,179 --> 00:00:28,000
+features, such as the product components,
+
+10
+00:00:28,000 --> 00:00:30,260
+with our shared features, such as the
+
+11
+00:00:30,260 --> 00:00:33,409
+StarComponent. As we add more feature sets
+
+12
+00:00:33,409 --> 00:00:35,670
+to this application, such as customer
+
+13
+00:00:35,670 --> 00:00:38,299
+management, invoicing, and so on, this is
+
+14
+00:00:38,299 --> 00:00:40,729
+only going to get harder to manage. So
+
+15
+00:00:40,729 --> 00:00:43,380
+let's reorganize and refactor to break
+
+16
+00:00:43,380 --> 00:00:46,570
+this into multiple Angular modules. The
+
+17
+00:00:46,570 --> 00:00:48,799
+first thing we want to do is extract some
+
+18
+00:00:48,799 --> 00:00:51,619
+of these pieces into feature sets. We can
+
+19
+00:00:51,619 --> 00:00:53,960
+then create a feature module for each
+
+20
+00:00:53,960 --> 00:00:56,890
+feature set. Using feature modules helps
+
+21
+00:00:56,890 --> 00:00:59,170
+us partition our application into logical
+
+22
+00:00:59,170 --> 00:01:03,079
+groupings with separate concerns. Our
+
+23
+00:01:03,079 --> 00:01:05,299
+first step is to define a new feature
+
+24
+00:01:05,299 --> 00:01:08,439
+module. Creating a feature module involves
+
+25
+00:01:08,439 --> 00:01:11,530
+defining a new module file, ProductModule
+
+26
+00:01:11,530 --> 00:01:13,950
+in this example, and reorganizing the
+
+27
+00:01:13,950 --> 00:01:16,159
+pieces of the application so that all of
+
+28
+00:01:16,159 --> 00:01:18,530
+the associated feature pieces and
+
+29
+00:01:18,530 --> 00:01:20,920
+everything they need are here in this
+
+30
+00:01:20,920 --> 00:01:23,450
+module. In the declarations array of the
+
+31
+00:01:23,450 --> 00:01:25,810
+feature module, we add the appropriate
+
+32
+00:01:25,810 --> 00:01:27,819
+components that provide the features for
+
+33
+00:01:27,819 --> 00:01:30,969
+the application. In this example, we add
+
+34
+00:01:30,969 --> 00:01:32,519
+the ProductList component and
+
+35
+00:01:32,519 --> 00:01:35,530
+ProductDetail component. Then, as we did
+
+36
+00:01:35,530 --> 00:01:37,340
+with the box example at the beginning of
+
+37
+00:01:37,340 --> 00:01:39,680
+this course module, we start to look at
+
+38
+00:01:39,680 --> 00:01:42,150
+what each component needs. In this
+
+39
+00:01:42,150 --> 00:01:44,750
+example, the ProductList component uses
+
+40
+00:01:44,750 --> 00:01:47,400
+the pipe, so we need that. And both the
+
+41
+00:01:47,400 --> 00:01:49,739
+ProductList and ProductDetail components
+
+42
+00:01:49,739 --> 00:01:52,239
+use the StarComponent, so we'll need that
+
+43
+00:01:52,239 --> 00:01:55,170
+here as well. But that's not enough. The
+
+44
+00:01:55,170 --> 00:01:57,750
+ProductLisT ‑ Component uses NgModel and
+
+45
+00:01:57,750 --> 00:02:01,239
+NgFor, and both components use NgIf and
+
+46
+00:02:01,239 --> 00:02:04,349
+routing. How do we get that? We import
+
+47
+00:02:04,349 --> 00:02:06,390
+these needed capabilities from other
+
+48
+00:02:06,390 --> 00:02:09,280
+Angular modules. Our product components
+
+49
+00:02:09,280 --> 00:02:12,060
+use routing, so we import the SystemRouter
+
+50
+00:02:12,060 --> 00:02:15,060
+module. The ProductList component uses
+
+51
+00:02:15,060 --> 00:02:18,099
+NgModel, so we import the SystemForms
+
+52
+00:02:18,099 --> 00:02:22,479
+module. And we need NgFor and NgIf. So do
+
+53
+00:02:22,479 --> 00:02:26,590
+we pull in the system BrowserModule? Nope.
+
+54
+00:02:26,590 --> 00:02:28,800
+The BrowserModule should only be imported
+
+55
+00:02:28,800 --> 00:02:30,150
+into the root application module,
+
+56
+00:02:30,150 --> 00:02:34,360
+AppModule. Instead, we import this system
+
+57
+00:02:34,360 --> 00:02:37,569
+CommonModule. The CommonModule exposes the
+
+58
+00:02:37,569 --> 00:02:40,789
+NgFor and NgIf directives. Not
+
+59
+00:02:40,789 --> 00:02:43,379
+surprisingly, the BrowserModule itself
+
+60
+00:02:43,379 --> 00:02:45,530
+actually imports and exports the
+
+61
+00:02:45,530 --> 00:02:48,280
+CommonModule, which is why we have access
+
+62
+00:02:48,280 --> 00:02:51,090
+to NgFor and NgIf when we import
+
+63
+00:02:51,090 --> 00:02:54,139
+BrowserModule in our AppModule. Our
+
+64
+00:02:54,139 --> 00:02:56,740
+FeatureModule is looking pretty good here.
+
+65
+00:02:56,740 --> 00:02:58,949
+But now that we've removed these features
+
+66
+00:02:58,949 --> 00:03:01,530
+from the root application module, how will
+
+67
+00:03:01,530 --> 00:03:03,479
+the application find all of these
+
+68
+00:03:03,479 --> 00:03:06,620
+features? What's that? Imports array, dDid
+
+69
+00:03:06,620 --> 00:03:09,960
+you say? That's correct. We need to import
+
+70
+00:03:09,960 --> 00:03:13,439
+the product module into the AppModule.
+
+71
+00:03:13,439 --> 00:03:15,530
+That extends the AppModule with the
+
+72
+00:03:15,530 --> 00:03:21,000
+ProductModule features. Want to try this out?
+

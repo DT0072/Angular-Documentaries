@@ -1,0 +1,344 @@
+0
+00:00:02,140 --> 00:00:04,769
+We now know that every application has a
+
+1
+00:00:04,769 --> 00:00:07,179
+root application module that is, by
+
+2
+00:00:07,179 --> 00:00:10,140
+convention, called AppModule. The main
+
+3
+00:00:10,140 --> 00:00:12,779
+purpose of the AppModule is to orchestrate
+
+4
+00:00:12,779 --> 00:00:15,419
+the application as a whole. And now that
+
+5
+00:00:15,419 --> 00:00:17,170
+we've removed the feature and shared
+
+6
+00:00:17,170 --> 00:00:19,859
+pieces from this module, its purpose is
+
+7
+00:00:19,859 --> 00:00:24,339
+easier to see. Let's take another look.
+
+8
+00:00:24,339 --> 00:00:26,640
+We've reduced the code in AppModule such
+
+9
+00:00:26,640 --> 00:00:29,122
+that it now fits on one page. The
+
+10
+00:00:29,122 --> 00:00:32,450
+AppModule normally imports BrowserModule.
+
+11
+00:00:32,450 --> 00:00:34,240
+This is the module that every browser
+
+12
+00:00:34,240 --> 00:00:37,899
+application must import. BrowserModule
+
+13
+00:00:37,899 --> 00:00:39,409
+registers critical application service
+
+14
+00:00:39,409 --> 00:00:42,429
+providers. It also imports and exports
+
+15
+00:00:42,429 --> 00:00:45,159
+CommonModule, which declares and exports
+
+16
+00:00:45,159 --> 00:00:48,759
+directive such a NgIf and NgFor. These
+
+17
+00:00:48,759 --> 00:00:50,719
+directives are then available to any of
+
+18
+00:00:50,719 --> 00:00:53,829
+the AppModules component templates. We
+
+19
+00:00:53,829 --> 00:00:56,810
+also import HttpModule to register the
+
+20
+00:00:56,810 --> 00:01:00,619
+Angular HttpClientService provider. We
+
+21
+00:01:00,619 --> 00:01:03,340
+import RouterModule and call forRoot,
+
+22
+00:01:03,340 --> 00:01:05,230
+passing in the configured routes for the
+
+23
+00:01:05,230 --> 00:01:08,549
+root of the application. Here we configure
+
+24
+00:01:08,549 --> 00:01:12,890
+our default route and any wildcard routes.
+
+25
+00:01:12,890 --> 00:01:16,129
+Then we import each feature module. In
+
+26
+00:01:16,129 --> 00:01:18,420
+this example, we have only one feature
+
+27
+00:01:18,420 --> 00:01:22,129
+module, ProductModule. The declarations
+
+28
+00:01:22,129 --> 00:01:24,329
+array identifies the list of components
+
+29
+00:01:24,329 --> 00:01:26,769
+that belong to this module. In this
+
+30
+00:01:26,769 --> 00:01:29,540
+example, the root component, AppComponent,
+
+31
+00:01:29,540 --> 00:01:32,439
+and the application's WelcomeComponent are
+
+32
+00:01:32,439 --> 00:01:34,980
+declared here. The bootstrap array
+
+33
+00:01:34,980 --> 00:01:37,049
+identifies the root component,
+
+34
+00:01:37,049 --> 00:01:39,939
+AppComponent, as the bootstrap component.
+
+35
+00:01:39,939 --> 00:01:42,159
+When Angular launches the application, it
+
+36
+00:01:42,159 --> 00:01:44,170
+loads this component and displays its
+
+37
+00:01:44,170 --> 00:01:46,829
+template. We could take the refactoring a
+
+38
+00:01:46,829 --> 00:01:49,569
+step further and separate the routing into
+
+39
+00:01:49,569 --> 00:01:52,189
+its own module. We could create one
+
+40
+00:01:52,189 --> 00:01:54,590
+Angular module for our root application
+
+41
+00:01:54,590 --> 00:01:58,109
+routes and another Angular module for our
+
+42
+00:01:58,109 --> 00:02:00,739
+product feature routes. Let's go back to
+
+43
+00:02:00,739 --> 00:02:02,599
+the slides and see what that code would
+
+44
+00:02:02,599 --> 00:02:06,640
+look like. If we wanted to refactor our
+
+45
+00:02:06,640 --> 00:02:09,009
+root application routes into their own
+
+46
+00:02:09,009 --> 00:02:11,879
+module, this is what it might look like.
+
+47
+00:02:11,879 --> 00:02:14,219
+We export a class, at the NgModule
+
+48
+00:02:14,219 --> 00:02:17,650
+decorator, and import what we need. We add
+
+49
+00:02:17,650 --> 00:02:20,159
+the RouterModule to the imports array,
+
+50
+00:02:20,159 --> 00:02:22,780
+passing in our root application routes,
+
+51
+00:02:22,780 --> 00:02:24,659
+including our default route and our
+
+52
+00:02:24,659 --> 00:02:27,389
+wildcard route. Notice that we call
+
+53
+00:02:27,389 --> 00:02:29,909
+forRoot here to ensure that we register
+
+54
+00:02:29,909 --> 00:02:32,370
+the routing service provider. And we
+
+55
+00:02:32,370 --> 00:02:34,969
+export RouterModule so we can use it from
+
+56
+00:02:34,969 --> 00:02:38,580
+any module that imports this module. We
+
+57
+00:02:38,580 --> 00:02:41,000
+import the AppRoutingModule in the
+
+58
+00:02:41,000 --> 00:02:43,849
+AppModule here. Note that the
+
+59
+00:02:43,849 --> 00:02:46,780
+AppRoutingModule is listed after the
+
+60
+00:02:46,780 --> 00:02:49,710
+ProductModule in the imports array. This
+
+61
+00:02:49,710 --> 00:02:52,389
+is required because Angular registers the
+
+62
+00:02:52,389 --> 00:02:55,449
+routes based on the order of the modules
+
+63
+00:02:55,449 --> 00:02:58,310
+specified here. The ProductModule is
+
+64
+00:02:58,310 --> 00:03:01,060
+listed first, so it registers the product
+
+65
+00:03:01,060 --> 00:03:04,199
+routes first. Then the AppRoutingModule
+
+66
+00:03:04,199 --> 00:03:06,509
+registers the application routes,
+
+67
+00:03:06,509 --> 00:03:09,740
+including the wildcard route. If the
+
+68
+00:03:09,740 --> 00:03:11,819
+AppRoutingModule was before the
+
+69
+00:03:11,819 --> 00:03:14,699
+ProductModule, then the wildcard route
+
+70
+00:03:14,699 --> 00:03:17,129
+would be registered before the product
+
+71
+00:03:17,129 --> 00:03:19,629
+routes and the product routes would never
+
+72
+00:03:19,629 --> 00:03:22,800
+be accessible. So the AppRoutingModule
+
+73
+00:03:22,800 --> 00:03:25,789
+with the wildcard route should always be
+
+74
+00:03:25,789 --> 00:03:29,250
+last in this list. We can do the same to
+
+75
+00:03:29,250 --> 00:03:31,719
+refactor our product feature routes into
+
+76
+00:03:31,719 --> 00:03:34,819
+their own module. The key difference here
+
+77
+00:03:34,819 --> 00:03:37,289
+is when we import RouterModule in any
+
+78
+00:03:37,289 --> 00:03:39,870
+feature module, we pass the configured
+
+79
+00:03:39,870 --> 00:03:42,669
+routes to the forChild method instead of
+
+80
+00:03:42,669 --> 00:03:45,840
+the forRoot method. This ensures that we
+
+81
+00:03:45,840 --> 00:03:47,639
+don't register the routing service
+
+82
+00:03:47,639 --> 00:03:51,430
+provider a second time, and we import this
+
+83
+00:03:51,430 --> 00:03:53,449
+ProductRoutingModule into the
+
+84
+00:03:53,449 --> 00:03:56,590
+ProductModule as shown here. Now let's
+
+85
+00:03:56,590 --> 00:04:02,000
+finish up this course module with some checklists and a summary.
+

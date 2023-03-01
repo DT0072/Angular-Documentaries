@@ -1,0 +1,464 @@
+0
+00:00:02,339 --> 00:00:05,860
+What is an Angular module? As we've seen
+
+1
+00:00:05,860 --> 00:00:08,609
+earlier in this course, an Angular module
+
+2
+00:00:08,609 --> 00:00:12,529
+is a class with an NgModule decorator. Its
+
+3
+00:00:12,529 --> 00:00:15,259
+purpose? To organize the pieces of our
+
+4
+00:00:15,259 --> 00:00:18,300
+application, arrange them into cohesive
+
+5
+00:00:18,300 --> 00:00:21,019
+blocks of functionality, and extend our
+
+6
+00:00:21,019 --> 00:00:23,030
+application with capabilities from
+
+7
+00:00:23,030 --> 00:00:26,329
+external libraries. Angular modules
+
+8
+00:00:26,329 --> 00:00:28,410
+provide the environment for resolving the
+
+9
+00:00:28,410 --> 00:00:30,579
+directives and pipes in our component's
+
+10
+00:00:30,579 --> 00:00:33,179
+templates. We'll talk more about this in a
+
+11
+00:00:33,179 --> 00:00:36,240
+few moments. And modules are a great way
+
+12
+00:00:36,240 --> 00:00:38,630
+to selectively aggregate classes from
+
+13
+00:00:38,630 --> 00:00:41,909
+other modules and re‑export them in a
+
+14
+00:00:41,909 --> 00:00:44,640
+consolidated convenience module.
+
+15
+00:00:44,640 --> 00:00:47,159
+BrowserModule, HTTPModule, and
+
+16
+00:00:47,159 --> 00:00:50,259
+RouterModule are all examples of this, and
+
+17
+00:00:50,259 --> 00:00:52,640
+we'll create our own convenience module
+
+18
+00:00:52,640 --> 00:00:54,820
+when we build a shared module a little
+
+19
+00:00:54,820 --> 00:00:57,710
+later. An Angular module can be loaded
+
+20
+00:00:57,710 --> 00:01:00,729
+eagerly when the application starts, or it
+
+21
+00:01:00,729 --> 00:01:03,670
+can be lazy loaded asynchronously by the
+
+22
+00:01:03,670 --> 00:01:06,450
+router. Lazy loading is out of the scope
+
+23
+00:01:06,450 --> 00:01:09,379
+of this course but is discussed in detail
+
+24
+00:01:09,379 --> 00:01:11,609
+in my Angular Routing course here on
+
+25
+00:01:11,609 --> 00:01:15,069
+Pluralsight. How does an Angular module
+
+26
+00:01:15,069 --> 00:01:17,730
+organize our application? An Angular
+
+27
+00:01:17,730 --> 00:01:20,500
+module declares each component, directive,
+
+28
+00:01:20,500 --> 00:01:23,620
+and pipe that it manages. Every component,
+
+29
+00:01:23,620 --> 00:01:26,329
+directive, and pipe we create belongs to
+
+30
+00:01:26,329 --> 00:01:29,219
+an Angular module. An Angular module
+
+31
+00:01:29,219 --> 00:01:31,950
+bootstraps our root application component,
+
+32
+00:01:31,950 --> 00:01:34,430
+defining the component needed to display
+
+33
+00:01:34,430 --> 00:01:37,359
+our first template. An Angular module can
+
+34
+00:01:37,359 --> 00:01:40,180
+export components, directives, pipes, and
+
+35
+00:01:40,180 --> 00:01:42,819
+even other Angular modules, making them
+
+36
+00:01:42,819 --> 00:01:45,510
+available for other modules to import and
+
+37
+00:01:45,510 --> 00:01:48,629
+use. An Angular module imports other
+
+38
+00:01:48,629 --> 00:01:51,299
+Angular modules. This brings in the
+
+39
+00:01:51,299 --> 00:01:53,939
+exported functionality from those imported
+
+40
+00:01:53,939 --> 00:01:57,319
+modules. An Angular module can register
+
+41
+00:01:57,319 --> 00:01:59,359
+service providers with the Angular
+
+42
+00:01:59,359 --> 00:02:02,400
+injector, making the services available to
+
+43
+00:02:02,400 --> 00:02:06,319
+any class in the application. We can think
+
+44
+00:02:06,319 --> 00:02:10,219
+of an Angular module as a box. Inside that
+
+45
+00:02:10,219 --> 00:02:13,560
+box, we declare each of our components. If
+
+46
+00:02:13,560 --> 00:02:15,775
+those components need any functionality,
+
+47
+00:02:15,775 --> 00:02:18,620
+that functionality also needs to be
+
+48
+00:02:18,620 --> 00:02:22,879
+defined within this box. The AppComponent
+
+49
+00:02:22,879 --> 00:02:25,120
+sets up the routing for our main menu
+
+50
+00:02:25,120 --> 00:02:27,280
+using routerLink and includes the
+
+51
+00:02:27,280 --> 00:02:30,219
+router‑outlet directive, so it needs the
+
+52
+00:02:30,219 --> 00:02:32,780
+routing directives Router service and
+
+53
+00:02:32,780 --> 00:02:36,060
+Routes, which are defined in RouterModule.
+
+54
+00:02:36,060 --> 00:02:39,590
+The ProductListComponent uses NgModel, so
+
+55
+00:02:39,590 --> 00:02:42,430
+it needs the FormsModule. The
+
+56
+00:02:42,430 --> 00:02:45,770
+ProductListComponent also uses ngFor and
+
+57
+00:02:45,770 --> 00:02:49,639
+ngIf, so it needs the BrowserModule. The
+
+58
+00:02:49,639 --> 00:02:52,639
+ProductListComponent uses the pipe, so it
+
+59
+00:02:52,639 --> 00:02:55,870
+needs that too. The ProductListComponent
+
+60
+00:02:55,870 --> 00:02:58,409
+also uses the starRating component's
+
+61
+00:02:58,409 --> 00:03:01,870
+directive, so it needs that as well. And
+
+62
+00:03:01,870 --> 00:03:04,430
+so on until the box contains everything
+
+63
+00:03:04,430 --> 00:03:08,159
+that each of our components needs. Saying
+
+64
+00:03:08,159 --> 00:03:10,689
+this another way, for each component that
+
+65
+00:03:10,689 --> 00:03:13,419
+belongs to an Angular module, that Angular
+
+66
+00:03:13,419 --> 00:03:15,610
+module provides the environment for
+
+67
+00:03:15,610 --> 00:03:18,729
+template resolution. The module defines
+
+68
+00:03:18,729 --> 00:03:20,710
+which set of components, directives, and
+
+69
+00:03:20,710 --> 00:03:22,710
+pipes are available to the component's
+
+70
+00:03:22,710 --> 00:03:25,330
+template. Each declared component's
+
+71
+00:03:25,330 --> 00:03:28,210
+template is resolved using only the
+
+72
+00:03:28,210 --> 00:03:31,909
+capabilities provided within that module.
+
+73
+00:03:31,909 --> 00:03:34,000
+Let's look at our ProductListComponent as
+
+74
+00:03:34,000 --> 00:03:36,969
+an example. The ProductListComponent's
+
+75
+00:03:36,969 --> 00:03:40,659
+template uses NgModel, so NgModel must be
+
+76
+00:03:40,659 --> 00:03:43,889
+available within this module. We achieve
+
+77
+00:03:43,889 --> 00:03:46,802
+that by importing the Angular FormsModule.
+
+78
+00:03:46,802 --> 00:03:49,780
+The ProductListComponent's template also
+
+79
+00:03:49,780 --> 00:03:52,460
+uses a directive we created, the
+
+80
+00:03:52,460 --> 00:03:54,949
+StarComponent, so the StarComponent must
+
+81
+00:03:54,949 --> 00:03:58,430
+be available within this module. Since the
+
+82
+00:03:58,430 --> 00:04:01,120
+StarComponent is one we created, we can
+
+83
+00:04:01,120 --> 00:04:03,259
+either declare the StarComponent within
+
+84
+00:04:03,259 --> 00:04:06,409
+the module directly, or we can import
+
+85
+00:04:06,409 --> 00:04:08,509
+another module that exports the
+
+86
+00:04:08,509 --> 00:04:11,819
+StarComponent. Importing an Angular module
+
+87
+00:04:11,819 --> 00:04:14,229
+brings in the functionality exported by
+
+88
+00:04:14,229 --> 00:04:17,480
+that module. And we'd need to do one or
+
+89
+00:04:17,480 --> 00:04:21,000
+the other, never both. We didn't need to
+
+90
+00:04:21,000 --> 00:04:23,009
+think about template resolution much in
+
+91
+00:04:23,009 --> 00:04:25,430
+our sample application up until now,
+
+92
+00:04:25,430 --> 00:04:27,180
+because all of the pieces of our
+
+93
+00:04:27,180 --> 00:04:30,800
+application are in one Angular module. But
+
+94
+00:04:30,800 --> 00:04:32,790
+we will need to keep this in mind as we
+
+95
+00:04:32,790 --> 00:04:35,069
+split our application into multiple
+
+96
+00:04:35,069 --> 00:04:37,920
+Angular modules. Let's take a quick look
+
+97
+00:04:37,920 --> 00:04:41,769
+at our current AppModule. Here is the
+
+98
+00:04:41,769 --> 00:04:43,990
+Angular module we've defined throughout
+
+99
+00:04:43,990 --> 00:04:46,759
+this course. It is the application's root
+
+100
+00:04:46,759 --> 00:04:49,500
+Angular module, and by convention is
+
+101
+00:04:49,500 --> 00:04:52,850
+called at AppModule. The AppModule imports
+
+102
+00:04:52,850 --> 00:04:55,310
+the system Angular modules we need,
+
+103
+00:04:55,310 --> 00:04:57,589
+including the RouterModule, which is where
+
+104
+00:04:57,589 --> 00:05:00,620
+we configured our routes. It declares each
+
+105
+00:05:00,620 --> 00:05:02,769
+component and pipe that we created in this
+
+106
+00:05:02,769 --> 00:05:05,730
+course, and it bootstraps the application
+
+107
+00:05:05,730 --> 00:05:07,970
+with the root application component,
+
+108
+00:05:07,970 --> 00:05:11,199
+AppComponent. We have a lot of information
+
+109
+00:05:11,199 --> 00:05:13,360
+in here, and we're mixing up basic
+
+110
+00:05:13,360 --> 00:05:15,490
+application pieces such as our
+
+111
+00:05:15,490 --> 00:05:18,209
+WelcomeComponent with pieces specific to
+
+112
+00:05:18,209 --> 00:05:20,889
+our product feature. Let's journey through
+
+113
+00:05:20,889 --> 00:05:24,069
+the NgModule metadata to better understand
+
+114
+00:05:24,069 --> 00:05:26,990
+how Angular modules work, so we can then
+
+115
+00:05:26,990 --> 00:05:34,000
+refactor our AppNodule into multiple modules for better code organization,
+

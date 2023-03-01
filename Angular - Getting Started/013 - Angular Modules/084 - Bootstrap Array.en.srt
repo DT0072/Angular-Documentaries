@@ -1,0 +1,100 @@
+0
+00:00:02,339 --> 00:00:05,290
+As we have seen, every Angular application
+
+1
+00:00:05,290 --> 00:00:08,380
+has at least one Angular module called the
+
+2
+00:00:08,380 --> 00:00:11,890
+root application module or AppModule. And
+
+3
+00:00:11,890 --> 00:00:14,099
+an Angular application has at least one
+
+4
+00:00:14,099 --> 00:00:17,120
+component called the root application
+
+5
+00:00:17,120 --> 00:00:20,859
+component or AppComponent. The AppModule
+
+6
+00:00:20,859 --> 00:00:22,679
+bootstraps the AppComponent to provide the
+
+7
+00:00:22,679 --> 00:00:26,579
+directive used in the index.html file. We
+
+8
+00:00:26,579 --> 00:00:28,739
+covered the bootstrapping process in the
+
+9
+00:00:28,739 --> 00:00:30,980
+Introduction to Components module earlier
+
+10
+00:00:30,980 --> 00:00:33,789
+in this course. The bootstrap array of the
+
+11
+00:00:33,789 --> 00:00:36,859
+NgModule decorator defines the component
+
+12
+00:00:36,859 --> 00:00:38,390
+that is the starting point of the
+
+13
+00:00:38,390 --> 00:00:41,219
+application. This is the component that is
+
+14
+00:00:41,219 --> 00:00:43,939
+loaded when the application is launched.
+
+15
+00:00:43,939 --> 00:00:45,859
+Here are some things to keep in mind when
+
+16
+00:00:45,859 --> 00:00:48,469
+using the bootstrap array. Every
+
+17
+00:00:48,469 --> 00:00:50,890
+application must bootstrap at least one
+
+18
+00:00:50,890 --> 00:00:54,539
+component, the root application component.
+
+19
+00:00:54,539 --> 00:00:56,659
+We do this by simply adding the root
+
+20
+00:00:56,659 --> 00:00:59,009
+application component to the bootstrap
+
+21
+00:00:59,009 --> 00:01:02,750
+array of the root application module. The
+
+22
+00:01:02,750 --> 00:01:05,590
+bootstrap array should only be used in the
+
+23
+00:01:05,590 --> 00:01:09,290
+root application module, AppModule. As we
+
+24
+00:01:09,290 --> 00:01:15,000
+build other Angular modules, we won't use the bootstrap array.
+

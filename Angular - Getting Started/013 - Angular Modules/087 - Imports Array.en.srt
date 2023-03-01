@@ -1,0 +1,268 @@
+0
+00:00:02,439 --> 00:00:05,379
+An Angular module can be extended by
+
+1
+00:00:05,379 --> 00:00:08,050
+importing capabilities from other Angular
+
+2
+00:00:08,050 --> 00:00:11,500
+modules. The imports array of the NgModule
+
+3
+00:00:11,500 --> 00:00:14,240
+decorator allows us to import supporting
+
+4
+00:00:14,240 --> 00:00:16,140
+modules that export components,
+
+5
+00:00:16,140 --> 00:00:18,769
+directives, or pipes. We then use those
+
+6
+00:00:18,769 --> 00:00:21,140
+exported components, directives, and pipes
+
+7
+00:00:21,140 --> 00:00:23,129
+within the templates of components that
+
+8
+00:00:23,129 --> 00:00:26,530
+are declared in this module. Many Angular
+
+9
+00:00:26,530 --> 00:00:29,559
+system libraries are Angular modules such,
+
+10
+00:00:29,559 --> 00:00:32,539
+as the FormsModule and HttpModule we've
+
+11
+00:00:32,539 --> 00:00:35,490
+used in this course. We can import Angular
+
+12
+00:00:35,490 --> 00:00:38,640
+modules to use their capabilities. Many
+
+13
+00:00:38,640 --> 00:00:41,009
+third party libraries are also Angular
+
+14
+00:00:41,009 --> 00:00:44,380
+modules such, as Material Design. We can
+
+15
+00:00:44,380 --> 00:00:47,130
+import third party Angular modules to use
+
+16
+00:00:47,130 --> 00:00:50,429
+their capabilities. We can import our own
+
+17
+00:00:50,429 --> 00:00:52,799
+modules to extend our application with
+
+18
+00:00:52,799 --> 00:00:55,460
+additional features or share capabilities
+
+19
+00:00:55,460 --> 00:00:58,409
+across several modules. We'll see that in
+
+20
+00:00:58,409 --> 00:01:01,380
+an upcoming demo. And we could separate
+
+21
+00:01:01,380 --> 00:01:04,129
+out our route configurations into its own
+
+22
+00:01:04,129 --> 00:01:06,980
+module or a set of modules and import
+
+23
+00:01:06,980 --> 00:01:09,659
+that. Here are some things to keep in mind
+
+24
+00:01:09,659 --> 00:01:13,230
+when using the imports array. Importing a
+
+25
+00:01:13,230 --> 00:01:16,150
+module makes available any exported
+
+26
+00:01:16,150 --> 00:01:18,299
+components, directives, and pipes from
+
+27
+00:01:18,299 --> 00:01:21,329
+that module. Recall that we're using
+
+28
+00:01:21,329 --> 00:01:24,150
+NgModel in our ProductList component for
+
+29
+00:01:24,150 --> 00:01:27,480
+two‑way binding. The NgModel directive is
+
+30
+00:01:27,480 --> 00:01:30,849
+exported in the FormsModule. By importing
+
+31
+00:01:30,849 --> 00:01:33,840
+the FormsModule into our AppModule, we can
+
+32
+00:01:33,840 --> 00:01:37,030
+use NgModel in any component declared in
+
+33
+00:01:37,030 --> 00:01:40,909
+our AppModule. Only import what this
+
+34
+00:01:40,909 --> 00:01:44,209
+module needs. Only import modules whose
+
+35
+00:01:44,209 --> 00:01:46,480
+exported components, directives, or pipes
+
+36
+00:01:46,480 --> 00:01:48,950
+are needed by this module's component
+
+37
+00:01:48,950 --> 00:01:51,670
+templates. Don't import anything this
+
+38
+00:01:51,670 --> 00:01:55,680
+module does not need. Importing a module
+
+39
+00:01:55,680 --> 00:01:58,799
+does not provide access to its imported
+
+40
+00:01:58,799 --> 00:02:02,340
+modules. Hmm, let's look at that with a
+
+41
+00:02:02,340 --> 00:02:05,640
+picture. Here we have AppModule, which
+
+42
+00:02:05,640 --> 00:02:08,789
+declares the ProductList‑Component and a
+
+43
+00:02:08,789 --> 00:02:12,349
+SharedModule that declares and exports the
+
+44
+00:02:12,349 --> 00:02:16,719
+StarComponent. AppModule imports the
+
+45
+00:02:16,719 --> 00:02:18,330
+SharedModule, so the SharedModule's
+
+46
+00:02:18,330 --> 00:02:21,020
+exports are available to the AppModule's
+
+47
+00:02:21,020 --> 00:02:23,639
+component templates. This means that the
+
+48
+00:02:23,639 --> 00:02:25,580
+ProductList‑Component can use the
+
+49
+00:02:25,580 --> 00:02:28,099
+StarComponent directive. If the
+
+50
+00:02:28,099 --> 00:02:31,389
+SharedModule imports FormsModule, then the
+
+51
+00:02:31,389 --> 00:02:34,280
+FormsModules exports are available to the
+
+52
+00:02:34,280 --> 00:02:37,439
+SharedModule, and the StarComponent could
+
+53
+00:02:37,439 --> 00:02:40,370
+use the NgModel directive. But the
+
+54
+00:02:40,370 --> 00:02:43,689
+FormsModule exports are not available to
+
+55
+00:02:43,689 --> 00:02:45,569
+the AppModule. So the
+
+56
+00:02:45,569 --> 00:02:48,020
+ProductList‑Component could not use the
+
+57
+00:02:48,020 --> 00:02:50,860
+NgModel directive. I've heard this rule
+
+58
+00:02:50,860 --> 00:02:53,939
+also stated another way. Imports are not
+
+59
+00:02:53,939 --> 00:02:56,849
+inherited. Note, however, that if the
+
+60
+00:02:56,849 --> 00:03:00,409
+SharedModule re‑exported the FormsModule,
+
+61
+00:03:00,409 --> 00:03:03,650
+then the FormsModule exports are available
+
+62
+00:03:03,650 --> 00:03:05,710
+to the AppModule. And the
+
+63
+00:03:05,710 --> 00:03:07,830
+ProductList‑Component could use the
+
+64
+00:03:07,830 --> 00:03:11,669
+NgModel directive. So when thinking about
+
+65
+00:03:11,669 --> 00:03:14,340
+the relationship between modules, think of
+
+66
+00:03:14,340 --> 00:03:20,000
+a module more as a box than as a tree structure.
+

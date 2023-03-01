@@ -1,0 +1,336 @@
+0
+00:00:02,439 --> 00:00:05,669
+In this demo, we'll build a feature module
+
+1
+00:00:05,669 --> 00:00:09,099
+for our product features. We are back in
+
+2
+00:00:09,099 --> 00:00:11,759
+the sample application. Here is our
+
+3
+00:00:11,759 --> 00:00:15,230
+AppModule. Let's create a new feature
+
+4
+00:00:15,230 --> 00:00:18,329
+module for our product feature. Want to
+
+5
+00:00:18,329 --> 00:00:22,149
+try generating it with the Angular CLI? We
+
+6
+00:00:22,149 --> 00:00:25,730
+open the integrated terminal and type ng
+
+7
+00:00:25,730 --> 00:00:30,149
+for the Angular CLI, g for generate, m for
+
+8
+00:00:30,149 --> 00:00:33,429
+module, and the name of our module. Since
+
+9
+00:00:33,429 --> 00:00:36,070
+we are creating the ProductModule, we want
+
+10
+00:00:36,070 --> 00:00:38,509
+it in the products folder, so
+
+11
+00:00:38,509 --> 00:00:41,880
+products/product. That's all that's
+
+12
+00:00:41,880 --> 00:00:44,530
+required. But by default, Angular will
+
+13
+00:00:44,530 --> 00:00:47,109
+create a new folder for this module
+
+14
+00:00:47,109 --> 00:00:49,179
+because it rightly assumes that we'll
+
+15
+00:00:49,179 --> 00:00:51,509
+create the module when we define the
+
+16
+00:00:51,509 --> 00:00:54,170
+feature and the feature folder. But we
+
+17
+00:00:54,170 --> 00:00:57,030
+already have the products folder, so we'll
+
+18
+00:00:57,030 --> 00:01:00,530
+use the ‑‑flat option. And we want to
+
+19
+00:01:00,530 --> 00:01:03,420
+import this module into the AppModule to
+
+20
+00:01:03,420 --> 00:01:06,480
+pull in its functionality. So we use the
+
+21
+00:01:06,480 --> 00:01:10,730
+‑m flag, specifying the module name. Press
+
+22
+00:01:10,730 --> 00:01:14,120
+Enter, and we see that the CLI created the
+
+23
+00:01:14,120 --> 00:01:18,790
+module. It also updated our AppModule. We
+
+24
+00:01:18,790 --> 00:01:22,010
+can see that here. It added ProductModule
+
+25
+00:01:22,010 --> 00:01:25,670
+to our imports array. Yeah! Let's open the
+
+26
+00:01:25,670 --> 00:01:29,069
+new ProductModule. The CLI already created
+
+27
+00:01:29,069 --> 00:01:32,370
+the class with the @NgModule decorator and
+
+28
+00:01:32,370 --> 00:01:35,480
+the required import statements. Since this
+
+29
+00:01:35,480 --> 00:01:38,370
+module is for our product features, in the
+
+30
+00:01:38,370 --> 00:01:40,500
+declarations array, we add the
+
+31
+00:01:40,500 --> 00:01:42,319
+ProductListComponent,
+
+32
+00:01:42,319 --> 00:01:44,239
+ProductDetailComponent,
+
+33
+00:01:44,239 --> 00:01:48,879
+ConvertToSpacesPipe, and StarComponent.
+
+34
+00:01:48,879 --> 00:01:51,299
+Now we can remove these declarations from
+
+35
+00:01:51,299 --> 00:01:55,780
+the AppModule. Going back to our
+
+36
+00:01:55,780 --> 00:01:57,540
+ProductModule, we can see that the CLI
+
+37
+00:01:57,540 --> 00:02:00,817
+already included CommonModule here since
+
+38
+00:02:00,817 --> 00:02:03,608
+we need that in every feature module.
+
+39
+00:02:03,608 --> 00:02:05,658
+We'll add the FormsModule and
+
+40
+00:02:05,658 --> 00:02:08,728
+RouterModule. Now we can remove the
+
+41
+00:02:08,728 --> 00:02:11,747
+FormsModule from the AppModule and it's
+
+42
+00:02:11,747 --> 00:02:14,918
+associated import statement. When we added
+
+43
+00:02:14,918 --> 00:02:17,027
+the RouterModule to the imports array in
+
+44
+00:02:17,027 --> 00:02:19,937
+the AppModule, we called forRoot to pass
+
+45
+00:02:19,937 --> 00:02:21,627
+in the configured routes for our root
+
+46
+00:02:21,627 --> 00:02:24,207
+component. Now that we are adding the
+
+47
+00:02:24,207 --> 00:02:26,358
+RouterModule to the imports array of a
+
+48
+00:02:26,358 --> 00:02:29,638
+feature module, we don't call forRoot,
+
+49
+00:02:29,638 --> 00:02:33,138
+rather we call forChild, and there we pass
+
+50
+00:02:33,138 --> 00:02:36,018
+in the routes related to products. Let's
+
+51
+00:02:36,018 --> 00:02:39,008
+cut the product routes from the AppModule
+
+52
+00:02:39,008 --> 00:02:41,858
+and paste them here in our ProductModule,
+
+53
+00:02:41,858 --> 00:02:43,207
+and we need to import the
+
+54
+00:02:43,207 --> 00:02:45,907
+ProductDetailGuard. Recall that the
+
+55
+00:02:45,907 --> 00:02:48,737
+RouterModule registers the router service
+
+56
+00:02:48,737 --> 00:02:51,538
+provider, declares the router directives,
+
+57
+00:02:51,538 --> 00:02:54,987
+and exposes our configured routes. But as
+
+58
+00:02:54,987 --> 00:02:57,288
+we've discussed previously, we never want
+
+59
+00:02:57,288 --> 00:03:00,018
+to register a service more than once. So
+
+60
+00:03:00,018 --> 00:03:02,057
+when we use forRoot to pass in our
+
+61
+00:03:02,057 --> 00:03:04,568
+configured routes, the RouterModule knows
+
+62
+00:03:04,568 --> 00:03:07,228
+to register the router service provider.
+
+63
+00:03:07,228 --> 00:03:10,358
+When we use forChild, as we did here, the
+
+64
+00:03:10,358 --> 00:03:12,867
+RouterModule knows not to reregister the
+
+65
+00:03:12,867 --> 00:03:15,768
+router service. Note that we could also
+
+66
+00:03:15,768 --> 00:03:17,997
+consider moving the routes into their own
+
+67
+00:03:17,997 --> 00:03:20,288
+modules. We'll look at that a little
+
+68
+00:03:20,288 --> 00:03:23,038
+later. Do you think our application will
+
+69
+00:03:23,038 --> 00:03:26,277
+run? And our application works as
+
+70
+00:03:26,277 --> 00:03:29,728
+expected. So we now have our first working
+
+71
+00:03:29,728 --> 00:03:32,288
+feature module. But let's think about this
+
+72
+00:03:32,288 --> 00:03:35,157
+for a moment. As we build our application,
+
+73
+00:03:35,157 --> 00:03:37,758
+we'll build more features. Each logical
+
+74
+00:03:37,758 --> 00:03:39,758
+set of features will have their own
+
+75
+00:03:39,758 --> 00:03:42,867
+feature module. And each feature module
+
+76
+00:03:42,867 --> 00:03:45,587
+will most likely need the CommonModule for
+
+77
+00:03:45,587 --> 00:03:48,052
+common directives such as ngFor and ngIf,
+
+78
+00:03:48,052 --> 00:03:51,617
+the FormsModule for NgModel in two‑way
+
+79
+00:03:51,617 --> 00:03:54,008
+binding, and we may have other features
+
+80
+00:03:54,008 --> 00:03:56,937
+that want to reuse our StarComponent. Do
+
+81
+00:03:56,937 --> 00:03:59,177
+we really want to repeat all of this in
+
+82
+00:03:59,177 --> 00:04:01,978
+each feature module? There has to be a
+
+83
+00:04:01,978 --> 00:04:08,000
+better way. Yep, we can define a SharedModule.
+

@@ -1,0 +1,256 @@
+0
+00:00:02,379 --> 00:00:04,379
+Every component directive and pipe we
+
+1
+00:00:04,379 --> 00:00:07,740
+create is declared by an Angular module.
+
+2
+00:00:07,740 --> 00:00:10,000
+We use the declarations array of the
+
+3
+00:00:10,000 --> 00:00:12,449
+NgModule decorator to define the
+
+4
+00:00:12,449 --> 00:00:14,289
+components, directives, and pipes that
+
+5
+00:00:14,289 --> 00:00:17,460
+belong to this Angular module. Here are
+
+6
+00:00:17,460 --> 00:00:19,489
+some things to keep in mind when using the
+
+7
+00:00:19,489 --> 00:00:22,929
+declarations array. Every component
+
+8
+00:00:22,929 --> 00:00:25,960
+directive and pipe we create has to belong
+
+9
+00:00:25,960 --> 00:00:29,839
+to one and only one Angular module. In our
+
+10
+00:00:29,839 --> 00:00:32,509
+sample application, all of our components
+
+11
+00:00:32,509 --> 00:00:34,820
+are defined in one Angular module,
+
+12
+00:00:34,820 --> 00:00:37,740
+AppModule. It would be better to divide
+
+13
+00:00:37,740 --> 00:00:40,460
+the components into multiple modules with
+
+14
+00:00:40,460 --> 00:00:43,119
+basic application pieces in the AppModule
+
+15
+00:00:43,119 --> 00:00:45,530
+and feature pieces inappropriate feature
+
+16
+00:00:45,530 --> 00:00:48,200
+modules. We'll do that a little later in
+
+17
+00:00:48,200 --> 00:00:51,380
+this course module. As we separate out our
+
+18
+00:00:51,380 --> 00:00:53,859
+pieces, it is important to remember that
+
+19
+00:00:53,859 --> 00:00:56,439
+each component directive and pipe belongs
+
+20
+00:00:56,439 --> 00:01:01,119
+to one and only one Angular module. Only
+
+21
+00:01:01,119 --> 00:01:04,340
+declare components, directives, and pipes.
+
+22
+00:01:04,340 --> 00:01:06,609
+Don't add other classes, services, or
+
+23
+00:01:06,609 --> 00:01:10,890
+modules to the declarations array. Never
+
+24
+00:01:10,890 --> 00:01:12,939
+re‑declare components, directives, or
+
+25
+00:01:12,939 --> 00:01:16,030
+pipes that belong to another module. This
+
+26
+00:01:16,030 --> 00:01:19,109
+is a corollary to truth number 1. If we
+
+27
+00:01:19,109 --> 00:01:21,250
+re‑declare, then the component directive
+
+28
+00:01:21,250 --> 00:01:23,659
+or pipe no longer belongs to one and only
+
+29
+00:01:23,659 --> 00:01:26,900
+one Angular module. For example, the
+
+30
+00:01:26,900 --> 00:01:29,920
+StarComponent directive belongs to Module
+
+31
+00:01:29,920 --> 00:01:32,400
+B, so we should never re‑declare
+
+32
+00:01:32,400 --> 00:01:35,909
+StarComponent in Module A. We should only
+
+33
+00:01:35,909 --> 00:01:38,269
+declare components, directives, and pipes
+
+34
+00:01:38,269 --> 00:01:42,109
+that belong to this module. All declared
+
+35
+00:01:42,109 --> 00:01:44,120
+components, directives, and pipes are
+
+36
+00:01:44,120 --> 00:01:46,650
+private by default. They are only
+
+37
+00:01:46,650 --> 00:01:48,459
+accessible to other components,
+
+38
+00:01:48,459 --> 00:01:51,019
+directives, and pipes declared in the same
+
+39
+00:01:51,019 --> 00:01:54,480
+module. So if we declare the StarComponent
+
+40
+00:01:54,480 --> 00:01:57,480
+in Module B, by default that component is
+
+41
+00:01:57,480 --> 00:01:59,909
+not available to components in other
+
+42
+00:01:59,909 --> 00:02:03,049
+Angular modules. We share components,
+
+43
+00:02:03,049 --> 00:02:05,840
+directives, and pipes by exporting them.
+
+44
+00:02:05,840 --> 00:02:07,859
+We'll talk more about exporting in a few
+
+45
+00:02:07,859 --> 00:02:11,539
+moments. The Angular module provides the
+
+46
+00:02:11,539 --> 00:02:13,830
+template resolution environment for its
+
+47
+00:02:13,830 --> 00:02:16,490
+component's templates. When we include a
+
+48
+00:02:16,490 --> 00:02:18,840
+component in the declarations array of an
+
+49
+00:02:18,840 --> 00:02:21,620
+Angular module, the component belongs to
+
+50
+00:02:21,620 --> 00:02:24,590
+that Angular module. That component's
+
+51
+00:02:24,590 --> 00:02:26,770
+template, directives, and pipes are then
+
+52
+00:02:26,770 --> 00:02:30,090
+resolved within that module. When we use a
+
+53
+00:02:30,090 --> 00:02:32,270
+directive in a components template,
+
+54
+00:02:32,270 --> 00:02:34,020
+Angular looks to the module for the
+
+55
+00:02:34,020 --> 00:02:36,789
+definition of that directive. If the
+
+56
+00:02:36,789 --> 00:02:39,379
+component defining that directive is not
+
+57
+00:02:39,379 --> 00:02:42,449
+declared within the same Angular module or
+
+58
+00:02:42,449 --> 00:02:45,219
+exported from an imported module, Angular
+
+59
+00:02:45,219 --> 00:02:47,479
+won't find the directive and will generate
+
+60
+00:02:47,479 --> 00:02:50,189
+an error. For this example, the
+
+61
+00:02:50,189 --> 00:02:52,819
+StarComponent must be declared in the same
+
+62
+00:02:52,819 --> 00:02:55,870
+module as the ProductListComponent, or the
+
+63
+00:02:55,870 --> 00:03:03,000
+StarComponent must be exported from an imported module. Never both.
+

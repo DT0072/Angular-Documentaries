@@ -1,0 +1,112 @@
+0
+00:00:02,240 --> 00:00:04,259
+As we've seen throughout this course,
+
+1
+00:00:04,259 --> 00:00:07,009
+Angular modules are a key part of any
+
+2
+00:00:07,009 --> 00:00:10,289
+Angular application. Welcome back to
+
+3
+00:00:10,289 --> 00:00:11,335
+Angular: Getting Started, from
+
+4
+00:00:11,335 --> 00:00:14,260
+Pluralsight. My name is Deborah Kurata,
+
+5
+00:00:14,260 --> 00:00:17,250
+and in this course module, we focus on
+
+6
+00:00:17,250 --> 00:00:19,940
+Angular modules and how to use them to
+
+7
+00:00:19,940 --> 00:00:25,280
+better organize our code. Ooh, it's so
+
+8
+00:00:25,280 --> 00:00:28,089
+beautiful! No, it's not a van Gogh, not
+
+9
+00:00:28,089 --> 00:00:31,339
+even a Picasso, and yeah, it sort of looks
+
+10
+00:00:31,339 --> 00:00:33,789
+like a metro map. This is a picture of
+
+11
+00:00:33,789 --> 00:00:36,570
+what our application could look like if we
+
+12
+00:00:36,570 --> 00:00:39,155
+leverage the power of Angular modules.
+
+13
+00:00:39,155 --> 00:00:42,060
+Instead of one large app module like we
+
+14
+00:00:42,060 --> 00:00:45,409
+have now, there are multiple modules, and
+
+15
+00:00:45,409 --> 00:00:47,259
+each piece of our application has a
+
+16
+00:00:47,259 --> 00:00:50,640
+logical place within one of those modules.
+
+17
+00:00:50,640 --> 00:00:53,320
+This keeps each module smaller and more
+
+18
+00:00:53,320 --> 00:00:57,390
+manageable. In this course module, we take
+
+19
+00:00:57,390 --> 00:00:59,710
+another look at the definition and purpose
+
+20
+00:00:59,710 --> 00:01:03,130
+of an Angular module. We then focus in on
+
+21
+00:01:03,130 --> 00:01:05,500
+the Angular module metadata to better
+
+22
+00:01:05,500 --> 00:01:08,739
+understand how to use it. We leverage that
+
+23
+00:01:08,739 --> 00:01:10,900
+knowledge to create a feature module for
+
+24
+00:01:10,900 --> 00:01:13,849
+our application and take it one step
+
+25
+00:01:13,849 --> 00:01:16,450
+further, defining a shared module to
+
+26
+00:01:16,450 --> 00:01:20,200
+reduce duplication. Lastly, we re‑examine
+
+27
+00:01:20,200 --> 00:01:26,000
+our application's root Angular module. Let's get started.
+

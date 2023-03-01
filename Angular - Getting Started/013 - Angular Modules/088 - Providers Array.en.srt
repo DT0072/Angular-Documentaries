@@ -1,0 +1,220 @@
+0
+00:00:02,839 --> 00:00:05,459
+Angular modules can also register service
+
+1
+00:00:05,459 --> 00:00:08,789
+providers for our application. However,
+
+2
+00:00:08,789 --> 00:00:11,689
+this is no longer recommended practice.
+
+3
+00:00:11,689 --> 00:00:14,269
+Starting with Angular Version 6, the
+
+4
+00:00:14,269 --> 00:00:16,339
+recommended way to register service
+
+5
+00:00:16,339 --> 00:00:19,149
+providers for our application is to use
+
+6
+00:00:19,149 --> 00:00:21,899
+the providedIn property of the service
+
+7
+00:00:21,899 --> 00:00:24,949
+itself, not the providers array of the
+
+8
+00:00:24,949 --> 00:00:27,820
+Angular module. Because you may see older
+
+9
+00:00:27,820 --> 00:00:30,359
+code use the providers array to register
+
+10
+00:00:30,359 --> 00:00:33,170
+services, I'll still cover it. Here are
+
+11
+00:00:33,170 --> 00:00:35,570
+some things to keep in mind when using the
+
+12
+00:00:35,570 --> 00:00:39,820
+ng module providers array. Any service
+
+13
+00:00:39,820 --> 00:00:42,799
+provider added to the providers array is
+
+14
+00:00:42,799 --> 00:00:45,880
+registered at the root of the application,
+
+15
+00:00:45,880 --> 00:00:48,369
+so the service is available to be injected
+
+16
+00:00:48,369 --> 00:00:51,600
+into any class in the application. Say,
+
+17
+00:00:51,600 --> 00:00:53,759
+for example, we have a future module
+
+18
+00:00:53,759 --> 00:00:56,090
+called ProductModule. We add the
+
+19
+00:00:56,090 --> 00:00:58,469
+ProductService to the providers array of
+
+20
+00:00:58,469 --> 00:01:01,619
+this module. At first glance, we may think
+
+21
+00:01:01,619 --> 00:01:03,799
+we have encapsulated the product service
+
+22
+00:01:03,799 --> 00:01:06,700
+into the product module, but that is not
+
+23
+00:01:06,700 --> 00:01:09,719
+the case. Any service provider added to
+
+24
+00:01:09,719 --> 00:01:12,349
+the providers array is registered at the
+
+25
+00:01:12,349 --> 00:01:15,170
+root of the application and is available
+
+26
+00:01:15,170 --> 00:01:17,959
+to any class, even classes and other
+
+27
+00:01:17,959 --> 00:01:20,870
+feature modules. So if we want to ensure
+
+28
+00:01:20,870 --> 00:01:23,620
+our particular service is encapsulated and
+
+29
+00:01:23,620 --> 00:01:25,810
+only accessible within a specific
+
+30
+00:01:25,810 --> 00:01:28,500
+component or a set of components, add the
+
+31
+00:01:28,500 --> 00:01:31,280
+service provider to the providers array of
+
+32
+00:01:31,280 --> 00:01:33,799
+an appropriate component, instead of an
+
+33
+00:01:33,799 --> 00:01:36,920
+Angular module. Note that this is not the
+
+34
+00:01:36,920 --> 00:01:39,849
+case for lazy loaded services. See the
+
+35
+00:01:39,849 --> 00:01:42,459
+Angular documentation for more information
+
+36
+00:01:42,459 --> 00:01:46,750
+on lazy loading. Don't add services to the
+
+37
+00:01:46,750 --> 00:01:50,290
+providers array of a shared module. As
+
+38
+00:01:50,290 --> 00:01:52,349
+discussed in the services and dependency
+
+39
+00:01:52,349 --> 00:01:54,790
+injection course module, there should only
+
+40
+00:01:54,790 --> 00:01:57,239
+be one instance of a service that is an
+
+41
+00:01:57,239 --> 00:02:00,129
+application wide singleton, so a service
+
+42
+00:02:00,129 --> 00:02:02,060
+should not be included in the providers
+
+43
+00:02:02,060 --> 00:02:04,310
+array for any module that is meant to be
+
+44
+00:02:04,310 --> 00:02:07,170
+shared. Instead, consider building a
+
+45
+00:02:07,170 --> 00:02:10,009
+CoreModule for services and importing it
+
+46
+00:02:10,009 --> 00:02:12,710
+once in the AppModule. This will help
+
+47
+00:02:12,710 --> 00:02:14,669
+ensure that the services are only
+
+48
+00:02:14,669 --> 00:02:17,349
+registered one time. We could even add
+
+49
+00:02:17,349 --> 00:02:19,889
+code to the code module's constructor to
+
+50
+00:02:19,889 --> 00:02:22,250
+ensure that it is never imported a second
+
+51
+00:02:22,250 --> 00:02:25,009
+time. See the Angular documentation for
+
+52
+00:02:25,009 --> 00:02:28,550
+details. Now that we've covered the basics
+
+53
+00:02:28,550 --> 00:02:31,830
+of the ng module decorator, let's refactor
+
+54
+00:02:31,830 --> 00:02:38,000
+our application into multiple Angular modules.
+
