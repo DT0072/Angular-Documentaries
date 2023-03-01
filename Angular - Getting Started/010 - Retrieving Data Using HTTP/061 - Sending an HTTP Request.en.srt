@@ -1,0 +1,396 @@
+0
+00:00:02,240 --> 00:00:04,589
+We often encapsulate the data access for
+
+1
+00:00:04,589 --> 00:00:07,040
+our application into a data service that
+
+2
+00:00:07,040 --> 00:00:09,189
+can be used by any component or other
+
+3
+00:00:09,189 --> 00:00:12,089
+service that needs it. In the last module,
+
+4
+00:00:12,089 --> 00:00:14,470
+we did just that, but our product data
+
+5
+00:00:14,470 --> 00:00:17,190
+service still contains a hardcoded list of
+
+6
+00:00:17,190 --> 00:00:20,379
+products. We, instead, want to send an
+
+7
+00:00:20,379 --> 00:00:23,500
+HTTP request to get the products from a
+
+8
+00:00:23,500 --> 00:00:25,920
+backend web server. Angular provides an
+
+9
+00:00:25,920 --> 00:00:28,670
+HTTP service that allows us to communicate
+
+10
+00:00:28,670 --> 00:00:30,739
+with a backend web server using the
+
+11
+00:00:30,739 --> 00:00:34,149
+familiar HTTP request and response
+
+12
+00:00:34,149 --> 00:00:36,500
+protocol. For example, we call a get
+
+13
+00:00:36,500 --> 00:00:39,689
+method of the HTTP service, which in turn
+
+14
+00:00:39,689 --> 00:00:42,740
+sends a Get request to the web server. The
+
+15
+00:00:42,740 --> 00:00:45,020
+web server response is returned from the
+
+16
+00:00:45,020 --> 00:00:48,340
+HTTP service to our product data service
+
+17
+00:00:48,340 --> 00:00:50,920
+as an observable. What does this look like
+
+18
+00:00:50,920 --> 00:00:54,270
+in code? This is the ProductService we
+
+19
+00:00:54,270 --> 00:00:56,689
+built in the last module modified to
+
+20
+00:00:56,689 --> 00:00:59,394
+retrieve the products using Angular's HTTP
+
+21
+00:00:59,394 --> 00:01:02,689
+service. Let's walk through this code.
+
+22
+00:01:02,689 --> 00:01:05,000
+First, we specify a URL to the products on
+
+23
+00:01:05,000 --> 00:01:08,099
+the web server. This defines where we send
+
+24
+00:01:08,099 --> 00:01:11,730
+our HTTP requests. Note that this URL is
+
+25
+00:01:11,730 --> 00:01:14,310
+shown for illustration purposes only and
+
+26
+00:01:14,310 --> 00:01:17,280
+is not a real URL. Next, we add a
+
+27
+00:01:17,280 --> 00:01:19,680
+constructor. Recall from the last course
+
+28
+00:01:19,680 --> 00:01:22,439
+module that we use a constructor to inject
+
+29
+00:01:22,439 --> 00:01:25,040
+dependencies. In this case, we need
+
+30
+00:01:25,040 --> 00:01:28,549
+Angular's HTTP service so we inject it
+
+31
+00:01:28,549 --> 00:01:32,049
+here. Recognize the syntax? It creates a
+
+32
+00:01:32,049 --> 00:01:35,120
+private HTTP variable and assigns the
+
+33
+00:01:35,120 --> 00:01:37,060
+injected service instance to that
+
+34
+00:01:37,060 --> 00:01:40,150
+variable. And since we are strongly typing
+
+35
+00:01:40,150 --> 00:01:43,689
+this variable to HttpClient, we import
+
+36
+00:01:43,689 --> 00:01:47,609
+HttpClient from the angular/common/http
+
+37
+00:01:47,609 --> 00:01:50,540
+package here. Recall also from the last
+
+38
+00:01:50,540 --> 00:01:53,010
+course module that before we can inject a
+
+39
+00:01:53,010 --> 00:01:55,519
+service in as a dependency, we need to
+
+40
+00:01:55,519 --> 00:01:57,959
+register that services provider with
+
+41
+00:01:57,959 --> 00:02:01,200
+Angular's injector. The Http Service
+
+42
+00:02:01,200 --> 00:02:03,879
+Provider Registration is done for us in
+
+43
+00:02:03,879 --> 00:02:07,239
+the HttpClientModule included in the
+
+44
+00:02:07,239 --> 00:02:10,800
+angular/common/http package. To include
+
+45
+00:02:10,800 --> 00:02:12,909
+the features of this external package in
+
+46
+00:02:12,909 --> 00:02:15,650
+our application, we add it to the imports
+
+47
+00:02:15,650 --> 00:02:18,254
+array of our application's Angular module,
+
+48
+00:02:18,254 --> 00:02:21,259
+app.module. Recall that the declarations
+
+49
+00:02:21,259 --> 00:02:23,169
+array is for declaring components,
+
+50
+00:02:23,169 --> 00:02:25,340
+directives, and pipes that belong to this
+
+51
+00:02:25,340 --> 00:02:28,710
+module. The imports array is for pulling
+
+52
+00:02:28,710 --> 00:02:32,504
+in external modules. Now our Angular
+
+53
+00:02:32,504 --> 00:02:36,000
+module illustration looks like this. We
+
+54
+00:02:36,000 --> 00:02:38,599
+declare our components, we declare the
+
+55
+00:02:38,599 --> 00:02:40,689
+directives and pipes that those components
+
+56
+00:02:40,689 --> 00:02:43,530
+require, and we import the external
+
+57
+00:02:43,530 --> 00:02:47,030
+modules that we need. Going back to the
+
+58
+00:02:47,030 --> 00:02:50,000
+ProductService and getProducts, we use the
+
+59
+00:02:50,000 --> 00:02:53,060
+injected HTTP service instance and call
+
+60
+00:02:53,060 --> 00:02:56,500
+the get method passing in the desired URL.
+
+61
+00:02:56,500 --> 00:02:59,270
+The HTTP service then sends a Get request
+
+62
+00:02:59,270 --> 00:03:03,060
+using the specified URL. Often, the data
+
+63
+00:03:03,060 --> 00:03:04,969
+returned from the backend server is in
+
+64
+00:03:04,969 --> 00:03:08,830
+Json format. Lucky for us, the HttpClient
+
+65
+00:03:08,830 --> 00:03:11,729
+get method makes it easy to receive that
+
+66
+00:03:11,729 --> 00:03:15,610
+Json data. We specify the expected type of
+
+67
+00:03:15,610 --> 00:03:18,250
+response by setting the get method's
+
+68
+00:03:18,250 --> 00:03:21,319
+generic parameter. Since we are expecting
+
+69
+00:03:21,319 --> 00:03:23,949
+an array of product objects, we set the
+
+70
+00:03:23,949 --> 00:03:27,449
+generic parameter to IProduct array. The
+
+71
+00:03:27,449 --> 00:03:30,250
+get method then automatically maps the
+
+72
+00:03:30,250 --> 00:03:32,979
+response object returned from the backend
+
+73
+00:03:32,979 --> 00:03:36,729
+server to that defined type so we don't
+
+74
+00:03:36,729 --> 00:03:39,900
+have to. Does this generic syntax look
+
+75
+00:03:39,900 --> 00:03:42,199
+familiar? We used it earlier in this
+
+76
+00:03:42,199 --> 00:03:44,300
+course to define the event payload when
+
+77
+00:03:44,300 --> 00:03:46,500
+passing event information from a nested
+
+78
+00:03:46,500 --> 00:03:49,250
+component to its container, we aren't
+
+79
+00:03:49,250 --> 00:03:52,219
+quite finished. What does our method now
+
+80
+00:03:52,219 --> 00:03:55,370
+return? Since we are using strong typing,
+
+81
+00:03:55,370 --> 00:03:57,574
+we should have a function return value
+
+82
+00:03:57,574 --> 00:04:00,030
+here. We define the get method generic
+
+83
+00:04:00,030 --> 00:04:03,710
+parameter as IProduct array, so will that
+
+84
+00:04:03,710 --> 00:04:06,560
+be what we get back? Not quite. The
+
+85
+00:04:06,560 --> 00:04:09,270
+getProducts method returns an Observable
+
+86
+00:04:09,270 --> 00:04:12,527
+of IProduct array. That's because the HTTP
+
+87
+00:04:12,527 --> 00:04:15,860
+calls are asynchronous operations, and
+
+88
+00:04:15,860 --> 00:04:18,759
+it's important to note that HTTP calls are
+
+89
+00:04:18,759 --> 00:04:21,870
+single asynchronous operations, meaning
+
+90
+00:04:21,870 --> 00:04:24,139
+that the observable sequence returned from
+
+91
+00:04:24,139 --> 00:04:28,060
+the get method contains only one element.
+
+92
+00:04:28,060 --> 00:04:31,720
+This element is the HTTP response object
+
+93
+00:04:31,720 --> 00:04:33,819
+mapped to the type specified in the
+
+94
+00:04:33,819 --> 00:04:36,370
+generic parameter. Notice that the
+
+95
+00:04:36,370 --> 00:04:38,370
+observable also takes advantage of
+
+96
+00:04:38,370 --> 00:04:41,050
+generics to define the type of data it is
+
+97
+00:04:41,050 --> 00:04:43,790
+observing in the observable sequence. In
+
+98
+00:04:43,790 --> 00:04:52,000
+our case, it's the array of products. Now, let's add HTTP to our ProductService.
+

@@ -1,0 +1,304 @@
+0
+00:00:01,840 --> 00:00:04,950
+In this demo, we modify our component to
+
+1
+00:00:04,950 --> 00:00:07,360
+subscribe to the observable provided by
+
+2
+00:00:07,360 --> 00:00:10,179
+the product service. Here in the
+
+3
+00:00:10,179 --> 00:00:12,609
+ProductListComponent, we see a syntax
+
+4
+00:00:12,609 --> 00:00:15,080
+error. Now that we've changed the product
+
+5
+00:00:15,080 --> 00:00:17,760
+service to return an observable, we cannot
+
+6
+00:00:17,760 --> 00:00:19,839
+assign the result to our product property
+
+7
+00:00:19,839 --> 00:00:22,789
+directly. Rather, we subscribe to the
+
+8
+00:00:22,789 --> 00:00:25,690
+returned observable. When the observable
+
+9
+00:00:25,690 --> 00:00:27,879
+emits the data, we set our product
+
+10
+00:00:27,879 --> 00:00:29,579
+property to the returned array of
+
+11
+00:00:29,579 --> 00:00:32,789
+products. But things don't always go as
+
+12
+00:00:32,789 --> 00:00:36,149
+expected. To handle any errors, let's add
+
+13
+00:00:36,149 --> 00:00:39,030
+an errorMessage property. If our request
+
+14
+00:00:39,030 --> 00:00:41,399
+for products fails, our errorMessage
+
+15
+00:00:41,399 --> 00:00:44,960
+property is set to the error. Are we ready
+
+16
+00:00:44,960 --> 00:00:49,270
+to try it out? Oh, we have no data. Why is
+
+17
+00:00:49,270 --> 00:00:52,549
+that? Let's look again at our code. Recall
+
+18
+00:00:52,549 --> 00:00:56,070
+that we said that HTTP is an asynchronous
+
+19
+00:00:56,070 --> 00:00:59,350
+operation. What does that mean exactly for
+
+20
+00:00:59,350 --> 00:01:03,219
+this code? Let's take it by the numbers.
+
+21
+00:01:03,219 --> 00:01:05,239
+Angular first initializes the component
+
+22
+00:01:05,239 --> 00:01:09,060
+and executes the ngOnInit method. We call
+
+23
+00:01:09,060 --> 00:01:10,560
+the getProducts method of the
+
+24
+00:01:10,560 --> 00:01:13,750
+productService. The productService returns
+
+25
+00:01:13,750 --> 00:01:16,730
+an observable of IProduct array. We
+
+26
+00:01:16,730 --> 00:01:19,449
+subscribe to that observable and the HTTP
+
+27
+00:01:19,449 --> 00:01:22,730
+GET request is submitted. This is the
+
+28
+00:01:22,730 --> 00:01:26,019
+asynchronous operation. This code is then
+
+29
+00:01:26,019 --> 00:01:29,030
+complete, and we execute the next line,
+
+30
+00:01:29,030 --> 00:01:32,049
+which is setting our filteredProducts. But
+
+31
+00:01:32,049 --> 00:01:34,900
+at this point, our products property is
+
+32
+00:01:34,900 --> 00:01:38,040
+not yet set, so the filteredProducts is
+
+33
+00:01:38,040 --> 00:01:42,260
+empty and we see no data. At some future
+
+34
+00:01:42,260 --> 00:01:45,090
+point in time, the service receives the
+
+35
+00:01:45,090 --> 00:01:48,609
+HTTP response from our request. The
+
+36
+00:01:48,609 --> 00:01:50,879
+response data is mapped to an array of
+
+37
+00:01:50,879 --> 00:01:53,739
+products. The response is piped through
+
+38
+00:01:53,739 --> 00:01:56,859
+any operators, and the observable emits
+
+39
+00:01:56,859 --> 00:02:00,290
+that mapped data to any subscribers. Our
+
+40
+00:02:00,290 --> 00:02:03,079
+subscriber receives the emitted data and
+
+41
+00:02:03,079 --> 00:02:05,319
+assigns our product property to the
+
+42
+00:02:05,319 --> 00:02:07,930
+emitted array of products. But since we
+
+43
+00:02:07,930 --> 00:02:09,870
+are binding to the filteredProducts
+
+44
+00:02:09,870 --> 00:02:12,710
+property, we are not notified that we now
+
+45
+00:02:12,710 --> 00:02:16,110
+have the retrieved list of products. There
+
+46
+00:02:16,110 --> 00:02:19,009
+are several ways we can handle this. One
+
+47
+00:02:19,009 --> 00:02:21,729
+option is that we can move this line into
+
+48
+00:02:21,729 --> 00:02:24,789
+the subscribe function. That way we won't
+
+49
+00:02:24,789 --> 00:02:27,199
+assign the filtered products until the
+
+50
+00:02:27,199 --> 00:02:29,569
+retrieved set of products are emitted from
+
+51
+00:02:29,569 --> 00:02:32,610
+the service. Right now it is a single line
+
+52
+00:02:32,610 --> 00:02:36,169
+function. To pass in a multiple line
+
+53
+00:02:36,169 --> 00:02:38,205
+function, we need to add curly braces,
+
+54
+00:02:38,205 --> 00:02:41,349
+like this. And let's not forget the
+
+55
+00:02:41,349 --> 00:02:44,050
+semicolon. Now that it's a multi‑line
+
+56
+00:02:44,050 --> 00:02:46,550
+function, we need to end each statement
+
+57
+00:02:46,550 --> 00:02:49,560
+with a semicolon. Then we can move this
+
+58
+00:02:49,560 --> 00:02:53,016
+line into the function. Now this line is
+
+59
+00:02:53,016 --> 00:02:54,909
+executed after the products property is
+
+60
+00:02:54,909 --> 00:02:57,599
+set to our list of products. Let's check
+
+61
+00:02:57,599 --> 00:03:01,930
+it out. There are all of our products.
+
+62
+00:03:01,930 --> 00:03:04,069
+Success! We have more here now because
+
+63
+00:03:04,069 --> 00:03:05,889
+we're retrieving the products from the
+
+64
+00:03:05,889 --> 00:03:10,079
+provided product.json file. If we open the
+
+65
+00:03:10,079 --> 00:03:12,870
+F12 Developer Tools, we see that data in
+
+66
+00:03:12,870 --> 00:03:15,849
+the console, here. The recommended way to
+
+67
+00:03:15,849 --> 00:03:18,849
+use HTTP is to encapsulate it in a
+
+68
+00:03:18,849 --> 00:03:22,120
+service, like our product service, then
+
+69
+00:03:22,120 --> 00:03:24,759
+expose an observable for use by any
+
+70
+00:03:24,759 --> 00:03:28,210
+component that needs product data. The
+
+71
+00:03:28,210 --> 00:03:30,449
+component simply subscribes to the
+
+72
+00:03:30,449 --> 00:03:33,120
+observable, and at some later point in
+
+73
+00:03:33,120 --> 00:03:36,919
+time gets the data or a notification.
+
+74
+00:03:36,919 --> 00:03:38,759
+Let's finish up this module with some
+
+75
+00:03:38,759 --> 00:03:35,000
+checklists we can use as we work with HTTP.
+

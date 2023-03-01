@@ -1,0 +1,196 @@
+0
+00:00:01,379 --> 00:00:03,859
+As you can imagine, there are many things
+
+1
+00:00:03,859 --> 00:00:05,980
+that can go wrong when communicating with
+
+2
+00:00:05,980 --> 00:00:08,599
+a back‑end service. Everything from an
+
+3
+00:00:08,599 --> 00:00:11,939
+invalid request to a lost connection. So
+
+4
+00:00:11,939 --> 00:00:15,019
+let's add some exception handling. There
+
+5
+00:00:15,019 --> 00:00:17,579
+are two key observable operators that
+
+6
+00:00:17,579 --> 00:00:20,719
+we'll need. Tap taps into the observable
+
+7
+00:00:20,719 --> 00:00:23,039
+stream and allows us to look at the
+
+8
+00:00:23,039 --> 00:00:25,829
+emitted values in the stream without
+
+9
+00:00:25,829 --> 00:00:28,910
+transforming the stream. So tap is great
+
+10
+00:00:28,910 --> 00:00:32,579
+to use for debugging or logging.
+
+11
+00:00:32,579 --> 00:00:34,939
+CatchError catches any error. We import
+
+12
+00:00:34,939 --> 00:00:39,039
+them both from rxjs/operators. As we
+
+13
+00:00:39,039 --> 00:00:41,659
+discussed earlier in this course, to use
+
+14
+00:00:41,659 --> 00:00:44,759
+these operators, we access the pipe method
+
+15
+00:00:44,759 --> 00:00:47,719
+of the observable. We then pass in the
+
+16
+00:00:47,719 --> 00:00:51,600
+operators, separated by commas. Here, the
+
+17
+00:00:51,600 --> 00:00:54,380
+tap operator logs the retrieved data to
+
+18
+00:00:54,380 --> 00:00:57,590
+the console. That way we can verify it's
+
+19
+00:00:57,590 --> 00:00:59,939
+been retrieved correctly. And the
+
+20
+00:00:59,939 --> 00:01:02,520
+catchError operator takes in a error
+
+21
+00:01:02,520 --> 00:01:05,359
+handling method. The error handling method
+
+22
+00:01:05,359 --> 00:01:08,400
+gets one parameter, the ErrorResponse
+
+23
+00:01:08,400 --> 00:01:11,689
+object. In the error handling method, we
+
+24
+00:01:11,689 --> 00:01:14,590
+can handle the error as appropriate. We
+
+25
+00:01:14,590 --> 00:01:17,280
+can send the error information to a remote
+
+26
+00:01:17,280 --> 00:01:20,209
+logging infrastructure or throw an error
+
+27
+00:01:20,209 --> 00:01:22,879
+to the calling code. Now let's add
+
+28
+00:01:22,879 --> 00:01:27,209
+exception handling to our product.service.
+
+29
+00:01:27,209 --> 00:01:29,200
+We are back in the editor with the
+
+30
+00:01:29,200 --> 00:01:32,409
+product.service just as we left it. This
+
+31
+00:01:32,409 --> 00:01:34,650
+code is not really complete without the
+
+32
+00:01:34,650 --> 00:01:37,109
+exception handling, so we'll add the
+
+33
+00:01:37,109 --> 00:01:39,010
+appropriate imports for both the
+
+34
+00:01:39,010 --> 00:01:43,040
+catchError and tap operators. We then call
+
+35
+00:01:43,040 --> 00:01:45,750
+the pipe method and pass in both of the
+
+36
+00:01:45,750 --> 00:01:49,430
+operators, just like we saw on the slide.
+
+37
+00:01:49,430 --> 00:01:52,349
+I'll paste in the handleError method, and
+
+38
+00:01:52,349 --> 00:01:55,659
+we need the import for HttpErrorResponse
+
+39
+00:01:55,659 --> 00:01:59,780
+and throwError. In this method, we handle
+
+40
+00:01:59,780 --> 00:02:02,959
+logging our errors anyway we want. For our
+
+41
+00:02:02,959 --> 00:02:05,439
+sample application, we'll just log to the
+
+42
+00:02:05,439 --> 00:02:08,069
+console and throw an error to the calling
+
+43
+00:02:08,069 --> 00:02:11,030
+code. So our getProducts method is
+
+44
+00:02:11,030 --> 00:02:14,110
+complete. We can add other methods here to
+
+45
+00:02:14,110 --> 00:02:17,300
+POST or PUT data as well, but we still
+
+46
+00:02:17,300 --> 00:02:20,550
+have that syntax error here, and we can't
+
+47
+00:02:20,550 --> 00:02:23,319
+see the result of our hard work because we
+
+48
+00:02:23,319 --> 00:02:31,000
+are not yet subscribing to the observable. Let's do that next.
+

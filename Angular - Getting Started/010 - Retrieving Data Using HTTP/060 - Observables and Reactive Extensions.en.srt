@@ -1,0 +1,460 @@
+0
+00:00:02,439 --> 00:00:05,370
+Data sequences can take many forms, such
+
+1
+00:00:05,370 --> 00:00:08,099
+as a response from a back end web service,
+
+2
+00:00:08,099 --> 00:00:10,980
+a set of system notifications, or a stream
+
+3
+00:00:10,980 --> 00:00:13,970
+of events such as user input. In this
+
+4
+00:00:13,970 --> 00:00:16,550
+diagram, our stream contains three
+
+5
+00:00:16,550 --> 00:00:19,379
+elements. The first marble comes in, then
+
+6
+00:00:19,379 --> 00:00:22,524
+the second, and sometime later the third.
+
+7
+00:00:22,524 --> 00:00:24,820
+Reactive extensions represent a data
+
+8
+00:00:24,820 --> 00:00:27,449
+sequence as an observable sequence,
+
+9
+00:00:27,449 --> 00:00:30,839
+commonly just called an observable.
+
+10
+00:00:30,839 --> 00:00:32,590
+Observables help us manage asynchronous
+
+11
+00:00:32,590 --> 00:00:35,369
+data, such as data coming from a back end
+
+12
+00:00:35,369 --> 00:00:38,359
+service. Observables treat events as a
+
+13
+00:00:38,359 --> 00:00:41,369
+collection. We can think of an observable
+
+14
+00:00:41,369 --> 00:00:44,530
+as an array whose items arrive
+
+15
+00:00:44,530 --> 00:00:46,869
+asynchronously over time. A method in our
+
+16
+00:00:46,869 --> 00:00:49,560
+code can subscribe to an observable to
+
+17
+00:00:49,560 --> 00:00:52,409
+receive asynchronous notifications as new
+
+18
+00:00:52,409 --> 00:00:55,969
+data arrives. The method can then react as
+
+19
+00:00:55,969 --> 00:00:58,280
+data is pushed to it. The method is
+
+20
+00:00:58,280 --> 00:01:00,560
+notified when there is no more data or
+
+21
+00:01:00,560 --> 00:01:03,759
+when an error occurs. Observables are used
+
+22
+00:01:03,759 --> 00:01:06,370
+within Angular itself, including Angular's
+
+23
+00:01:06,370 --> 00:01:09,920
+event system and it's HTTP client service,
+
+24
+00:01:09,920 --> 00:01:11,704
+which is why we are covering them here.
+
+25
+00:01:11,704 --> 00:01:15,310
+Observables allow us to manipulate sets of
+
+26
+00:01:15,310 --> 00:01:18,239
+events with operators. Operators are
+
+27
+00:01:18,239 --> 00:01:20,879
+methods on observables that compose new
+
+28
+00:01:20,879 --> 00:01:24,000
+observables. Each operator transforms the
+
+29
+00:01:24,000 --> 00:01:26,969
+source observable in some way. Operators
+
+30
+00:01:26,969 --> 00:01:29,150
+do not wait for all of the values and
+
+31
+00:01:29,150 --> 00:01:32,209
+process them at once. Rather, operators on
+
+32
+00:01:32,209 --> 00:01:34,920
+observables process each value as it is
+
+33
+00:01:34,920 --> 00:01:37,730
+emitted. Some examples of operators
+
+34
+00:01:37,730 --> 00:01:41,269
+include map, filter, take, and merge. The
+
+35
+00:01:41,269 --> 00:01:44,079
+map operator allows us to transform the
+
+36
+00:01:44,079 --> 00:01:46,750
+incoming data. The argument to the map
+
+37
+00:01:46,750 --> 00:01:50,000
+operator is an arrow function that says to
+
+38
+00:01:50,000 --> 00:01:53,250
+take each data item and transform it to 10
+
+39
+00:01:53,250 --> 00:01:57,049
+times its value. So when we receive 1, it
+
+40
+00:01:57,049 --> 00:02:00,400
+is mapped to 10. When we received 2, it is
+
+41
+00:02:00,400 --> 00:02:04,040
+mapped to 20, and so on. This depiction is
+
+42
+00:02:04,040 --> 00:02:06,730
+called a marble diagram, and it's helpful
+
+43
+00:02:06,730 --> 00:02:10,259
+for visualizing observable sequences. This
+
+44
+00:02:10,259 --> 00:02:13,680
+is a screenshot from rxmarbles at this
+
+45
+00:02:13,680 --> 00:02:18,120
+URL. We compose observable operators with
+
+46
+00:02:18,120 --> 00:02:20,610
+the observable pipe method, hence the
+
+47
+00:02:20,610 --> 00:02:22,860
+reason that observable operators are
+
+48
+00:02:22,860 --> 00:02:25,219
+sometimes referred to as pipeable
+
+49
+00:02:25,219 --> 00:02:29,030
+operators. Let's look at an example. Here
+
+50
+00:02:29,030 --> 00:02:31,379
+we see how to use the pipe method to
+
+51
+00:02:31,379 --> 00:02:34,539
+compose multiple observable operators.
+
+52
+00:02:34,539 --> 00:02:38,159
+Rxjs has two primary packages we use to
+
+53
+00:02:38,159 --> 00:02:41,710
+import functionality. Observable and the
+
+54
+00:02:41,710 --> 00:02:44,060
+observable creation methods, such as
+
+55
+00:02:44,060 --> 00:02:47,870
+range, can be found in the rxjs package.
+
+56
+00:02:47,870 --> 00:02:50,009
+We import the operators from
+
+57
+00:02:50,009 --> 00:02:54,669
+rxjs/operators. We use the range creation
+
+58
+00:02:54,669 --> 00:02:56,889
+method to create an observable stream of
+
+59
+00:02:56,889 --> 00:02:59,930
+numbers from 0 to 9. Not a common
+
+60
+00:02:59,930 --> 00:03:02,680
+scenario, I know, but our goal here is to
+
+61
+00:03:02,680 --> 00:03:05,050
+show how to compose operators with the
+
+62
+00:03:05,050 --> 00:03:07,759
+pipe. By convention, we add a dollar
+
+63
+00:03:07,759 --> 00:03:10,537
+suffix to the variables that hold an
+
+64
+00:03:10,537 --> 00:03:12,400
+observable. This makes it easier to
+
+65
+00:03:12,400 --> 00:03:14,729
+quickly distinguish the observables in our
+
+66
+00:03:14,729 --> 00:03:17,469
+code, and we declare its type as an
+
+67
+00:03:17,469 --> 00:03:20,150
+observable stream of numbers, using the
+
+68
+00:03:20,150 --> 00:03:23,379
+generic argument. We use the pipe method
+
+69
+00:03:23,379 --> 00:03:25,330
+to pipe this observable stream through
+
+70
+00:03:25,330 --> 00:03:29,349
+several operators, map and filter. We only
+
+71
+00:03:29,349 --> 00:03:31,789
+include two operators here, but we can
+
+72
+00:03:31,789 --> 00:03:34,879
+define any number of operators separated
+
+73
+00:03:34,879 --> 00:03:38,020
+by commas. This map operator takes each
+
+74
+00:03:38,020 --> 00:03:40,659
+number emitted into the observable stream,
+
+75
+00:03:40,659 --> 00:03:44,330
+0 through 9, and multiplies it by 3, which
+
+76
+00:03:44,330 --> 00:03:48,226
+results in an observable with 0, 3, 6, 9
+
+77
+00:03:48,226 --> 00:03:51,000
+and so on. As each number is emitted by
+
+78
+00:03:51,000 --> 00:03:54,080
+the map operator, this filter operator
+
+79
+00:03:54,080 --> 00:03:56,560
+filters the result to only the even
+
+80
+00:03:56,560 --> 00:03:59,680
+numbers in the sequence. That is those
+
+81
+00:03:59,680 --> 00:04:02,360
+that when divided by 2 have a remainder of
+
+82
+00:04:02,360 --> 00:04:05,370
+0. Here we subscribe to the resulting
+
+83
+00:04:05,370 --> 00:04:07,960
+observable to start receiving emitted
+
+84
+00:04:07,960 --> 00:04:10,860
+values. The observable source does not
+
+85
+00:04:10,860 --> 00:04:14,409
+emit any values until it has a subscriber.
+
+86
+00:04:14,409 --> 00:04:17,379
+So subscribing is key. What do you think
+
+87
+00:04:17,379 --> 00:04:20,720
+will be logged to the console? Let's see
+
+88
+00:04:20,720 --> 00:04:23,147
+how we got that result. The source emits
+
+89
+00:04:23,147 --> 00:04:27,120
+0, the 0 is multiplied by 3, resulting in
+
+90
+00:04:27,120 --> 00:04:30,740
+0. The 0 is divided by 2 with a remainder
+
+91
+00:04:30,740 --> 00:04:34,129
+of 0, so it is included in the final
+
+92
+00:04:34,129 --> 00:04:36,949
+result. The source then emits 1. The 1 is
+
+93
+00:04:36,949 --> 00:04:41,149
+multiplied by 3, resulting in 3. The 3 is
+
+94
+00:04:41,149 --> 00:04:44,329
+divided by 2 with a remainder of 1, so it
+
+95
+00:04:44,329 --> 00:04:47,149
+is not included in the final result, and
+
+96
+00:04:47,149 --> 00:04:49,839
+so on. Notice that each item in the
+
+97
+00:04:49,839 --> 00:04:52,360
+sequence is processed through the pipeable
+
+98
+00:04:52,360 --> 00:04:56,649
+operators as it is emitted. You may have
+
+99
+00:04:56,649 --> 00:04:58,300
+worked with asynchronous data in
+
+100
+00:04:58,300 --> 00:05:01,320
+JavaScript previously, using promises.
+
+101
+00:05:01,320 --> 00:05:03,779
+Observables are different from promises in
+
+102
+00:05:03,779 --> 00:05:06,629
+several ways. A promise returns a single
+
+103
+00:05:06,629 --> 00:05:10,079
+future value. An observable emits multiple
+
+104
+00:05:10,079 --> 00:05:13,180
+asynchronous values over time. A promise
+
+105
+00:05:13,180 --> 00:05:15,519
+is not lazy. By the time you have a
+
+106
+00:05:15,519 --> 00:05:17,410
+promise, it's on its way to being
+
+107
+00:05:17,410 --> 00:05:20,620
+resolved. An observable is lazy by
+
+108
+00:05:20,620 --> 00:05:23,670
+default. Observables will not emit values
+
+109
+00:05:23,670 --> 00:05:26,829
+until they are subscribed to. A promise is
+
+110
+00:05:26,829 --> 00:05:29,509
+not cancellable, it is resolved or
+
+111
+00:05:29,509 --> 00:05:33,220
+rejected, and only once. An observable can
+
+112
+00:05:33,220 --> 00:05:36,550
+be cancelled by unsubscribing, plus an
+
+113
+00:05:36,550 --> 00:05:39,127
+observable supports map, filter, reduce,
+
+114
+00:05:39,127 --> 00:05:47,000
+and similar operators. In this module, we'll do HTTP using observables.
+

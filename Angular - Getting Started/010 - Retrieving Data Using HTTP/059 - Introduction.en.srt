@@ -1,0 +1,104 @@
+0
+00:00:01,399 --> 00:00:03,490
+The data for our application is on a
+
+1
+00:00:03,490 --> 00:00:06,240
+server somewhere in the cloud, at the
+
+2
+00:00:06,240 --> 00:00:09,000
+office, under our desk. How do we get that
+
+3
+00:00:09,000 --> 00:00:11,880
+data into our view? Welcome back to
+
+4
+00:00:11,880 --> 00:00:13,689
+Angular: Getting Started, from
+
+5
+00:00:13,689 --> 00:00:16,510
+Pluralsight. My name is Deborah Kurata,
+
+6
+00:00:16,510 --> 00:00:19,010
+and in this module we'll learn how to use
+
+7
+00:00:19,010 --> 00:00:24,640
+HTTP with observables to retrieve data.
+
+8
+00:00:24,640 --> 00:00:27,300
+Most Angular applications obtain data
+
+9
+00:00:27,300 --> 00:00:31,289
+using HTTP. The application issues an HTTP
+
+10
+00:00:31,289 --> 00:00:34,810
+GET request to a web service. That web
+
+11
+00:00:34,810 --> 00:00:37,310
+service retrieves the data, often using a
+
+12
+00:00:37,310 --> 00:00:39,549
+database, and returns it to the
+
+13
+00:00:39,549 --> 00:00:43,090
+application in an HTTP response. The
+
+14
+00:00:43,090 --> 00:00:47,460
+application then processes that data. In
+
+15
+00:00:47,460 --> 00:00:50,140
+this module, we begin with an introduction
+
+16
+00:00:50,140 --> 00:00:51,829
+to Observables and the Reactive
+
+17
+00:00:51,829 --> 00:00:55,030
+Extensions. We then examine how to send an
+
+18
+00:00:55,030 --> 00:00:57,780
+HTTP request and map the result to an
+
+19
+00:00:57,780 --> 00:01:01,090
+array. We add some exception handling and
+
+20
+00:01:01,090 --> 00:01:03,310
+we look at how to subscribe to observables
+
+21
+00:01:03,310 --> 00:01:06,739
+to get the data for our view. We finished
+
+22
+00:01:06,739 --> 00:01:09,069
+the first cut of a product data service in
+
+23
+00:01:09,069 --> 00:01:12,170
+the last module, but it still has hard
+
+24
+00:01:12,170 --> 00:01:15,069
+coded data. Now, we'll replace that hard
+
+25
+00:01:15,069 --> 00:01:22,000
+coded data with HTTP calls. Let's get started.
+

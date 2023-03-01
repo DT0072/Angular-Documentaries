@@ -1,0 +1,268 @@
+0
+00:00:01,540 --> 00:00:04,929
+In this demo, we'll send an HTTP request
+
+1
+00:00:04,929 --> 00:00:07,375
+to get the products for our Product List
+
+2
+00:00:07,375 --> 00:00:10,400
+page. We are looking at our application's
+
+3
+00:00:10,400 --> 00:00:13,539
+Angular module we called app.module.
+
+4
+00:00:13,539 --> 00:00:16,190
+Recall from the slides that Angular
+
+5
+00:00:16,190 --> 00:00:18,929
+registers its HTTP service provider in an
+
+6
+00:00:18,929 --> 00:00:23,149
+Angular module called HttpClientModule. In
+
+7
+00:00:23,149 --> 00:00:25,609
+our application's Angular module, we
+
+8
+00:00:25,609 --> 00:00:29,730
+import that HttpClientModule. We then pull
+
+9
+00:00:29,730 --> 00:00:32,820
+that module into our application by adding
+
+10
+00:00:32,820 --> 00:00:35,700
+HttpClientModule to the imports array
+
+11
+00:00:35,700 --> 00:00:39,200
+here. Now we can inject the Angular HTTP
+
+12
+00:00:39,200 --> 00:00:42,469
+service into any class that needs it. Here
+
+13
+00:00:42,469 --> 00:00:44,619
+is the product data service we created in
+
+14
+00:00:44,619 --> 00:00:47,570
+the last module with all of the hard coded
+
+15
+00:00:47,570 --> 00:00:50,219
+data. We want to modify our product
+
+16
+00:00:50,219 --> 00:00:52,320
+service to get the product data using
+
+17
+00:00:52,320 --> 00:00:55,380
+HTTP. Let's start at the top with the
+
+18
+00:00:55,380 --> 00:00:58,270
+import statements. We want Angular to
+
+19
+00:00:58,270 --> 00:01:01,659
+provide us an instance of the HttpClient
+
+20
+00:01:01,659 --> 00:01:04,370
+service, so we identify it as a dependency
+
+21
+00:01:04,370 --> 00:01:06,560
+in the constructor. We don't have a
+
+22
+00:01:06,560 --> 00:01:09,980
+constructor yet, so let's add that first.
+
+23
+00:01:09,980 --> 00:01:12,790
+Then we specify the parameter. Angular
+
+24
+00:01:12,790 --> 00:01:15,510
+will then inject the HttpClient service
+
+25
+00:01:15,510 --> 00:01:19,099
+instance into this variable. Now we need
+
+26
+00:01:19,099 --> 00:01:21,260
+to identify the location of our web
+
+27
+00:01:21,260 --> 00:01:24,340
+server. Hmm, this doesn't look like a
+
+28
+00:01:24,340 --> 00:01:27,939
+valid URL to a web server. To keep things
+
+29
+00:01:27,939 --> 00:01:29,769
+simple, the demonstration reads the data
+
+30
+00:01:29,769 --> 00:01:32,400
+from a local JSON file that was provided
+
+31
+00:01:32,400 --> 00:01:34,959
+with the starter files. That way we don't
+
+32
+00:01:34,959 --> 00:01:37,239
+need to set up an actual web server.
+
+33
+00:01:37,239 --> 00:01:40,019
+However, we do need to define the location
+
+34
+00:01:40,019 --> 00:01:43,150
+of this JSON file so that the Angular CLI
+
+35
+00:01:43,150 --> 00:01:45,340
+can find it when it serves up the
+
+36
+00:01:45,340 --> 00:01:48,400
+application. I've already done this in the
+
+37
+00:01:48,400 --> 00:01:51,040
+provided starter files. Here in the
+
+38
+00:01:51,040 --> 00:01:54,180
+angular.json file, we can see the path
+
+39
+00:01:54,180 --> 00:01:59,090
+here in the assets array. To change this
+
+40
+00:01:59,090 --> 00:02:01,469
+code to work against a web server, simply
+
+41
+00:02:01,469 --> 00:02:03,829
+change this URL to point to an appropriate
+
+42
+00:02:03,829 --> 00:02:06,079
+web server. And, of course, you need to
+
+43
+00:02:06,079 --> 00:02:08,120
+write the server‑side code to return the
+
+44
+00:02:08,120 --> 00:02:11,840
+list of products. Ah, it's finally time to
+
+45
+00:02:11,840 --> 00:02:14,569
+delete our hard coded data, so let's
+
+46
+00:02:14,569 --> 00:02:16,370
+delete the hard coded products from the
+
+47
+00:02:16,370 --> 00:02:19,819
+getProducts method. Gone. We'll call the
+
+48
+00:02:19,819 --> 00:02:23,240
+HTTP GET method here instead, passing in
+
+49
+00:02:23,240 --> 00:02:26,750
+the defined URL. Since we expect the
+
+50
+00:02:26,750 --> 00:02:29,439
+response to be a JSON structure containing
+
+51
+00:02:29,439 --> 00:02:31,965
+an array of products, we set the GET
+
+52
+00:02:31,965 --> 00:02:35,110
+method generic parameter to IProduct
+
+53
+00:02:35,110 --> 00:02:38,469
+array. When we get a response back, this
+
+54
+00:02:38,469 --> 00:02:41,080
+method will then automatically map the
+
+55
+00:02:41,080 --> 00:02:45,280
+returned response to an array of products.
+
+56
+00:02:45,280 --> 00:02:47,509
+We'll need to change the return type as
+
+57
+00:02:47,509 --> 00:02:50,030
+well. Now this method returns an
+
+58
+00:02:50,030 --> 00:02:53,810
+observable of IProduct array. We can't try
+
+59
+00:02:53,810 --> 00:02:55,789
+this out at this point because we are not
+
+60
+00:02:55,789 --> 00:02:57,949
+yet subscribing to the observable returned
+
+61
+00:02:57,949 --> 00:03:00,569
+from the service. Plus, looking at the
+
+62
+00:03:00,569 --> 00:03:03,469
+console, we have a syntax error where we
+
+63
+00:03:03,469 --> 00:03:06,250
+are calling this method since we changed
+
+64
+00:03:06,250 --> 00:03:08,949
+the return type. Let's add some exception
+
+65
+00:03:08,949 --> 00:03:11,099
+handling first, then modify the
+
+66
+00:03:11,099 --> 00:03:18,000
+ProductListComponent to subscribe to the observable list of products.
+

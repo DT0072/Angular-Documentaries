@@ -1,0 +1,360 @@
+0
+00:00:02,640 --> 00:00:05,330
+Observables are lazy. Just like a
+
+1
+00:00:05,330 --> 00:00:07,889
+newspaper or a newsletter, an observable
+
+2
+00:00:07,889 --> 00:00:11,189
+doesn't emit values until we subscribe. So
+
+3
+00:00:11,189 --> 00:00:12,769
+when we are ready to start receiving
+
+4
+00:00:12,769 --> 00:00:15,050
+values in our component, we call
+
+5
+00:00:15,050 --> 00:00:17,800
+subscribe. The subscribe method takes an
+
+6
+00:00:17,800 --> 00:00:20,949
+optional argument, which is an Observer
+
+7
+00:00:20,949 --> 00:00:24,719
+object. As its name suggests, the Observer
+
+8
+00:00:24,719 --> 00:00:27,609
+object observes the stream and responds to
+
+9
+00:00:27,609 --> 00:00:31,000
+three types of notifications, next, error,
+
+10
+00:00:31,000 --> 00:00:33,729
+and complete. We use the Observer object
+
+11
+00:00:33,729 --> 00:00:36,179
+to define handler functions that execute
+
+12
+00:00:36,179 --> 00:00:38,909
+on these notifications. The first handler
+
+13
+00:00:38,909 --> 00:00:41,320
+function is often called a next function
+
+14
+00:00:41,320 --> 00:00:43,740
+because it processes the next emitted
+
+15
+00:00:43,740 --> 00:00:46,039
+value. Since observables can handle
+
+16
+00:00:46,039 --> 00:00:48,439
+multiple values over time, the next
+
+17
+00:00:48,439 --> 00:00:50,280
+function is called for each value the
+
+18
+00:00:50,280 --> 00:00:53,049
+observable emits. The second is an error
+
+19
+00:00:53,049 --> 00:00:56,344
+handler function. And yep, you guessed it,
+
+20
+00:00:56,344 --> 00:00:59,649
+it executes if there is an error. In some
+
+21
+00:00:59,649 --> 00:01:01,320
+cases, we want to know when the observable
+
+22
+00:01:01,320 --> 00:01:04,412
+completes, so observables provide a third
+
+23
+00:01:04,412 --> 00:01:07,099
+handler that is executed on completion.
+
+24
+00:01:07,099 --> 00:01:08,790
+The subscribe function returns a
+
+25
+00:01:08,790 --> 00:01:11,459
+subscription. We use that subscription to
+
+26
+00:01:11,459 --> 00:01:13,579
+call unsubscribe and cancel the
+
+27
+00:01:13,579 --> 00:01:16,049
+subscription, if needed. Now that our
+
+28
+00:01:16,049 --> 00:01:17,870
+product data service is returning an
+
+29
+00:01:17,870 --> 00:01:20,450
+observable, any class that needs product
+
+30
+00:01:20,450 --> 00:01:23,079
+data, such as our product‑list.component,
+
+31
+00:01:23,079 --> 00:01:25,760
+can call our service and subscribe to the
+
+32
+00:01:25,760 --> 00:01:28,420
+returned observable. This line of code
+
+33
+00:01:28,420 --> 00:01:30,560
+calls the product data service getProducts
+
+34
+00:01:30,560 --> 00:01:33,239
+method, and because we subscribed, it
+
+35
+00:01:33,239 --> 00:01:36,650
+kicks off the HTTP GET request. It then
+
+36
+00:01:36,650 --> 00:01:38,609
+asynchronously receives data and
+
+37
+00:01:38,609 --> 00:01:41,769
+notifications from the observable. We pass
+
+38
+00:01:41,769 --> 00:01:44,620
+an observer object to the subscribe. This
+
+39
+00:01:44,620 --> 00:01:47,319
+syntax defines a key and value pair where
+
+40
+00:01:47,319 --> 00:01:50,040
+the key is the function name and the value
+
+41
+00:01:50,040 --> 00:01:52,780
+is the function, specified here using
+
+42
+00:01:52,780 --> 00:01:55,709
+arrow function syntax. The first observer
+
+43
+00:01:55,709 --> 00:01:57,819
+function specifies the action to take
+
+44
+00:01:57,819 --> 00:02:00,349
+whenever the observable emits an item. The
+
+45
+00:02:00,349 --> 00:02:03,189
+method parameter is that emitted item.
+
+46
+00:02:03,189 --> 00:02:06,280
+Since HTTP calls are single async
+
+47
+00:02:06,280 --> 00:02:09,759
+operations, only one item is emitted,
+
+48
+00:02:09,759 --> 00:02:13,169
+which is the HTTP response object that was
+
+49
+00:02:13,169 --> 00:02:14,849
+mapped to our product array in the
+
+50
+00:02:14,849 --> 00:02:18,229
+service. So the parameter is our array of
+
+51
+00:02:18,229 --> 00:02:21,009
+products. This code then sets the local
+
+52
+00:02:21,009 --> 00:02:23,979
+products property to the returned array of
+
+53
+00:02:23,979 --> 00:02:26,939
+products. The second function is executed
+
+54
+00:02:26,939 --> 00:02:30,159
+if the observable fails. In this example,
+
+55
+00:02:30,159 --> 00:02:32,759
+it sets a local errorMessage variable to
+
+56
+00:02:32,759 --> 00:02:35,939
+the returned error. A third function, not
+
+57
+00:02:35,939 --> 00:02:38,509
+used here, specifies the action to take
+
+58
+00:02:38,509 --> 00:02:40,689
+when the observable ends with a completed
+
+59
+00:02:40,689 --> 00:02:43,560
+notification. The third function is rarely
+
+60
+00:02:43,560 --> 00:02:46,750
+used when working with HTTP requests since
+
+61
+00:02:46,750 --> 00:02:48,979
+they automatically complete after emitting
+
+62
+00:02:48,979 --> 00:02:52,189
+the single response. Alternatively, we can
+
+63
+00:02:52,189 --> 00:02:54,710
+define the observer methods like this,
+
+64
+00:02:54,710 --> 00:02:56,689
+taking advantage of a shortcut that was
+
+65
+00:02:56,689 --> 00:03:00,360
+introduced in ES2015 for defining methods
+
+66
+00:03:00,360 --> 00:03:03,300
+on object literals. Instead of defining a
+
+67
+00:03:03,300 --> 00:03:05,789
+separate key and value function, the
+
+68
+00:03:05,789 --> 00:03:08,020
+shorthand syntax only requires the
+
+69
+00:03:08,020 --> 00:03:11,129
+function and uses that function's name as
+
+70
+00:03:11,129 --> 00:03:13,919
+the key. Note that you cannot use an arrow
+
+71
+00:03:13,919 --> 00:03:16,620
+function when using this syntax because it
+
+72
+00:03:16,620 --> 00:03:19,580
+needs the function name for the key. But
+
+73
+00:03:19,580 --> 00:03:21,750
+because we can't use an arrow function
+
+74
+00:03:21,750 --> 00:03:25,219
+here, we can't use this alternate syntax
+
+75
+00:03:25,219 --> 00:03:27,879
+if we need to reference class‑level
+
+76
+00:03:27,879 --> 00:03:31,270
+properties. When using an arrow function,
+
+77
+00:03:31,270 --> 00:03:34,229
+the this keyword is scoped to the class,
+
+78
+00:03:34,229 --> 00:03:37,520
+so the code here is referencing our
+
+79
+00:03:37,520 --> 00:03:40,240
+class‑level products property, which is
+
+80
+00:03:40,240 --> 00:03:43,389
+what we want. When using a normal
+
+81
+00:03:43,389 --> 00:03:46,509
+function, the this keyword is scoped to
+
+82
+00:03:46,509 --> 00:03:49,740
+that function, so the code here defines a
+
+83
+00:03:49,740 --> 00:03:53,189
+second products variable that is local to
+
+84
+00:03:53,189 --> 00:03:56,650
+the next function and does not modify our
+
+85
+00:03:56,650 --> 00:04:00,120
+class‑level products property. That means
+
+86
+00:04:00,120 --> 00:04:04,039
+the code here won't execute as expected.
+
+87
+00:04:04,039 --> 00:04:06,479
+Only use this alternate syntax if you
+
+88
+00:04:06,479 --> 00:04:08,610
+don't need to reference class‑level
+
+89
+00:04:08,610 --> 00:03:33,000
+properties. Now let's subscribe to our observable.
+

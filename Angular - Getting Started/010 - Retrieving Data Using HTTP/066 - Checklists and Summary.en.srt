@@ -1,0 +1,260 @@
+0
+00:00:02,339 --> 00:00:04,990
+Before we can use Angular's HttpClient
+
+1
+00:00:04,990 --> 00:00:08,140
+service, some setup is required. We need
+
+2
+00:00:08,140 --> 00:00:10,369
+to ensure that the service provider is
+
+3
+00:00:10,369 --> 00:00:13,359
+registered with the Angular injector. This
+
+4
+00:00:13,359 --> 00:00:15,550
+registration is done for us in the
+
+5
+00:00:15,550 --> 00:00:19,769
+HttpClientModule, so all we need to do is
+
+6
+00:00:19,769 --> 00:00:22,670
+pull the HttpClientModule into our
+
+7
+00:00:22,670 --> 00:00:25,579
+application. We do this by adding
+
+8
+00:00:25,579 --> 00:00:29,149
+HttpClientModule to the imports array of
+
+9
+00:00:29,149 --> 00:00:33,439
+one of our application's Angular modules.
+
+10
+00:00:33,439 --> 00:00:36,429
+Build a data access service to wrap HTTP
+
+11
+00:00:36,429 --> 00:00:39,880
+requests. In that data service, specify
+
+12
+00:00:39,880 --> 00:00:42,460
+the needed imports to find a dependency
+
+13
+00:00:42,460 --> 00:00:45,810
+for the Angular HttpClient service using a
+
+14
+00:00:45,810 --> 00:00:48,590
+constructor parameter. Create a method for
+
+15
+00:00:48,590 --> 00:00:52,420
+each HTTP request. In the method, call the
+
+16
+00:00:52,420 --> 00:00:56,460
+desired HTTP method such as GET and pass
+
+17
+00:00:56,460 --> 00:00:59,799
+in the URL to the desired server. Use
+
+18
+00:00:59,799 --> 00:01:02,719
+generics to specify the response return
+
+19
+00:01:02,719 --> 00:01:06,200
+type. This will transform the raw HTTP
+
+20
+00:01:06,200 --> 00:01:09,950
+response to the specified type, and do
+
+21
+00:01:09,950 --> 00:01:13,689
+error handling as desired. In any class
+
+22
+00:01:13,689 --> 00:01:16,500
+that needs data from a data service, call
+
+23
+00:01:16,500 --> 00:01:19,750
+the subscribe method to subscribe to the
+
+24
+00:01:19,750 --> 00:01:21,819
+observable. Provide a function to execute
+
+25
+00:01:21,819 --> 00:01:24,680
+when the observable emits an item. This
+
+26
+00:01:24,680 --> 00:01:26,810
+often assigns a property to the returned
+
+27
+00:01:26,810 --> 00:01:29,879
+JSON object. And if that property is bound
+
+28
+00:01:29,879 --> 00:01:32,719
+to a template, the retrieved data appears
+
+29
+00:01:32,719 --> 00:01:35,319
+in the view, and add an error function to
+
+30
+00:01:35,319 --> 00:01:38,719
+handle any returned errors. Here are some
+
+31
+00:01:38,719 --> 00:01:40,629
+related courses in the Pluralsight
+
+32
+00:01:40,629 --> 00:01:43,340
+library. To perform, create, read, update,
+
+33
+00:01:43,340 --> 00:01:45,989
+and delete, or CRUD operations, using
+
+34
+00:01:45,989 --> 00:01:49,069
+HTTP, see the Angular Reactive Forms
+
+35
+00:01:49,069 --> 00:01:51,549
+course. It demonstrates how to display,
+
+36
+00:01:51,549 --> 00:01:54,609
+edit, and save data in Angular. For more
+
+37
+00:01:54,609 --> 00:01:57,569
+information on RxJS and observables, see
+
+38
+00:01:57,569 --> 00:02:00,260
+the RxJS and Angular Reactive Development
+
+39
+00:02:00,260 --> 00:02:02,659
+course. It provides a detailed look at
+
+40
+00:02:02,659 --> 00:02:05,159
+observables, including how to combine data
+
+41
+00:02:05,159 --> 00:02:07,459
+from multiple sources, build action
+
+42
+00:02:07,459 --> 00:02:10,259
+streams to react to user actions, and work
+
+43
+00:02:10,259 --> 00:02:13,400
+with streams without subscribing. See the
+
+44
+00:02:13,400 --> 00:02:15,939
+Angular HTTP Communication course for
+
+45
+00:02:15,939 --> 00:02:19,259
+intermediate HTTP techniques such as error
+
+46
+00:02:19,259 --> 00:02:22,030
+handling, building interceptors, and
+
+47
+00:02:22,030 --> 00:02:26,710
+testing HTTP requests. This module was all
+
+48
+00:02:26,710 --> 00:02:30,169
+about HTTP and observables. We began with
+
+49
+00:02:30,169 --> 00:02:32,340
+an overview of observables and reactive
+
+50
+00:02:32,340 --> 00:02:34,770
+extensions. We examined how to build a
+
+51
+00:02:34,770 --> 00:02:37,599
+data access service that sends requests
+
+52
+00:02:37,599 --> 00:02:41,050
+for data over HTTP. We walked through how
+
+53
+00:02:41,050 --> 00:02:43,669
+to set up some basic exception handling
+
+54
+00:02:43,669 --> 00:02:45,500
+and we saw how to subscribe to the
+
+55
+00:02:45,500 --> 00:02:48,210
+returned observable and ultimately display
+
+56
+00:02:48,210 --> 00:02:51,610
+the resulting data in the view. We've now
+
+57
+00:02:51,610 --> 00:02:53,639
+removed the hard‑coded data from the
+
+58
+00:02:53,639 --> 00:02:56,669
+product data service, yeah, and instead
+
+59
+00:02:56,669 --> 00:03:00,120
+retrieve the data using HTTP. In our
+
+60
+00:03:00,120 --> 00:03:03,039
+sample application, we are using HTTP to
+
+61
+00:03:03,039 --> 00:03:05,855
+retrieve the data from a local JSON file,
+
+62
+00:03:05,855 --> 00:03:07,900
+but the techniques are the same for
+
+63
+00:03:07,900 --> 00:03:10,819
+retrieving data from a back‑end service.
+
+64
+00:03:10,819 --> 00:03:18,000
+Next up, we'll see how to display multiple pages with navigation and routing.
+
