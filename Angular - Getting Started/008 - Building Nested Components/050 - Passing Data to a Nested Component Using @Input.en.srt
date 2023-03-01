@@ -1,0 +1,244 @@
+0
+00:00:02,339 --> 00:00:04,500
+If a nested component wants to receive
+
+1
+00:00:04,500 --> 00:00:07,440
+Input from its container, it must expose a
+
+2
+00:00:07,440 --> 00:00:10,339
+property to that container. The nested
+
+3
+00:00:10,339 --> 00:00:12,919
+component exposes a property it can use to
+
+4
+00:00:12,919 --> 00:00:15,449
+receive Input from its container, using
+
+5
+00:00:15,449 --> 00:00:19,484
+the app we named Input decorator. We use
+
+6
+00:00:19,484 --> 00:00:21,750
+the Input decorator to decorate any
+
+7
+00:00:21,750 --> 00:00:24,969
+property in the nested components class.
+
+8
+00:00:24,969 --> 00:00:27,089
+This works with any property type,
+
+9
+00:00:27,089 --> 00:00:30,289
+including an object. In this example, we
+
+10
+00:00:30,289 --> 00:00:32,399
+want the rating number passed into the
+
+11
+00:00:32,399 --> 00:00:35,539
+nested component. So we mark that property
+
+12
+00:00:35,539 --> 00:00:38,820
+with the Input decorator. The container
+
+13
+00:00:38,820 --> 00:00:41,640
+component then passes data to the nested
+
+14
+00:00:41,640 --> 00:00:44,299
+component by setting this property with
+
+15
+00:00:44,299 --> 00:00:46,869
+property binding. When using property
+
+16
+00:00:46,869 --> 00:00:49,420
+binding we enclose the binding target in
+
+17
+00:00:49,420 --> 00:00:52,530
+square brackets. We set the binding source
+
+18
+00:00:52,530 --> 00:00:54,570
+to the data that the container wants to
+
+19
+00:00:54,570 --> 00:00:57,479
+pass to the nested component. In this
+
+20
+00:00:57,479 --> 00:01:00,380
+example, the product‑list template passes
+
+21
+00:01:00,380 --> 00:01:03,729
+the product's starRating number, the only
+
+22
+00:01:03,729 --> 00:01:06,599
+time we can specify a nested components'
+
+23
+00:01:06,599 --> 00:01:09,980
+property as a property binding target on
+
+24
+00:01:09,980 --> 00:01:12,640
+the left side of an equals, is when that
+
+25
+00:01:12,640 --> 00:01:15,060
+property is decorated with the Input
+
+26
+00:01:15,060 --> 00:01:18,359
+decorator. So in this example, the
+
+27
+00:01:18,359 --> 00:01:20,359
+product‑list template can bind to the
+
+28
+00:01:20,359 --> 00:01:23,959
+rating, but not the starWidth. Let's give
+
+29
+00:01:23,959 --> 00:01:28,370
+this a try. The StarComponent wants to
+
+30
+00:01:28,370 --> 00:01:30,409
+expose the rating property to its
+
+31
+00:01:30,409 --> 00:01:32,914
+container, so the container can provide
+
+32
+00:01:32,914 --> 00:01:35,459
+the rating number. We'll add the Input
+
+33
+00:01:35,459 --> 00:01:38,950
+decorator than to the rating property. The
+
+34
+00:01:38,950 --> 00:01:41,739
+Input decorator is a function, so we add
+
+35
+00:01:41,739 --> 00:01:44,280
+parentheses. We don't need to pass
+
+36
+00:01:44,280 --> 00:01:46,549
+anything to this function, so that's it.
+
+37
+00:01:46,549 --> 00:01:49,359
+And let's remove this default value, now
+
+38
+00:01:49,359 --> 00:01:50,640
+that we can get the value from the
+
+39
+00:01:50,640 --> 00:01:53,400
+container we don't need that here. In our
+
+40
+00:01:53,400 --> 00:01:56,180
+example, we decorate only one property of
+
+41
+00:01:56,180 --> 00:01:57,930
+the nested component with the Input
+
+42
+00:01:57,930 --> 00:02:00,810
+decorator, but we are not limited to one.
+
+43
+00:02:00,810 --> 00:02:03,530
+We can expose multiple Input properties as
+
+44
+00:02:03,530 --> 00:02:07,170
+needed. In the containers' template we use
+
+45
+00:02:07,170 --> 00:02:09,419
+property binding and define the nested
+
+46
+00:02:09,419 --> 00:02:12,370
+components Input property as the target of
+
+47
+00:02:12,370 --> 00:02:15,099
+the binding. Then we set the binding
+
+48
+00:02:15,099 --> 00:02:17,530
+source to the value we want to pass into
+
+49
+00:02:17,530 --> 00:02:20,770
+the nested component. In this example we
+
+50
+00:02:20,770 --> 00:02:24,199
+pass the product's starRating. That's it.
+
+51
+00:02:24,199 --> 00:02:26,289
+The product starRating property is now
+
+52
+00:02:26,289 --> 00:02:28,509
+bound to the rating Input property of the
+
+53
+00:02:28,509 --> 00:02:31,460
+nested component. Any time the container
+
+54
+00:02:31,460 --> 00:02:34,250
+data changes, the OnChanges life‑cycle
+
+55
+00:02:34,250 --> 00:02:36,870
+event is generated, and the starWidth is
+
+56
+00:02:36,870 --> 00:02:39,360
+recalculated. The appropriate number of
+
+57
+00:02:39,360 --> 00:02:42,060
+stars are then displayed. Let's check it
+
+58
+00:02:42,060 --> 00:02:45,599
+out in the browser. That looks better, but
+
+59
+00:02:45,599 --> 00:02:47,919
+what if we want to send data back from our
+
+60
+00:02:47,919 --> 00:02:55,000
+nested component to our container? Let's look at that next.
+

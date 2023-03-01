@@ -1,0 +1,432 @@
+0
+00:00:02,439 --> 00:00:04,799
+Here is a visual representation of a
+
+1
+00:00:04,799 --> 00:00:07,879
+component that is nestable. Here is
+
+2
+00:00:07,879 --> 00:00:10,449
+another component. It wants to use the
+
+3
+00:00:10,449 --> 00:00:13,619
+nestable component in its template. We
+
+4
+00:00:13,619 --> 00:00:16,160
+then refer to the outer component as the
+
+5
+00:00:16,160 --> 00:00:19,230
+container or a parent component, and we
+
+6
+00:00:19,230 --> 00:00:22,289
+refer to the inner component as the nested
+
+7
+00:00:22,289 --> 00:00:25,620
+or child component. When building an
+
+8
+00:00:25,620 --> 00:00:28,500
+interactive application, the nested
+
+9
+00:00:28,500 --> 00:00:30,969
+component often needs to communicate with
+
+10
+00:00:30,969 --> 00:00:33,320
+its container. The nested component
+
+11
+00:00:33,320 --> 00:00:35,579
+receives information from its container
+
+12
+00:00:35,579 --> 00:00:38,380
+using input properties, and the nested
+
+13
+00:00:38,380 --> 00:00:40,829
+component outputs information back to its
+
+14
+00:00:40,829 --> 00:00:45,189
+container by raising events. In our sample
+
+15
+00:00:45,189 --> 00:00:47,990
+application, we want to change the display
+
+16
+00:00:47,990 --> 00:00:52,471
+of the five‑star rating from this to this.
+
+17
+00:00:52,471 --> 00:00:54,439
+Displaying the rating number using a
+
+18
+00:00:54,439 --> 00:00:57,554
+visual representation such as stars makes
+
+19
+00:00:57,554 --> 00:00:59,560
+it quicker and easier for the user to
+
+20
+00:00:59,560 --> 00:01:02,039
+interpret the meaning of the number. This
+
+21
+00:01:02,039 --> 00:01:03,899
+is the nested component we'll build in
+
+22
+00:01:03,899 --> 00:01:06,670
+this module. For the star component to
+
+23
+00:01:06,670 --> 00:01:09,019
+display the correct number of stars, the
+
+24
+00:01:09,019 --> 00:01:11,349
+container must provide the rating number
+
+25
+00:01:11,349 --> 00:01:14,480
+to our star component as an input. And if
+
+26
+00:01:14,480 --> 00:01:16,829
+the user clicks on the stars, we want to
+
+27
+00:01:16,829 --> 00:01:20,040
+raise an event to notify the container.
+
+28
+00:01:20,040 --> 00:01:22,269
+Let's jump right in and build our star
+
+29
+00:01:22,269 --> 00:01:26,879
+component. When we last saw our sample
+
+30
+00:01:26,879 --> 00:01:29,449
+application, we had completed the product
+
+31
+00:01:29,449 --> 00:01:32,340
+list component. Now, of course, we want to
+
+32
+00:01:32,340 --> 00:01:34,950
+change it. Instead of displaying a number
+
+33
+00:01:34,950 --> 00:01:37,569
+for the rating here, we want to display
+
+34
+00:01:37,569 --> 00:01:40,620
+stars. Instead of adding a code to the
+
+35
+00:01:40,620 --> 00:01:42,650
+product list component to display the
+
+36
+00:01:42,650 --> 00:01:45,530
+stars, we want to build it as a separate
+
+37
+00:01:45,530 --> 00:01:48,319
+component. This keeps the template and
+
+38
+00:01:48,319 --> 00:01:51,269
+logic for that feature encapsulated and
+
+39
+00:01:51,269 --> 00:01:54,180
+makes it reusable. So let's begin by
+
+40
+00:01:54,180 --> 00:01:57,310
+creating a star component. The star
+
+41
+00:01:57,310 --> 00:01:59,450
+component can be used by any feature of
+
+42
+00:01:59,450 --> 00:02:01,290
+the outfit application so it really
+
+43
+00:02:01,290 --> 00:02:03,647
+doesn't belong in our products folder.
+
+44
+00:02:03,647 --> 00:02:06,125
+We'll instead put it in a shared folder
+
+45
+00:02:06,125 --> 00:02:08,370
+where we'll put all our shared components.
+
+46
+00:02:08,370 --> 00:02:11,069
+If you are using the starter files. I've
+
+47
+00:02:11,069 --> 00:02:13,870
+already created this folder and included
+
+48
+00:02:13,870 --> 00:02:15,949
+the template and style sheet for our
+
+49
+00:02:15,949 --> 00:02:18,849
+component here. Let's take a quick look at
+
+50
+00:02:18,849 --> 00:02:21,039
+the style sheet. Notice that we have a
+
+51
+00:02:21,039 --> 00:02:23,229
+style here that helps with cropping our
+
+52
+00:02:23,229 --> 00:02:26,870
+stars. Now we are ready to build the star
+
+53
+00:02:26,870 --> 00:02:29,560
+component. We begin by creating a new
+
+54
+00:02:29,560 --> 00:02:35,150
+file. We'll name its star.component.ts. We
+
+55
+00:02:35,150 --> 00:02:37,490
+then create this component just like we'd
+
+56
+00:02:37,490 --> 00:02:40,360
+create any other component, starting with
+
+57
+00:02:40,360 --> 00:02:45,620
+the class. Export class starComponent.
+
+58
+00:02:45,620 --> 00:02:49,009
+What's next? Yes. We decorate the class
+
+59
+00:02:49,009 --> 00:02:51,770
+with the component decorator. Recall that
+
+60
+00:02:51,770 --> 00:02:54,419
+it is this component decorator that makes
+
+61
+00:02:54,419 --> 00:02:57,689
+this class a component. As always, it
+
+62
+00:02:57,689 --> 00:03:00,219
+shows us a syntax error here, because
+
+63
+00:03:00,219 --> 00:03:04,020
+we're missing, yes, our import. Time to
+
+64
+00:03:04,020 --> 00:03:06,300
+set the component decorator properties.
+
+65
+00:03:06,300 --> 00:03:10,469
+For the selector, we'll set pm‑star. For
+
+66
+00:03:10,469 --> 00:03:13,159
+the template URL, we provide the path to
+
+67
+00:03:13,159 --> 00:03:15,669
+the HTML file provided with the starter
+
+68
+00:03:15,669 --> 00:03:18,930
+files. We'll add the style URL's property,
+
+69
+00:03:18,930 --> 00:03:21,030
+and in the array we'll set the first
+
+70
+00:03:21,030 --> 00:03:23,229
+element to the path of the style sheet
+
+71
+00:03:23,229 --> 00:03:26,610
+that was also provided. Since both files
+
+72
+00:03:26,610 --> 00:03:28,729
+are in the same folder as the component,
+
+73
+00:03:28,729 --> 00:03:32,210
+we can use relative pathing. Now let's
+
+74
+00:03:32,210 --> 00:03:34,060
+take a peek at the star component
+
+75
+00:03:34,060 --> 00:03:39,069
+template. Here it displays five stars. It
+
+76
+00:03:39,069 --> 00:03:41,560
+then crops the stars based on a defined
+
+77
+00:03:41,560 --> 00:03:44,229
+width. This technique can then display
+
+78
+00:03:44,229 --> 00:03:48,289
+partial stars such as 4‑1/2 of the 5 stars
+
+79
+00:03:48,289 --> 00:03:51,229
+by setting the with such that only 4‑1/2
+
+80
+00:03:51,229 --> 00:03:54,030
+of the stars appear. Recall what this
+
+81
+00:03:54,030 --> 00:03:56,830
+syntax is called? This is property
+
+82
+00:03:56,830 --> 00:03:59,490
+binding. We're using it here to set the
+
+83
+00:03:59,490 --> 00:04:02,349
+style width, and here to bind the title
+
+84
+00:04:02,349 --> 00:04:04,580
+property to display the numeric rating
+
+85
+00:04:04,580 --> 00:04:07,870
+value. For these bindings to work, we need
+
+86
+00:04:07,870 --> 00:04:10,245
+two properties in the components class;
+
+87
+00:04:10,245 --> 00:04:14,069
+the rating and the star width. Let's add
+
+88
+00:04:14,069 --> 00:04:16,629
+these two properties. We want a rating
+
+89
+00:04:16,629 --> 00:04:19,420
+property, which is a number and defines
+
+90
+00:04:19,420 --> 00:04:22,149
+the rating value. Since we don't yet have
+
+91
+00:04:22,149 --> 00:04:24,305
+a way to get this value, let's hard code
+
+92
+00:04:24,305 --> 00:04:26,329
+it to four for now so we'll see some
+
+93
+00:04:26,329 --> 00:04:30,009
+stars, and we need the star width. This
+
+94
+00:04:30,009 --> 00:04:33,439
+value is calculated based on the rating.
+
+95
+00:04:33,439 --> 00:04:36,899
+So where do we put that calculation? Well,
+
+96
+00:04:36,899 --> 00:04:39,029
+we'd want the star width recalculated
+
+97
+00:04:39,029 --> 00:04:41,279
+anytime the container changed the rating
+
+98
+00:04:41,279 --> 00:04:44,509
+number. So let's tap into the OnChanges
+
+99
+00:04:44,509 --> 00:04:47,000
+lifecycle hook as we discussed in the last
+
+100
+00:04:47,000 --> 00:04:49,839
+module. We'll implement the OnChanges
+
+101
+00:04:49,839 --> 00:04:52,540
+interface, and we'll write code for the
+
+102
+00:04:52,540 --> 00:04:55,529
+ngOnChanges method identified in the
+
+103
+00:04:55,529 --> 00:04:58,519
+onChanges interface. In this method, we'll
+
+104
+00:04:58,519 --> 00:05:01,579
+convert the rating number to a star width
+
+105
+00:05:01,579 --> 00:05:04,529
+based on the width of our stars. Our
+
+106
+00:05:04,529 --> 00:05:07,029
+component is now complete and we're ready
+
+107
+00:05:07,029 --> 00:05:12,000
+to nest it in another component. How do we do that?
+

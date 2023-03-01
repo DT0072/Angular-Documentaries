@@ -1,0 +1,268 @@
+0
+00:00:02,240 --> 00:00:04,370
+Our user interface design may include
+
+1
+00:00:04,370 --> 00:00:06,339
+features that are complex enough to be
+
+2
+00:00:06,339 --> 00:00:09,089
+separate components or that are reusable
+
+3
+00:00:09,089 --> 00:00:12,120
+across our views. Welcome back to Angular:
+
+4
+00:00:12,120 --> 00:00:14,980
+Getting Started from Pluralsight. My name
+
+5
+00:00:14,980 --> 00:00:18,120
+is Deborah Kurata, and in this module, we
+
+6
+00:00:18,120 --> 00:00:20,460
+see how to build components designed to be
+
+7
+00:00:20,460 --> 00:00:23,440
+nested within other components, and we'll
+
+8
+00:00:23,440 --> 00:00:25,859
+discover how to establish communication
+
+9
+00:00:25,859 --> 00:00:28,219
+between the nested component and its
+
+10
+00:00:28,219 --> 00:00:31,390
+container component. Just like nesting
+
+11
+00:00:31,390 --> 00:00:34,549
+dolls, we can nest our components. We can
+
+12
+00:00:34,549 --> 00:00:37,340
+nest a component within another component,
+
+13
+00:00:37,340 --> 00:00:39,500
+and nest that component within yet another
+
+14
+00:00:39,500 --> 00:00:42,740
+component, and so on. And because each
+
+15
+00:00:42,740 --> 00:00:46,109
+component is fully encapsulated, we expose
+
+16
+00:00:46,109 --> 00:00:48,359
+specific inputs and outputs for
+
+17
+00:00:48,359 --> 00:00:50,659
+communication between a nested component
+
+18
+00:00:50,659 --> 00:00:53,270
+and its container, allowing them to pass
+
+19
+00:00:53,270 --> 00:00:56,719
+data back and forth. There are two ways to
+
+20
+00:00:56,719 --> 00:00:58,250
+use a component and display the
+
+21
+00:00:58,250 --> 00:01:00,979
+component's template. We can use the
+
+22
+00:01:00,979 --> 00:01:03,380
+component as a directive. We saw how to
+
+23
+00:01:03,380 --> 00:01:05,489
+use a component as a directive when we
+
+24
+00:01:05,489 --> 00:01:07,829
+displayed the app component template in
+
+25
+00:01:07,829 --> 00:01:11,379
+the index.html file. The pm‑root directive
+
+26
+00:01:11,379 --> 00:01:14,340
+is defined as the app component selector.
+
+27
+00:01:14,340 --> 00:01:16,379
+The template is then displayed within the
+
+28
+00:01:16,379 --> 00:01:19,659
+directive tags. We use the same technique
+
+29
+00:01:19,659 --> 00:01:22,909
+with nested components. Alternatively, we
+
+30
+00:01:22,909 --> 00:01:25,629
+can use a component as a routing target,
+
+31
+00:01:25,629 --> 00:01:27,609
+so it appears to the user that they've
+
+32
+00:01:27,609 --> 00:01:30,349
+traveled to another view. The template is
+
+33
+00:01:30,349 --> 00:01:33,250
+then displayed in a full‑page style view.
+
+34
+00:01:33,250 --> 00:01:35,489
+We'll use this technique later in this
+
+35
+00:01:35,489 --> 00:01:38,250
+course to route to our product list view.
+
+36
+00:01:38,250 --> 00:01:40,879
+Our product list view is currently used as
+
+37
+00:01:40,879 --> 00:01:43,260
+a directive, but that's only because we
+
+38
+00:01:43,260 --> 00:01:45,849
+have not yet covered routing. In this
+
+39
+00:01:45,849 --> 00:01:48,480
+course module, we'll focus on building a
+
+40
+00:01:48,480 --> 00:01:51,519
+nested component. So what makes a
+
+41
+00:01:51,519 --> 00:01:54,650
+component nestable? Technically speaking,
+
+42
+00:01:54,650 --> 00:01:56,909
+any of our components could be nested if
+
+43
+00:01:56,909 --> 00:01:58,569
+they have a selector to find in the
+
+44
+00:01:58,569 --> 00:02:01,150
+component decorator. But does it really
+
+45
+00:02:01,150 --> 00:02:03,709
+make sense to nest a large view such as
+
+46
+00:02:03,709 --> 00:02:06,400
+our product list? For our purposes, we'll
+
+47
+00:02:06,400 --> 00:02:09,080
+define a component as nestable if it's
+
+48
+00:02:09,080 --> 00:02:11,599
+template only manages a fragment of a
+
+49
+00:02:11,599 --> 00:02:14,900
+larger view, if it has a selector so it
+
+50
+00:02:14,900 --> 00:02:17,240
+can be used as a directive, and,
+
+51
+00:02:17,240 --> 00:02:19,569
+optionally, if it communicates with its
+
+52
+00:02:19,569 --> 00:02:23,500
+container. In this module, we'll build a
+
+53
+00:02:23,500 --> 00:02:26,539
+nested component. Then we'll review how to
+
+54
+00:02:26,539 --> 00:02:29,150
+use that nested component as a directive
+
+55
+00:02:29,150 --> 00:02:31,689
+in a container component. We'll examine
+
+56
+00:02:31,689 --> 00:02:34,289
+how to pass data to the nested component
+
+57
+00:02:34,289 --> 00:02:37,340
+using a property with the input decorator
+
+58
+00:02:37,340 --> 00:02:39,580
+and how to pass data out of the nested
+
+59
+00:02:39,580 --> 00:02:42,250
+component by raising an event to find with
+
+60
+00:02:42,250 --> 00:02:45,699
+the output decorator. In our sample
+
+61
+00:02:45,699 --> 00:02:47,830
+application, to improve the user
+
+62
+00:02:47,830 --> 00:02:50,259
+experience, we want to replace the rating
+
+63
+00:02:50,259 --> 00:02:52,790
+number displayed in the product list
+
+64
+00:02:52,790 --> 00:02:56,129
+component with stars. In this module,
+
+65
+00:02:56,129 --> 00:02:58,969
+we'll build the star component and nest it
+
+66
+00:02:58,969 --> 00:03:05,000
+within the product list component. Let's get started.
+
