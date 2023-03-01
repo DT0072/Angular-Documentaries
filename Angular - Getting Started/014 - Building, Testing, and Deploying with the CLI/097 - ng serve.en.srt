@@ -1,0 +1,332 @@
+0
+00:00:01,540 --> 00:00:04,339
+Once we have a generated application, the
+
+1
+00:00:04,339 --> 00:00:06,980
+first thing we may want to do is run it.
+
+2
+00:00:06,980 --> 00:00:10,140
+We do that with the ng serve command.
+
+3
+00:00:10,140 --> 00:00:12,929
+Let's give that a try. Here in the
+
+4
+00:00:12,929 --> 00:00:17,350
+TERMINAL window, we'll type ng serve. The
+
+5
+00:00:17,350 --> 00:00:20,480
+application is then built, and we can see
+
+6
+00:00:20,480 --> 00:00:23,649
+that it compiled successfully. The CLI
+
+7
+00:00:23,649 --> 00:00:26,230
+launches a development server and listens
+
+8
+00:00:26,230 --> 00:00:29,760
+on port 4200. The compiler is now in watch
+
+9
+00:00:29,760 --> 00:00:32,310
+mode, so it watches for any changes and
+
+10
+00:00:32,310 --> 00:00:36,140
+automatically recompiles for us. So, where
+
+11
+00:00:36,140 --> 00:00:40,020
+is it? Where is our application? We can
+
+12
+00:00:40,020 --> 00:00:44,000
+navigate to the defined port 4200. And
+
+13
+00:00:44,000 --> 00:00:46,960
+here is the application. It has a slick
+
+14
+00:00:46,960 --> 00:00:48,950
+welcome page with links to the Tour of
+
+15
+00:00:48,950 --> 00:00:52,280
+Heroes tutorial, the CLI documentation,
+
+16
+00:00:52,280 --> 00:00:55,409
+and the Angular team's blog. Feel free to
+
+17
+00:00:55,409 --> 00:00:58,950
+check out those links. Previously in this
+
+18
+00:00:58,950 --> 00:01:01,810
+course, we used npm start to run our
+
+19
+00:01:01,810 --> 00:01:05,769
+application, not ng serve. If we open the
+
+20
+00:01:05,769 --> 00:01:08,909
+package.json file, we see that the npm
+
+21
+00:01:08,909 --> 00:01:11,900
+start script is associated with the ng
+
+22
+00:01:11,900 --> 00:01:15,219
+serve command. So using npm start
+
+23
+00:01:15,219 --> 00:01:18,870
+basically executes ng serve. We can use
+
+24
+00:01:18,870 --> 00:01:23,010
+Ctrl+C then y to stop execution. Then type
+
+25
+00:01:23,010 --> 00:01:26,519
+npm start. The process is the same. We can
+
+26
+00:01:26,519 --> 00:01:29,670
+see that it executes ng serve. But we
+
+27
+00:01:29,670 --> 00:01:32,230
+still have to manually bring up a browser
+
+28
+00:01:32,230 --> 00:01:35,079
+and navigate to the appropriate port. We
+
+29
+00:01:35,079 --> 00:01:37,319
+haven't had to do that for the other demos
+
+30
+00:01:37,319 --> 00:01:40,430
+in this course. What's up with that? Let's
+
+31
+00:01:40,430 --> 00:01:43,219
+look back at the APM application. In the
+
+32
+00:01:43,219 --> 00:01:45,870
+package.json file that I included with the
+
+33
+00:01:45,870 --> 00:01:48,370
+starter files for this application, I
+
+34
+00:01:48,370 --> 00:01:52,670
+added ‑o to the start script. The ‑o is an
+
+35
+00:01:52,670 --> 00:01:56,400
+alias for the ‑‑open flag, which opens the
+
+36
+00:01:56,400 --> 00:02:00,000
+default browser. Mystery solved. Going
+
+37
+00:02:00,000 --> 00:02:02,430
+back to the hello‑world application, let's
+
+38
+00:02:02,430 --> 00:02:05,790
+stop execution and restart with the ‑o
+
+39
+00:02:05,790 --> 00:02:09,650
+flag. We type ng serve ‑o, which
+
+40
+00:02:09,650 --> 00:02:12,229
+automatically opens our default browser
+
+41
+00:02:12,229 --> 00:02:15,289
+and navigates to our application. But we
+
+42
+00:02:15,289 --> 00:02:18,090
+can go into our package.json and update it
+
+43
+00:02:18,090 --> 00:02:20,990
+here if we'd like. Before we move on,
+
+44
+00:02:20,990 --> 00:02:23,199
+let's take a moment and look more closely
+
+45
+00:02:23,199 --> 00:02:26,189
+at the output of the ng serve process.
+
+46
+00:02:26,189 --> 00:02:29,099
+When we use the ng serve command, the CLI
+
+47
+00:02:29,099 --> 00:02:32,150
+builds the application and outputs it as a
+
+48
+00:02:32,150 --> 00:02:35,939
+set of bundled JavaScript and map files.
+
+49
+00:02:35,939 --> 00:02:38,280
+Here we see the list of bundles. These
+
+50
+00:02:38,280 --> 00:02:41,389
+files are generated in memory and are not
+
+51
+00:02:41,389 --> 00:02:44,439
+available to find on disk. We'll generate
+
+52
+00:02:44,439 --> 00:02:47,219
+actual files we can look at when we use
+
+53
+00:02:47,219 --> 00:02:50,689
+the ng build command shortly. Here is the
+
+54
+00:02:50,689 --> 00:02:53,060
+application in the browser. We'll open the
+
+55
+00:02:53,060 --> 00:02:56,439
+developer tools and view the Sources tab.
+
+56
+00:02:56,439 --> 00:02:59,039
+We see those same bundles here on the
+
+57
+00:02:59,039 --> 00:03:03,370
+left. And notice our index.html file. The
+
+58
+00:03:03,370 --> 00:03:07,159
+CLI injected the needed script tags for us
+
+59
+00:03:07,159 --> 00:03:10,469
+to pull down all of these bundles. Another
+
+60
+00:03:10,469 --> 00:03:13,580
+mystery solved. Peeking inside the main
+
+61
+00:03:13,580 --> 00:03:15,860
+bundle, we see something that looks a bit
+
+62
+00:03:15,860 --> 00:03:18,639
+like our code. Here is our AppModule
+
+63
+00:03:18,639 --> 00:03:21,659
+transpiled to JavaScript. Unless we
+
+64
+00:03:21,659 --> 00:03:24,430
+specify otherwise, all of our application
+
+65
+00:03:24,430 --> 00:03:27,120
+code will be compiled into this bundle.
+
+66
+00:03:27,120 --> 00:03:29,509
+Since the CLI also generated the
+
+67
+00:03:29,509 --> 00:03:32,419
+associated map files, we can see that we
+
+68
+00:03:32,419 --> 00:03:35,289
+have our actual TypeScript code. This
+
+69
+00:03:35,289 --> 00:03:37,860
+makes it much easier to debug our code, as
+
+70
+00:03:37,860 --> 00:03:40,689
+we saw earlier in this course. Now I'll
+
+71
+00:03:40,689 --> 00:03:43,639
+close the browser and use Ctrl+C to stop
+
+72
+00:03:43,639 --> 00:03:46,979
+the development server. Now let's look at
+
+73
+00:03:46,979 --> 00:03:49,030
+some of the key flags available with the
+
+74
+00:03:49,030 --> 00:03:54,300
+serve command. Type ng serve ‑‑help. There
+
+75
+00:03:54,300 --> 00:03:56,979
+are lots of flags here. Many of these
+
+76
+00:03:56,979 --> 00:03:59,439
+we'll use with the build command later.
+
+77
+00:03:59,439 --> 00:04:02,870
+There are two I used regularly. The ‑‑port
+
+78
+00:04:02,870 --> 00:04:05,560
+flag lets you specify an alternate port so
+
+79
+00:04:05,560 --> 00:04:09,189
+you don't have to use 4200. And we've seen
+
+80
+00:04:09,189 --> 00:04:12,439
+the effect of the ‑‑open flag. Now that we
+
+81
+00:04:12,439 --> 00:04:15,639
+have an application and can run it, we'll
+
+82
+00:04:15,639 --> 00:04:22,000
+want to add to it. Let's check out the generate command next.
+

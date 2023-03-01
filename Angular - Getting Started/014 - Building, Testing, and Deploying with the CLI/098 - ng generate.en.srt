@@ -1,0 +1,104 @@
+0
+00:00:02,540 --> 00:00:04,389
+Our new little application is cool and
+
+1
+00:00:04,389 --> 00:00:07,330
+all, but it doesn't do much. We need to
+
+2
+00:00:07,330 --> 00:00:09,220
+add components, and templates, and
+
+3
+00:00:09,220 --> 00:00:12,279
+services, and modules. We do that with a
+
+4
+00:00:12,279 --> 00:00:15,080
+generate command. We've already seen this
+
+5
+00:00:15,080 --> 00:00:17,690
+command in action, but it can do so much
+
+6
+00:00:17,690 --> 00:00:25,550
+more. If we type ng g ‑‑help, this lists
+
+7
+00:00:25,550 --> 00:00:27,589
+all of the different types of files we can
+
+8
+00:00:27,589 --> 00:00:30,320
+generate with this command. We can create
+
+9
+00:00:30,320 --> 00:00:33,009
+simple classes. We can create components
+
+10
+00:00:33,009 --> 00:00:35,670
+with external template and style sheet
+
+11
+00:00:35,670 --> 00:00:37,409
+files as we did with the product detail
+
+12
+00:00:37,409 --> 00:00:40,060
+component earlier in this course. We can
+
+13
+00:00:40,060 --> 00:00:42,929
+generate our own custom directives, enum
+
+14
+00:00:42,929 --> 00:00:45,460
+values, and route guards as we did with
+
+15
+00:00:45,460 --> 00:00:48,149
+our product detail guard. We can create
+
+16
+00:00:48,149 --> 00:00:51,490
+interfaces and modules. We can create
+
+17
+00:00:51,490 --> 00:00:54,630
+pipes and services all with only typing a
+
+18
+00:00:54,630 --> 00:00:59,090
+few characters. Neat! Let's generate a
+
+19
+00:00:59,090 --> 00:01:04,120
+component. Type ng g c and our component
+
+20
+00:01:04,120 --> 00:01:08,010
+name, and let's say welcome. The output
+
+21
+00:01:08,010 --> 00:01:10,010
+indicates that it created a style sheet
+
+22
+00:01:10,010 --> 00:01:13,590
+file, template HTML file, unit testing
+
+23
+00:01:13,590 --> 00:01:15,859
+file, and TypeScript file for our
+
+24
+00:01:15,859 --> 00:01:18,459
+component. By default, it created a
+
+25
+00:01:18,459 --> 00:01:24,000
+welcome folder and added these files to it.
+

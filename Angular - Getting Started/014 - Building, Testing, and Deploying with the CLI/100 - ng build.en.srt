@@ -1,0 +1,256 @@
+0
+00:00:01,439 --> 00:00:04,400
+An application is not very useful unless
+
+1
+00:00:04,400 --> 00:00:07,339
+you can deploy it to your users. The build
+
+2
+00:00:07,339 --> 00:00:09,849
+command helps you prepare your application
+
+3
+00:00:09,849 --> 00:00:13,960
+for deployment. Let's take a look. Here in
+
+4
+00:00:13,960 --> 00:00:18,239
+the terminal window we'll type ng build.
+
+5
+00:00:18,239 --> 00:00:20,570
+The output is similar to the ng serve
+
+6
+00:00:20,570 --> 00:00:23,350
+command. When the ng build process is
+
+7
+00:00:23,350 --> 00:00:25,839
+complete, we have a dist folder here in
+
+8
+00:00:25,839 --> 00:00:29,140
+our project. If we open the folder, we see
+
+9
+00:00:29,140 --> 00:00:32,340
+our actual bundles. We can look again at
+
+10
+00:00:32,340 --> 00:00:35,310
+the main bundle .js file and find our
+
+11
+00:00:35,310 --> 00:00:39,390
+code. And here is the resulting index.html
+
+12
+00:00:39,390 --> 00:00:41,740
+file with the script tags to pull in each
+
+13
+00:00:41,740 --> 00:00:44,439
+bundle. We can then deploy these files to
+
+14
+00:00:44,439 --> 00:00:47,520
+a server somewhere. But wait, there's
+
+15
+00:00:47,520 --> 00:00:50,219
+more. When we deploy it to production,
+
+16
+00:00:50,219 --> 00:00:52,210
+there are a few more things that we want
+
+17
+00:00:52,210 --> 00:00:54,780
+to achieve. We want our bundles to be as
+
+18
+00:00:54,780 --> 00:00:57,649
+small as possible. This means that we want
+
+19
+00:00:57,649 --> 00:01:00,530
+to minify or uglify the code and perform
+
+20
+00:01:00,530 --> 00:01:02,840
+something called tree shaking. Tree
+
+21
+00:01:02,840 --> 00:01:05,390
+shaking shakes up our code to drop out any
+
+22
+00:01:05,390 --> 00:01:08,069
+dead branches, which basically means that
+
+23
+00:01:08,069 --> 00:01:11,829
+it removes any unused pieces. The CLI will
+
+24
+00:01:11,829 --> 00:01:14,870
+do all of these things for us if we simply
+
+25
+00:01:14,870 --> 00:01:19,959
+add the ‑‑prod flag. Let's try that out.
+
+26
+00:01:19,959 --> 00:01:26,569
+Type ng build ‑‑prod. Now if we look at
+
+27
+00:01:26,569 --> 00:01:28,939
+the files in the dist folder, we notice
+
+28
+00:01:28,939 --> 00:01:31,310
+that they have a hash as part of the file
+
+29
+00:01:31,310 --> 00:01:34,700
+name. This is a cache‑busting technique.
+
+30
+00:01:34,700 --> 00:01:36,390
+Every time we update something in our
+
+31
+00:01:36,390 --> 00:01:38,890
+code, it needs to be redeployed to the
+
+32
+00:01:38,890 --> 00:01:41,590
+server. We expect the new version of the
+
+33
+00:01:41,590 --> 00:01:43,840
+files to be downloaded by the browser when
+
+34
+00:01:43,840 --> 00:01:46,849
+a user accesses our application. But for
+
+35
+00:01:46,849 --> 00:01:49,290
+performance reasons, the browser may have
+
+36
+00:01:49,290 --> 00:01:52,109
+cached those files. By changing the file
+
+37
+00:01:52,109 --> 00:01:54,390
+names using a hash, the browser will
+
+38
+00:01:54,390 --> 00:01:56,739
+download the latest version because the
+
+39
+00:01:56,739 --> 00:01:58,870
+file names won't match its cached
+
+40
+00:01:58,870 --> 00:02:02,150
+versions. Notice also that there are no
+
+41
+00:02:02,150 --> 00:02:05,730
+map files here. By default, the ‑‑prod
+
+42
+00:02:05,730 --> 00:02:08,550
+flag does not generate map files, but
+
+43
+00:02:08,550 --> 00:02:10,349
+there is a flag for that if you need them.
+
+44
+00:02:10,349 --> 00:02:14,419
+Peeking into the main bundle, all the code
+
+45
+00:02:14,419 --> 00:02:17,300
+is on one line. And look at those variable
+
+46
+00:02:17,300 --> 00:02:20,659
+names. It's been minified. Glad we don't
+
+47
+00:02:20,659 --> 00:02:24,090
+have to debug using that code. Let's look
+
+48
+00:02:24,090 --> 00:02:26,099
+at some of the key flags available with
+
+49
+00:02:26,099 --> 00:02:29,740
+the build command. Type ng build ‑‑help.
+
+50
+00:02:29,740 --> 00:02:33,419
+We'll scroll up a bit. There are quite a
+
+51
+00:02:33,419 --> 00:02:35,909
+few flags here to help you tune exactly
+
+52
+00:02:35,909 --> 00:02:38,509
+what you want the built command to do. One
+
+53
+00:02:38,509 --> 00:02:40,289
+of the other key flags here is the
+
+54
+00:02:40,289 --> 00:02:44,389
+‑‑base‑href. Recall that we set the base
+
+55
+00:02:44,389 --> 00:02:48,169
+element in our index.html file to specify
+
+56
+00:02:48,169 --> 00:02:51,259
+the root path for our Angular routing. But
+
+57
+00:02:51,259 --> 00:02:53,289
+when we deploy it to production, we may
+
+58
+00:02:53,289 --> 00:02:55,520
+not want to deploy to the root path of our
+
+59
+00:02:55,520 --> 00:02:59,789
+server. We can use the ‑‑base‑href flag to
+
+60
+00:02:59,789 --> 00:03:02,090
+set the appropriate based URL for the
+
+61
+00:03:02,090 --> 00:03:05,539
+deployed application. Wow, the CLI is
+
+62
+00:03:05,539 --> 00:03:08,560
+powerful. Now let's finish up this module
+
+63
+00:03:08,560 --> 00:04:13,000
+with some checklists we can use as we leverage the Angular CLI.
+

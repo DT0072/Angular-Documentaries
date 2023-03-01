@@ -1,0 +1,104 @@
+0
+00:00:02,339 --> 00:00:05,259
+Here are the key CLI commands for
+
+1
+00:00:05,259 --> 00:00:09,550
+reference. Use ng help or ng, a command
+
+2
+00:00:09,550 --> 00:00:13,939
+name ‑‑help to view the CLI documentation.
+
+3
+00:00:13,939 --> 00:00:15,810
+The remaining commands here help you
+
+4
+00:00:15,810 --> 00:00:19,379
+create, execute, build, test, and deploy
+
+5
+00:00:19,379 --> 00:00:23,250
+your Angular application. You may find
+
+6
+00:00:23,250 --> 00:00:26,760
+yourself using ng generate a lot. Refer to
+
+7
+00:00:26,760 --> 00:00:28,699
+this checklist as you generate the code
+
+8
+00:00:28,699 --> 00:00:32,020
+files for your application. In this
+
+9
+00:00:32,020 --> 00:00:34,579
+module, we discovered the purpose and
+
+10
+00:00:34,579 --> 00:00:37,600
+basic features of the CLI. We built an
+
+11
+00:00:37,600 --> 00:00:40,359
+application from scratch and examined it's
+
+12
+00:00:40,359 --> 00:00:43,560
+many configuration and startup files. We
+
+13
+00:00:43,560 --> 00:00:46,609
+dug into how it serves up our application,
+
+14
+00:00:46,609 --> 00:00:48,537
+learned about its code generation
+
+15
+00:00:48,537 --> 00:00:51,189
+features, looked at running tests, and
+
+16
+00:00:51,189 --> 00:00:53,439
+prepared the resulting application for
+
+17
+00:00:53,439 --> 00:00:56,829
+deployment. Now that we've peeked behind
+
+18
+00:00:56,829 --> 00:00:59,509
+the curtain, you know the secrets of the
+
+19
+00:00:59,509 --> 00:01:03,539
+CLI. There is no wizardry here. There are
+
+20
+00:01:03,539 --> 00:01:06,069
+more commands and many more flags than
+
+21
+00:01:06,069 --> 00:01:09,019
+what we discussed in this module. To learn
+
+22
+00:01:09,019 --> 00:01:12,010
+more about the Angular CLI, check out John
+
+23
+00:01:12,010 --> 00:01:15,200
+Papa's course happily entitled, Angular
+
+24
+00:01:15,200 --> 00:01:18,590
+CLI in the Pluralsight library, it covers
+
+25
+00:01:18,590 --> 00:01:25,000
+many more of its amazing features. Only one module left.
+

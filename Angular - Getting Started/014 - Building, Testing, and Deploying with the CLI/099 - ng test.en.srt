@@ -1,0 +1,124 @@
+0
+00:00:01,940 --> 00:00:03,879
+Testing our Angular code is always
+
+1
+00:00:03,879 --> 00:00:06,519
+important, but often neglected due to the
+
+2
+00:00:06,519 --> 00:00:08,789
+additional time and effort required to set
+
+3
+00:00:08,789 --> 00:00:12,169
+up and execute the tests. The CLI makes it
+
+4
+00:00:12,169 --> 00:00:14,480
+a bit easier by generating the testing
+
+5
+00:00:14,480 --> 00:00:17,800
+spec and configuration files for us. We
+
+6
+00:00:17,800 --> 00:00:21,579
+can run these tests using ng test and ng
+
+7
+00:00:21,579 --> 00:00:26,379
+e2e. To run our unit tests, in the
+
+8
+00:00:26,379 --> 00:00:30,280
+terminal window type ng test. This builds
+
+9
+00:00:30,280 --> 00:00:33,219
+the application, launches the browser, and
+
+10
+00:00:33,219 --> 00:00:36,469
+executes the Karma test runner. From here,
+
+11
+00:00:36,469 --> 00:00:39,359
+we can see the results of our unit tests.
+
+12
+00:00:39,359 --> 00:00:42,310
+Angular generated four tests for us, and
+
+13
+00:00:42,310 --> 00:00:45,640
+they've all passed, so we are all green.
+
+14
+00:00:45,640 --> 00:00:48,799
+The test runner runs in watch mode so we
+
+15
+00:00:48,799 --> 00:00:51,549
+can modify our files and the tests will
+
+16
+00:00:51,549 --> 00:00:55,210
+immediately rerun. I'll close the browser,
+
+17
+00:00:55,210 --> 00:00:56,920
+and notice that it tried to bring it up
+
+18
+00:00:56,920 --> 00:00:59,500
+again. I first need to terminate the test
+
+19
+00:00:59,500 --> 00:01:02,280
+runner with Ctrl+C, then I'll clear the
+
+20
+00:01:02,280 --> 00:01:05,859
+screen with cls. We can use the e2e
+
+21
+00:01:05,859 --> 00:01:08,900
+command to run our end‑to‑end tests using
+
+22
+00:01:08,900 --> 00:01:13,860
+Protractor. Let's try that out. Ng e2e.
+
+23
+00:01:13,860 --> 00:01:16,609
+Notice that it pops up the browser,
+
+24
+00:01:16,609 --> 00:01:19,230
+executes our application, and closes the
+
+25
+00:01:19,230 --> 00:01:21,959
+browser again. We can see here that it
+
+26
+00:01:21,959 --> 00:01:25,400
+successfully executed one spec. Testing is
+
+27
+00:01:25,400 --> 00:01:27,500
+a big topic that is beyond the scope of
+
+28
+00:01:27,500 --> 00:01:30,200
+this course. See the Pluralsight library
+
+29
+00:01:30,200 --> 00:01:33,569
+for more information about testing. Now
+
+30
+00:01:33,569 --> 00:01:41,000
+that we have our application built and tested, we are ready to deploy.
+

@@ -1,0 +1,84 @@
+0
+00:00:02,640 --> 00:00:04,580
+We've mentioned the Angular CLI a few
+
+1
+00:00:04,580 --> 00:00:06,799
+times in this course but haven't really
+
+2
+00:00:06,799 --> 00:00:09,929
+discussed what it is or what it can do.
+
+3
+00:00:09,929 --> 00:00:12,759
+What seemed like wizardry is instead a
+
+4
+00:00:12,759 --> 00:00:15,619
+full‑featured tool for building, testing,
+
+5
+00:00:15,619 --> 00:00:18,539
+and deploying our Angular applications.
+
+6
+00:00:18,539 --> 00:00:20,829
+Welcome back to Angular: Getting Started,
+
+7
+00:00:20,829 --> 00:00:23,179
+from Pluralsight. My name is Deborah
+
+8
+00:00:23,179 --> 00:00:26,309
+Kurata, and in this module we look closer
+
+9
+00:00:26,309 --> 00:00:30,100
+at the Angular CLI. Let's peek behind the
+
+10
+00:00:30,100 --> 00:00:32,600
+curtain and learn more about this amazing
+
+11
+00:00:32,600 --> 00:00:36,159
+tool. In this module, we start with an
+
+12
+00:00:36,159 --> 00:00:38,299
+overview and discover the purpose and
+
+13
+00:00:38,299 --> 00:00:41,590
+basic features of the Angular CLI. We then
+
+14
+00:00:41,590 --> 00:00:44,509
+build an application from scratch using
+
+15
+00:00:44,509 --> 00:00:47,880
+the CLI and examine the many configuration
+
+16
+00:00:47,880 --> 00:00:50,810
+and startup files it creates. We dig into
+
+17
+00:00:50,810 --> 00:00:53,159
+how it serves up our application, learn
+
+18
+00:00:53,159 --> 00:00:56,039
+more about its cogeneration features, take
+
+19
+00:00:56,039 --> 00:00:58,890
+a brief look at running tests, and prepare
+
+20
+00:00:58,890 --> 00:01:05,000
+the resulting application for deployment. Let's get started.
+
