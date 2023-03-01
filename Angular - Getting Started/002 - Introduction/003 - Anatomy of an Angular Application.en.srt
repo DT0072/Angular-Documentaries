@@ -1,0 +1,148 @@
+0
+00:00:02,439 --> 00:00:05,230
+In Angular, an application is comprised of
+
+1
+00:00:05,230 --> 00:00:08,140
+a set of components and services that
+
+2
+00:00:08,140 --> 00:00:10,919
+provide functionality across those
+
+3
+00:00:10,919 --> 00:00:13,039
+components. So what is an Angular
+
+4
+00:00:13,039 --> 00:00:16,730
+component? Each component is comprised of
+
+5
+00:00:16,730 --> 00:00:19,359
+a template, which is the HTML for the user
+
+6
+00:00:19,359 --> 00:00:21,469
+interface fragment defining a view for the
+
+7
+00:00:21,469 --> 00:00:24,300
+application. Add to that a class for the
+
+8
+00:00:24,300 --> 00:00:26,879
+code associated with the view. The class
+
+9
+00:00:26,879 --> 00:00:28,960
+contains the properties or data elements
+
+10
+00:00:28,960 --> 00:00:31,649
+available for use in the view and methods,
+
+11
+00:00:31,649 --> 00:00:33,600
+which perform actions for the view, such
+
+12
+00:00:33,600 --> 00:00:36,460
+as responding to a button click. A
+
+13
+00:00:36,460 --> 00:00:38,630
+component also has metadata, which
+
+14
+00:00:38,630 --> 00:00:40,479
+provides additional information about the
+
+15
+00:00:40,479 --> 00:00:43,340
+component to Angular. It is this metadata
+
+16
+00:00:43,340 --> 00:00:45,689
+that identifies the class as an Angular
+
+17
+00:00:45,689 --> 00:00:48,609
+component. So a component is a view
+
+18
+00:00:48,609 --> 00:00:50,810
+defined with a template. It's associated
+
+19
+00:00:50,810 --> 00:00:53,429
+code defined with a class and additional
+
+20
+00:00:53,429 --> 00:00:56,369
+information defined with metadata. We'll
+
+21
+00:00:56,369 --> 00:00:58,090
+look at this in more detail in the
+
+22
+00:00:58,090 --> 00:01:00,710
+upcoming modules. As we build these
+
+23
+00:01:00,710 --> 00:01:03,200
+components, how do we pull them together
+
+24
+00:01:03,200 --> 00:01:06,390
+into an application? We define Angular
+
+25
+00:01:06,390 --> 00:01:09,840
+modules. Angular modules help us organize
+
+26
+00:01:09,840 --> 00:01:12,180
+our application into cohesive blocks of
+
+27
+00:01:12,180 --> 00:01:15,370
+functionality. Every Angular application
+
+28
+00:01:15,370 --> 00:01:18,310
+has at least one Angular module called the
+
+29
+00:01:18,310 --> 00:01:21,379
+applications root Angular module. An
+
+30
+00:01:21,379 --> 00:01:23,349
+application can have any number of
+
+31
+00:01:23,349 --> 00:01:25,859
+additional Angular modules, including
+
+32
+00:01:25,859 --> 00:01:27,859
+feature modules that consolidate the
+
+33
+00:01:27,859 --> 00:01:30,079
+components for a specific application
+
+34
+00:01:30,079 --> 00:01:32,890
+feature. We'll see much more about Angular
+
+35
+00:01:32,890 --> 00:01:36,200
+modules along our journey. For now, let's
+
+36
+00:01:36,200 --> 00:01:41,000
+look at some tips for getting the most from this course.
+

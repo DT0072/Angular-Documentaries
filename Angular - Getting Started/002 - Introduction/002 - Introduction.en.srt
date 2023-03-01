@@ -1,0 +1,296 @@
+0
+00:00:02,439 --> 00:00:04,679
+Whether you are new to Angular or
+
+1
+00:00:04,679 --> 00:00:07,610
+migrating from AngularJS, you want to come
+
+2
+00:00:07,610 --> 00:00:09,349
+up to speed quickly with Angular's
+
+3
+00:00:09,349 --> 00:00:11,269
+components, templates, and services.
+
+4
+00:00:11,269 --> 00:00:14,500
+Welcome to Angular: Getting Started, from
+
+5
+00:00:14,500 --> 00:00:17,339
+Pluralsight. My name is Deborah Kurata,
+
+6
+00:00:17,339 --> 00:00:19,559
+and this course provides the basics you
+
+7
+00:00:19,559 --> 00:00:21,910
+need to get started building an Angular
+
+8
+00:00:21,910 --> 00:00:25,100
+application. As we journey through this
+
+9
+00:00:25,100 --> 00:00:27,300
+course, we'll discover Angular's many
+
+10
+00:00:27,300 --> 00:00:29,559
+features and uncover the answers to key
+
+11
+00:00:29,559 --> 00:00:32,670
+questions. For example, what is a
+
+12
+00:00:32,670 --> 00:00:35,759
+component? Where do we put the HTML for
+
+13
+00:00:35,759 --> 00:00:38,509
+our user interface? When should we use
+
+14
+00:00:38,509 --> 00:00:41,234
+data binding? Why do we need a service?
+
+15
+00:00:41,234 --> 00:00:44,670
+And how? How do we build an Angular
+
+16
+00:00:44,670 --> 00:00:47,969
+application? The who, of course, is you.
+
+17
+00:00:47,969 --> 00:00:49,869
+This course guides you down the right
+
+18
+00:00:49,869 --> 00:00:52,359
+path, making your own journey with Angular
+
+19
+00:00:52,359 --> 00:00:55,950
+more pleasant and productive. As we start
+
+20
+00:00:55,950 --> 00:00:57,850
+this journey, let's get the lay of the
+
+21
+00:00:57,850 --> 00:00:59,780
+land and take a high‑level look at
+
+22
+00:00:59,780 --> 00:01:02,979
+Angular. Simply stated, Angular is a
+
+23
+00:01:02,979 --> 00:01:04,959
+JavaScript framework for building
+
+24
+00:01:04,959 --> 00:01:09,079
+client‑side applications using HTML, CSS,
+
+25
+00:01:09,079 --> 00:01:12,049
+and TypeScript, which is a typed superset
+
+26
+00:01:12,049 --> 00:01:15,090
+of JavaScript. Why Angular and not some
+
+27
+00:01:15,090 --> 00:01:17,420
+other JavaScript framework? And there are
+
+28
+00:01:17,420 --> 00:01:19,324
+lots of JavaScript frameworks out there.
+
+29
+00:01:19,324 --> 00:01:23,060
+Angular makes our HTML more expressive. It
+
+30
+00:01:23,060 --> 00:01:25,519
+powers up our HTML with features such as
+
+31
+00:01:25,519 --> 00:01:27,359
+if conditions, for loops, and local
+
+32
+00:01:27,359 --> 00:01:30,090
+variables. Angular has powerful data
+
+33
+00:01:30,090 --> 00:01:32,730
+binding. We can easily display fields from
+
+34
+00:01:32,730 --> 00:01:35,519
+our data model, track changes, and process
+
+35
+00:01:35,519 --> 00:01:38,049
+updates from the user. Angular promotes
+
+36
+00:01:38,049 --> 00:01:40,810
+modularity by design. Our applications
+
+37
+00:01:40,810 --> 00:01:42,739
+become a set of building blocks, making it
+
+38
+00:01:42,739 --> 00:01:45,439
+easier to create and reuse content. And
+
+39
+00:01:45,439 --> 00:01:47,170
+Angular has built‑in support for
+
+40
+00:01:47,170 --> 00:01:49,739
+communication with a back‑end service.
+
+41
+00:01:49,739 --> 00:01:51,099
+This makes it easy for our web
+
+42
+00:01:51,099 --> 00:01:53,189
+applications to integrate with a back‑end
+
+43
+00:01:53,189 --> 00:01:55,890
+service to get and post data or execute
+
+44
+00:01:55,890 --> 00:01:58,390
+server‑side business logic. No wonder
+
+45
+00:01:58,390 --> 00:02:00,829
+Angular is so very popular with millions
+
+46
+00:02:00,829 --> 00:02:04,150
+of web developers. With so many developers
+
+47
+00:02:04,150 --> 00:02:07,629
+already using AngularJS, why did we need a
+
+48
+00:02:07,629 --> 00:02:11,469
+new Angular? Angular is built for speed.
+
+49
+00:02:11,469 --> 00:02:13,969
+It has faster initial loads, faster change
+
+50
+00:02:13,969 --> 00:02:16,710
+detection, and improved rendering times.
+
+51
+00:02:16,710 --> 00:02:19,550
+Angular is modern. It takes advantage of
+
+52
+00:02:19,550 --> 00:02:21,729
+features provided in the latest JavaScript
+
+53
+00:02:21,729 --> 00:02:24,240
+standards and beyond, such as classes,
+
+54
+00:02:24,240 --> 00:02:27,030
+modules, and decorators, yet it supports
+
+55
+00:02:27,030 --> 00:02:30,039
+both greenfield and legacy browsers.
+
+56
+00:02:30,039 --> 00:02:33,419
+Angular has a simplified API. It has fewer
+
+57
+00:02:33,419 --> 00:02:35,689
+built‑in directives to learn, simpler
+
+58
+00:02:35,689 --> 00:02:38,250
+bindings, and a lower overall concept
+
+59
+00:02:38,250 --> 00:02:40,530
+count. And Angular enhances our
+
+60
+00:02:40,530 --> 00:02:43,039
+productivity to improve our day‑to‑day
+
+61
+00:02:43,039 --> 00:02:45,530
+workflow. You'll see these productivity
+
+62
+00:02:45,530 --> 00:02:48,240
+improvements as we go through this course,
+
+63
+00:02:48,240 --> 00:02:50,280
+and we'll discern a consistency of
+
+64
+00:02:50,280 --> 00:02:52,780
+patterns for building the blocks that form
+
+65
+00:02:52,780 --> 00:02:56,439
+an Angular application. In this first
+
+66
+00:02:56,439 --> 00:02:58,569
+module, we lay out the anatomy of an
+
+67
+00:02:58,569 --> 00:03:01,280
+Angular application. We consider several
+
+68
+00:03:01,280 --> 00:03:03,319
+suggestions for getting the most from this
+
+69
+00:03:03,319 --> 00:03:06,229
+course. We explore the sample application
+
+70
+00:03:06,229 --> 00:03:08,469
+that we'll build throughout this course,
+
+71
+00:03:08,469 --> 00:03:10,439
+and we'll look at the topics we'll cover
+
+72
+00:03:10,439 --> 00:03:13,500
+in the remainder of this course. Now let's
+
+73
+00:03:13,500 --> 00:03:16,000
+check out the anatomy of an Angular application.
+
