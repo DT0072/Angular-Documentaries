@@ -1,0 +1,588 @@
+0
+00:00:01,439 --> 00:00:03,770
+As we saw in the last module, we used
+
+1
+00:00:03,770 --> 00:00:06,019
+pipes for transforming bound properties
+
+2
+00:00:06,019 --> 00:00:08,640
+before displaying them in a view. There
+
+3
+00:00:08,640 --> 00:00:10,839
+are built‑in pipes that transform a single
+
+4
+00:00:10,839 --> 00:00:14,039
+value or an iterable list of data. We
+
+5
+00:00:14,039 --> 00:00:17,089
+covered these in the last module. In this
+
+6
+00:00:17,089 --> 00:00:19,929
+module, we want to build our own custom
+
+7
+00:00:19,929 --> 00:00:23,359
+pipe. For our sample application, the
+
+8
+00:00:23,359 --> 00:00:25,910
+product code is stored with a dash and
+
+9
+00:00:25,910 --> 00:00:28,629
+displayed that way here, but the users
+
+10
+00:00:28,629 --> 00:00:30,620
+would prefer to see the product code with
+
+11
+00:00:30,620 --> 00:00:33,679
+a space instead. We could build a custom
+
+12
+00:00:33,679 --> 00:00:35,729
+pipe to replace the dashes with spaces,
+
+13
+00:00:35,729 --> 00:00:38,780
+but let's build a more generalized custom
+
+14
+00:00:38,780 --> 00:00:41,390
+pipe that transforms any specified
+
+15
+00:00:41,390 --> 00:00:44,750
+character in a string to a space. The code
+
+16
+00:00:44,750 --> 00:00:47,039
+required to build a custom pipe may look
+
+17
+00:00:47,039 --> 00:00:49,850
+somewhat familiar at this point. It uses
+
+18
+00:00:49,850 --> 00:00:51,700
+patterns similar to other code we've
+
+19
+00:00:51,700 --> 00:00:55,109
+created in this course. Here is the class.
+
+20
+00:00:55,109 --> 00:00:57,630
+We add a Pipe decorator to the class to
+
+21
+00:00:57,630 --> 00:01:00,409
+define it as a pipe. Similar to the other
+
+22
+00:01:00,409 --> 00:01:02,859
+decorators we've used, this is a function,
+
+23
+00:01:02,859 --> 00:01:06,030
+so we add parentheses. We pass an object
+
+24
+00:01:06,030 --> 00:01:08,209
+to the function specifying the name of the
+
+25
+00:01:08,209 --> 00:01:10,879
+pipe. This is the name for the pipe used
+
+26
+00:01:10,879 --> 00:01:13,969
+in the template, as we'll see shortly. We
+
+27
+00:01:13,969 --> 00:01:17,030
+implement a PipeTransform interface, which
+
+28
+00:01:17,030 --> 00:01:20,700
+has one method, transform. We write code
+
+29
+00:01:20,700 --> 00:01:23,230
+in the transform method to transform a
+
+30
+00:01:23,230 --> 00:01:26,129
+value and return it. The first parameter
+
+31
+00:01:26,129 --> 00:01:28,310
+of the transform method is the value we
+
+32
+00:01:28,310 --> 00:01:31,159
+are transforming. In this example, we
+
+33
+00:01:31,159 --> 00:01:33,640
+transform a string. Any additional
+
+34
+00:01:33,640 --> 00:01:36,049
+parameters define arguments we can use to
+
+35
+00:01:36,049 --> 00:01:39,120
+perform the transformation. In our case,
+
+36
+00:01:39,120 --> 00:01:41,269
+we want to pass in the character that we
+
+37
+00:01:41,269 --> 00:01:44,180
+want to replace with spaces. The method
+
+38
+00:01:44,180 --> 00:01:46,890
+return type is also defined as a string
+
+39
+00:01:46,890 --> 00:01:49,420
+because we are returning the transformed
+
+40
+00:01:49,420 --> 00:01:52,260
+string. And of course, we have our import
+
+41
+00:01:52,260 --> 00:01:55,230
+to import what we need. Notice how similar
+
+42
+00:01:55,230 --> 00:01:57,280
+this looks to the components we've created
+
+43
+00:01:57,280 --> 00:01:59,980
+in this course. Angular provides a very
+
+44
+00:01:59,980 --> 00:02:03,959
+consistent coding experience. To use a
+
+45
+00:02:03,959 --> 00:02:06,629
+custom pipe in a template, simply add a
+
+46
+00:02:06,629 --> 00:02:09,770
+pipe and the pipe name. Include any
+
+47
+00:02:09,770 --> 00:02:12,259
+arguments required by the transformation
+
+48
+00:02:12,259 --> 00:02:15,639
+separated by colons. The value being
+
+49
+00:02:15,639 --> 00:02:18,780
+converted, our productCode here, is passed
+
+50
+00:02:18,780 --> 00:02:21,580
+in as the first argument to the transform
+
+51
+00:02:21,580 --> 00:02:24,669
+method. This is our pipe name. The colon
+
+52
+00:02:24,669 --> 00:02:27,659
+identifies a pipe parameter, so our dash
+
+53
+00:02:27,659 --> 00:02:30,199
+is passed in as the second argument to the
+
+54
+00:02:30,199 --> 00:02:33,300
+transform method. The passed‑in value is
+
+55
+00:02:33,300 --> 00:02:35,969
+then transformed as defined by the logic
+
+56
+00:02:35,969 --> 00:02:38,469
+within this method, and the transform
+
+57
+00:02:38,469 --> 00:02:41,710
+string is returned and displayed here. But
+
+58
+00:02:41,710 --> 00:02:44,569
+of course, that is not enough. We also
+
+59
+00:02:44,569 --> 00:02:46,930
+need to tell Angular where to find this
+
+60
+00:02:46,930 --> 00:02:49,650
+pipe. We add the pipe to an Angular
+
+61
+00:02:49,650 --> 00:02:52,159
+module. How do we know which Angular
+
+62
+00:02:52,159 --> 00:02:54,590
+module? Well, at this point, that's easy
+
+63
+00:02:54,590 --> 00:02:57,599
+because we only have one, AppModule. But
+
+64
+00:02:57,599 --> 00:02:59,849
+if we had multiple modules, we'd added to
+
+65
+00:02:59,849 --> 00:03:02,250
+the module that declares the component
+
+66
+00:03:02,250 --> 00:03:05,139
+that needs the pipe. In our example, the
+
+67
+00:03:05,139 --> 00:03:07,159
+ProductList‑Component's template needs the
+
+68
+00:03:07,159 --> 00:03:09,710
+pipe, so we add the declaration to the
+
+69
+00:03:09,710 --> 00:03:11,830
+same Angular module that declares the
+
+70
+00:03:11,830 --> 00:03:14,750
+ProductList‑Component. We define the pipe
+
+71
+00:03:14,750 --> 00:03:17,680
+in the declarations array of the NgModule
+
+72
+00:03:17,680 --> 00:03:20,189
+decorator. Now let's build our custom
+
+73
+00:03:20,189 --> 00:03:23,409
+pipe. Recall that our requirement is to
+
+74
+00:03:23,409 --> 00:03:26,250
+transform a string so that any dashes on
+
+75
+00:03:26,250 --> 00:03:28,310
+the string are instead displayed as
+
+76
+00:03:28,310 --> 00:03:30,840
+spaces. But we are going to build a more
+
+77
+00:03:30,840 --> 00:03:33,330
+generic pipe that can replace any
+
+78
+00:03:33,330 --> 00:03:36,930
+specified character with a space. Since
+
+79
+00:03:36,930 --> 00:03:39,370
+our custom pipe is somewhat general, we'll
+
+80
+00:03:39,370 --> 00:03:42,090
+add it to the shared folder. We'll create
+
+81
+00:03:42,090 --> 00:03:43,810
+a new file and call it
+
+82
+00:03:43,810 --> 00:03:49,229
+convert‑to‑spaces.pipe.ts, following our
+
+83
+00:03:49,229 --> 00:03:52,349
+naming conventions. First, let's write the
+
+84
+00:03:52,349 --> 00:03:55,169
+code for the class. Export so we can
+
+85
+00:03:55,169 --> 00:03:58,330
+import this pipe where we need it, class,
+
+86
+00:03:58,330 --> 00:04:01,099
+and the class name. We'll call it
+
+87
+00:04:01,099 --> 00:04:04,689
+ConvertToSpacesPipe. We decorate the class
+
+88
+00:04:04,689 --> 00:04:07,289
+with the Pipe decorator and import Pipe
+
+89
+00:04:07,289 --> 00:04:10,000
+from Angular/core. We set the name
+
+90
+00:04:10,000 --> 00:04:11,909
+property of the object passed into the
+
+91
+00:04:11,909 --> 00:04:14,560
+Pipe decorator, defining the pipe's name.
+
+92
+00:04:14,560 --> 00:04:16,839
+That's the name we'll use when we
+
+93
+00:04:16,839 --> 00:04:20,279
+reference the pipe in the HTML. Next,
+
+94
+00:04:20,279 --> 00:04:22,240
+we'll implement the PipeTransform
+
+95
+00:04:22,240 --> 00:04:25,540
+interface. This syntax error is because we
+
+96
+00:04:25,540 --> 00:04:28,079
+don't have the import statement, so let's
+
+97
+00:04:28,079 --> 00:04:30,939
+add that next. We still have a syntax
+
+98
+00:04:30,939 --> 00:04:32,939
+error because when we implement the
+
+99
+00:04:32,939 --> 00:04:35,990
+PipeTransform interface, we are required
+
+100
+00:04:35,990 --> 00:04:38,850
+to implement every property and method
+
+101
+00:04:38,850 --> 00:04:41,149
+defined in that interface. For the
+
+102
+00:04:41,149 --> 00:04:44,100
+PipeTransform interface, there is only one
+
+103
+00:04:44,100 --> 00:04:47,689
+method, transform. We'll define the string
+
+104
+00:04:47,689 --> 00:04:50,470
+value to transform as the first parameter
+
+105
+00:04:50,470 --> 00:04:52,689
+and the character string to use in the
+
+106
+00:04:52,689 --> 00:04:55,829
+transformation as the second parameter,
+
+107
+00:04:55,829 --> 00:04:58,079
+and we can add a return statement to get
+
+108
+00:04:58,079 --> 00:05:01,560
+rid of this last syntax error. Now, what
+
+109
+00:05:01,560 --> 00:05:04,180
+do we want to transform method to do? Our
+
+110
+00:05:04,180 --> 00:05:06,540
+goal is to replace any of the specified
+
+111
+00:05:06,540 --> 00:05:09,540
+characters in a string with spaces. We'll
+
+112
+00:05:09,540 --> 00:05:12,399
+use the JavaScript string replace method
+
+113
+00:05:12,399 --> 00:05:14,540
+to replace the specified character with a
+
+114
+00:05:14,540 --> 00:05:18,000
+space. That's it. Now we are ready to use
+
+115
+00:05:18,000 --> 00:05:20,980
+our pipe. In the product‑list template,
+
+116
+00:05:20,980 --> 00:05:23,910
+we'll add our pipe to the productCode. But
+
+117
+00:05:23,910 --> 00:05:26,579
+the productCode already has a pipe. That's
+
+118
+00:05:26,579 --> 00:05:29,540
+okay. We can add any number of pipes.
+
+119
+00:05:29,540 --> 00:05:32,410
+First, we specify the pipe name and then
+
+120
+00:05:32,410 --> 00:05:35,500
+any pipe parameters. In this case, we want
+
+121
+00:05:35,500 --> 00:05:38,259
+to replace a dash with the space, so we
+
+122
+00:05:38,259 --> 00:05:41,709
+pass in a dash here as the parameter. Are
+
+123
+00:05:41,709 --> 00:05:44,670
+we done? Let's check by opening the
+
+124
+00:05:44,670 --> 00:05:48,230
+Terminal window. We see an error. No pipe
+
+125
+00:05:48,230 --> 00:05:51,620
+found with name convertToSpaces. What did
+
+126
+00:05:51,620 --> 00:05:54,889
+we forget? Recall from the slides that we
+
+127
+00:05:54,889 --> 00:05:57,550
+need to tell Angular about our new pipe.
+
+128
+00:05:57,550 --> 00:06:00,079
+We do that by declaring the pipe in an
+
+129
+00:06:00,079 --> 00:06:02,290
+Angular module. Our
+
+130
+00:06:02,290 --> 00:06:04,699
+product‑list.component's template wants to
+
+131
+00:06:04,699 --> 00:06:07,709
+use the convertToSpaces pipe, so we open
+
+132
+00:06:07,709 --> 00:06:09,689
+the Angular module that declares the
+
+133
+00:06:09,689 --> 00:06:12,029
+product‑list.component, which in our
+
+134
+00:06:12,029 --> 00:06:15,470
+example is the app.module. We then add
+
+135
+00:06:15,470 --> 00:06:18,259
+ConvertToSpacesPipe to the declarations
+
+136
+00:06:18,259 --> 00:06:21,420
+and add the needed import. Now any
+
+137
+00:06:21,420 --> 00:06:24,180
+component declared in app.module can use
+
+138
+00:06:24,180 --> 00:06:27,839
+the ConvertToSpacesPipe. Are we ready to
+
+139
+00:06:27,839 --> 00:06:31,529
+try again? Success. Our product code now
+
+140
+00:06:31,529 --> 00:06:33,629
+appears with spaces instead of dashes.
+
+141
+00:06:33,629 --> 00:06:36,810
+Build a custom pipe anytime you need to
+
+142
+00:06:36,810 --> 00:06:39,009
+perform application‑unique data
+
+143
+00:06:39,009 --> 00:06:42,310
+transformations. Notice, however, that our
+
+144
+00:06:42,310 --> 00:06:45,579
+page interactivity is still not complete.
+
+145
+00:06:45,579 --> 00:06:47,740
+The product list is not yet filtering
+
+146
+00:06:47,740 --> 00:06:57,000
+based on the user‑entered filter criteria. Let's look at that next.
+

@@ -1,0 +1,208 @@
+0
+00:00:02,439 --> 00:00:04,929
+When building clean components, we want to
+
+1
+00:00:04,929 --> 00:00:07,650
+ensure everything is strongly typed, our
+
+2
+00:00:07,650 --> 00:00:10,750
+styles are encapsulated, we respond to
+
+3
+00:00:10,750 --> 00:00:13,259
+appropriate life cycle events, and we
+
+4
+00:00:13,259 --> 00:00:16,410
+transform data to user friendly values as
+
+5
+00:00:16,410 --> 00:00:19,410
+needed. Welcome back to Angular: Getting
+
+6
+00:00:19,410 --> 00:00:22,219
+Started from Pluralsight. My name is
+
+7
+00:00:22,219 --> 00:00:25,030
+Deborah Kurata, and in this module we
+
+8
+00:00:25,030 --> 00:00:27,289
+learn several ways to approve upon our
+
+9
+00:00:27,289 --> 00:00:30,809
+components. Components are one of the key
+
+10
+00:00:30,809 --> 00:00:33,560
+building blocks of our application. The
+
+11
+00:00:33,560 --> 00:00:35,990
+cleaner, stronger and more durable we make
+
+12
+00:00:35,990 --> 00:00:39,170
+these blocks, the better our application.
+
+13
+00:00:39,170 --> 00:00:42,969
+So how can we make our components better?
+
+14
+00:00:42,969 --> 00:00:45,350
+Strong typing helps minimize errors
+
+15
+00:00:45,350 --> 00:00:47,130
+through better syntax checking and
+
+16
+00:00:47,130 --> 00:00:50,200
+improved tooling. But what if there is no
+
+17
+00:00:50,200 --> 00:00:52,917
+predefined type for a property? To
+
+18
+00:00:52,917 --> 00:00:55,049
+strongly type a property that has no
+
+19
+00:00:55,049 --> 00:00:57,490
+predefined type, we define the type
+
+20
+00:00:57,490 --> 00:01:00,859
+ourselves using an interface. If a
+
+21
+00:01:00,859 --> 00:01:02,990
+component needs special styles, we can
+
+22
+00:01:02,990 --> 00:01:04,750
+encapsulate those styles within the
+
+23
+00:01:04,750 --> 00:01:07,439
+component to ensure they don't leak out to
+
+24
+00:01:07,439 --> 00:01:10,469
+any other component in the application. A
+
+25
+00:01:10,469 --> 00:01:12,760
+component has a lifecycle managed by
+
+26
+00:01:12,760 --> 00:01:15,400
+Angular. Angular provides a set of
+
+27
+00:01:15,400 --> 00:01:18,719
+lifecycle hooks we can use to tap into key
+
+28
+00:01:18,719 --> 00:01:21,000
+points in that lifecycle, adding
+
+29
+00:01:21,000 --> 00:01:23,299
+flexibility and responsiveness to our
+
+30
+00:01:23,299 --> 00:01:26,650
+application. As we saw in the last module,
+
+31
+00:01:26,650 --> 00:01:28,700
+pipes provide a convenient way to
+
+32
+00:01:28,700 --> 00:01:31,300
+transform bound data before displaying it
+
+33
+00:01:31,300 --> 00:01:34,239
+in the view. We may have other application
+
+34
+00:01:34,239 --> 00:01:37,340
+unique data transformation requirements.
+
+35
+00:01:37,340 --> 00:01:39,799
+Luckily, we can build our own custom
+
+36
+00:01:39,799 --> 00:01:42,680
+pipes. Any time we build and test a
+
+37
+00:01:42,680 --> 00:01:45,260
+component once and nest it in several
+
+38
+00:01:45,260 --> 00:01:47,590
+places in the application, we have
+
+39
+00:01:47,590 --> 00:01:50,120
+minimized development time and improve the
+
+40
+00:01:50,120 --> 00:01:54,379
+overall quality of the application. In
+
+41
+00:01:54,379 --> 00:01:57,269
+this module, we explain interfaces and
+
+42
+00:01:57,269 --> 00:01:59,340
+demonstrate how to use them to strongly
+
+43
+00:01:59,340 --> 00:02:01,950
+type our objects. We look at how to
+
+44
+00:02:01,950 --> 00:02:04,909
+encapsulate component styles. We introduce
+
+45
+00:02:04,909 --> 00:02:07,200
+the component lifecycle and how to hook
+
+46
+00:02:07,200 --> 00:02:10,150
+into its events, and we detail how to
+
+47
+00:02:10,150 --> 00:02:13,169
+build a custom pipe. We cover building
+
+48
+00:02:13,169 --> 00:02:15,995
+nested components in the next module.
+
+49
+00:02:15,995 --> 00:02:19,020
+Looking at our application architecture,
+
+50
+00:02:19,020 --> 00:02:21,310
+in this module we'll add features to
+
+51
+00:02:21,310 --> 00:02:27,000
+improve the product list component. Let's get started.
+

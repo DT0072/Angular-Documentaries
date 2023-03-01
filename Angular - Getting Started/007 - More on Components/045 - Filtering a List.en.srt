@@ -1,0 +1,540 @@
+0
+00:00:01,340 --> 00:00:03,799
+We have an input box here for the user to
+
+1
+00:00:03,799 --> 00:00:06,209
+enter a filtered string. The list of
+
+2
+00:00:06,209 --> 00:00:08,259
+products should then be filtered on the
+
+3
+00:00:08,259 --> 00:00:12,449
+entered string. How do we do that? One way
+
+4
+00:00:12,449 --> 00:00:14,480
+we can filter our list of products is to
+
+5
+00:00:14,480 --> 00:00:17,730
+use a pipe; however, Angular doesn't come
+
+6
+00:00:17,730 --> 00:00:20,050
+with a built‑in pipe to provide filtering
+
+7
+00:00:20,050 --> 00:00:23,149
+or sorting. As of the time of this
+
+8
+00:00:23,149 --> 00:00:25,910
+recording, the Angular documentation at
+
+9
+00:00:25,910 --> 00:00:29,519
+angular.io stated, "Angular doesn't offer
+
+10
+00:00:29,519 --> 00:00:32,810
+such pipes because they perform poorly and
+
+11
+00:00:32,810 --> 00:00:35,679
+prevent aggressive minification." If we
+
+12
+00:00:35,679 --> 00:00:37,590
+have a small amount of data that we are
+
+13
+00:00:37,590 --> 00:00:40,159
+filtering or sorting, we could build a
+
+14
+00:00:40,159 --> 00:00:43,140
+custom pipe anyway. But is there a better
+
+15
+00:00:43,140 --> 00:00:47,240
+way? Again from the Angular documentation,
+
+16
+00:00:47,240 --> 00:00:49,399
+the Angular team and many experienced
+
+17
+00:00:49,399 --> 00:00:52,399
+Angular developers strongly recommend
+
+18
+00:00:52,399 --> 00:00:54,859
+moving filtering and sorting logic into
+
+19
+00:00:54,859 --> 00:00:59,240
+the component itself. Okay, let's do that.
+
+20
+00:00:59,240 --> 00:01:03,729
+But how? Before we answer that question,
+
+21
+00:01:03,729 --> 00:01:05,599
+let's take a moment to talk about
+
+22
+00:01:05,599 --> 00:01:08,659
+JavaScript getters and setters. In
+
+23
+00:01:08,659 --> 00:01:11,689
+JavaScript, and hence in TypeScript, there
+
+24
+00:01:11,689 --> 00:01:13,959
+are two ways to define a property in a
+
+25
+00:01:13,959 --> 00:01:17,019
+class. We can declare a simple variable
+
+26
+00:01:17,019 --> 00:01:19,599
+for a property, as we have done previously
+
+27
+00:01:19,599 --> 00:01:23,409
+in this course, or we can define a getter
+
+28
+00:01:23,409 --> 00:01:27,920
+or a setter, or both. A getter defines a
+
+29
+00:01:27,920 --> 00:01:31,700
+read‑only property. A getter is useful if
+
+30
+00:01:31,700 --> 00:01:34,370
+we want to provide a property whose value
+
+31
+00:01:34,370 --> 00:01:37,709
+can be dynamically computed or when we
+
+32
+00:01:37,709 --> 00:01:40,260
+want to expose the value of an internal
+
+33
+00:01:40,260 --> 00:01:42,760
+variable, such as a property from a
+
+34
+00:01:42,760 --> 00:01:45,700
+service. Though it looks like a function,
+
+35
+00:01:45,700 --> 00:01:49,129
+a getter cannot have parameters, must have
+
+36
+00:01:49,129 --> 00:01:51,890
+a return type, and is accessed as a
+
+37
+00:01:51,890 --> 00:01:54,430
+property. Notice that there are no
+
+38
+00:01:54,430 --> 00:01:58,230
+parentheses here. A setter defines a
+
+39
+00:01:58,230 --> 00:02:01,659
+write‑only property. A setter is useful if
+
+40
+00:02:01,659 --> 00:02:04,349
+we want to execute code every time a
+
+41
+00:02:04,349 --> 00:02:07,689
+property is modified. It too looks like a
+
+42
+00:02:07,689 --> 00:02:10,909
+function. It must have one and only one
+
+43
+00:02:10,909 --> 00:02:14,340
+parameter, the set value, and no return
+
+44
+00:02:14,340 --> 00:02:18,030
+type. It is also accessed as a property.
+
+45
+00:02:18,030 --> 00:02:21,539
+Notice that there are no parentheses here.
+
+46
+00:02:21,539 --> 00:02:23,719
+We are assigning a value just like a
+
+47
+00:02:23,719 --> 00:02:27,300
+simple property, but a setter can't hold
+
+48
+00:02:27,300 --> 00:02:30,539
+an actual value. For that, we often need
+
+49
+00:02:30,539 --> 00:02:33,509
+what's called a backing field. The backing
+
+50
+00:02:33,509 --> 00:02:36,745
+field is often private and retains the set
+
+51
+00:02:36,745 --> 00:02:39,504
+value. I use an underscore to denote
+
+52
+00:02:39,504 --> 00:02:42,810
+private variables. Defining a getter and
+
+53
+00:02:42,810 --> 00:02:45,180
+setter with the same name results in a
+
+54
+00:02:45,180 --> 00:02:48,699
+property that we can read or write to, and
+
+55
+00:02:48,699 --> 00:02:50,939
+defining a backing field allows us to
+
+56
+00:02:50,939 --> 00:02:54,520
+retain the set value. Now let's see how
+
+57
+00:02:54,520 --> 00:02:58,819
+this helps us filter our list. Here is our
+
+58
+00:02:58,819 --> 00:03:01,789
+ProductListComponent. Let's think through
+
+59
+00:03:01,789 --> 00:03:04,400
+what we need to do. First, we need a
+
+60
+00:03:04,400 --> 00:03:06,860
+filtered list of products that we can bind
+
+61
+00:03:06,860 --> 00:03:09,280
+to. We can define a property for that
+
+62
+00:03:09,280 --> 00:03:11,719
+here. Why don't we just filter our
+
+63
+00:03:11,719 --> 00:03:14,530
+products array? Because once we filter the
+
+64
+00:03:14,530 --> 00:03:17,740
+products array, we lose our original data
+
+65
+00:03:17,740 --> 00:03:19,889
+and can't get it back without re‑getting
+
+66
+00:03:19,889 --> 00:03:22,659
+the data from its source. Next, we need a
+
+67
+00:03:22,659 --> 00:03:24,740
+way to know when the user changes the
+
+68
+00:03:24,740 --> 00:03:27,560
+filter criteria. We could use event
+
+69
+00:03:27,560 --> 00:03:30,460
+binding and watch for key presses or value
+
+70
+00:03:30,460 --> 00:03:33,490
+changes, but an easier way is to change
+
+71
+00:03:33,490 --> 00:03:36,509
+our listFilter property into a getter and
+
+72
+00:03:36,509 --> 00:03:39,770
+setter, like this. The property getter and
+
+73
+00:03:39,770 --> 00:03:42,409
+setter work just like the simple property.
+
+74
+00:03:42,409 --> 00:03:44,810
+When the data binding needs the value, it
+
+75
+00:03:44,810 --> 00:03:47,689
+will call the getter and get the value.
+
+76
+00:03:47,689 --> 00:03:50,250
+Every time the user modifies the value,
+
+77
+00:03:50,250 --> 00:03:52,930
+the data binding calls the setter, passing
+
+78
+00:03:52,930 --> 00:03:55,900
+in the changed value. If we want to
+
+79
+00:03:55,900 --> 00:03:58,539
+perform some logic every time the value is
+
+80
+00:03:58,539 --> 00:04:02,340
+changed, we can add it here in the setter.
+
+81
+00:04:02,340 --> 00:04:04,719
+We want to set our filtered products array
+
+82
+00:04:04,719 --> 00:04:07,139
+to the filtered list of products, like
+
+83
+00:04:07,139 --> 00:04:09,860
+this. Here, we are using the JavaScript
+
+84
+00:04:09,860 --> 00:04:12,080
+conditional operator to handle the
+
+85
+00:04:12,080 --> 00:04:15,250
+possibility that the listFilter string is
+
+86
+00:04:15,250 --> 00:04:18,370
+empty, null, or undefined. If there is a
+
+87
+00:04:18,370 --> 00:04:20,949
+listFilter value, this code filters on
+
+88
+00:04:20,949 --> 00:04:24,250
+that value. If the listFilter is not set,
+
+89
+00:04:24,250 --> 00:04:26,620
+the filtered products property is assigned
+
+90
+00:04:26,620 --> 00:04:29,430
+to the entire set of products, and that
+
+91
+00:04:29,430 --> 00:04:31,910
+makes sense. If there is no filter, we
+
+92
+00:04:31,910 --> 00:04:35,480
+should display all of the products. But we
+
+93
+00:04:35,480 --> 00:04:38,009
+skipped the messy part. What about this
+
+94
+00:04:38,009 --> 00:04:41,100
+performFilter method? I'll paste the code
+
+95
+00:04:41,100 --> 00:04:43,430
+and we can talk through it. This code
+
+96
+00:04:43,430 --> 00:04:45,899
+starts by converting the filter criteria
+
+97
+00:04:45,899 --> 00:04:49,699
+to lowercase. Why? So we can compare
+
+98
+00:04:49,699 --> 00:04:51,540
+apples to apples when we filter the
+
+99
+00:04:51,540 --> 00:04:54,649
+product list. We want a case insensitive
+
+100
+00:04:54,649 --> 00:04:57,550
+comparison. Then we return the filtered
+
+101
+00:04:57,550 --> 00:05:00,329
+list of products. Let's look closer at the
+
+102
+00:05:00,329 --> 00:05:03,259
+filter method call. We are using the array
+
+103
+00:05:03,259 --> 00:05:06,240
+filter method to create a new array with
+
+104
+00:05:06,240 --> 00:05:08,800
+elements that pass the test defined in the
+
+105
+00:05:08,800 --> 00:05:12,230
+provided function. We used the ES2015
+
+106
+00:05:12,230 --> 00:05:14,319
+arrow syntax to define that filter
+
+107
+00:05:14,319 --> 00:05:16,879
+function. For each product in the list,
+
+108
+00:05:16,879 --> 00:05:19,569
+the product name is converted to lowercase
+
+109
+00:05:19,569 --> 00:05:22,019
+and indexOf is used to determine if the
+
+110
+00:05:22,019 --> 00:05:25,300
+filter text is found in the product name.
+
+111
+00:05:25,300 --> 00:05:27,399
+If so, the element is added to the
+
+112
+00:05:27,399 --> 00:05:30,759
+filtered list. See the MDN entry for
+
+113
+00:05:30,759 --> 00:05:33,490
+filter at this link for more information
+
+114
+00:05:33,490 --> 00:05:36,899
+on the array filter function. There is one
+
+115
+00:05:36,899 --> 00:05:39,389
+more bit of code we need here. We want to
+
+116
+00:05:39,389 --> 00:05:41,600
+set default values for both the filtered
+
+117
+00:05:41,600 --> 00:05:44,589
+products and the listFilter properties.
+
+118
+00:05:44,589 --> 00:05:46,850
+The best place to set default values for
+
+119
+00:05:46,850 --> 00:05:49,709
+more complex properties is in the class
+
+120
+00:05:49,709 --> 00:05:52,610
+constructor. The class constructor is a
+
+121
+00:05:52,610 --> 00:05:54,430
+function that is executed when the
+
+122
+00:05:54,430 --> 00:05:57,410
+component is first initialized. We want to
+
+123
+00:05:57,410 --> 00:05:59,610
+set the filtered products to the full list
+
+124
+00:05:59,610 --> 00:06:02,379
+of products, and the default listFilter to
+
+125
+00:06:02,379 --> 00:06:06,079
+cart, like we had earlier. Our last step
+
+126
+00:06:06,079 --> 00:06:08,529
+then is to change our template to bind to
+
+127
+00:06:08,529 --> 00:06:11,250
+our filteredProducts property instead of
+
+128
+00:06:11,250 --> 00:06:13,970
+the products property. Now let's give it a
+
+129
+00:06:13,970 --> 00:06:18,189
+try. Our default filter is cart, so now we
+
+130
+00:06:18,189 --> 00:06:20,850
+only see the Garden Cart. Change the
+
+131
+00:06:20,850 --> 00:06:24,750
+filter, and we see different entries. It's
+
+132
+00:06:24,750 --> 00:06:27,839
+working! Not too shabby, not too shabby at
+
+133
+00:06:27,839 --> 00:06:30,529
+all. Let's finish up this module with some
+
+134
+00:06:30,529 --> 00:04:41,000
+checklists we can use as we work more with components.
+

@@ -1,0 +1,304 @@
+0
+00:00:02,339 --> 00:00:04,360
+We've covered several discrete topics in
+
+1
+00:00:04,360 --> 00:00:06,730
+this module, so we have a checklist for
+
+2
+00:00:06,730 --> 00:00:10,220
+each one. First interfaces. We use
+
+3
+00:00:10,220 --> 00:00:13,460
+interfaces to specify custom types such as
+
+4
+00:00:13,460 --> 00:00:15,802
+product in our sample application.
+
+5
+00:00:15,802 --> 00:00:18,100
+Interfaces are a great way to promote
+
+6
+00:00:18,100 --> 00:00:21,030
+strong typing in our applications. When
+
+7
+00:00:21,030 --> 00:00:23,129
+creating an interface, use the interface
+
+8
+00:00:23,129 --> 00:00:25,750
+keyword, in the body of the interface
+
+9
+00:00:25,750 --> 00:00:27,440
+define the appropriate properties and
+
+10
+00:00:27,440 --> 00:00:29,969
+methods, along with their types. And don't
+
+11
+00:00:29,969 --> 00:00:31,960
+forget to export the interface so it can
+
+12
+00:00:31,960 --> 00:00:35,030
+be used anywhere in our application. We
+
+13
+00:00:35,030 --> 00:00:37,640
+implement an interface, including built‑in
+
+14
+00:00:37,640 --> 00:00:40,030
+Angular interfaces, to ensure that our
+
+15
+00:00:40,030 --> 00:00:42,450
+class defines every property and method
+
+16
+00:00:42,450 --> 00:00:45,640
+identified in that interface. Add the
+
+17
+00:00:45,640 --> 00:00:47,429
+implements keyword and the interface name
+
+18
+00:00:47,429 --> 00:00:49,979
+to the class signature, then be sure to
+
+19
+00:00:49,979 --> 00:00:52,030
+write code for every property and method
+
+20
+00:00:52,030 --> 00:00:54,590
+in the interface. Otherwise, typescript
+
+21
+00:00:54,590 --> 00:00:57,469
+displays a syntax error. We can
+
+22
+00:00:57,469 --> 00:01:00,119
+encapsulate the styles for our component
+
+23
+00:01:00,119 --> 00:01:02,630
+in the component itself. That way, the
+
+24
+00:01:02,630 --> 00:01:04,530
+styles required for the component are
+
+25
+00:01:04,530 --> 00:01:06,939
+associated with the component alone and
+
+26
+00:01:06,939 --> 00:01:08,939
+don't leak into any other parts of the
+
+27
+00:01:08,939 --> 00:01:11,879
+application. Use the styles property of
+
+28
+00:01:11,879 --> 00:01:14,180
+the component decorator to specify the
+
+29
+00:01:14,180 --> 00:01:16,585
+template styles as an array of strings.
+
+30
+00:01:16,585 --> 00:01:19,049
+Use the styleUrls property of the
+
+31
+00:01:19,049 --> 00:01:21,810
+component decorator to identify an array
+
+32
+00:01:21,810 --> 00:01:24,549
+of external stylesheet paths. The
+
+33
+00:01:24,549 --> 00:01:27,170
+specified styles are then encapsulated in
+
+34
+00:01:27,170 --> 00:01:30,450
+the component. Lifecycle hooks allow us to
+
+35
+00:01:30,450 --> 00:01:32,730
+tap into a component's lifecycle to
+
+36
+00:01:32,730 --> 00:01:35,750
+perform operations. The steps for using a
+
+37
+00:01:35,750 --> 00:01:38,700
+lifecycle hook are import the lifecycle
+
+38
+00:01:38,700 --> 00:01:41,439
+hook interface, implement the lifecycle
+
+39
+00:01:41,439 --> 00:01:44,180
+hook interface in the component class.
+
+40
+00:01:44,180 --> 00:01:46,170
+This step is not required, but highly
+
+41
+00:01:46,170 --> 00:01:48,969
+recommended. Then write the code for the
+
+42
+00:01:48,969 --> 00:01:51,170
+hook method defined in the lifecycle hook
+
+43
+00:01:51,170 --> 00:01:55,620
+interface. To build a custom pipe, import
+
+44
+00:01:55,620 --> 00:01:58,969
+Pipe and PipeTransform. Create a class
+
+45
+00:01:58,969 --> 00:02:00,750
+that implements the PipeTransform
+
+46
+00:02:00,750 --> 00:02:04,009
+interface. This interface has one method,
+
+47
+00:02:04,009 --> 00:02:06,900
+Transform. Be sure to export the class of
+
+48
+00:02:06,900 --> 00:02:08,729
+the pipe can be imported from other
+
+49
+00:02:08,729 --> 00:02:11,629
+components. Write code in the Transform
+
+50
+00:02:11,629 --> 00:02:12,990
+method to perform the needed
+
+51
+00:02:12,990 --> 00:02:15,849
+transformation, and decorate the class
+
+52
+00:02:15,849 --> 00:02:18,909
+with the Pipe decorator. We can use a
+
+53
+00:02:18,909 --> 00:02:21,330
+custom pipe in any template anywhere we
+
+54
+00:02:21,330 --> 00:02:24,365
+can specify a pipe. In an Angular module,
+
+55
+00:02:24,365 --> 00:02:27,509
+import the pipe. In the metadata, declare
+
+56
+00:02:27,509 --> 00:02:30,314
+the pipe in the declarations array, then
+
+57
+00:02:30,314 --> 00:02:32,849
+any template associated with a component
+
+58
+00:02:32,849 --> 00:02:35,039
+declared in that Angular module can use
+
+59
+00:02:35,039 --> 00:02:37,610
+that pipe. In a template, immediately
+
+60
+00:02:37,610 --> 00:02:40,064
+after the property to transform, type a
+
+61
+00:02:40,064 --> 00:02:43,129
+pipe character, specify the pipe name, and
+
+62
+00:02:43,129 --> 00:02:45,264
+enter the pipe arguments, if any,
+
+63
+00:02:45,264 --> 00:02:48,819
+separated by colons. This module provided
+
+64
+00:02:48,819 --> 00:02:50,789
+a set of techniques for improving our
+
+65
+00:02:50,789 --> 00:02:53,430
+components. We walk through how to use an
+
+66
+00:02:53,430 --> 00:02:55,469
+interface to strongly type our custom
+
+67
+00:02:55,469 --> 00:02:58,659
+objects. We saw how to encapsulate styles
+
+68
+00:02:58,659 --> 00:03:01,139
+within a component. We were introduced to
+
+69
+00:03:01,139 --> 00:03:03,379
+the component lifecycle and how to tap
+
+70
+00:03:03,379 --> 00:03:06,050
+into that lifecycle with lifecycle hooks.
+
+71
+00:03:06,050 --> 00:03:08,259
+And we discovered how to build a custom
+
+72
+00:03:08,259 --> 00:03:10,909
+pipe that we can use in any component
+
+73
+00:03:10,909 --> 00:03:14,110
+template. So in this module we've
+
+74
+00:03:14,110 --> 00:03:17,103
+completed the product list component. Yay.
+
+75
+00:03:17,103 --> 00:03:26,000
+Next up, we'll see how to build nested components and build the star component.
+

@@ -1,0 +1,284 @@
+0
+00:00:02,339 --> 00:00:04,790
+When we build a template for a component,
+
+1
+00:00:04,790 --> 00:00:07,620
+we sometimes need styles unique to that
+
+2
+00:00:07,620 --> 00:00:10,029
+template. For example, if we build a
+
+3
+00:00:10,029 --> 00:00:12,929
+sidebar navigation component, we may want
+
+4
+00:00:12,929 --> 00:00:17,120
+special LI or dev element styles. When we
+
+5
+00:00:17,120 --> 00:00:18,910
+nest a component that requires special
+
+6
+00:00:18,910 --> 00:00:21,719
+styles within a container component, we
+
+7
+00:00:21,719 --> 00:00:24,030
+need a way to bring in those unique
+
+8
+00:00:24,030 --> 00:00:26,940
+styles. One option is to define those
+
+9
+00:00:26,940 --> 00:00:30,300
+styles directly in the templates HTML, but
+
+10
+00:00:30,300 --> 00:00:32,820
+that makes it harder to see, reuse, and
+
+11
+00:00:32,820 --> 00:00:35,859
+maintain those styles. Another option is
+
+12
+00:00:35,859 --> 00:00:38,399
+to define the styles in an external style
+
+13
+00:00:38,399 --> 00:00:41,060
+sheet. That makes them easier to maintain,
+
+14
+00:00:41,060 --> 00:00:43,340
+but that puts the burden on the container
+
+15
+00:00:43,340 --> 00:00:45,570
+component to ensure the external style
+
+16
+00:00:45,570 --> 00:00:49,280
+sheet is linked in the index.html. That
+
+17
+00:00:49,280 --> 00:00:51,259
+makes our nested components somewhat more
+
+18
+00:00:51,259 --> 00:00:54,600
+difficult to reuse, but there is a better
+
+19
+00:00:54,600 --> 00:00:58,359
+way. To help us out with this issue, the
+
+20
+00:00:58,359 --> 00:01:00,679
+Component decorator has properties to
+
+21
+00:01:00,679 --> 00:01:02,740
+encapsulate styles as part of the
+
+22
+00:01:02,740 --> 00:01:05,879
+component definition. These properties are
+
+23
+00:01:05,879 --> 00:01:10,239
+styles and styleUrls. We add unique styles
+
+24
+00:01:10,239 --> 00:01:12,700
+directly to the component using the styles
+
+25
+00:01:12,700 --> 00:01:15,870
+property. This property is an array, so we
+
+26
+00:01:15,870 --> 00:01:18,180
+can add multiple styles separated by
+
+27
+00:01:18,180 --> 00:01:21,420
+commas. A better solution is to create one
+
+28
+00:01:21,420 --> 00:01:24,530
+or more external style sheets and identify
+
+29
+00:01:24,530 --> 00:01:27,969
+them with the styleUrls property. This
+
+30
+00:01:27,969 --> 00:01:30,329
+property is an array, so we can add
+
+31
+00:01:30,329 --> 00:01:33,840
+multiple style sheets separated by commas.
+
+32
+00:01:33,840 --> 00:01:35,879
+By encapsulating the styles within the
+
+33
+00:01:35,879 --> 00:01:39,120
+component, any defined selectors or style
+
+34
+00:01:39,120 --> 00:01:41,849
+classes are only applicable to the
+
+35
+00:01:41,849 --> 00:01:44,719
+component's template and won't leak out
+
+36
+00:01:44,719 --> 00:01:47,739
+into any other part of the application.
+
+37
+00:01:47,739 --> 00:01:52,010
+Let's try this out. Before we change any
+
+38
+00:01:52,010 --> 00:01:54,879
+code, let's look again at our ProductList
+
+39
+00:01:54,879 --> 00:01:58,400
+view in the browser. Notice the table
+
+40
+00:01:58,400 --> 00:02:00,623
+headers, they could use a little color, so
+
+41
+00:02:00,623 --> 00:02:02,772
+let's build an external style sheet for
+
+42
+00:02:02,772 --> 00:02:06,272
+our ProductList component. We'll add a new
+
+43
+00:02:06,272 --> 00:02:08,793
+file in the products folder, and since
+
+44
+00:02:08,793 --> 00:02:11,502
+this file only contains the styles for our
+
+45
+00:02:11,502 --> 00:02:14,312
+ProductList component, we'll call it
+
+46
+00:02:14,312 --> 00:02:19,552
+product‑list.component.css. In the style
+
+47
+00:02:19,552 --> 00:02:22,913
+sheet, we add a table header style. We can
+
+48
+00:02:22,913 --> 00:02:26,133
+modify the thead element styles directly
+
+49
+00:02:26,133 --> 00:02:28,663
+because the style sheet is encapsulated in
+
+50
+00:02:28,663 --> 00:02:31,143
+this component, and the styles defined
+
+51
+00:02:31,143 --> 00:02:33,603
+here won't affect any other component in
+
+52
+00:02:33,603 --> 00:02:36,203
+the application. We could add any other
+
+53
+00:02:36,203 --> 00:02:38,272
+styles as needed to jazz up our
+
+54
+00:02:38,272 --> 00:02:41,522
+ProductList component. To use this new
+
+55
+00:02:41,522 --> 00:02:43,723
+style sheet, we modify the ProductList
+
+56
+00:02:43,723 --> 00:02:46,883
+component. In the Component decorator, we
+
+57
+00:02:46,883 --> 00:02:50,362
+specify our unique style sheet. We add the
+
+58
+00:02:50,362 --> 00:02:53,652
+styleUrls property and pass it an array.
+
+59
+00:02:53,652 --> 00:02:56,112
+In the first element to the array, we
+
+60
+00:02:56,112 --> 00:02:59,362
+specify the path to our style sheet. Since
+
+61
+00:02:59,362 --> 00:03:02,193
+we defined the CSS file in the same folder
+
+62
+00:03:02,193 --> 00:03:05,332
+as the component, we can use the ./
+
+63
+00:03:05,332 --> 00:03:08,353
+relative pass syntax. We could add more
+
+64
+00:03:08,353 --> 00:03:11,532
+style sheets here separated with commas.
+
+65
+00:03:11,532 --> 00:03:14,432
+Let's review the result in the browser,
+
+66
+00:03:14,432 --> 00:03:16,673
+and we see that the table header is now a
+
+67
+00:03:16,673 --> 00:03:20,203
+nice blue color. We can use the styles or
+
+68
+00:03:20,203 --> 00:03:23,393
+styleUrls property of the Component
+
+69
+00:03:23,393 --> 00:03:25,483
+decorator anytime we want to encapsulate
+
+70
+00:03:25,483 --> 00:03:34,000
+unique styles for our component. Next up, let's dive into lifecycle hooks.
+

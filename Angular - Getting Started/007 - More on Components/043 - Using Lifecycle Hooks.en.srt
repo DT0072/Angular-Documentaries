@@ -1,0 +1,356 @@
+0
+00:00:02,540 --> 00:00:05,410
+A component has a lifecycle managed by
+
+1
+00:00:05,410 --> 00:00:08,779
+Angular. Angular creates the component,
+
+2
+00:00:08,779 --> 00:00:11,019
+renders it, creates and renders its
+
+3
+00:00:11,019 --> 00:00:13,869
+children, processes changes when it's data
+
+4
+00:00:13,869 --> 00:00:16,660
+bound properties change, and then destroys
+
+5
+00:00:16,660 --> 00:00:18,699
+it before removing its template from the
+
+6
+00:00:18,699 --> 00:00:22,089
+DOM. Angular provides a set of lifecycle
+
+7
+00:00:22,089 --> 00:00:24,699
+hooks we can use to tap into this
+
+8
+00:00:24,699 --> 00:00:27,649
+lifecycle and perform operations as
+
+9
+00:00:27,649 --> 00:00:30,460
+needed. Since this is a Getting Started
+
+10
+00:00:30,460 --> 00:00:33,189
+course, we'll limit our focus to the three
+
+11
+00:00:33,189 --> 00:00:36,570
+most commonly used lifecycle hooks. Use
+
+12
+00:00:36,570 --> 00:00:39,270
+the OnInit lifecycle hook to perform any
+
+13
+00:00:39,270 --> 00:00:42,359
+component initialization after Angular has
+
+14
+00:00:42,359 --> 00:00:44,939
+initialized the data bound properties.
+
+15
+00:00:44,939 --> 00:00:46,990
+This is a good place to retrieve the data
+
+16
+00:00:46,990 --> 00:00:49,359
+for the template from a backend service,
+
+17
+00:00:49,359 --> 00:00:52,500
+as we'll see later in this course. Use the
+
+18
+00:00:52,500 --> 00:00:55,009
+OnChanges lifecycle hook to perform any
+
+19
+00:00:55,009 --> 00:00:57,920
+action after Angular sets data bound input
+
+20
+00:00:57,920 --> 00:01:00,929
+properties. We have not yet covered input
+
+21
+00:01:00,929 --> 00:01:03,549
+properties, we'll see those in the next
+
+22
+00:01:03,549 --> 00:01:06,939
+module. Use the OnDestroy lifecycle hook
+
+23
+00:01:06,939 --> 00:01:09,069
+to perform any cleanup before Angular
+
+24
+00:01:09,069 --> 00:01:12,670
+destroys the component. To use a lifecycle
+
+25
+00:01:12,670 --> 00:01:15,340
+hook, we implement the lifecycle hook
+
+26
+00:01:15,340 --> 00:01:18,049
+interface. We talked about interfaces
+
+27
+00:01:18,049 --> 00:01:20,510
+earlier in this module. Since Angular
+
+28
+00:01:20,510 --> 00:01:22,849
+itself is written in TypeScript, it
+
+29
+00:01:22,849 --> 00:01:24,790
+provides several interfaces we can
+
+30
+00:01:24,790 --> 00:01:27,359
+implement, including one interface for
+
+31
+00:01:27,359 --> 00:01:30,180
+each lifecycle hook. For example, the
+
+32
+00:01:30,180 --> 00:01:32,930
+interface for the OnInit lifecycle hook is
+
+33
+00:01:32,930 --> 00:01:36,060
+OnInit. Notice that it is not prefixed
+
+34
+00:01:36,060 --> 00:01:38,700
+with an I. We are using the OnInit
+
+35
+00:01:38,700 --> 00:01:41,709
+interface from Angular. So any guesses as
+
+36
+00:01:41,709 --> 00:01:44,969
+to our next step? Yep, we need to import
+
+37
+00:01:44,969 --> 00:01:48,040
+the lifecycle hook interface. We can then
+
+38
+00:01:48,040 --> 00:01:50,959
+write the hook method. Each lifecycle hook
+
+39
+00:01:50,959 --> 00:01:54,000
+interface defines one method whose name is
+
+40
+00:01:54,000 --> 00:01:58,109
+the interface name prefixed with ng for
+
+41
+00:01:58,109 --> 00:02:01,400
+Angular. For example, the OnInit interface
+
+42
+00:02:01,400 --> 00:02:05,239
+hook method is named ngOnInit. Our first
+
+43
+00:02:05,239 --> 00:02:08,099
+step here of implementing the interface is
+
+44
+00:02:08,099 --> 00:02:10,830
+actually optional. Recall from our
+
+45
+00:02:10,830 --> 00:02:13,080
+discussion of interfaces earlier in this
+
+46
+00:02:13,080 --> 00:02:17,340
+module that neither ES5 nor ES2015 support
+
+47
+00:02:17,340 --> 00:02:19,629
+interfaces. They are features of
+
+48
+00:02:19,629 --> 00:02:22,379
+TypeScript. That means that the interfaces
+
+49
+00:02:22,379 --> 00:02:24,310
+are transpiled out of the resulting
+
+50
+00:02:24,310 --> 00:02:27,189
+JavaScript, so we don't really have to
+
+51
+00:02:27,189 --> 00:02:30,270
+implement the interface to use lifecycle
+
+52
+00:02:30,270 --> 00:02:32,330
+hooks. We can simply write code for the
+
+53
+00:02:32,330 --> 00:02:35,520
+hook method. However, it is good practice
+
+54
+00:02:35,520 --> 00:02:37,449
+and provides better tooling when the
+
+55
+00:02:37,449 --> 00:02:39,969
+implement the interface. At this point in
+
+56
+00:02:39,969 --> 00:02:42,009
+our application, we don't need to
+
+57
+00:02:42,009 --> 00:02:44,840
+implement any lifecycle hooks, but we'll
+
+58
+00:02:44,840 --> 00:02:47,629
+use them in later modules, so let's try
+
+59
+00:02:47,629 --> 00:02:51,419
+them out now. We are looking at the
+
+60
+00:02:51,419 --> 00:02:53,830
+ProductList Component. We'll add the
+
+61
+00:02:53,830 --> 00:02:57,300
+OnInit lifecycle hook to this component.
+
+62
+00:02:57,300 --> 00:02:59,250
+First we implement the interface by adding
+
+63
+00:02:59,250 --> 00:03:02,509
+it to the class signature. Type implements
+
+64
+00:03:02,509 --> 00:03:05,949
+and the name of the interface, OnInit. The
+
+65
+00:03:05,949 --> 00:03:08,270
+interface name is showing an error, and we
+
+66
+00:03:08,270 --> 00:03:11,250
+know why, we don't have the import. Let's
+
+67
+00:03:11,250 --> 00:03:14,539
+add that now. Since OnInit is also
+
+68
+00:03:14,539 --> 00:03:17,349
+imported from Angular Core, we simply add
+
+69
+00:03:17,349 --> 00:03:20,199
+it to our first import statement. Now we
+
+70
+00:03:20,199 --> 00:03:23,669
+have another syntax error here. Class
+
+71
+00:03:23,669 --> 00:03:25,949
+ProductListComponent incorrectly
+
+72
+00:03:25,949 --> 00:03:28,830
+implements interface OnInit. As the
+
+73
+00:03:28,830 --> 00:03:31,229
+message states, now that we've implemented
+
+74
+00:03:31,229 --> 00:03:33,719
+the interface, we must write code for
+
+75
+00:03:33,719 --> 00:03:35,590
+every property and method in that
+
+76
+00:03:35,590 --> 00:03:38,289
+interface. The OnInit interface only
+
+77
+00:03:38,289 --> 00:03:42,110
+defines one method, ngOnInit, so we need
+
+78
+00:03:42,110 --> 00:03:45,319
+to write the code for the ngOnInit method.
+
+79
+00:03:45,319 --> 00:03:47,129
+We'll add it down here by the other
+
+80
+00:03:47,129 --> 00:03:49,639
+methods. Since we don't really need to do
+
+81
+00:03:49,639 --> 00:03:52,110
+anything with this at this point, we'll
+
+82
+00:03:52,110 --> 00:03:54,900
+just use cconsole.log to log a message to
+
+83
+00:03:54,900 --> 00:03:57,939
+the console. We can view the application
+
+84
+00:03:57,939 --> 00:04:00,969
+in the browser, and use the F12 developer
+
+85
+00:04:00,969 --> 00:04:03,310
+tools to open the console and view the
+
+86
+00:04:03,310 --> 00:04:05,849
+logged message. We can see our message
+
+87
+00:04:05,849 --> 00:04:10,969
+here. We'll use ngOnInit later in this
+
+88
+00:04:10,969 --> 00:04:16,000
+course. Up next, we'll build a custom pipe.
+
